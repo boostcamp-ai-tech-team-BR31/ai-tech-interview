@@ -27,7 +27,7 @@
 ### [🤖 Machine Learning](./answers/2-machine-learning.md)
 - test1
 - test2
-- 
+
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
 
@@ -59,3 +59,11 @@
 - test2
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
+
+### [🔻 Algorithm](./answers/8-algorithm.md)
+- test1
+- test2
+
+<a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
+
+## References
