@@ -21,6 +21,7 @@
 ### [📈 Statistics/Math](./answers/1-statistics-math.md)
 - test1
 - test2
+- test3
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
