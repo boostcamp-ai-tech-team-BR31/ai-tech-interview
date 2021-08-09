@@ -1,7 +1,5 @@
 # tech-interview
 
----
-
 ## Table of Contents
 
 - [Part 1. Data Science](#part-1-data-science)
@@ -17,4 +15,3 @@
   - [Algorithm](#-algorithm)
 - [References](#references)
 
----
