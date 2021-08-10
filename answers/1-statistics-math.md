@@ -26,7 +26,7 @@ Hello World
 
 누적 분포 함수(cumulative distribution function, cdf)를 알기 위해서는 먼저 확률 밀도 함수(probability density function, pdf)를 집고 넘어가야 합니다.
 
-확률 밀도 함수 $$ f(x) $$​​​​와 구간 $$[a, b]$$​​​에 대해서 확률 변수 $$X$$​​​가 구간에 포함될 확률 $$P(a\leq X \leq B)$$​​​는 아래의 수식으로 정의합니다.​
+확률 밀도 함수 $$ f(x) $$ ​​​​와 구간 $$[a, b]$$​​​에 대해서 확률 변수 $$X$$​​​가 구간에 포함될 확률 $$P(a\leq X \leq B)$$​​​는 아래의 수식으로 정의합니다.​
 
 $$
 P(a \leq X \leq b) = \int_{a}^{b}{f(x)dx}
