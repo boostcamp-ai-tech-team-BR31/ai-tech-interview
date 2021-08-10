@@ -27,7 +27,6 @@
 - 조건부 확률은 무엇일까요?
 - 공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요.
 
-
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
 ### [🤖 Machine Learning](./answers/2-machine-learning.md)
