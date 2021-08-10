@@ -19,7 +19,7 @@
 
 고유 벡터의 길이가 변하는 배수를 그 고유 벡터에 대응하는 고유값이라고 합니다.
 
-\[A\vec{x} = \lambda\vec{x}\]
+\\[A\vec{x} = \lambda\vec{x}\\]
 $$
 A\vec{x} = \lambda\vec{x}
 $$
