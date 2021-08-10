@@ -21,7 +21,7 @@
 ### [📈 Statistics/Math](./answers/1-statistics-math.md)
 - test1
 - test2
-- test3
+- 누적 분포 함수와 확률 밀도 함수는 무엇일까요? 수식과 함께 표현해주세요
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
