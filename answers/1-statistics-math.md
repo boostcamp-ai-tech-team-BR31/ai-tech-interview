@@ -6,12 +6,12 @@
 
 ## Table of Contents
 
-- [xxx는 왜 yyy 일까요?](#1)
+- [고유값 (eigen value) 와 고유벡터 (eigen vector)에 대해 설명해주세요. 그리고 왜 중요할까요?](#1)
 - [샘플링(Sampling)과 리샘플링(Resampling)에 대해 설명해주세요. 리샘플링은 무슨 장점이 있을까요?](#2)
 - [누적 분포 함수와 확률 밀도 함수는 무엇일까요? 수식과 함께 표현해주세요!](#3)
 - [공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요](#6)
 
-## #1
+
 
 ## #1
 
@@ -43,7 +43,13 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 고유값과 고유벡터를 활용해서 행렬을 대각화함으로써 계산하기 쉬운 기저를 선택해 문제해결의 복잡도를 줄일 수 있습니다.
 
-=======
+##### References
+
+- [wikipedia](https://ko.wikipedia.org/wiki/%EA%B3%A0%EC%9C%B3%EA%B0%92%EA%B3%BC_%EA%B3%A0%EC%9C%A0_%EB%B2%A1%ED%84%B0#:~:text=%EA%B3%A0%EC%9C%A0%20%EB%B2%A1%ED%84%B0%EC%9D%98%20%EA%B8%B8%EC%9D%B4%EA%B0%80,%EC%95%84%EC%9D%B4%EA%B1%B4%EB%B0%B8%EB%A5%98)
+- [고유값과 고유벡터](https://twlab.tistory.com/46?category=668741)
+- [선형대수기초](https://blog.daum.net/jungjin1980/148)
+
+​	
 
 ## #2
 
