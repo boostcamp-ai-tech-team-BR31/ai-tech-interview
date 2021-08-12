@@ -42,6 +42,8 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 고유값과 고유벡터를 활용해서 행렬을 대각화함으로써 계산하기 쉬운 기저를 선택해 문제해결의 복잡도를 줄일 수 있습니다.
 
+
+
 ##### References
 
 - [wikipedia](https://ko.wikipedia.org/wiki/%EA%B3%A0%EC%9C%B3%EA%B0%92%EA%B3%BC_%EA%B3%A0%EC%9C%A0_%EB%B2%A1%ED%84%B0#:~:text=%EA%B3%A0%EC%9C%A0%20%EB%B2%A1%ED%84%B0%EC%9D%98%20%EA%B8%B8%EC%9D%B4%EA%B0%80,%EC%95%84%EC%9D%B4%EA%B1%B4%EB%B0%B8%EB%A5%98)
@@ -274,3 +276,31 @@ $$
 - [[개념 통계 17] 중심극한정리는 무엇이고 왜 중요한가?](https://drhongdatanote.tistory.com/57)
 - [[확률과 통계] 48. 중심극한정리, Central Limit Theorem](https://m.blog.naver.com/mykepzzang/220851280035)
 
+
+
+## #12 
+
+#### 엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요
+
+##### 엔트로피 (Entropy)
+
+엔트로피는 주어진 데이터 집합의 혼잡도를 의미한다.
+
+즉, 주어진 데이터 집합에서 서로 다른 종류의 레코드들이 섞여 있으면 엔트로피가 높고, 같은 종류의 레코드들이 섞여있으면 엔트로피가 낮다.
+
+Entropy에 대한 계산은 아래와 같이 나타 낼 수 있다
+
+<div align='center'>
+	<img src="https://render.githubusercontent.com/render/math?math= \text{Entropy} = -\sum_i p_i \log_2(p_i)">
+</div>
+
+
+
+
+##### Reference
+
+- [[인공지능] 엔트로피(Entropy) 와 정보이득(Information Gain) 계산](https://eehoeskrap.tistory.com/13)
+- [Decision Tree에서의 Entropy와 Information Gain](https://frontjang.info/entry/Entropy와-Information-Gain)
+- [[머신러닝] 의사결정 나무(Decision tree) - 3 : C4.5와 엔트로피(Entropy) 지수 활용사례, 계산](https://bigdaheta.tistory.com/26)
+
+<!--<img src="https://render.githubusercontent.com/render/math?math= ">-->
