@@ -103,25 +103,21 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 누적 분포 함수(cumulative distribution function, cdf)를 알기 위해서는 먼저 확률 밀도 함수(probability density function, pdf)를 집고 넘어가야 합니다.
 
-확률 밀도 함수  $ f(x) $와 구간 $$[a, b]$$​에 대해서 확률 변수 $$X$$​가 구간에 포함될 확률 $$P(a\leq X \leq B)$$​는 아래의 수식으로 정의합니다.
+확률 밀도 함수  <img src="https://render.githubusercontent.com/render/math?math=$ f(x) $">와 구간 <img src="https://render.githubusercontent.com/render/math?math=$[a, b]$">에 대해서 확률 변수<img src="https://render.githubusercontent.com/render/math?math=$ X $"> 가 구간에 포함될 확률 <img src="https://render.githubusercontent.com/render/math?math=$P(a\leq X \leq B)$ ">는 아래의 수식으로 정의합니다.
 
-$$
-P(a \leq X \leq b) = \int_{a}^{b}{f(x)dx}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=$P(a \leq X \leq b) = \int_{a}^{b}{f(x)dx}$">
 
-확률 밀도 함수는 확률변수 $X$가 **연속 확률 변수** 라는 점에서 확률 질량 함수와 큰 차이점을 갖습니다.
+확률 밀도 함수는 확률변수 <img src="https://render.githubusercontent.com/render/math?math=$X$">가 **연속 확률 변수** 라는 점에서 확률 질량 함수와 큰 차이점을 갖습니다.
 
-확률 질량 함수의 확률 변수는 이산 확률 변수로 이산 확률 변수 $X$에 대하여 $X=x$일 사건이 일어날 확률 $P(X=x)$​​​에 대응하는 함수로 정의합니다. 확률을 가능성의 크기로 생각하는 질량으로 간주하면, 그 확률(질량)을 나타내기 때문에 확률 질량 함수라고 부릅니다.
+확률 질량 함수의 확률 변수는 이산 확률 변수로 이산 확률 변수 <img src="https://render.githubusercontent.com/render/math?math=$X$">에 대하여 <img src="https://render.githubusercontent.com/render/math?math=$X=x$">일 사건이 일어날 확률 <img src="https://render.githubusercontent.com/render/math?math=$P(X=x)$">에 대응하는 함수로 정의합니다. 확률을 가능성의 크기로 생각하는 질량으로 간주하면, 그 확률(질량)을 나타내기 때문에 확률 질량 함수라고 부릅니다.
 
-하지만 확률 밀도 함수의 확률변수 $X$는 연속 확률 변수이기 때문에 구간이 정의되어야 확률을 의미할 수 있습니다. 그래서 확률 $f(x)dx$를 구간 $[a, b]$에서 연속적으로 더해줍니다. 따라서 확률 밀도 함수 $f(x)$​는 그 자체로 확률을 의미하지 않고, 특정 구간에 대한 정의가 필요합니다.
+하지만 확률 밀도 함수의 확률변수 <img src="https://render.githubusercontent.com/render/math?math=$X$">는 연속 확률 변수이기 때문에 구간이 정의되어야 확률을 의미할 수 있습니다. 그래서 확률 <img src="https://render.githubusercontent.com/render/math?math=$f(x)dx$">를 구간 $[a, b]$에서 연속적으로 더해줍니다. 따라서 확률 밀도 함수 <img src="https://render.githubusercontent.com/render/math?math=$f(x)$">는 그 자체로 확률을 의미하지 않고, 특정 구간에 대한 정의가 필요합니다.
 
-통계학에서 확률 밀도 함수를 $f(x) = \dfrac{확률(질량)}{구간길이(부피)} = \dfrac{f(x)dx}{dx}$​​로 파악하고​​​​​​​​, 이는 물리학에서 밀도의 개념과 비슷하기에 확률 밀도 함수라고 부릅니다.
+통계학에서 확률 밀도 함수를<img src="https://render.githubusercontent.com/render/math?math=$f(x) = \dfrac{Prob(kg)}{length(V)} = \dfrac{f(x)dx}{dx}$">  ​로 파악하고, 이는 물리학에서 밀도의 개념과 비슷하기에 확률 밀도 함수라고 부릅니다.
 
-누적 분포 함수는 말 그대로 확률 밀도 함수를 특정 값 a까지 누적한 함수입니다. 누적 분포 함수 $F(a)$​는 아래와 같이 정의합니다.
+누적 분포 함수는 말 그대로 확률 밀도 함수를 특정 값 a까지 누적한 함수입니다. 누적 분포 함수 <img src="https://render.githubusercontent.com/render/math?math=$f(x)dx$">는 아래와 같이 정의합니다.
 
-$$
-F(a) = P(X\le a) = \int_{-\infty}^{a}{f(x)dx}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=$F(a) = P(X\le a) = \int_{-\infty}^{a}{f(x)dx}$">
 
 확률 밀도 함수와 누적 분포 함수는 서로 미분과 적분의 관계를 갖습니다.
 
