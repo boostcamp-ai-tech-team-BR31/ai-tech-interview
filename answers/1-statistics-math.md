@@ -48,7 +48,6 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 - [고유값과 고유벡터](https://twlab.tistory.com/46?category=668741)
 - [선형대수기초](https://blog.daum.net/jungjin1980/148)
 
-​	
 
 ## #2
 
