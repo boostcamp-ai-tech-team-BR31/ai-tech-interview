@@ -151,15 +151,15 @@ $$
 
 수식으로 표현하자면 아래와 같이 나타 낼 수 있다.
 
-$$
-P(\theta | D) = \frac{P(\theta \ \cap D)}{P(D)}
-$$
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta | D) = \frac{P(\theta \ \cap D)}{P(D)}">
+</div>
 
-만약 주어진 사건(**D**)과 다른 사건**($\theta$)**이 독립적으로 일어난다면
+만약 주어진 사건(**D**)과 다른 사건**(<img src="https://render.githubusercontent.com/render/math?math=\theta">)**이 독립적으로 일어난다면
 
-$$
-P(\theta | D) = \frac{P(\theta \ \cap D)}{P(D)} = \frac{P(\theta)( D)}{P(D)} = P(\theta)
-$$
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta | D) = \frac{P(\theta \ \cap D)}{P(D)} = \frac{P(\theta)( D)}{P(D)} = P(\theta)">
+</div>
 
 가 되어 주어진 사건은 다른 사건이 일어나는 확률에 영향을 주지 못한다.
 
@@ -171,25 +171,25 @@ $$
 
 베이즈 정리의 사용 목적은 _조건부 확률_ 을 이용하여 **정보를 갱신**하는데 있다.
 
-$$
-P(\theta | D) = P(\theta) \frac{P(D|\theta)}{P(D)}
-$$
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta | D) = P(\theta) \frac{P(D|\theta)}{P(D)}">
+</div>
 
-$D$ : 새로 관찰하는 데이터
+D : 새로 관찰하는 데이터
 
-$\theta$ : 모델에서 계산하고 싶어하는 모수 (가설)
+<img src="https://render.githubusercontent.com/render/math?math=\theta">: 모델에서 계산하고 싶어하는 모수 (가설)
 
-$P(\theta | D)$ : **사후 확률(posterior)** - 데이터를 관찰 했을 때, 이 가설이 성립할 확률
+<img src="https://render.githubusercontent.com/render/math?math=P(\theta | D)">: **사후 확률(posterior)** - 데이터를 관찰 했을 때, 이 가설이 성립할 확률 
 
-$P(\theta)$ : **사전확률** - 데이터가 주어지지 않은 상황에서 가설에 대해 사전에 세운 확률
+<img src="https://render.githubusercontent.com/render/math?math=P(\theta)"> : **사전확률** - 데이터가 주어지지 않은 상황에서 가설에 대해 사전에 세운 확률
 
-$P(D | \theta)$​ = $\mathcal{L}(\theta|D)$​ : **가능도(likelihood)** - 현재 주어진 모수(가정 : $\theta$​ ) 에서 이 데이터(**D**) 가 관찰 될 확률 = D가 주어졌을 때 $\theta$ 의 가능도
+<img src="https://render.githubusercontent.com/render/math?math=P(D | \theta) = \mathcal{L}(\theta|D)">  : **가능도(likelihood)** - 현재 주어진 모수(가정 : <img src="https://render.githubusercontent.com/render/math?math=\theta"> ) 에서 이 데이터(**D**) 가 관찰 될 확률 = D가 주어졌을 때 <img src="https://render.githubusercontent.com/render/math?math=\theta"> 의 가능도
 
-$P(D)$​​​​ : **Evidence** : 데이터 전체의 분포, D의 사전확률이라 볼 수 있다. 정규화 상수 역할을 하며 $P(D) = \int_\theta P(D|\theta)$​​ 를 이용해 구할 수 있다.
+<img src="https://render.githubusercontent.com/render/math?math=P(D)"> : **Evidence** : 데이터 전체의 분포, D의 사전확률이라 볼 수 있다. 정규화 상수 역할을 하며 <img src="https://render.githubusercontent.com/render/math?math=P(D) = \int_\theta P(D|\theta)">​​ 를 이용해 구할 수 있다.
 
 ##### 베이즈 정리 정보의 갱신
 
-데이터가 새로 들어왔을 때 이전에 구한 사후확률 $P(\theta | D)$​​이 사전확률 $P(\theta)$​​​ 로 사용하면서 갱신된 사후 확률 계산이 가능해진다
+데이터가 새로 들어왔을 때 이전에 구한 사후확률 <img src="https://render.githubusercontent.com/render/math?math=P(D) = \int_\theta P(D|\theta)P(\theta | D)">​​이 사전확률 <img src="https://render.githubusercontent.com/render/math?math=\theta">​​ 로 사용하면서 갱신된 사후 확률 계산이 가능해진다
 
 이는 데이터가 새로 들어왔을 때 정보를 갱신했다고 볼 수 있다.
 
@@ -297,6 +297,7 @@ Entropy에 대한 **계산**은 아래와 같이 나타 낼 수 있다.
 <div align='center'>
   <img src="https://render.githubusercontent.com/render/math?math=\text{Entropy(S)} = -\sum_i p_i \log_2(p_i)">
 </div>
+
 
 <div align='center'>
   S : 주어진 데이터들의 집합<br>
