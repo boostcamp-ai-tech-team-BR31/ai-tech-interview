@@ -288,19 +288,86 @@ $$
 
 즉, 주어진 데이터 집합에서 서로 다른 종류의 레코드들이 섞여 있으면 엔트로피가 높고, 같은 종류의 레코드들이 섞여있으면 엔트로피가 낮다.
 
-Entropy에 대한 계산은 아래와 같이 나타 낼 수 있다
+이때 **엔트로피의 값은 0과 1사이의 값**을 가지며, 가장 혼잡도가 높은 상태의 값이 1, 반대는 0이다.
+
+Entropy에 대한 **계산**은 아래와 같이 나타 낼 수 있다.
 
 <div align='center'>
-	<img src="https://render.githubusercontent.com/render/math?math= \text{Entropy} = -\sum_i p_i \log_2(p_i)">
+  <img src="https://render.githubusercontent.com/render/math?math=\text{Entropy(S)} = -\sum_i p_i \log_2(p_i)">
+</div>
+
+
+<div align='center'>
+  S : 주어진 데이터들의 집합<br>
+  C : 레코드(클래스) 값들의 집합<br>
+  <img src="https://render.githubusercontent.com/render/math?math=p_i = \frac{freq(C_i, S)}{|S|}"> <br>
+  <img src="https://render.githubusercontent.com/render/math?math=freq(C_i,S)"> : S에서 <img src="https://render.githubusercontent.com/render/math?math=C_i">에 속하는 레코드의 수<br>
+  |S| : 주어진 데이터들의 집합의 데이터 개수 <br>
+</div>
+
+즉, 엔트로피 값은 레코드 값의 포함 비율(확률)에 로그를 적용하고 다시 가중치로 곱한 값을 모두 더한 식이다.
+
+
+
+> Entropy 식에서 log term이 들어가는 이유?
+
+이것에 대해 알기 위해서는 우선 `정보량`에 대해 알아야한다.
+
+정보 이론에서 정보량이 가져야 하는 **성질**들은 다음과 같다.
+
+1. 자주 일어나는 사건일수록 정보량은 낮다.
+2. 따라서 ‘항상’ 일어나는 사건이 있다면, 그 사건의 정보량은 0이다.
+3. 정보량은 항상 0 이상의 값을 가진다.
+4. 독립적인 사건들의 전체 정보량은 개별 사건의 정보량의 합이어야 한다. 
+   예를 들어, 동전의 앞면이 두번 연속 나오는 사건 {Head,Head}의 정보량은 앞면이 한번 나온 사건 {Head}가 가지는 정보량의 두배이다.
+
+
+
+이를 만족하는 식은 
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=I(x) = -\log P(x) ">
+</div>
+
+여기서 P(x)는 사건 x가 나타날 확률로 0과 1사이 값을 가진다. 그리고 I(x)는 P(x)가 0으로 가면 커지고 1에 갈수록 0에 가까운 값을 가진다.
+
+여기서 하필 **log**를 쓰는 이유는 *엔트로피* 가 **additive** 해야하기 때문이다.
+
+두 `독립적인 물리계` (질량, 부피 등)에서는 두 계를 합칠 때 단순히 물리량을 **더하면** 되는 성질을 가지고 있는 것이 몇가지 있다. 하지만 `경우의 수` 의 경우 **곱셈**으로 표현이 되는데이는 물리량이 늘어날 경우 계산이 매우 복잡해진다. 따라서 `log의 성질`을 이용해 **곱셈을 덧셈 연산**으로 바꿔준다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=I(X_1, X_2) = -\log p_1p_2 = -\log (p_1) -\log (p_2) = I(X_1)">+ <img src="https://render.githubusercontent.com/render/math?math=I(X_2) ">
+</div>
+
+> 정보량 관점에서 엔트로피
+
+위에서 구한 엔트로피 식은 정보량을 기댓값으로 구해진다
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=\text{Entropy} = \mathbb{E}_{P(x)}[I(x)] = \mathbb{E}_{P(x)}[-\log P(x)] = \sum_i -P(x_i) \log P(x_i)">
 </div>
 
 
 
+##### Information Gain
+
+정보이득 (information gain)은 **어떤 분류**를 통해서 얼마나 **정보**( **information** )에 대해서 **이득**( **gain** ) 생겼는지를 나타낸다.
+
+Information gain에 대한 **식**은 아래와 같다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=\text{Information Gain}(A, S) = Entropy(S) - \sum_{t \in T}Entropy(t,A) ">
+</div>
+
+S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트로피를 뺀다면 그 값이 정보이득이다
+
+속성 A라는 값을 가지게된  집합의 엔트로피(<img src="https://render.githubusercontent.com/render/math?math=\sum_{t \in T}Entropy(t,A)">)가 낮으면 빼지는 값이 작으니 IG 값이 커지게 되어 **불확실성**, **데이터 집합의 혼잡도**를 많이 줄여 정보의 이득이 높아졌다 볼 수 있다.
 
 ##### Reference
 
 - [[인공지능] 엔트로피(Entropy) 와 정보이득(Information Gain) 계산](https://eehoeskrap.tistory.com/13)
 - [Decision Tree에서의 Entropy와 Information Gain](https://frontjang.info/entry/Entropy와-Information-Gain)
 - [[머신러닝] 의사결정 나무(Decision tree) - 3 : C4.5와 엔트로피(Entropy) 지수 활용사례, 계산](https://bigdaheta.tistory.com/26)
+- [What is Entropy? (1)](https://jiminsun.github.io/2018-01-26/Entropy-1/)
 
 <!--<img src="https://render.githubusercontent.com/render/math?math= ">-->
