@@ -281,7 +281,13 @@ $$
 
 ![3](images/math_9_3.png)
 
-<img src="https://render.githubusercontent.com/render/math?math= $$\frac{SSR}{SST}$$">
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 1 은 SSE=0이라는 것이다. 에러가 하나도 없다는 것. 모델 설명력이 100%
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 0 은 SSR =0 이라는 것이다. Y 평균값 대비 X를 이용해도 얻을 수 있는 것이 없다는 것. 모델 설명력이 0
+
+<img src="https://render.githubusercontent.com/render/math?math=R^2 ">은 0-1 사이 값이다.
+
+
 
 ## #10
 
