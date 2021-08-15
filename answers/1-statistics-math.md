@@ -265,6 +265,35 @@ $$
 
   
 
+## #9
+
+#### R squared 의 의미는 무엇인가요?
+
+![1](images/math_9.png)
+
+![2](images/math_9_2.png)
+
+ SST = Y의 총 변동량
+
+ SSR =  X변수에 의해 설명된 양
+
+ SSE = 에러에 의해 설명된 양
+
+![3](images/math_9_3.png)
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 1 은 SSE=0이라는 것이다. 에러가 하나도 없다는 것. 모델 설명력이 100%
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 0 은 SSR =0 이라는 것이다. Y 평균값 대비 X를 이용해도 얻을 수 있는 것이 없다는 것. 모델 설명력이 0
+
+<img src="https://render.githubusercontent.com/render/math?math=R^2 ">은 0-1 사이 값이다.
+
+##### Reference
+
+- [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
+- [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
+
+
+
 ## #10
 
 #### 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
