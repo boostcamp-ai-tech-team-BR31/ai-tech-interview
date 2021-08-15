@@ -287,6 +287,11 @@ $$
 
 <img src="https://render.githubusercontent.com/render/math?math=R^2 ">은 0-1 사이 값이다.
 
+##### Reference
+
+- [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
+- [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
+
 
 
 ## #10
