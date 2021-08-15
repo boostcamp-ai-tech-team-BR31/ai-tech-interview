@@ -265,6 +265,24 @@ $$
 
   
 
+## #9
+
+#### R squared 의 의미는 무엇인가요?
+
+![graph](images/math_9.png)
+
+![2](images/math_9_2.png)
+
+ SST = Y의 총 변동량
+
+ SSR =  X변수에 의해 설명된 양
+
+ SSE = 에러에 의해 설명된 양
+
+![3](images/math_9_3.png)
+
+<img src="https://render.githubusercontent.com/render/math?math= {SSR \over SST}=1 "> 이면
+
 ## #10
 
 #### 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
