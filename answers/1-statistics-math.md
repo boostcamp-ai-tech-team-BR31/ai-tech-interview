@@ -269,7 +269,7 @@ $$
 
 #### R squared 의 의미는 무엇인가요?
 
-![graph](images/math_9.png)
+![1](images/math_9.png)
 
 ![2](images/math_9_2.png)
 
@@ -281,7 +281,7 @@ $$
 
 ![3](images/math_9_3.png)
 
-<img src="https://render.githubusercontent.com/render/math?math= {SSR \over SST}=1 "> 이면
+<img src="https://render.githubusercontent.com/render/math?math= {SSR \over SST}=1 "> 이
 
 ## #10
 
