@@ -281,7 +281,7 @@ $$
 
 ![3](images/math_9_3.png)
 
-<img src="https://render.githubusercontent.com/render/math?math= \frac{SSR}{SST}"> 이
+<img src="https://render.githubusercontent.com/render/math?math= $\frac{SSR}{SST}$"> 이
 
 ## #10
 
