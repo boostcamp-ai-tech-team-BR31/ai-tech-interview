@@ -279,8 +279,6 @@ $$
 - [신뢰 구간 - 위키백과](https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%A2%B0_%EA%B5%AC%EA%B0%84)
 - [신뢰 구간 쉬운 설명 및 사진 출처 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2021/01/05/confidence_interval.html)
 
-<<<<<<< Updated upstream
-=======
 - [empirical rule](https://ko.wikipedia.org/wiki/68-95-99.7_%EA%B7%9C%EC%B9%99)
 
   
@@ -359,8 +357,6 @@ $$
 
 - [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
 
-
->>>>>>> Stashed changes
 ## #11
 
 ### 중심극한정리는 왜 유용할까요?
