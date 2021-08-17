@@ -264,9 +264,8 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 ##### References
 
 - [신뢰 구간 - 위키백과](https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%A2%B0_%EA%B5%AC%EA%B0%84)
+
 - [신뢰 구간 쉬운 설명 및 사진 출처 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2021/01/05/confidence_interval.html)
-
-
 
 ## #8 
 ### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
@@ -285,6 +284,63 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 
 - [공돌이의 수학노트 - P-value의 의미](!https://angeloyeo.github.io/2020/03/29/p_value.html)
 - [기초통계 설명 - 네이버 블로그](!https://m.blog.naver.com/moses3650/221217938069)
+
+## #9
+
+#### R squared 의 의미는 무엇인가요?
+
+![1](images/math_9.png)
+
+![2](images/math_9_2.png)
+
+ SST = Y의 총 변동량
+
+ SSR =  X변수에 의해 설명된 양
+
+ SSE = 에러에 의해 설명된 양
+
+![3](images/math_9_3.png)
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 1 은 SSE=0이라는 것이다. 에러가 하나도 없다는 것. 모델 설명력이 100%
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 0 은 SSR =0 이라는 것이다. Y 평균값 대비 X를 이용해도 얻을 수 있는 것이 없다는 것. 모델 설명력이 0
+
+<img src="https://render.githubusercontent.com/render/math?math=R^2 ">은 0-1 사이 값이다.
+
+##### Reference
+
+- [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
+- [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
+
+
+
+## #10
+
+#### 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
+
+- 평균(mean): 모든 관측값의 합을 자료의 개수로 나눈 것
+- 중앙값(median): 전체 관측값을 크기 순서로 배열했을 때 가운데 위치하는 값
+
+
+
+평균은 전체 관측값이 골고루 반영되므로 대표값으로서 가치가 있다. 평균 근처에 표본이 몰려 있는 상황에서 대표값으로 유용하지만 극단적인 값에 영향을 많이 받는다.
+
+
+
+중앙값에서는 관측값을 크기 순서로 배열할 때 관측값의 위치가 중요하고, 가운데 위치한 관측값 이외의 관측값들의 크기는 중요하지 않다. 따라서 평균과는 달리 중앙값은 관측값들의 변화에 민감하지 않고 특히 아주 큰 관측값이나 아주 작은 관측값에 영향을 받지 않는다. 
+
+
+
+ 표본의 편차, 혹은 왜곡이 심하게 나타나는 경우는 평균보다 중앙값이 유용하다. 예를들면 경제적 수입을 들 수 있는데 동북아학생 전체의 1년간 경제 수입과 삼성 회장의 1년 수입을 평균하는 것은 사실상 의미가 없으므로 이런경우 중앙값을 쓴다. 또한 올림픽에서 여러 심판들의 주관적인 점수로 판정하는 경우 편차가 심할수 있으므로 양 끝값을 제외시키고 평균을 내는데  중앙값과 평균의 특성을 적절하게 사용했다고 볼수있다.
+
+
+
+#### References
+
+- [평균과 중앙값에 대한 이해 - 모두,전진!](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=xodh16&logNo=220505136752)
+
+- [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
+
 
 ## #11
 
