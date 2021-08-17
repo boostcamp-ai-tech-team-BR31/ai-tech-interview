@@ -13,6 +13,8 @@
 - [공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요](#6)
 - [신뢰 구간의 정의는 무엇인가요?](#7)
 - [P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?](#8)
+- [R squared 의 의미는 무엇인가요?](#9)
+- [평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?](#10)
 - [중심극한정리는 왜 유용한걸까요?](#11)
 - [엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요](#12)
 
@@ -267,6 +269,8 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 
 - [신뢰 구간 쉬운 설명 및 사진 출처 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2021/01/05/confidence_interval.html)
 
+- [empirical rule](https://ko.wikipedia.org/wiki/68-95-99.7_%EA%B7%9C%EC%B9%99)
+
 ## #8 
 ### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
 
@@ -282,8 +286,8 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 
 #### Reference
 
-- [공돌이의 수학노트 - P-value의 의미](!https://angeloyeo.github.io/2020/03/29/p_value.html)
-- [기초통계 설명 - 네이버 블로그](!https://m.blog.naver.com/moses3650/221217938069)
+- [공돌이의 수학노트 - P-value의 의미](https://angeloyeo.github.io/2020/03/29/p_value.html)
+- [기초통계 설명 - 네이버 블로그](https://m.blog.naver.com/moses3650/221217938069)
 
 ## #9
 
@@ -341,7 +345,7 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 
 - [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
 
-
+=======
 ## #11
 
 ### 중심극한정리는 왜 유용할까요?
