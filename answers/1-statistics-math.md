@@ -19,16 +19,17 @@
 
 #### 고유값 (eigen value) 와 고유벡터 (eigen vector)에 대해 설명해주세요. 그리고 왜 중요할까요?
 
-선형대수학에서, 선형 변환의 고유 벡터는 그 선형 변환이 일어난 후에도 방향이 변하지 않는, 영벡터가 아닌 벡터입니다. 
+선형대수학에서, 선형 변환의 고유 벡터는 그 선형 변환이 일어난 후에도 방향이 변하지 않는, 영벡터가 아닌 벡터입니다.
 
 고유 벡터의 길이가 변하는 배수를 그 고유 벡터에 대응하는 고유값이라고 합니다.
+
 $$
 A\vec{x} = \lambda\vec{x}
 $$
 
 어떤 정방행렬 $ A$ 는 임의의 $ \vec{x}$ 에 곱해져서 $ \vec{x}$ 의 위치나 방향을 변환시키는 역할을 합니다. 이 때, 어떤 특정 벡터들은 $ A$ 에 곱해져도 자신과 평행한 방향을 갖는데, 이러한 벡터들을 고유벡터라고 합니다. 변환 전후의 크기 차이는 특정 상수를 곱한 정도로 존재하는데, 이 특정 상수가 고유값입니다.
 
-n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무수히 많습니다. 이 무수히 많은 고유벡터는 하나의 부분 공간을 형성하고, 이 부분공간이 고유공간이 됩니다. 
+n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무수히 많습니다. 이 무수히 많은 고유벡터는 하나의 부분 공간을 형성하고, 이 부분공간이 고유공간이 됩니다.
 
 행렬이 벡터에 가하는 변환을 고유벡터들이 기저를 이루는 고유공간에서의 변환으로 해석함으로써, 회전 변환은 배제하고 확대/축소 변환만으로 이해하고 응용할 수 있게 되었다는 점에서 중요하다고 할 수 있습니다.
 
@@ -58,7 +59,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 - 모든 관측치를 하나로 모으는 것은 매우 어려울 수 있다.
 - 더 많은 관측은 미래에 만들어질 예정일 수 있다.
 
-위와 같은 이유로 모집단 전체를 조사하는 것이 불가능하기 때문에 샘플(sample)을 이용하여 모집단(population)에 대한 추론(inference)을 하는 것이다. 
+위와 같은 이유로 모집단 전체를 조사하는 것이 불가능하기 때문에 샘플(sample)을 이용하여 모집단(population)에 대한 추론(inference)을 하는 것이다.
 
 **Sampling Error**
 
@@ -69,10 +70,10 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 통계학적 샘플링은 광범위한 연구 분야이지만, 머신러닝에서는 3가지 주요 샘플링 기법을 사용합니다.
 
 - **Simple Random Sampling**: 도메인에서 균일한 확률로 표본을 추출하는 방법
-- **Systematic Sampling**: Intervals 같이 미리 정해 놓은 패턴을 사용하여 추출하는 방법. 
+- **Systematic Sampling**: Intervals 같이 미리 정해 놓은 패턴을 사용하여 추출하는 방법.
 - **Stratified Sampling**: 미리 정해놓은 카테고리(범주) 내에서 샘플을 추출하는 방법.
 
------
+---
 
 **리샘플링이란?**
 
@@ -86,7 +87,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 - [(데이터과학 인터뷰 질문)(2) 샘플링과 리샘플링, 1편](https://cnp-0717.tistory.com/7?category=838077)
 - [샘플링과 리샘플링의 차이는 무엇일까?](https://kejdev.github.io/posts/sampling-resampling/)
-- [Wikipedia](https://en.wikipedia.org/wiki/Resampling_(statistics))
+- [Wikipedia](<https://en.wikipedia.org/wiki/Resampling_(statistics)>)
 
 ## #3
 
@@ -94,7 +95,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 누적 분포 함수(cumulative distribution function, cdf)를 알기 위해서는 먼저 확률 밀도 함수(probability density function, pdf)를 집고 넘어가야 합니다.
 
-확률 밀도 함수  <img src="https://render.githubusercontent.com/render/math?math=$ f(x) $">와 구간 <img src="https://render.githubusercontent.com/render/math?math=$[a, b]$">에 대해서 확률 변수<img src="https://render.githubusercontent.com/render/math?math=$ X $"> 가 구간에 포함될 확률 <img src="https://render.githubusercontent.com/render/math?math=$P(a\leq X \leq B)$ ">는 아래의 수식으로 정의합니다.
+확률 밀도 함수 <img src="https://render.githubusercontent.com/render/math?math=$ f(x) $">와 구간 <img src="https://render.githubusercontent.com/render/math?math=$[a, b]$">에 대해서 확률 변수<img src="https://render.githubusercontent.com/render/math?math=$ X $"> 가 구간에 포함될 확률 <img src="https://render.githubusercontent.com/render/math?math=$P(a\leq X \leq B)$ ">는 아래의 수식으로 정의합니다.
 
 <img src="https://render.githubusercontent.com/render/math?math=$P(a \leq X \leq b) = \int_{a}^{b}{f(x)dx}$">
 
@@ -104,7 +105,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 하지만 확률 밀도 함수의 확률변수 <img src="https://render.githubusercontent.com/render/math?math=$X$">는 연속 확률 변수이기 때문에 구간이 정의되어야 확률을 의미할 수 있습니다. 그래서 확률 <img src="https://render.githubusercontent.com/render/math?math=$f(x)dx$">를 구간 $[a, b]$에서 연속적으로 더해줍니다. 따라서 확률 밀도 함수 <img src="https://render.githubusercontent.com/render/math?math=$f(x)$">는 그 자체로 확률을 의미하지 않고, 특정 구간에 대한 정의가 필요합니다.
 
-통계학에서 확률 밀도 함수를<img src="https://render.githubusercontent.com/render/math?math=$f(x) = \dfrac{Prob(kg)}{length(V)} = \dfrac{f(x)dx}{dx}$">  ​로 파악하고, 이는 물리학에서 밀도의 개념과 비슷하기에 확률 밀도 함수라고 부릅니다.
+통계학에서 확률 밀도 함수를<img src="https://render.githubusercontent.com/render/math?math=$f(x) = \dfrac{Prob(kg)}{length(V)} = \dfrac{f(x)dx}{dx}$"> ​로 파악하고, 이는 물리학에서 밀도의 개념과 비슷하기에 확률 밀도 함수라고 부릅니다.
 
 누적 분포 함수는 말 그대로 확률 밀도 함수를 특정 값 a까지 누적한 함수입니다. 누적 분포 함수 <img src="https://render.githubusercontent.com/render/math?math=$f(x)dx$">는 아래와 같이 정의합니다.
 
@@ -141,6 +142,7 @@ $$
 $$
 X \sim N(\mu, \sigma)
 $$
+
 중요한 점은 확률 모형은 사람에 의해 정의된 분포일 뿐이라는 점이다. 어떤 자료의 확률 분포가 특정한 확률 모형을 따르리라는 것은 어디까지나 여러가지 편의를 위해 그렇게 가정(assumption)한 것인 뿐인 경우가 많다.
 
 ## #5
@@ -179,11 +181,11 @@ D : 새로 관찰하는 데이터
 
 <img src="https://render.githubusercontent.com/render/math?math=\theta">: 모델에서 계산하고 싶어하는 모수 (가설)
 
-<img src="https://render.githubusercontent.com/render/math?math=P(\theta | D)">: **사후 확률(posterior)** - 데이터를 관찰 했을 때, 이 가설이 성립할 확률 
+<img src="https://render.githubusercontent.com/render/math?math=P(\theta | D)">: **사후 확률(posterior)** - 데이터를 관찰 했을 때, 이 가설이 성립할 확률
 
 <img src="https://render.githubusercontent.com/render/math?math=P(\theta)"> : **사전확률** - 데이터가 주어지지 않은 상황에서 가설에 대해 사전에 세운 확률
 
-<img src="https://render.githubusercontent.com/render/math?math=P(D | \theta) = \mathcal{L}(\theta|D)">  : **가능도(likelihood)** - 현재 주어진 모수(가정 : <img src="https://render.githubusercontent.com/render/math?math=\theta"> ) 에서 이 데이터(**D**) 가 관찰 될 확률 = D가 주어졌을 때 <img src="https://render.githubusercontent.com/render/math?math=\theta"> 의 가능도
+<img src="https://render.githubusercontent.com/render/math?math=P(D | \theta) = \mathcal{L}(\theta|D)"> : **가능도(likelihood)** - 현재 주어진 모수(가정 : <img src="https://render.githubusercontent.com/render/math?math=\theta"> ) 에서 이 데이터(**D**) 가 관찰 될 확률 = D가 주어졌을 때 <img src="https://render.githubusercontent.com/render/math?math=\theta"> 의 가능도
 
 <img src="https://render.githubusercontent.com/render/math?math=P(D)"> : **Evidence** : 데이터 전체의 분포, D의 사전확률이라 볼 수 있다. 정규화 상수 역할을 하며 <img src="https://render.githubusercontent.com/render/math?math=P(D) = \int_\theta P(D|\theta)">​​ 를 이용해 구할 수 있다.
 
@@ -203,6 +205,7 @@ D : 새로 관찰하는 데이터
 #### 공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요
 
 **공분산**
+
 $$
 \begin{aligned}
 Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
@@ -211,9 +214,11 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 &=E[XY] - E[X]E[Y]
 \end{aligned}
 $$
-2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다. 
+
+2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다.
 
 **상관계수**
+
 $$
 \begin{aligned}
 \rho_{X,Y} = corr(X,Y) &= \frac{Cov(X,Y)}{\sigma_X\sigma_Y}\\
@@ -221,9 +226,9 @@ $$
 \end{aligned}
 $$
 
-두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다. 
+두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다.
 
-> 공분산은 변수의 측정 단위에 크기에 따라 값이 달라지므로 공분산통해 두 변수간의 관계를 파악하기에는 부적절하다. 따라서 상관계수를 이용하여 두 변수간의 관계 파악 !! 
+> 공분산은 변수의 측정 단위에 크기에 따라 값이 달라지므로 공분산통해 두 변수간의 관계를 파악하기에는 부적절하다. 따라서 상관계수를 이용하여 두 변수간의 관계 파악 !!
 
 ~~**스피어만 상관 계수**~~
 
@@ -245,7 +250,7 @@ $$
 
 ![img](images/math_7_1.PNG)
 
-우리는 모집단의 평균을 알 순 없지만, 모집단에서 임의로 선정한 표본을 반복하여 표본평균의 분포를 추정할 수 있습니다. 그리고 이 표본평균의 분포는 중심극한정리에 의해 정규분포 모양을 갖습니다.(모집단의 분포가 어떠하든!) 
+우리는 모집단의 평균을 알 순 없지만, 모집단에서 임의로 선정한 표본을 반복하여 표본평균의 분포를 추정할 수 있습니다. 그리고 이 표본평균의 분포는 중심극한정리에 의해 정규분포 모양을 갖습니다.(모집단의 분포가 어떠하든!)
 
 표본 평균의 표준 편차는 '표준 오차(Standard Error of Mean)'라고 부르며
 
@@ -255,15 +260,13 @@ $$
 
 ![img](images/math_7_2.PNG)
 
-여러번 추출한 표본 평균은 모평균의 ±2 SEM 범위 안에 95% 확률로 들어온다고 말할 수 있습니다.  여기서 모평균의 ±2 SEM이 신뢰 구간이 되고 95%가 신뢰수준이 되는 것입니다. 하지만 우리는 모평균을 알지 못하기 때문에 신뢰구간을 표본평균을 중심으로 이동시키고, '모평균이 신뢰구간 안에 들어올 확률이 95%이다'라고 표현할 수 있습니다.
+여러번 추출한 표본 평균은 모평균의 ±2 SEM 범위 안에 95% 확률로 들어온다고 말할 수 있습니다. 여기서 모평균의 ±2 SEM이 신뢰 구간이 되고 95%가 신뢰수준이 되는 것입니다. 하지만 우리는 모평균을 알지 못하기 때문에 신뢰구간을 표본평균을 중심으로 이동시키고, '모평균이 신뢰구간 안에 들어올 확률이 95%이다'라고 표현할 수 있습니다.
 
 ##### References
 
 - [신뢰 구간 - 위키백과](https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%A2%B0_%EA%B5%AC%EA%B0%84)
 
 - [신뢰 구간 쉬운 설명 및 사진 출처 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2021/01/05/confidence_interval.html)
-
-  
 
 ## #9
 
@@ -273,11 +276,11 @@ $$
 
 ![2](images/math_9_2.png)
 
- SST = Y의 총 변동량
+SST = Y의 총 변동량
 
- SSR =  X변수에 의해 설명된 양
+SSR = X변수에 의해 설명된 양
 
- SSE = 에러에 의해 설명된 양
+SSE = 에러에 의해 설명된 양
 
 ![3](images/math_9_3.png)
 
@@ -292,8 +295,6 @@ $$
 - [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
 - [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
 
-
-
 ## #10
 
 #### 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
@@ -301,33 +302,23 @@ $$
 - 평균(mean): 모든 관측값의 합을 자료의 개수로 나눈 것
 - 중앙값(median): 전체 관측값을 크기 순서로 배열했을 때 가운데 위치하는 값
 
-
-
 평균은 전체 관측값이 골고루 반영되므로 대표값으로서 가치가 있다. 평균 근처에 표본이 몰려 있는 상황에서 대표값으로 유용하지만 극단적인 값에 영향을 많이 받는다.
 
+중앙값에서는 관측값을 크기 순서로 배열할 때 관측값의 위치가 중요하고, 가운데 위치한 관측값 이외의 관측값들의 크기는 중요하지 않다. 따라서 평균과는 달리 중앙값은 관측값들의 변화에 민감하지 않고 특히 아주 큰 관측값이나 아주 작은 관측값에 영향을 받지 않는다.
 
-
-중앙값에서는 관측값을 크기 순서로 배열할 때 관측값의 위치가 중요하고, 가운데 위치한 관측값 이외의 관측값들의 크기는 중요하지 않다. 따라서 평균과는 달리 중앙값은 관측값들의 변화에 민감하지 않고 특히 아주 큰 관측값이나 아주 작은 관측값에 영향을 받지 않는다. 
-
-
-
- 표본의 편차, 혹은 왜곡이 심하게 나타나는 경우는 평균보다 중앙값이 유용하다. 예를들면 경제적 수입을 들 수 있는데 동북아학생 전체의 1년간 경제 수입과 삼성 회장의 1년 수입을 평균하는 것은 사실상 의미가 없으므로 이런경우 중앙값을 쓴다. 또한 올림픽에서 여러 심판들의 주관적인 점수로 판정하는 경우 편차가 심할수 있으므로 양 끝값을 제외시키고 평균을 내는데  중앙값과 평균의 특성을 적절하게 사용했다고 볼수있다.
-
-
+표본의 편차, 혹은 왜곡이 심하게 나타나는 경우는 평균보다 중앙값이 유용하다. 예를들면 경제적 수입을 들 수 있는데 동북아학생 전체의 1년간 경제 수입과 삼성 회장의 1년 수입을 평균하는 것은 사실상 의미가 없으므로 이런경우 중앙값을 쓴다. 또한 올림픽에서 여러 심판들의 주관적인 점수로 판정하는 경우 편차가 심할수 있으므로 양 끝값을 제외시키고 평균을 내는데 중앙값과 평균의 특성을 적절하게 사용했다고 볼수있다.
 
 #### References
 
 - [평균과 중앙값에 대한 이해 - 모두,전진!](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=xodh16&logNo=220505136752)
 
-- [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
-
-
+- [평균 vs 중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
 
 ## #11
 
 ### 중심극한정리는 왜 유용할까요?
 
-중심극한정리란(Central Limit Theorem)는 동일한 확률분포를 가진 독립변수 n개의 평균의 분포는 n이 적당히 크면 정규분포에 가까워진다는 정리이다. 
+중심극한정리란(Central Limit Theorem)는 동일한 확률분포를 가진 독립변수 n개의 평균의 분포는 n이 적당히 크면 정규분포에 가까워진다는 정리이다.
 
 많은 사람들이 중심극한정리에 대해 헷갈리는 부분이 있다. "**내가 수집한 표본의 크기가 크면, 그 표본의 평균이 모집단의 평균과 같고, 표본의 표준편차가 모집단의 표준편차를 표본수로 나눈 값과 같게 된다**."라고 이해하곤 한다. 이것은 중심극한정리를 잘못 이해한 것이다. **표본은 매번 추출할 때마다 달라지게 되고, 그에 따라 표본의 평균값도 매번 달라지기 때문이다.** 쉽게 말해, 1~10까지의 숫자가 모집단이라고 가정하고 3개를 샘플링하게 되면(e.g. {1,3,5}, {1,2,3} ... ) 매번 표본 추출을 할 때마다 평균값이 달라지는 것은 쉽게 이해할 수 있다.
 
@@ -341,7 +332,7 @@ $$
 - [[개념 통계 17] 중심극한정리는 무엇이고 왜 중요한가?](https://drhongdatanote.tistory.com/57)
 - [[확률과 통계] 48. 중심극한정리, Central Limit Theorem](https://m.blog.naver.com/mykepzzang/220851280035)
 
-## #12 
+## #12
 
 #### 엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요
 
@@ -358,7 +349,6 @@ Entropy에 대한 **계산**은 아래와 같이 나타 낼 수 있다.
 <div align='center'>
   <img src="https://render.githubusercontent.com/render/math?math=\text{Entropy(S)} = -\sum_i p_i \log_2(p_i)">
 </div>
-
 
 <div align='center'>
   S : 주어진 데이터들의 집합<br>
