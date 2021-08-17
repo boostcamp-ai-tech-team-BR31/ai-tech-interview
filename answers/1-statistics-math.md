@@ -279,6 +279,88 @@ $$
 - [신뢰 구간 - 위키백과](https://ko.wikipedia.org/wiki/%EC%8B%A0%EB%A2%B0_%EA%B5%AC%EA%B0%84)
 - [신뢰 구간 쉬운 설명 및 사진 출처 - 공돌이의 수학정리노트](https://angeloyeo.github.io/2021/01/05/confidence_interval.html)
 
+<<<<<<< Updated upstream
+=======
+- [empirical rule](https://ko.wikipedia.org/wiki/68-95-99.7_%EA%B7%9C%EC%B9%99)
+
+  
+
+## #8 
+### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
+
+우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라,  내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 내가 실험이나 표본추출을 해서 얻은 결론이 귀무가설 하에서 사실이 맞다는 가정하에 얻어질 확률. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다. 
+
++ 여기서 작다의 기준은 유의수준(귀무가설 맞는데 기각하는 확률) 보다 p-value가 작다면 작다고 판단한다. 보통은 0.05
+
+![img](images/math_8_p-value.gif)
+
+평균적으로 피자를 4조각 먹는다고 생각해왔는데 더 많이 먹는거같다. 이거를 통계적으로 증명해보자.
+
+실험을 통해 무작위로 데이터를 모았더니 평균적으로 5.6조각을 먹더라 유의수준(0.05)을 설정하고 p-value를 계산했을떄 0.05보다 작다면 대립가설을 채책한다. 즉 평균적으로 피자를 4조각보다 피자를 더 먹는것으로 결론을 내린다.
+
+#### Reference
+
+- [공돌이의 수학노트 - P-value의 의미](https://angeloyeo.github.io/2020/03/29/p_value.html)
+- [기초통계 설명 - 네이버 블로그](https://m.blog.naver.com/moses3650/221217938069)
+
+## #9
+
+#### R squared 의 의미는 무엇인가요?
+
+![1](images/math_9.png)
+
+![2](images/math_9_2.png)
+
+ SST = Y의 총 변동량
+
+ SSR =  X변수에 의해 설명된 양
+
+ SSE = 에러에 의해 설명된 양
+
+![3](images/math_9_3.png)
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 1 은 SSE=0이라는 것이다. 에러가 하나도 없다는 것. 모델 설명력이 100%
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{SSR}{SST}"> = 0 은 SSR =0 이라는 것이다. Y 평균값 대비 X를 이용해도 얻을 수 있는 것이 없다는 것. 모델 설명력이 0
+
+<img src="https://render.githubusercontent.com/render/math?math=R^2 ">은 0-1 사이 값이다.
+
+##### Reference
+
+- [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
+- [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
+
+
+
+## #10
+
+#### 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
+
+- 평균(mean): 모든 관측값의 합을 자료의 개수로 나눈 것
+- 중앙값(median): 전체 관측값을 크기 순서로 배열했을 때 가운데 위치하는 값
+
+
+
+평균은 전체 관측값이 골고루 반영되므로 대표값으로서 가치가 있다. 평균 근처에 표본이 몰려 있는 상황에서 대표값으로 유용하지만 극단적인 값에 영향을 많이 받는다.
+
+
+
+중앙값에서는 관측값을 크기 순서로 배열할 때 관측값의 위치가 중요하고, 가운데 위치한 관측값 이외의 관측값들의 크기는 중요하지 않다. 따라서 평균과는 달리 중앙값은 관측값들의 변화에 민감하지 않고 특히 아주 큰 관측값이나 아주 작은 관측값에 영향을 받지 않는다. 
+
+
+
+ 표본의 편차, 혹은 왜곡이 심하게 나타나는 경우는 평균보다 중앙값이 유용하다. 예를들면 경제적 수입을 들 수 있는데 동북아학생 전체의 1년간 경제 수입과 삼성 회장의 1년 수입을 평균하는 것은 사실상 의미가 없으므로 이런경우 중앙값을 쓴다. 또한 올림픽에서 여러 심판들의 주관적인 점수로 판정하는 경우 편차가 심할수 있으므로 양 끝값을 제외시키고 평균을 내는데  중앙값과 평균의 특성을 적절하게 사용했다고 볼수있다.
+
+
+
+#### References
+
+- [평균과 중앙값에 대한 이해 - 모두,전진!](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=xodh16&logNo=220505136752)
+
+- [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
+
+
+>>>>>>> Stashed changes
 ## #11
 
 ### 중심극한정리는 왜 유용할까요?
