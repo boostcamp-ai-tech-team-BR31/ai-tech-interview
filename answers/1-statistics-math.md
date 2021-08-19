@@ -17,6 +17,7 @@
 - [평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?](#10)
 - [중심극한정리는 왜 유용한걸까요?](#11)
 - [엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요](#12)
+- [검정력(statistical power)은 무엇인가요?](#13)
 
 ## #1
 
@@ -345,7 +346,6 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 
 - [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
 
-=======
 ## #11
 
 ### 중심극한정리는 왜 유용할까요?
@@ -450,4 +450,55 @@ S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트�
 - [[머신러닝] 의사결정 나무(Decision tree) - 3 : C4.5와 엔트로피(Entropy) 지수 활용사례, 계산](https://bigdaheta.tistory.com/26)
 - [What is Entropy? (1)](https://jiminsun.github.io/2018-01-26/Entropy-1/)
 
-<!--<img src="https://render.githubusercontent.com/render/math?math= ">-->
+## #12
+
+#### 검정력(statistical power)은 무엇일까요?
+
+검정력은 **대립가설 H1이 참인 경우 대립가설 H1을 채택할 확률**입니다.
+
+검정력을 설명하기 위해 귀무가설과 대립가설을 간단히 집고 넘어가려 합니다.
+
+- 귀무가설, H0 : 모집단의 특성에 대해 옳다고 제안하는 주장. 즉 변화나 차이가 없음을 주장.
+
+  - '~와 차이가 없다', '~의 효과는 없다', '~와 같다'라는 형식으로 설정
+
+    ex) 새로운 코로나 진단 방법은 기존의 방법과 차이가 없다.
+
+- 대립가설, H1 : 귀무가설이 기각 되었을 때, 받아들여지는 가설. 새로 주장하고자 하는 가설
+
+  - '~와 차이가 있다', '~의 효과는 있다', '~와 다르다'
+
+    ex) 새로운 코로나 진단 방법은 기존의 방법과 차이가 있다.
+
+![그림1. 1종오류와 2종오류](./images/statistical_power_1.PNG)
+
+위 그림에서 Measured or Perceived는 귀무가설이라고 생각하면 됩니다. 그러면 귀무가설과 현실 사이에서 2개의 오류를 볼 수 있습니다.
+
+- 1종오류 : H0가 맞다했는데, 실제는 H0가 틀린 경우
+  - 유의수준 α와 같음
+- 2종오류 : H0가 틀리다했는데, 실제는 H0가 맞는 경우
+  - β로 표시
+
+![](./images/statistical_power_2.PNG)
+
+β를 H1입장에서 다시 쓰면 **H1이 맞는다 했는데, 실제는 H1이 틀린 경우**라고 할 수 있습니다.
+
+앞서, 검정력은 대립가설 H1이 참인 경우 대립가설 H1을 채택할 확률이라고 했습니다. 즉 검정력은 **1-β**로 표현할 수 있습니다.
+
+검정력에 영향을 끼치는 요소는 다음과 같습니다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=\1-\beta \propto \frac{1}{\alpha}, \frac{1}{\sigma}, \n">
+</div>
+
+그 이유는... 함께 알아봐요
+
+#### References
+
+- [검정력 위키백과](https://ko.wikipedia.org/wiki/%EA%B2%80%EC%A0%95%EB%A0%A5)
+
+
+- [1종오류와 2종오류](https://www.abtasty.com/blog/type-1-and-type-2-errors/)
+
+- [귀무가설과 대립가설](https://drhongdatanote.tistory.com/59)
+- [검정력의 의미](https://m.blog.naver.com/PostView.nhn?blogId=hancury&logNo=220854934914&proxyReferer=https:%2F%2Fwww.google.com%2F)

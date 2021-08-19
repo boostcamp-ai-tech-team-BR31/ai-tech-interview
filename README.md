@@ -32,6 +32,7 @@
 - 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
 - 중심극한정리는 왜 유용한걸까요?
 - 엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요!
+- 검정력(statistical power)은 무엇인가요?
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
