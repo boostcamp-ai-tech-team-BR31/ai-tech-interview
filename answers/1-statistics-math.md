@@ -281,13 +281,21 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 ## #8 
 ### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
 
-p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라,  내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **얻은 결론이 귀무가설 하에서 사실이 맞다는 가정하에 얻어질 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다. 
+p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라,  내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다. 
 + 여기서 작다의 기준은 유의수준(귀무가설 맞는데 기각하는 확률) 보다 p-value가 작다면 작다고 판단한다. 보통은 0.05
 
 ![img](images/math_8_p-value.gif)
 
 평균적으로 피자를 4조각 먹는다고 알려졌는데 내 생각에는 4조각 보다는 더 많이 먹는거같다. 내 생각을 통계적으로 증명해보자.
 sampling을 통해 사람들에게 물어본 결과 평균적으로 5.6조각을 먹었다. 이 때 유의수준(0.05)을 설정하고 p-value를 계산했을떄 0.05보다 작다면 대립가설을 채책한다. 즉 평균적으로 피자를 4조각보다 피자를 더 먹는것으로 결론을 내린다.
+
+
+
+**P-value 한 줄 정리**
+
+> P-value는 내가 주장하고자 하는 것을 통계적으로 유의미함을 보이기 위해 사용되는 것이다.
+
+명확한 정의는  **"귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률"** 이 정의가 맞으나 이정의를 풀어서 해석하면 P-value 낮다는것은 귀무가설을 지지하는 확률이 낮은것이니 대립가설(나의 주장)이 맞다고 할 수 있다. 따라서 나의 주장의 통계적으로 유의미함을 보이는데 사용되는 것이다.
 
 p-value의 사용 예시: 
 - 약의 유효성을 입증하거나(약이 효과 없다 VS 약이 효과 있다) 
@@ -514,7 +522,9 @@ S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트�
 
   
 
-## #14 베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요?
+## #14
+
+### 베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요?
 
 **Frequentist**: 모수는 정해진 값이다. 우리가 얻은 sample로 알 수 있는것은 이미 내린 결론에 부합하는지를 확인하는 것이다. 확률을 객관적으로 발생하는 현상의 빈도수로 바라본다.
 
@@ -530,50 +540,55 @@ S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트�
 
 **bayesian** 우선 사전 확률을 정의한다. 1/6이라고 하자
 
-이제 주사위를 실제로 60번 던졌더니  1이 총 12번  나왔다.  
+이제 주사위를 실제로 60번 던졌더니  1이 총 12번  나왔다.  이 사건에대해 두 파간 바라보는 관점이 다르다!
+
+
 
 **Frequentist**
 
 12/60 = 0.2 이므로 모비율 검정을 통해 이값이 1/6과 다른지 확인다. 모비율 검정을 실시한다.
-$$
-H_0: p = \frac{1}{6} \hspace{0.2cm}vs \hspace{0.2cm} H_1:p\neq\frac{1}{6}\\
-\begin{aligned}
-Z &= \frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}\\
-&=\frac{\frac{12}{60}-\frac{1}{6}}{\sqrt{\frac{\frac{1}{6}*\frac{5}{6}}{60}}}\\
-&=1.2
-\end{aligned}
-$$
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=H_0: p = \frac{1}{6} \hspace{0.2cm}vs \hspace{0.2cm} H_1:p\neq\frac{1}{6}">
+</div>
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=Z = \frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}=\frac{\frac{12}{60}-\frac{1}{6}}{\sqrt{\frac{\frac{1}{6}*\frac{5}{6}}{60}}}=1.2">
+</div>
+
 Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기각하지 못한다. 즉 p=1/6이라는 것을 확인 할 수 있다.
 
 > Frequentist의 이러한 action은 이미 내린 결론에 부합하는지를 확인하는 행동이다.
+
+
 
 **Beyesian**
 
 베이지안의 패러다임은 다음과 같다.
 
 1)  모수의 사전분포 결정
-
 2) 베이즈 정리를 통한 계산
-
 3) 사후분포를 이용한 모수 추정
 
-   ![math_14](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\부캠\ai-tech-interview\answers\images\math_14.PNG)
+![](./images/math_14.PNG)
 
-$$
-P(\theta) = \frac{1}{6}, \hspace{0.2cm} P(D) = ?, \hspace{0.2cm} P(D|\theta) = {60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}
-$$
+
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta) = \frac{1}{6}, \hspace{0.2cm} P(D) = ?, \hspace{0.2cm} P(D|\theta) = {60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}">
+</div>
 
 위의 값을 이용하여 사후 확률을 계산하여 모수에대한 정보를 업데이트 한다.
-$$
-P(\theta)\frac{P(D|\theta) }{P(D)} = \frac{1}{6}\frac{{60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}}{?} = \text{업데이트된 값}
-$$
-따라서 모수에 대한 추정값을 주어진 정보(Evidence, 데이터)를 이용하여 업데이트한다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta)\frac{P(D|\theta) }{P(D)} = \frac{1}{6}\frac{{60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}}{?} = \text{updated parameter}">
+</div>
 
 #### 예시 2
 
-(베이지안 패러다임)[https://freshrimpsushi.github.io/posts/bayesian-paradigm/]
+[베이지안 패러다임 예시](https://freshrimpsushi.github.io/posts/bayesian-paradigm/)
 
 #### Reference
 
-- (Statistics: Are you Baysian or Frequentist ?)[https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b]
-- (Frequentist and Bayesian)[https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText]
+- [Statistics: Are you Baysian or Frequentist ?)]([https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
+- [Frequentist and Bayesian](https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText)
