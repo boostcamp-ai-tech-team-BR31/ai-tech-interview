@@ -584,13 +584,11 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
   <img src="https://render.githubusercontent.com/render/math?math=P(\theta)\frac{P(D|\theta) }{P(D)} = \frac{1}{6}\frac{{60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}}{?} = \text{updated parameter}">
 </div>
 
-따라서 모수에 대한 추정값을 주어진 정보(Evidence, 데이터)를 이용하여 업데이트한다.
-
 #### 예시 2
 
-(베이지안 패러다임)[https://freshrimpsushi.github.io/posts/bayesian-paradigm/]
+[베이지안 패러다임 예시](https://freshrimpsushi.github.io/posts/bayesian-paradigm/)
 
 #### Reference
 
-- (Statistics: Are you Baysian or Frequentist ?)[https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b]
-- (Frequentist and Bayesian)[https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText]
+- [Statistics: Are you Baysian or Frequentist ?)]([https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
+- [Frequentist and Bayesian](https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText)
