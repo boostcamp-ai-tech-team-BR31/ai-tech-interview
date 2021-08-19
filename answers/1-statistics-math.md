@@ -590,5 +590,6 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 #### Reference
 
-- [Statistics: Are you Baysian or Frequentist ?)]([https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
+- [Statistics: Are you Baysian or Frequentist?](https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
 - [Frequentist and Bayesian](https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText)
+
