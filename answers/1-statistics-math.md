@@ -593,3 +593,33 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 - [Statistics: Are you Baysian or Frequentist?](https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
 - [Frequentist and Bayesian](https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText)
 
+
+
+## #15
+
+### missing value가 있을 경우 채워야 할까요? 그 이유는 무엇인가요?
+
+- **완전 무작위 결측(MCAR: Missing Completely At Random)**
+  : X1, X2, X3라는 특성이 있다고 가정합시다. 이 때, X2열의 결측치가 X1, X2, X3열의 다른 값들과 아무런 상관관계가 없을 경우, 이를 완전 무작위 결측이라고 합니다. 대부분의 결측치 처리 패키지는 이러한 유형의 결측치를 대상으로 하고 있으며, 데이터를 입력한 이가 실수를 했거나, 전상상의 에러가 난 경우입니다.
+- **무작위 결측(MAR: Missing At Random)**
+  : X1, X2, X3라는 특성이 있다고 가정합시다. 이 때, X1이 True인 경우, X2는 결측치를 갖고, X1이 False인 경우, X2는 값을 가진다면, 다시 말해 다른 특성의 값에 따라 결측치의 발생 확률이 계산된다면, 그러나 값자체의 상관관계는 알 수 없는 경우. 이를 무작위 결측이라 합니다.
+- **비무작위 결측(NMAR: Not Missing At Random)**
+  : 위의 두가지 유형이 아닐 때, 비무작위 결측이라 합니다. 이 경우 결측치가 일어난 특성(X2)의 값이 다른 특성(X1)의 값과 상관관계가 있습니다.
+
+
+
+#### 제거한다면?
+
+결측치가 발생한 행 또는 열 삭제해버리는, 가장 쉽고, 단순한 방식입니다. 그러나 당연하게도, 이런 방식은 데이터의 손실(=표본 크기의 축소)로 이어집니다. 또한 경우에 따라 결측값을 무시하고 관측치만으로 분석을 시행할 경우 통계적 편향이 생길 가능성이 커지기에 조심히 시행되어야합니다.
+
+데이터 특성에 맞게 평균, 중간값이나 단순히 0이나 이전값 으로도 채울 수 있으나 이런 단순 대체하는 방법은 자료의 편향성을 높이고 특성들간의 상관관계를 왜곡할 수 있는 가장 안 좋은 방법입니다.
+
+결측치를 예측하는 새로운 모델을 구성해, 이를 기반으로 결측치를 채워나갈 수 있습니다.
+
+
+
+#### Reference
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Missing_data)
+- [Incomplete data](http://www.math.chalmers.se/Stat/Grundutb/GU/MSA650/S09/Lecture5.pdf)
+
