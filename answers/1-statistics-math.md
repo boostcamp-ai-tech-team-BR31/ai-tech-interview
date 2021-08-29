@@ -706,7 +706,9 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 
 
-<img src="images/samplesize.PNG" alt="ss" style="zoom:50%;" />
+<img src="images/samplesize.PNG" width="width 50%" height="hieght 50%" />
+
+
 
 <img src="images/zscore.PNG" alt="zs" style="zoom:50%;" />
 
