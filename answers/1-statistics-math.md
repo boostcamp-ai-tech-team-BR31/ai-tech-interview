@@ -24,6 +24,8 @@
 - [어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?](#16)
 - [모수가 매우 적은 (수십개 이하) 케이스의 경우 어떤 방식으로 예측 모델을 수립할 수 있을까요?](#17)
 - [아웃라이어의 판단하는 기준은 무엇인가요?](#18)
+- [필요한 표본의 크기를 어떻게 계산합니까?](#24)
+- [Bias를 통제하는 방법은 무엇일까요?](#25)
 
 ## #1
 
@@ -659,8 +661,6 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 [순위합 검정](https://3months.tistory.com/128)
 
-
-
 ## #24
 
 ### 필요한 표본의 크기를 어떻게 계산합니까?
@@ -705,3 +705,50 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 ![zs](images/zscore.PNG)
 
+## #25 
+
+**Bias를 통제하는 방법은 무엇일까요?**
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20210323204619/imgonlinecomuaresizeLOjqonkALC.jpg">
+
+- Bias: 알고리즘에서 잘못된 가정을 했을 때 발생하는 오차 (X와 Y의 관계를 충분히 설명 못해서 발생[underfit])
+- Variance: 학습데이터에 작은 변동성 때문에 발생하는 오차이다. 기존에 학습데이터에서는 작은 error를 보였으나 학습 데이터와는 다른 데이터가 들어와 기존의 모델로 높은 에러를 얻게될 때, 분산이 높은 것이다. (X와 Y의 관계의 일반화 실패[overfit])
+
+**Underfitting(high bias and low Variance)**
+
+기계학습에서 underfitting 문제는 데이터를 충분히 학습시키지 못했다는 의미로 보통 정확한 모델을 만들기 위한 데이터가 적거나, 비선형관계를 선형관계로 표현하려고 할때 발생한다.
+
+underfitting을 줄이는 방법(Bias를 줄이는 방법)
+
+1. 모델의 복잡도를 증가시킨다.
+2. Feature Engineering을 통해 feature의 수를 증가시킨다.
+3. Data에서 Noise를 제거한다.
+4. Epoch수를 증가시킨다.
+5. 데이터를 추가한다.
+
+**Ovefitting(low bias and high variance)**
+
+모델이 학습데이터의 detail과 noise에 대하여 학습하여 새로운 데이터(validation or test)에 안좋은 성능을 보이게 되는 경우이다. 이러한 모델은 일반화의 성능을 잃어버린다.
+
+overfitting을 줄이는 방법(variance를 줄이는 방법)
+
+1. 모델의 복잡도를 줄인다.
+2. Feature 수를 감소 시킨다.
+3. 학습과정에서 Early stopping, Dropout 등을 이용한다. 
+4. 데이터 수를 증가시킨다.
+
+**Bias-variance trade-off**
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bias_and_variance_contributing_to_total_error.svg/330px-Bias_and_variance_contributing_to_total_error.svg.png">
+
+Variance와 Bias는 Trade off 관계에 있으므로 Total error를 최소한으로 하는 적절한 model을 만들어야 한다.
+
+#### Reference
+
+- [ML | Underfitting and Overfitting - geeksforgeeks](!https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/)
+
+- [Overfitting and Underfitting With Machine Learning Algorithms](!https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/)
+
+- [Wikipedia Bias–variance_tradeoff ](!https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
+
+  
