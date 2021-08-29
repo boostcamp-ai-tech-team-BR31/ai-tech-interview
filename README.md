@@ -38,12 +38,18 @@
 - 어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?
 - 모수가 매우 적은 (수십개 이하) 케이스의 경우 어떤 방식으로 예측 모델을 수립할 수 있을까요? 
 - 아웃라이어의 판단하는 기준은 무엇인가요? 
+- 필요한 표본의 크기를 어떻게 계산합니까?
+- Bias를 통제하는 방법은 무엇입니까?
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
 ### [🤖 Machine Learning](./answers/2-machine-learning.md)
-- test1
-- test2
+- 알고 있는 metric에 대해 설명해주세요. (ex. RMSE, MAE, recall, precision ...)
+- 정규화를 왜 해야할까요? 정규화의 방법은 무엇이 있나요?
+- Local Minima와 Global Minima에 대해 설명해주세요.
+- 차원의 저주에 대해 설명해주세요.
+- dimension reduction기법으로 보통 어떤 것들이 있나요?
+- PCA는 차원 축소 기법이면서, 데이터 압축 기법이기도 하고, 노이즈 제거기법이기도 합니다. 왜 그런지 설명해주실 수 있나요?
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
