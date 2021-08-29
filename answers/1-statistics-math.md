@@ -24,6 +24,7 @@
 - [어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?](#16)
 - [모수가 매우 적은 (수십개 이하) 케이스의 경우 어떤 방식으로 예측 모델을 수립할 수 있을까요?](#17)
 - [아웃라이어의 판단하는 기준은 무엇인가요?](#18)
+- [필요한 표본의 크기를 어떻게 계산합니까?](#24)
 
 ## #1
 
@@ -701,7 +702,7 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 
 
-![ss](images/samplesize.png)
+<img src="images/samplesize.PNG" alt="ss" style="zoom:50%;" />
 
-![zs](images/zscore.PNG)
+<img src="images/zscore.PNG" alt="zs" style="zoom:50%;" />
 
