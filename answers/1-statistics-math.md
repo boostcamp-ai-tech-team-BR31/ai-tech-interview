@@ -26,6 +26,7 @@
 - [아웃라이어의 판단하는 기준은 무엇인가요?](#18)
 - [필요한 표본의 크기를 어떻게 계산합니까?](#24)
 - [Bias를 통제하는 방법은 무엇일까요?](#25)
+- [로그 함수는 어떤 경우 유용합니까? 사례를 들어 설명해주세요.](#26)
 
 ## #1
 
@@ -757,9 +758,42 @@ Variance와 Bias는 Trade off 관계에 있으므로 Total error를 최소한으
 #### Reference
 
 - [ML | Underfitting and Overfitting - geeksforgeeks](!https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/)
-
 - [Overfitting and Underfitting With Machine Learning Algorithms](!https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/)
-
 - [Wikipedia Bias–variance_tradeoff ](!https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
 
-  
+
+
+## #26
+
+### 로그 함수는 어떤 경우 유용합니까? 사례를 들어 설명해주세요.
+
+1. 기하급수를 지수로 줄임 : 정규성 높임
+
+log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서, log를 씌여주는 것으로써 데이터 간 편차를 줄여 왜도와 첨도를 줄일 수 있게 됩니다. 이로 인해 정규성이 높아집니다!
+
+![](./images/log_26.PNG)
+
+2. 비선형관계를 선형관계로 변환
+
+기하급수적으로 증가하는 지수함수는 우상향 곡선을 띄고 있습니다. 이러한 비선형관계를 log를 활용해 직선으로 변환할 수 있습니다. 선형관계로 변환함으로서 문제해결을 위한 다양한 방법을 적용할 수 있다는 장점이 있습니다.
+
+
+
+3. 로그의 특성 활용
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=log{AB}, log{\frac{A}{B}} = logA\pm logB">
+</div>
+
+1번, 2번에서 언급한 로그의 특성 외에도 로그는 일반적인 수학관계에서 독특한 성질을 갖고 있습니다.
+
+​	곱/나눔 관계인 것을 더하기/빼기 관계로 바꿀 수 있습니다.
+
+​	증가할수록 gradient가 줄어듭니다. 등이 있습니다.
+
+이러한 로그의 특성을 이론에 대한 정립에 활용하곤 합니다. 대표적으로 정보량을 수식으로 표현한 섀넌 엔트로피 입니다. 정보량에 대한 성질이 로그의 특성과 맞아 떨어져서 로그 연산을 활용해 정보량을 계산합니다. 이는 cross-entropy의 기본이 되는 이론이 됩니다.
+
+#### Reference
+
+- [데이터 분석 식에서 로그를 취하는 이유](https://leebaro.tistory.com/entry/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%8B%9C-%EC%8B%9D%EC%97%90-%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B7%A8%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
+- [정보이론 기초](https://ratsgo.github.io/statistics/2017/09/22/information/)
