@@ -709,6 +709,13 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 
 
+#### Reference
+
+- [nownsurvey](https://www.nownsurvey.com/calculator/)
+- [SurveyMonkey](https://ko.surveymonkey.com/mp/sample-size-calculator/)
+
+
+
 ## #25 
 
 **Bias를 통제하는 방법은 무엇일까요?**
