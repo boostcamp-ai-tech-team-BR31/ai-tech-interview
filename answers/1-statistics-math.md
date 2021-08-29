@@ -19,11 +19,13 @@
 - [중심극한정리는 왜 유용한걸까요?](#11)
 - [엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요](#12)
 - [검정력(statistical power)은 무엇인가요?](#13)
-- [베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요? ](#14)
+- [베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요?](#14 )
 - [missing value가 있을 경우 채워야 할까요? 그 이유는 무엇인가요?](#15)
 - [어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?](#16)
 - [모수가 매우 적은 (수십개 이하) 케이스의 경우 어떤 방식으로 예측 모델을 수립할 수 있을까요?](#17)
 - [아웃라이어의 판단하는 기준은 무엇인가요?](#18)
+- [필요한 표본의 크기를 어떻게 계산합니까?](#24)
+- [Bias를 통제하는 방법은 무엇일까요?](#25)
 
 ## #1
 
@@ -213,27 +215,23 @@ D : 새로 관찰하는 데이터
 #### 공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요
 
 **공분산**
-
-<img src="https://render.githubusercontent.com/render/math?math= $$\begin{aligned}
+$$
+\begin{aligned}
 Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 &=E[XY - YE[X] -XE[Y]+E[X]E[Y]] \\
 &=E[XY] -E[Y]E[X]-E[X]E[Y] + E[X]E[Y] \hspace{0.2cm}(E[X], \hspace{0.2cm} E[Y]\text{는 상수})\\
 &=E[XY] - E[X]E[Y]
-\end{aligned}$$">
-
-
-
+\end{aligned}
+$$
 2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다. 
 
 **상관계수**
-
-<img src="https://render.githubusercontent.com/render/math?math= $$\begin{aligned}
+$$
+\begin{aligned}
 \rho_{X,Y} = corr(X,Y) &= \frac{Cov(X,Y)}{\sigma_X\sigma_Y}\\
 &=\frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]^2}\sqrt{E[Y^2]-E[Y]^2}}
-\end{aligned}$$">
-
-
-
+\end{aligned}
+$$
 두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다. 
 
 > 공분산은 변수의 측정 단위에 크기에 따라 값이 달라지므로 공분산통해 두 변수간의 관계를 파악하기에는 부적절하다. 따라서 상관계수를 이용하여 두 변수간의 관계 파악 !! 
@@ -281,13 +279,21 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 ## #8 
 ### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
 
-p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라,  내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **얻은 결론이 귀무가설 하에서 사실이 맞다는 가정하에 얻어질 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다. 
+p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라,  내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다. 
 + 여기서 작다의 기준은 유의수준(귀무가설 맞는데 기각하는 확률) 보다 p-value가 작다면 작다고 판단한다. 보통은 0.05
 
 ![img](images/math_8_p-value.gif)
 
 평균적으로 피자를 4조각 먹는다고 알려졌는데 내 생각에는 4조각 보다는 더 많이 먹는거같다. 내 생각을 통계적으로 증명해보자.
 sampling을 통해 사람들에게 물어본 결과 평균적으로 5.6조각을 먹었다. 이 때 유의수준(0.05)을 설정하고 p-value를 계산했을떄 0.05보다 작다면 대립가설을 채책한다. 즉 평균적으로 피자를 4조각보다 피자를 더 먹는것으로 결론을 내린다.
+
+
+
+**P-value 한 줄 정리**
+
+> P-value는 내가 주장하고자 하는 것을 통계적으로 유의미함을 보이기 위해 사용되는 것이다.
+
+명확한 정의는  **"귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률"** 이 정의가 맞으나 이정의를 풀어서 해석하면 P-value 낮다는것은 귀무가설을 지지하는 확률이 낮은것이니 대립가설(나의 주장)이 맞다고 할 수 있다. 따라서 나의 주장의 통계적으로 유의미함을 보이는데 사용되는 것이다.
 
 p-value의 사용 예시: 
 - 약의 유효성을 입증하거나(약이 효과 없다 VS 약이 효과 있다) 
@@ -509,4 +515,251 @@ S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트�
 - [1종오류와 2종오류](https://www.abtasty.com/blog/type-1-and-type-2-errors/)
 
 - [귀무가설과 대립가설](https://drhongdatanote.tistory.com/59)
+
 - [검정력의 의미](https://m.blog.naver.com/PostView.nhn?blogId=hancury&logNo=220854934914&proxyReferer=https:%2F%2Fwww.google.com%2F)
+
+  
+
+## #14
+
+### 베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요?
+
+**Frequentist**: 모수는 정해진 값이다. 우리가 얻은 sample로 알 수 있는것은 이미 내린 결론에 부합하는지를 확인하는 것이다. 확률을 객관적으로 발생하는 현상의 빈도수로 바라본다.
+
+**Bayesian**: 모수는 확률변수이다. 우리가 얻은 sample로 알 수 있는것은 기존에 갖고 있던 결론을 sample 정보를 통해 업데이트 함으로써 새로운 모수를 추정할 수 있다. 확률을 현상에 대한 관찰자의 주관적인 믿음의 체계로 본다.
+
+
+
+##### 상황을 바라보는 입장 차이 예시
+
+ Q) fair한 6면 주사위가 하나 있을때, 이 주사위를 던져서 1의 눈이 나올 확률은?
+
+**Frequentist** : 1/6 (∵ 주사위는 fair하므로 6개의 경우들은 모두 같은 빈도로 발생할 것이다.)
+
+**bayesian** 우선 사전 확률을 정의한다. 1/6이라고 하자
+
+이제 주사위를 실제로 60번 던졌더니  1이 총 12번  나왔다.  이 사건에대해 두 파간 바라보는 관점이 다르다!
+
+
+
+**Frequentist**
+
+12/60 = 0.2 이므로 모비율 검정을 통해 이값이 1/6과 다른지 확인다. 모비율 검정을 실시한다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=H_0: p = \frac{1}{6} \hspace{0.2cm}vs \hspace{0.2cm} H_1:p\neq\frac{1}{6}">
+</div>
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=Z = \frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}=\frac{\frac{12}{60}-\frac{1}{6}}{\sqrt{\frac{\frac{1}{6}*\frac{5}{6}}{60}}}=1.2">
+</div>
+
+Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기각하지 못한다. 즉 p=1/6이라는 것을 확인 할 수 있다.
+
+> Frequentist의 이러한 action은 이미 내린 결론에 부합하는지를 확인하는 행동이다.
+
+
+
+**Beyesian**
+
+베이지안의 패러다임은 다음과 같다.
+
+1)  모수의 사전분포 결정
+2) 베이즈 정리를 통한 계산
+3) 사후분포를 이용한 모수 추정
+
+![](./images/math_14.PNG)
+
+
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta) = \frac{1}{6}, \hspace{0.2cm} P(D) = ?, \hspace{0.2cm} P(D|\theta) = {60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}">
+</div>
+
+위의 값을 이용하여 사후 확률을 계산하여 모수에대한 정보를 업데이트 한다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=P(\theta)\frac{P(D|\theta) }{P(D)} = \frac{1}{6}\frac{{60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}}{?} = \text{updated parameter}">
+</div>
+
+#### 예시 2
+
+[베이지안 패러다임 예시](https://freshrimpsushi.github.io/posts/bayesian-paradigm/)
+
+#### Reference
+
+- [Statistics: Are you Baysian or Frequentist?](https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
+- [Frequentist and Bayesian](https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText)
+
+
+
+## #15
+
+### missing value가 있을 경우 채워야 할까요? 그 이유는 무엇인가요?
+
+- **완전 무작위 결측(MCAR: Missing Completely At Random)**
+  : X1, X2, X3라는 특성이 있다고 가정합시다. 이 때, X2열의 결측치가 X1, X2, X3열의 다른 값들과 아무런 상관관계가 없을 경우, 이를 완전 무작위 결측이라고 합니다. 대부분의 결측치 처리 패키지는 이러한 유형의 결측치를 대상으로 하고 있으며, 데이터를 입력한 이가 실수를 했거나, 전상상의 에러가 난 경우입니다.
+- **무작위 결측(MAR: Missing At Random)**
+  : X1, X2, X3라는 특성이 있다고 가정합시다. 이 때, X1이 True인 경우, X2는 결측치를 갖고, X1이 False인 경우, X2는 값을 가진다면, 다시 말해 다른 특성의 값에 따라 결측치의 발생 확률이 계산된다면, 그러나 값자체의 상관관계는 알 수 없는 경우. 이를 무작위 결측이라 합니다.
+- **비무작위 결측(NMAR: Not Missing At Random)**
+  : 위의 두가지 유형이 아닐 때, 비무작위 결측이라 합니다. 이 경우 결측치가 일어난 특성(X2)의 값이 다른 특성(X1)의 값과 상관관계가 있습니다.
+
+
+
+#### 제거한다면?
+
+결측치가 발생한 행 또는 열 삭제해버리는, 가장 쉽고, 단순한 방식입니다. 그러나 당연하게도, 이런 방식은 데이터의 손실(=표본 크기의 축소)로 이어집니다. 또한 경우에 따라 결측값을 무시하고 관측치만으로 분석을 시행할 경우 통계적 편향이 생길 가능성이 커지기에 조심히 시행되어야합니다.
+
+데이터 특성에 맞게 평균, 중간값이나 단순히 0이나 이전값 으로도 채울 수 있으나 이런 단순 대체하는 방법은 자료의 편향성을 높이고 특성들간의 상관관계를 왜곡할 수 있는 가장 안 좋은 방법입니다.
+
+결측치를 예측하는 새로운 모델을 구성해, 이를 기반으로 결측치를 채워나갈 수 있습니다.
+
+
+
+#### Reference
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Missing_data)
+- [Incomplete data](http://www.math.chalmers.se/Stat/Grundutb/GU/MSA650/S09/Lecture5.pdf)
+
+
+
+## #16
+
+### 어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?
+
+표본의 평균, 표준편차, 분산 등을 **통계량**이라고 하며 모집단의 모평균, 모표준편차,모분산 등을 **모수**라고 한다. 
+
+통계량을 통해 모수를 추정하는 방법을 **통계적 추론**이라고 한다.
+
+
+
+#### 모수적 방법
+
+중심극한정리에 의해서 본래의 분포에 상관없이 무작위로 복원추출된 연속형 자료의 평균의 분포는 **정규분포**를 띤다는것을 알고있다. 비교하고자 하는 두 집단이 모두 정규분포를 띤다면 두 집단의 평균을 비교함으로써 차이를 밝힐 수 있는데 이렇게 **정규성을 갖는 모수적 특성을 이용**하는 통계적 방법을 모수적 방법이라고 한다.
+
+
+
+#### 비모수적 방법
+
+모수적 방법을 사용할 수 없을 때 자료를 크기 순으로 배열하여 순위를 매긴 다음 순위의 합을 통해 차이를 비교하는 순위합검정을 적용할 수 있는데 이런 방법들은 모수의 특성을 이용하지 않는다고 하여 비모수적 방법이라고 한다.
+
+
+
+#### 어떨때 사용?
+
+일반적으로 표본의 개수가 30개 이상으로 충분히 크거나, 10~30개 이면서 정규성 검정에서 정규분포로 간주되는 연속형 자료의 경우 모수적 방법을 사용할 수 있으며, 그 외의 경우는 비모수적 방법을 사용한다. 
+
+비모수적 방법보다 모수적 방법을 선호하는 이유는 모수적 방법이 검정력이 높고, 두 군 사이에 크기 차이를 함께 제시해 줄 수 있기때문이다. 대신 비모수적 방법은 숫자로 되어 있는 모든 경우에 적용할 수 있는 장점이 있다.
+
+
+
+#### Reference
+
+[모수적 방법 vs 비모수적 방법](https://zzanhtt.tistory.com/18)
+
+[모수적 검정 vs 비모수적 검정](https://specialscene.tistory.com/82)
+
+[순위합 검정](https://3months.tistory.com/128)
+
+## #24
+
+### 필요한 표본의 크기를 어떻게 계산합니까?
+
+표본오차 - 설문조사 결과가 전체 모집단의 관점을 반영하는 정도를 얼마나 기대할 수 있는지 보여주는 백분율. 오차한계가 작을수록 주어진 신회 수준의 정확한 답변을 받을 확률에 더 가까워 짐
+
+신뢰 수준 - 모집단이 특정 범위 내의 답변을 선택할 것이라고 얼마나 확신할 수 있는지를 나타내는 백분율
+
+[사례] 선거철이 되면 우리는 다음과 같은 기사를 흔히 접하게 된다. “후보 지지율 설문조사에서 A후보는 40%, B후보는 30%의 지지율을 얻었다. 이번 조사는 전국 성인남녀 천명을 대상으로 무작위 전화 면접조사로 실시되었고 신뢰수준 95%에서 표본오차는 ±3.0%포인트이다.”
+
+(의문) 여기서 ‘신뢰수준 95%에서 표본오차 3.0%포인트’란 말의 의미는 무엇일까?
+
+(해석) 위와 같은 동일한 형태의 여론조사를 100번 실시한다면 95번은 A후보가 40%에서 ±3.0% 인 37% ~ 43%, B후보는 30%에서 ±3.0% 인 27% ~ 33% 사이의 지지율을 얻을 것으로 기대된다는 의미이다.
+
+**N**
+
+: 모집단의 크기(Population Size)
+
+분석하려는 집단의 전체 인구수
+
+(예, 선거여론조사에서 전체 유권자수)
+
+**n**
+
+: 표본의 크기(Sample Size) 설문조사에서는 전체 응답 완료자수
+
+**e**
+
+: 표본오차(Margin of error or confidence interval)
+
+**Z**
+
+: 신뢰수준(Confidence Level)에 대응하는 z-score를 사용한다.
+
+**P**
+
+: 관찰치(The observed percentage) 보통 최대 표본오차를 구하기 위해서 P=0.5를 사용한다
+
+
+
+<img src="images/samplesize.PNG" width="30%" height="30%">
+
+
+
+<img src="images/zscore.PNG" width="40%" height="50%" />
+
+
+
+#### Reference
+
+- [nownsurvey](https://www.nownsurvey.com/calculator/)
+- [SurveyMonkey](https://ko.surveymonkey.com/mp/sample-size-calculator/)
+
+
+
+## #25 
+
+**Bias를 통제하는 방법은 무엇일까요?**
+
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20210323204619/imgonlinecomuaresizeLOjqonkALC.jpg">
+
+- Bias: 알고리즘에서 잘못된 가정을 했을 때 발생하는 오차 (X와 Y의 관계를 충분히 설명 못해서 발생[underfit])
+- Variance: 학습데이터에 작은 변동성 때문에 발생하는 오차이다. 기존에 학습데이터에서는 작은 error를 보였으나 학습 데이터와는 다른 데이터가 들어와 기존의 모델로 높은 에러를 얻게될 때, 분산이 높은 것이다. (X와 Y의 관계의 일반화 실패[overfit])
+
+**Underfitting(high bias and low Variance)**
+
+기계학습에서 underfitting 문제는 데이터를 충분히 학습시키지 못했다는 의미로 보통 정확한 모델을 만들기 위한 데이터가 적거나, 비선형관계를 선형관계로 표현하려고 할때 발생한다.
+
+underfitting을 줄이는 방법(Bias를 줄이는 방법)
+
+1. 모델의 복잡도를 증가시킨다.
+2. Feature Engineering을 통해 feature의 수를 증가시킨다.
+3. Data에서 Noise를 제거한다.
+4. Epoch수를 증가시킨다.
+5. 데이터를 추가한다.
+
+**Ovefitting(low bias and high variance)**
+
+모델이 학습데이터의 detail과 noise에 대하여 학습하여 새로운 데이터(validation or test)에 안좋은 성능을 보이게 되는 경우이다. 이러한 모델은 일반화의 성능을 잃어버린다.
+
+overfitting을 줄이는 방법(variance를 줄이는 방법)
+
+1. 모델의 복잡도를 줄인다.
+2. Feature 수를 감소 시킨다.
+3. 학습과정에서 Early stopping, Dropout 등을 이용한다. 
+4. 데이터 수를 증가시킨다.
+
+**Bias-variance trade-off**
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bias_and_variance_contributing_to_total_error.svg/330px-Bias_and_variance_contributing_to_total_error.svg.png">
+
+Variance와 Bias는 Trade off 관계에 있으므로 Total error를 최소한으로 하는 적절한 model을 만들어야 한다.
+
+#### Reference
+
+- [ML | Underfitting and Overfitting - geeksforgeeks](!https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/)
+
+- [Overfitting and Underfitting With Machine Learning Algorithms](!https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/)
+
+- [Wikipedia Bias–variance_tradeoff ](!https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
+
+  
