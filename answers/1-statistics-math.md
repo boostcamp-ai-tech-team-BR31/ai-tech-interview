@@ -213,27 +213,23 @@ D : 새로 관찰하는 데이터
 #### 공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요
 
 **공분산**
-
-<img src="https://render.githubusercontent.com/render/math?math= $$\begin{aligned}
+$$
+\begin{aligned}
 Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 &=E[XY - YE[X] -XE[Y]+E[X]E[Y]] \\
 &=E[XY] -E[Y]E[X]-E[X]E[Y] + E[X]E[Y] \hspace{0.2cm}(E[X], \hspace{0.2cm} E[Y]\text{는 상수})\\
 &=E[XY] - E[X]E[Y]
-\end{aligned}$$">
-
-
-
+\end{aligned}
+$$
 2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다. 
 
 **상관계수**
-
-<img src="https://render.githubusercontent.com/render/math?math= $$\begin{aligned}
+$$
+\begin{aligned}
 \rho_{X,Y} = corr(X,Y) &= \frac{Cov(X,Y)}{\sigma_X\sigma_Y}\\
 &=\frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]^2}\sqrt{E[Y^2]-E[Y]^2}}
-\end{aligned}$$">
-
-
-
+\end{aligned}
+$$
 두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다. 
 
 > 공분산은 변수의 측정 단위에 크기에 따라 값이 달라지므로 공분산통해 두 변수간의 관계를 파악하기에는 부적절하다. 따라서 상관계수를 이용하여 두 변수간의 관계 파악 !! 
