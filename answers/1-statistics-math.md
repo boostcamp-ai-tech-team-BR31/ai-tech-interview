@@ -24,6 +24,9 @@
 - [어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?](#16)
 - [모수가 매우 적은 (수십개 이하) 케이스의 경우 어떤 방식으로 예측 모델을 수립할 수 있을까요?](#17)
 - [아웃라이어의 판단하는 기준은 무엇인가요?](#18)
+- [필요한 표본의 크기를 어떻게 계산합니까?](#24)
+- [Bias를 통제하는 방법은 무엇일까요?](#25)
+- [로그 함수는 어떤 경우 유용합니까? 사례를 들어 설명해주세요.](#26)
 
 ## #1
 
@@ -216,21 +219,25 @@ D : 새로 관찰하는 데이터
 
 **공분산**
 
-<img src="https://render.githubusercontent.com/render/math?math= $$\begin{aligned}
+$$
+\begin{aligned}
 Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 &=E[XY - YE[X] -XE[Y]+E[X]E[Y]] \\
 &=E[XY] -E[Y]E[X]-E[X]E[Y] + E[X]E[Y] \hspace{0.2cm}(E[X], \hspace{0.2cm} E[Y]\text{는 상수})\\
 &=E[XY] - E[X]E[Y]
-\end{aligned}$$">
+\end{aligned}
+$$
 
 2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다.
 
 **상관계수**
 
-<img src="https://render.githubusercontent.com/render/math?math= $$\begin{aligned}
+$$
+\begin{aligned}
 \rho_{X,Y} = corr(X,Y) &= \frac{Cov(X,Y)}{\sigma_X\sigma_Y}\\
 &=\frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]^2}\sqrt{E[Y^2]-E[Y]^2}}
-\end{aligned}$$">
+\end{aligned}
+$$
 
 두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다.
 
@@ -624,7 +631,52 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 [순위합 검정](https://3months.tistory.com/128)
 
+## #24
 
+### 필요한 표본의 크기를 어떻게 계산합니까?
+
+표본오차 - 설문조사 결과가 전체 모집단의 관점을 반영하는 정도를 얼마나 기대할 수 있는지 보여주는 백분율. 오차한계가 작을수록 주어진 신회 수준의 정확한 답변을 받을 확률에 더 가까워 짐
+
+신뢰 수준 - 모집단이 특정 범위 내의 답변을 선택할 것이라고 얼마나 확신할 수 있는지를 나타내는 백분율
+
+[사례] 선거철이 되면 우리는 다음과 같은 기사를 흔히 접하게 된다. “후보 지지율 설문조사에서 A후보는 40%, B후보는 30%의 지지율을 얻었다. 이번 조사는 전국 성인남녀 천명을 대상으로 무작위 전화 면접조사로 실시되었고 신뢰수준 95%에서 표본오차는 ±3.0%포인트이다.”
+
+(의문) 여기서 ‘신뢰수준 95%에서 표본오차 3.0%포인트’란 말의 의미는 무엇일까?
+
+(해석) 위와 같은 동일한 형태의 여론조사를 100번 실시한다면 95번은 A후보가 40%에서 ±3.0% 인 37% ~ 43%, B후보는 30%에서 ±3.0% 인 27% ~ 33% 사이의 지지율을 얻을 것으로 기대된다는 의미이다.
+
+**N**
+
+: 모집단의 크기(Population Size)
+
+분석하려는 집단의 전체 인구수
+
+(예, 선거여론조사에서 전체 유권자수)
+
+**n**
+
+: 표본의 크기(Sample Size) 설문조사에서는 전체 응답 완료자수
+
+**e**
+
+: 표본오차(Margin of error or confidence interval)
+
+**Z**
+
+: 신뢰수준(Confidence Level)에 대응하는 z-score를 사용한다.
+
+**P**
+
+: 관찰치(The observed percentage) 보통 최대 표본오차를 구하기 위해서 P=0.5를 사용한다
+
+<img src="images/samplesize.PNG" width="30%" height="30%">
+
+<img src="images/zscore.PNG" width="40%" height="50%" />
+
+#### Reference
+
+- [nownsurvey](https://www.nownsurvey.com/calculator/)
+- [SurveyMonkey](https://ko.surveymonkey.com/mp/sample-size-calculator/)
 
 ## #18
 
@@ -634,10 +686,7 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 > 통계적 자료분석의 결과를 왜곡시키거나, 자료 분석의 적절성을 위협하는 변수값 또는 사례를 말한다.
 
-
 ![img](images/math_18.jpg)
-
-
 
 **기술 통계학적 기법**에서는 분포의 집중경향치의 값을 왜곡시키서나, 상관계수 추정치의 값을 왜곡시키는 개체 또는 변수의 값 의미한다.
 
@@ -656,8 +705,6 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 위의 그림에서 보면 파란점들이 아웃라이어라는 것을 알 수 있는데 닫힌 점은 `extreme outlier` , 열려있는 점은 `mild outliers` 라 한다.
 
-
-
 이 boxplot을 통해 Outlier를 판단 할 수 있는데
 
 ![](https://t1.daumcdn.net/cfile/tistory/1537CD474DD8207302)
@@ -670,9 +717,79 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 [데이터 아웃라이어 처리하기](https://sjquant.tistory.com/17)
 
+## #25
 
+**Bias를 통제하는 방법은 무엇일까요?**
 
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20210323204619/imgonlinecomuaresizeLOjqonkALC.jpg">
 
+- Bias: 알고리즘에서 잘못된 가정을 했을 때 발생하는 오차 (X와 Y의 관계를 충분히 설명 못해서 발생[underfit])
+- Variance: 학습데이터에 작은 변동성 때문에 발생하는 오차이다. 기존에 학습데이터에서는 작은 error를 보였으나 학습 데이터와는 다른 데이터가 들어와 기존의 모델로 높은 에러를 얻게될 때, 분산이 높은 것이다. (X와 Y의 관계의 일반화 실패[overfit])
 
+**Underfitting(high bias and low Variance)**
 
+기계학습에서 underfitting 문제는 데이터를 충분히 학습시키지 못했다는 의미로 보통 정확한 모델을 만들기 위한 데이터가 적거나, 비선형관계를 선형관계로 표현하려고 할때 발생한다.
 
+underfitting을 줄이는 방법(Bias를 줄이는 방법)
+
+1. 모델의 복잡도를 증가시킨다.
+2. Feature Engineering을 통해 feature의 수를 증가시킨다.
+3. Data에서 Noise를 제거한다.
+4. Epoch수를 증가시킨다.
+5. 데이터를 추가한다.
+
+**Ovefitting(low bias and high variance)**
+
+모델이 학습데이터의 detail과 noise에 대하여 학습하여 새로운 데이터(validation or test)에 안좋은 성능을 보이게 되는 경우이다. 이러한 모델은 일반화의 성능을 잃어버린다.
+
+overfitting을 줄이는 방법(variance를 줄이는 방법)
+
+1. 모델의 복잡도를 줄인다.
+2. Feature 수를 감소 시킨다.
+3. 학습과정에서 Early stopping, Dropout 등을 이용한다.
+4. 데이터 수를 증가시킨다.
+
+**Bias-variance trade-off**
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bias_and_variance_contributing_to_total_error.svg/330px-Bias_and_variance_contributing_to_total_error.svg.png">
+
+Variance와 Bias는 Trade off 관계에 있으므로 Total error를 최소한으로 하는 적절한 model을 만들어야 한다.
+
+#### Reference
+
+- [ML | Underfitting and Overfitting - geeksforgeeks](!https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/)
+- [Overfitting and Underfitting With Machine Learning Algorithms](!https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/)
+- [Wikipedia Bias–variance_tradeoff ](!https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
+
+## #26
+
+### 로그 함수는 어떤 경우 유용합니까? 사례를 들어 설명해주세요.
+
+1. 기하급수를 지수로 줄임 : 정규성 높임
+
+log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서, log를 씌여주는 것으로써 데이터 간 편차를 줄여 왜도와 첨도를 줄일 수 있게 됩니다. 이로 인해 정규성이 높아집니다!
+
+![](./images/log_26.PNG)
+
+2. 비선형관계를 선형관계로 변환
+
+기하급수적으로 증가하는 지수함수는 우상향 곡선을 띄고 있습니다. 이러한 비선형관계를 log를 활용해 직선으로 변환할 수 있습니다. 선형관계로 변환함으로서 문제해결을 위한 다양한 방법을 적용할 수 있다는 장점이 있습니다.
+
+3. 로그의 특성 활용
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=log{AB}, log{\frac{A}{B}} = logA\pm logB">
+</div>
+
+1번, 2번에서 언급한 로그의 특성 외에도 로그는 일반적인 수학관계에서 독특한 성질을 갖고 있습니다.
+
+​ 곱/나눔 관계인 것을 더하기/빼기 관계로 바꿀 수 있습니다.
+
+​ 증가할수록 gradient가 줄어듭니다. 등이 있습니다.
+
+이러한 로그의 특성을 이론에 대한 정립에 활용하곤 합니다. 대표적으로 정보량을 수식으로 표현한 섀넌 엔트로피 입니다. 정보량에 대한 성질이 로그의 특성과 맞아 떨어져서 로그 연산을 활용해 정보량을 계산합니다. 이는 cross-entropy의 기본이 되는 이론이 됩니다.
+
+#### Reference
+
+- [데이터 분석 식에서 로그를 취하는 이유](https://leebaro.tistory.com/entry/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%8B%9C-%EC%8B%9D%EC%97%90-%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B7%A8%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
+- [정보이론 기초](https://ratsgo.github.io/statistics/2017/09/22/information/)
