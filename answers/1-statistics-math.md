@@ -27,6 +27,7 @@
 - [필요한 표본의 크기를 어떻게 계산합니까?](#24)
 - [Bias를 통제하는 방법은 무엇일까요?](#25)
 - [로그 함수는 어떤 경우 유용합니까? 사례를 들어 설명해주세요.](#26)
+- [베르누이 분포 / 이항 분포 / 카테고리 분포 / 다항 분포 / 가우시안 정규 분포 / t 분포 / 카이제곱 분포 / F 분포 / 베타 분포 / 감마 분포에 대해 설명해주세요. 그리고 분포 간의 연관성도 설명해주세요.](#27)
 
 ## #1
 
@@ -670,6 +671,7 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 [데이터 아웃라이어 처리하기](https://sjquant.tistory.com/17)
 
+
 ## #24
 
 ### 필요한 표본의 크기를 어떻게 계산합니까?
@@ -783,9 +785,9 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 
 1번, 2번에서 언급한 로그의 특성 외에도 로그는 일반적인 수학관계에서 독특한 성질을 갖고 있습니다.
 
-​ 곱/나눔 관계인 것을 더하기/빼기 관계로 바꿀 수 있습니다.
+ 곱/나눔 관계인 것을 더하기/빼기 관계로 바꿀 수 있습니다.
 
-​ 증가할수록 gradient가 줄어듭니다. 등이 있습니다.
+ 증가할수록 gradient가 줄어듭니다. 등이 있습니다.
 
 이러한 로그의 특성을 이론에 대한 정립에 활용하곤 합니다. 대표적으로 정보량을 수식으로 표현한 섀넌 엔트로피 입니다. 정보량에 대한 성질이 로그의 특성과 맞아 떨어져서 로그 연산을 활용해 정보량을 계산합니다. 이는 cross-entropy의 기본이 되는 이론이 됩니다.
 
@@ -793,3 +795,183 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 
 - [데이터 분석 식에서 로그를 취하는 이유](https://leebaro.tistory.com/entry/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%84%9D-%EC%8B%9C-%EC%8B%9D%EC%97%90-%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EC%B7%A8%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
 - [정보이론 기초](https://ratsgo.github.io/statistics/2017/09/22/information/)
+
+## #27
+
+### 베르누이 분포 / 이항 분포 / 카테고리 분포 / 다항 분포 / 가우시안 정규 분포 / t 분포 / 카이제곱 분포 / F 분포 / 베타 분포 / 감마 분포에 대해 설명해주세요. 그리고 분포 간의 연관성도 설명해주세요.
+
+### 1. 베르누이 분포 
+
+#### 베르누이 시행(Bernoulli trial)
+
+결과가 두 가지 중 하나로만 나오는 실험 이나 시행을 베르누이 시행이라 한다.
+
+예) 동전을 한 번 던져 앞면(H: Head)이 나오거나 뒷면 (T:Tail)이 나오게 하는 것도 베르누이 시행이다.
+
+#### 베르누이 확률 변수
+
+베르누이 시행의 결과를 0 또는 1로 바꾼 것을 베르누이 **확률 변수(Bernoulli random variable)**라고 한다. 베르누이 확률변수는 두 값 중 하나만 가질 수 있으므로 이산확률 변수(discrete random variable)다.
+
+#### 베르누이 확률 분포
+
+베르누이 확률 변수의 분포를 베르누이 확률 분포 또는 베르누이 분포라고 한다. 어떤 확률 변수 X가 베르누이 분포에 의해 발생 된다면 **확률 변수 X가 베르누이 분포를 따른다** 라고 말하고 아래의 수식으로 표현한다.
+
+<div align='center'>
+  <img src="https://render.githubusercontent.com/render/math?math=X \sim \text{Bern} (x  ,\mu)">
+</div>
+
+베르누이 분포의 확률 질량 함수 수식은 아래와 같다 
+
+<img src="./images/math_27.png" width="30%" height="30%">
+
+베르누이분포는 1이 나올 확률을 의미하는 <img src="https://render.githubusercontent.com/render/math?math=\mu"> 라는 모수 (parameter) 를 가진다.
+
+위의 식을 하나의 수식으로 표현하면 다음처럼 쓸 수 있다
+
+<img src="./images/math_27_2.png" width="30%" height="30%">
+
+
+
+### 2 .이항분포
+
+성공 확률이 <img src="https://render.githubusercontent.com/render/math?math=\mu"> 인 베르누이 시행을 N 번 반복하는 경우 가장 운이 좋을 때는 N 번 모두 성공할 것이고  가장 운이 나빠느 경우에는 한번도 성공하지 못할 것이다. N 번중 성공한 횟수를 확률 변수 X라고 한다면 X의 값음 0부터 N 까지 정수 중 하나가 될 것이다. 이런 확률 변수를 이상분포(binomial distribution)를 따르는 확률 변수라고 하며 다음과 같이 표시한다 
+
+<img src="./images/math_27_3.png" width="20%" height="20%">
+
+#### 베르누이 분포와의 관계
+
+베르누이 분포와 이항분포는 모두 베르누이 확률변수에서 나온 표본값이다. 표본데이터 하나 -> 베르누이 분포, 
+
+표본 데이터 N개 -> 이항분포
+
+이항분포 확률 변수 X의 확률 질량 함수는 다음과 같다
+
+<img src="./images/math_27_4.png" width="40%" height="20%">
+
+### 3. 카테고리 확률분포
+
+#### 카테고리 확률 변수
+
+카테고리 확률 변수 (Categorical random variable)는 1부터 K까지 K개 정수값 중 하나가 나온다. 이 정수값을 범주값, 카테고리 또는 클래스라고 한다.
+
+예) 주사위를 던져 나오는 눈금 수는 K = 6인 카테고리 분포이다.
+
+전체 카테고리 분포의 모수는 다음과 같이 벡터로 나타난다.
+
+<img src="./images/math_27_5.png" width="20%" height="20%">
+
+<img src="./images/math_27_6.png" width="15%" height="20%">
+
+#### 베르누이 분포와의 관계
+
+<img src="https://render.githubusercontent.com/render/math?math=\mu"> 하나하나의 원소는 베르누이 확률변수라 볼 수 있다.
+
+#### 카테고리 확률 분포
+
+확률 질량함수는 다음 처럼 표기한다 
+
+<img src="./images/math_27_7.png" width="40%" height="20%">
+
+이를 간략하게 표현 한다면 원핫인코딩 성질을 사용하여 아래와 같이 표현할 수 있다.
+
+<img src="./images/math_27_8.png" width="40%" height="20%">
+
+### 4. 다항분포
+
+#### 카테고리 푼포와의 관계
+
+베르누이 확률변수의 데이터가 복수이면 이 데이터의 합이 이항 분포를 이루는 것 처럼 카테고리 확률 변수의 데이터가 여럿 있으면 이 데이터의 합은 **다항분포(Multinomial distribution)**가 된다.
+
+예) 주사위를 N 번 던져 각 면이 나오는 횟수 집합의 분포
+
+<img src="./images/math_27_9.png" width="50%" height="20%">
+
+카테고리가 K 개인 카테고리 확률 변수의 표본데이터를 N 개 얻었을 때 각각의 카테코리 k가 각각 x_k번 나올 확률 분포, 즉 표본 값이 벤터 x가 되는 확률 분포를 이야기한다.
+
+
+
+### 5. 가우시안 정규분포
+
+**가우시안 정규분포(Gaussian normal distribution)**는 자연 현상에서 나타나는 숫자를 확률 모형으로 모형화 할 때 많이 사용한다.
+
+정규분포는 평균 <img src="https://render.githubusercontent.com/render/math?math=\mu">와 분산<img src="https://render.githubusercontent.com/render/math?math=\sigma ^2"> 이 두 모수만으로 정의괴면 확률 밀도함수는 다음과 같다.
+
+<img src="./images/math_27_10.png" width="50%" height="20%">
+
+정규 분포 중에서 평균이 0이고 분산이 1인 정규분포를 **표준 정규분포(standard normal distribution)** 라고 한다
+
+
+
+### 6. t분포
+
+현실 데이터살펴보면 정규분포와 상당히 유사하지만 양 끝단의 비중이 정규분포에 비해 더 큰 데이터들을 발견 가능할 수 있다. 즉 극단적 현상이 더 자주 발생한다는 뜻. 분포의 모양을 볼때 양 끝 부분이 정규 분포보다 두껍다고 하여 팻 테일(fat tail)현상이라고 한다. 
+
+t 분포의 확률 밀도 함수는 다음 수식에 의해 정의 된다.
+
+<img src="./images/math_27_11.png" width="50%" height="20%">
+
+<img src="https://render.githubusercontent.com/render/math?math=\lambda"> 는 <img src="https://render.githubusercontent.com/render/math?math=(\sigma ^2)^{-1}">에 대응 되는 개념이다. <img src="https://render.githubusercontent.com/render/math?math=\Gamma (x)"> 는 감마(Gamma) 함수라는 특수 함수다.
+
+<img src="./images/math_27_12.png" width="25%" height="20%">
+
+### 7. 카이제곱 분포
+
+정규 분포를 따르는 확률 변수 X의 N개의 표본 의 합(또는 평균)은 표본 분산으로 정규화하면 t분포를 따른다.
+
+그런데 이 N개의 표본들을 단순히 더하는 것이 아닌 제곱을 해서 더하면 양수 값만을 가지는 분포가 된다. 이런 분포를 **카이제곱(chi-squared)분포** 라고 한다. 카이제곱 분포도 t분포처럼 자유도 모수를 가진다.
+
+<img src="./images/math_27_13.png" width="25%" height="20%">
+
+<img src="./images/math_27_14.png" width="25%" height="20%">
+
+### 8. F 분포
+
+t분포와 카이 제곱 분포는 정규분포를 따르는 확률 변수 X로 부터 나온 N개의 표본에서 만들 수 있었다.
+
+이와 비슷하게 카이제곱 분포를 따르는 독립적인 두 개의 확률 변수 <img src="https://render.githubusercontent.com/render/math?math=\chi^2_1(x,N_1)"> 와 <img src="https://render.githubusercontent.com/render/math?math=\chi^2_2(x,N_2)"> 의 확률 변수 표본을 각각 x_1, x_2라고 할 때 각각 N_1, N_2로 나눈 뒤 비율 을 구하면 F분포가 된다. N_1, N_2는 F분포의 자유도 모수라고 한다. 
+
+<img src="./images/math_27_15.png" width="50%" height="20%">
+
+F분포의 확률 밀도 함수는 다음과 같다. 
+
+<img src="./images/math_27_16.png" width="50%" height="20%">
+
+#### t 분포와의 관계
+
+t 분포의 표본 값을 제곱한 값은 F분포를 따른다.
+
+
+
+### 9. 베타 분포
+
+**베타 분포(Beta distribution)**는 a와 b라는 두 모수를 가지며 표본 공간은 0과 1사이의 실수이다. 즉 0과 1사이의 표본값만 가질 수 있다.
+
+베타 분포는 0-부터 1까지의 값을 가질 수 있는 베르누이분포의 모수 <img src="https://render.githubusercontent.com/render/math?math=\mu"> 의 값을 베이지안 추정한 결과를 표현한 것이다.
+
+베이지안 추정은 모수가 가질 수 있는 모든 값에 대해 가능성을 확률 분포로 나타낸 것을 말한다.
+
+
+
+베타 분포의 확률 밀도 함수는 다음과 같다. 
+
+<img src="./images/math_27_17.png" width="50%" height="20%">
+
+<img src="./images/math_27_18.png" width="30%" height="20%">
+
+
+
+### 10. 감마 분포
+
+**감마 분포(gamma distribution)**도 베타분포처럼 모수의 베이지안 추정에 사용된다. 다만 베타 분포가 0부터 1사이값을 가지는 모수를 베이지안 방법으로 추정하는 데 사용되는 것과 달리 감마 분포는 0부터 무한대의 값을 가지는 양수 값을 추정하는데 사용된다. 
+
+감마 분포의 확률 밀도 함수는 a와 b라는 두 모수를 가지며 수학적으로 다음과 같이 정의된다.
+
+<img src="./images/math_27_19.png" width="50%" height="20%">
+
+
+
+#### Referenece
+
+- [베르누이분포와 이항분포](https://datascienceschool.net/02%20mathematics/08.02%20베르누이분포와%20이항분포.html)
+- [카테고리분포와 다항분포](https://datascienceschool.net/02%20mathematics/08.03%20카테고리분포와%20다항분포.html)
+- [스튜던트 t분포, 카이제곱분포, F분포](https://datascienceschool.net/02%20mathematics/08.05%20스튜던트%20t분포%2C%20카이제곱분포%2C%20F분포.html)
