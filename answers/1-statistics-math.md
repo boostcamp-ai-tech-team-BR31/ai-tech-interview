@@ -19,7 +19,7 @@
 - [중심극한정리는 왜 유용한걸까요?](#11)
 - [엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요](#12)
 - [검정력(statistical power)은 무엇인가요?](#13)
-- [베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요?](#14 )
+- [베이지안과 프리퀀티스트 간의 입장차이를 설명해주실 수 있나요?](#14)
 - [missing value가 있을 경우 채워야 할까요? 그 이유는 무엇인가요?](#15)
 - [어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?](#16)
 - [모수가 매우 적은 (수십개 이하) 케이스의 경우 어떤 방식으로 예측 모델을 수립할 수 있을까요?](#17)
@@ -32,16 +32,17 @@
 
 #### 고유값 (eigen value) 와 고유벡터 (eigen vector)에 대해 설명해주세요. 그리고 왜 중요할까요?
 
-선형대수학에서, 선형 변환의 고유 벡터는 그 선형 변환이 일어난 후에도 방향이 변하지 않는, 영벡터가 아닌 벡터입니다. 
+선형대수학에서, 선형 변환의 고유 벡터는 그 선형 변환이 일어난 후에도 방향이 변하지 않는, 영벡터가 아닌 벡터입니다.
 
 고유 벡터의 길이가 변하는 배수를 그 고유 벡터에 대응하는 고유값이라고 합니다.
+
 $$
 A\vec{x} = \lambda\vec{x}
 $$
 
 어떤 정방행렬 $ A$ 는 임의의 $ \vec{x}$ 에 곱해져서 $ \vec{x}$ 의 위치나 방향을 변환시키는 역할을 합니다. 이 때, 어떤 특정 벡터들은 $ A$ 에 곱해져도 자신과 평행한 방향을 갖는데, 이러한 벡터들을 고유벡터라고 합니다. 변환 전후의 크기 차이는 특정 상수를 곱한 정도로 존재하는데, 이 특정 상수가 고유값입니다.
 
-n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무수히 많습니다. 이 무수히 많은 고유벡터는 하나의 부분 공간을 형성하고, 이 부분공간이 고유공간이 됩니다. 
+n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무수히 많습니다. 이 무수히 많은 고유벡터는 하나의 부분 공간을 형성하고, 이 부분공간이 고유공간이 됩니다.
 
 행렬이 벡터에 가하는 변환을 고유벡터들이 기저를 이루는 고유공간에서의 변환으로 해석함으로써, 회전 변환은 배제하고 확대/축소 변환만으로 이해하고 응용할 수 있게 되었다는 점에서 중요하다고 할 수 있습니다.
 
@@ -71,7 +72,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 - 모든 관측치를 하나로 모으는 것은 매우 어려울 수 있다.
 - 더 많은 관측은 미래에 만들어질 예정일 수 있다.
 
-위와 같은 이유로 모집단 전체를 조사하는 것이 불가능하기 때문에 샘플(sample)을 이용하여 모집단(population)에 대한 추론(inference)을 하는 것이다. 
+위와 같은 이유로 모집단 전체를 조사하는 것이 불가능하기 때문에 샘플(sample)을 이용하여 모집단(population)에 대한 추론(inference)을 하는 것이다.
 
 **Sampling Error**
 
@@ -82,10 +83,10 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 통계학적 샘플링은 광범위한 연구 분야이지만, 머신러닝에서는 3가지 주요 샘플링 기법을 사용합니다.
 
 - **Simple Random Sampling**: 도메인에서 균일한 확률로 표본을 추출하는 방법
-- **Systematic Sampling**: Intervals 같이 미리 정해 놓은 패턴을 사용하여 추출하는 방법. 
+- **Systematic Sampling**: Intervals 같이 미리 정해 놓은 패턴을 사용하여 추출하는 방법.
 - **Stratified Sampling**: 미리 정해놓은 카테고리(범주) 내에서 샘플을 추출하는 방법.
 
------
+---
 
 **리샘플링이란?**
 
@@ -99,7 +100,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 - [(데이터과학 인터뷰 질문)(2) 샘플링과 리샘플링, 1편](https://cnp-0717.tistory.com/7?category=838077)
 - [샘플링과 리샘플링의 차이는 무엇일까?](https://kejdev.github.io/posts/sampling-resampling/)
-- [Wikipedia](https://en.wikipedia.org/wiki/Resampling_(statistics))
+- [Wikipedia](<https://en.wikipedia.org/wiki/Resampling_(statistics)>)
 
 ## #3
 
@@ -107,7 +108,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 누적 분포 함수(cumulative distribution function, cdf)를 알기 위해서는 먼저 확률 밀도 함수(probability density function, pdf)를 집고 넘어가야 합니다.
 
-확률 밀도 함수  <img src="https://render.githubusercontent.com/render/math?math=$ f(x) $">와 구간 <img src="https://render.githubusercontent.com/render/math?math=$[a, b]$">에 대해서 확률 변수<img src="https://render.githubusercontent.com/render/math?math=$ X $"> 가 구간에 포함될 확률 <img src="https://render.githubusercontent.com/render/math?math=$P(a\leq X \leq B)$ ">는 아래의 수식으로 정의합니다.
+확률 밀도 함수 <img src="https://render.githubusercontent.com/render/math?math=$ f(x) $">와 구간 <img src="https://render.githubusercontent.com/render/math?math=$[a, b]$">에 대해서 확률 변수<img src="https://render.githubusercontent.com/render/math?math=$ X $"> 가 구간에 포함될 확률 <img src="https://render.githubusercontent.com/render/math?math=$P(a\leq X \leq B)$ ">는 아래의 수식으로 정의합니다.
 
 <img src="https://render.githubusercontent.com/render/math?math=$P(a \leq X \leq b) = \int_{a}^{b}{f(x)dx}$">
 
@@ -117,7 +118,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 하지만 확률 밀도 함수의 확률변수 <img src="https://render.githubusercontent.com/render/math?math=$X$">는 연속 확률 변수이기 때문에 구간이 정의되어야 확률을 의미할 수 있습니다. 그래서 확률 <img src="https://render.githubusercontent.com/render/math?math=$f(x)dx$">를 구간 $[a, b]$에서 연속적으로 더해줍니다. 따라서 확률 밀도 함수 <img src="https://render.githubusercontent.com/render/math?math=$f(x)$">는 그 자체로 확률을 의미하지 않고, 특정 구간에 대한 정의가 필요합니다.
 
-통계학에서 확률 밀도 함수를<img src="https://render.githubusercontent.com/render/math?math=$f(x) = \dfrac{Prob(kg)}{length(V)} = \dfrac{f(x)dx}{dx}$">  ​로 파악하고, 이는 물리학에서 밀도의 개념과 비슷하기에 확률 밀도 함수라고 부릅니다.
+통계학에서 확률 밀도 함수를<img src="https://render.githubusercontent.com/render/math?math=$f(x) = \dfrac{Prob(kg)}{length(V)} = \dfrac{f(x)dx}{dx}$"> ​로 파악하고, 이는 물리학에서 밀도의 개념과 비슷하기에 확률 밀도 함수라고 부릅니다.
 
 누적 분포 함수는 말 그대로 확률 밀도 함수를 특정 값 a까지 누적한 함수입니다. 누적 분포 함수 <img src="https://render.githubusercontent.com/render/math?math=$f(x)dx$">는 아래와 같이 정의합니다.
 
@@ -154,6 +155,7 @@ $$
 $$
 X \sim N(\mu, \sigma)
 $$
+
 중요한 점은 확률 모형은 사람에 의해 정의된 분포일 뿐이라는 점이다. 어떤 자료의 확률 분포가 특정한 확률 모형을 따르리라는 것은 어디까지나 여러가지 편의를 위해 그렇게 가정(assumption)한 것인 뿐인 경우가 많다.
 
 ## #5
@@ -192,11 +194,11 @@ D : 새로 관찰하는 데이터
 
 <img src="https://render.githubusercontent.com/render/math?math=\theta">: 모델에서 계산하고 싶어하는 모수 (가설)
 
-<img src="https://render.githubusercontent.com/render/math?math=P(\theta | D)">: **사후 확률(posterior)** - 데이터를 관찰 했을 때, 이 가설이 성립할 확률 
+<img src="https://render.githubusercontent.com/render/math?math=P(\theta | D)">: **사후 확률(posterior)** - 데이터를 관찰 했을 때, 이 가설이 성립할 확률
 
 <img src="https://render.githubusercontent.com/render/math?math=P(\theta)"> : **사전확률** - 데이터가 주어지지 않은 상황에서 가설에 대해 사전에 세운 확률
 
-<img src="https://render.githubusercontent.com/render/math?math=P(D | \theta) = \mathcal{L}(\theta|D)">  : **가능도(likelihood)** - 현재 주어진 모수(가정 : <img src="https://render.githubusercontent.com/render/math?math=\theta"> ) 에서 이 데이터(**D**) 가 관찰 될 확률 = D가 주어졌을 때 <img src="https://render.githubusercontent.com/render/math?math=\theta"> 의 가능도
+<img src="https://render.githubusercontent.com/render/math?math=P(D | \theta) = \mathcal{L}(\theta|D)"> : **가능도(likelihood)** - 현재 주어진 모수(가정 : <img src="https://render.githubusercontent.com/render/math?math=\theta"> ) 에서 이 데이터(**D**) 가 관찰 될 확률 = D가 주어졌을 때 <img src="https://render.githubusercontent.com/render/math?math=\theta"> 의 가능도
 
 <img src="https://render.githubusercontent.com/render/math?math=P(D)"> : **Evidence** : 데이터 전체의 분포, D의 사전확률이라 볼 수 있다. 정규화 상수 역할을 하며 <img src="https://render.githubusercontent.com/render/math?math=P(D) = \int_\theta P(D|\theta)">​​ 를 이용해 구할 수 있다.
 
@@ -216,6 +218,7 @@ D : 새로 관찰하는 데이터
 #### 공분산과 상관계수는 무엇일까요? 수식과 함께 표현해주세요
 
 **공분산**
+
 $$
 \begin{aligned}
 Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
@@ -224,18 +227,21 @@ Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
 &=E[XY] - E[X]E[Y]
 \end{aligned}
 $$
-2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다. 
+
+2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다.
 
 **상관계수**
+
 $$
 \begin{aligned}
 \rho_{X,Y} = corr(X,Y) &= \frac{Cov(X,Y)}{\sigma_X\sigma_Y}\\
 &=\frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]^2}\sqrt{E[Y^2]-E[Y]^2}}
 \end{aligned}
 $$
-두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다. 
 
-> 공분산은 변수의 측정 단위에 크기에 따라 값이 달라지므로 공분산통해 두 변수간의 관계를 파악하기에는 부적절하다. 따라서 상관계수를 이용하여 두 변수간의 관계 파악 !! 
+두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다.
+
+> 공분산은 변수의 측정 단위에 크기에 따라 값이 달라지므로 공분산통해 두 변수간의 관계를 파악하기에는 부적절하다. 따라서 상관계수를 이용하여 두 변수간의 관계 파악 !!
 
 ~~**스피어만 상관 계수**~~
 
@@ -257,7 +263,7 @@ $$
 
 ![img](images/math_7_1.PNG)
 
-우리는 모집단의 평균을 알 순 없지만, 모집단에서 임의로 선정한 표본을 반복하여 표본평균의 분포를 추정할 수 있습니다. 그리고 이 표본평균의 분포는 중심극한정리에 의해 정규분포 모양을 갖습니다.(모집단의 분포가 어떠하든!) 
+우리는 모집단의 평균을 알 순 없지만, 모집단에서 임의로 선정한 표본을 반복하여 표본평균의 분포를 추정할 수 있습니다. 그리고 이 표본평균의 분포는 중심극한정리에 의해 정규분포 모양을 갖습니다.(모집단의 분포가 어떠하든!)
 
 표본 평균의 표준 편차는 '표준 오차(Standard Error of Mean)'라고 부르며
 
@@ -267,7 +273,7 @@ $$
 
 ![img](images/math_7_2.PNG)
 
-여러번 추출한 표본 평균은 모평균의 ±2 SEM 범위 안에 95% 확률로 들어온다고 말할 수 있습니다.  여기서 모평균의 ±2 SEM이 신뢰 구간이 되고 95%가 신뢰수준이 되는 것입니다. 하지만 우리는 모평균을 알지 못하기 때문에 신뢰구간을 표본평균을 중심으로 이동시키고, '모평균이 신뢰구간 안에 들어올 확률이 95%이다'라고 표현할 수 있습니다.
+여러번 추출한 표본 평균은 모평균의 ±2 SEM 범위 안에 95% 확률로 들어온다고 말할 수 있습니다. 여기서 모평균의 ±2 SEM이 신뢰 구간이 되고 95%가 신뢰수준이 되는 것입니다. 하지만 우리는 모평균을 알지 못하기 때문에 신뢰구간을 표본평균을 중심으로 이동시키고, '모평균이 신뢰구간 안에 들어올 확률이 95%이다'라고 표현할 수 있습니다.
 
 ##### References
 
@@ -277,27 +283,28 @@ $$
 
 - [empirical rule](https://ko.wikipedia.org/wiki/68-95-99.7_%EA%B7%9C%EC%B9%99)
 
-## #8 
+## #8
+
 ### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
 
-p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라,  내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다. 
-+ 여기서 작다의 기준은 유의수준(귀무가설 맞는데 기각하는 확률) 보다 p-value가 작다면 작다고 판단한다. 보통은 0.05
+p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라, 내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다.
+
+- 여기서 작다의 기준은 유의수준(귀무가설 맞는데 기각하는 확률) 보다 p-value가 작다면 작다고 판단한다. 보통은 0.05
 
 ![img](images/math_8_p-value.gif)
 
 평균적으로 피자를 4조각 먹는다고 알려졌는데 내 생각에는 4조각 보다는 더 많이 먹는거같다. 내 생각을 통계적으로 증명해보자.
 sampling을 통해 사람들에게 물어본 결과 평균적으로 5.6조각을 먹었다. 이 때 유의수준(0.05)을 설정하고 p-value를 계산했을떄 0.05보다 작다면 대립가설을 채책한다. 즉 평균적으로 피자를 4조각보다 피자를 더 먹는것으로 결론을 내린다.
 
-
-
 **P-value 한 줄 정리**
 
 > P-value는 내가 주장하고자 하는 것을 통계적으로 유의미함을 보이기 위해 사용되는 것이다.
 
-명확한 정의는  **"귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률"** 이 정의가 맞으나 이정의를 풀어서 해석하면 P-value 낮다는것은 귀무가설을 지지하는 확률이 낮은것이니 대립가설(나의 주장)이 맞다고 할 수 있다. 따라서 나의 주장의 통계적으로 유의미함을 보이는데 사용되는 것이다.
+명확한 정의는 **"귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률"** 이 정의가 맞으나 이정의를 풀어서 해석하면 P-value 낮다는것은 귀무가설을 지지하는 확률이 낮은것이니 대립가설(나의 주장)이 맞다고 할 수 있다. 따라서 나의 주장의 통계적으로 유의미함을 보이는데 사용되는 것이다.
 
-p-value의 사용 예시: 
-- 약의 유효성을 입증하거나(약이 효과 없다 VS 약이 효과 있다) 
+p-value의 사용 예시:
+
+- 약의 유효성을 입증하거나(약이 효과 없다 VS 약이 효과 있다)
 - 회귀계수의 유의미함 증명(회귀 계수가 0이다 vs 회귀 계수가 0이 아니다.)
 
 #### Reference
@@ -313,11 +320,11 @@ p-value의 사용 예시:
 
 ![2](images/math_9_2.png)
 
- SST = Y의 총 변동량
+SST = Y의 총 변동량
 
- SSR =  X변수에 의해 설명된 양
+SSR = X변수에 의해 설명된 양
 
- SSE = 에러에 의해 설명된 양
+SSE = 에러에 의해 설명된 양
 
 ![3](images/math_9_3.png)
 
@@ -332,8 +339,6 @@ p-value의 사용 예시:
 - [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
 - [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
 
-
-
 ## #10
 
 #### 평균(mean)과 중앙값(median)중에 어떤 케이스에서 뭘 써야할까요?
@@ -341,31 +346,23 @@ p-value의 사용 예시:
 - 평균(mean): 모든 관측값의 합을 자료의 개수로 나눈 것
 - 중앙값(median): 전체 관측값을 크기 순서로 배열했을 때 가운데 위치하는 값
 
-
-
 평균은 전체 관측값이 골고루 반영되므로 대표값으로서 가치가 있다. 평균 근처에 표본이 몰려 있는 상황에서 대표값으로 유용하지만 극단적인 값에 영향을 많이 받는다.
 
+중앙값에서는 관측값을 크기 순서로 배열할 때 관측값의 위치가 중요하고, 가운데 위치한 관측값 이외의 관측값들의 크기는 중요하지 않다. 따라서 평균과는 달리 중앙값은 관측값들의 변화에 민감하지 않고 특히 아주 큰 관측값이나 아주 작은 관측값에 영향을 받지 않는다.
 
-
-중앙값에서는 관측값을 크기 순서로 배열할 때 관측값의 위치가 중요하고, 가운데 위치한 관측값 이외의 관측값들의 크기는 중요하지 않다. 따라서 평균과는 달리 중앙값은 관측값들의 변화에 민감하지 않고 특히 아주 큰 관측값이나 아주 작은 관측값에 영향을 받지 않는다. 
-
-
-
- 표본의 편차, 혹은 왜곡이 심하게 나타나는 경우는 평균보다 중앙값이 유용하다. 예를들면 경제적 수입을 들 수 있는데 동북아학생 전체의 1년간 경제 수입과 삼성 회장의 1년 수입을 평균하는 것은 사실상 의미가 없으므로 이런경우 중앙값을 쓴다. 또한 올림픽에서 여러 심판들의 주관적인 점수로 판정하는 경우 편차가 심할수 있으므로 양 끝값을 제외시키고 평균을 내는데  중앙값과 평균의 특성을 적절하게 사용했다고 볼수있다.
-
-
+표본의 편차, 혹은 왜곡이 심하게 나타나는 경우는 평균보다 중앙값이 유용하다. 예를들면 경제적 수입을 들 수 있는데 동북아학생 전체의 1년간 경제 수입과 삼성 회장의 1년 수입을 평균하는 것은 사실상 의미가 없으므로 이런경우 중앙값을 쓴다. 또한 올림픽에서 여러 심판들의 주관적인 점수로 판정하는 경우 편차가 심할수 있으므로 양 끝값을 제외시키고 평균을 내는데 중앙값과 평균의 특성을 적절하게 사용했다고 볼수있다.
 
 #### References
 
 - [평균과 중앙값에 대한 이해 - 모두,전진!](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=xodh16&logNo=220505136752)
 
-- [평균 vs  중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
+- [평균 vs 중간값| 통계상의 오류가능성 - 슈퍼짱짱](https://blog.naver.com/ricemankr/220796823014)
 
 ## #11
 
 ### 중심극한정리는 왜 유용할까요?
 
-중심극한정리란(Central Limit Theorem)는 동일한 확률분포를 가진 독립변수 n개의 평균의 분포는 n이 적당히 크면 정규분포에 가까워진다는 정리이다. 
+중심극한정리란(Central Limit Theorem)는 동일한 확률분포를 가진 독립변수 n개의 평균의 분포는 n이 적당히 크면 정규분포에 가까워진다는 정리이다.
 
 많은 사람들이 중심극한정리에 대해 헷갈리는 부분이 있다. "**내가 수집한 표본의 크기가 크면, 그 표본의 평균이 모집단의 평균과 같고, 표본의 표준편차가 모집단의 표준편차를 표본수로 나눈 값과 같게 된다**."라고 이해하곤 한다. 이것은 중심극한정리를 잘못 이해한 것이다. **표본은 매번 추출할 때마다 달라지게 되고, 그에 따라 표본의 평균값도 매번 달라지기 때문이다.** 쉽게 말해, 1~10까지의 숫자가 모집단이라고 가정하고 3개를 샘플링하게 되면(e.g. {1,3,5}, {1,2,3} ... ) 매번 표본 추출을 할 때마다 평균값이 달라지는 것은 쉽게 이해할 수 있다.
 
@@ -379,7 +376,7 @@ p-value의 사용 예시:
 - [[개념 통계 17] 중심극한정리는 무엇이고 왜 중요한가?](https://drhongdatanote.tistory.com/57)
 - [[확률과 통계] 48. 중심극한정리, Central Limit Theorem](https://m.blog.naver.com/mykepzzang/220851280035)
 
-## #12 
+## #12
 
 #### 엔트로피(entropy)에 대해 설명해주세요. 가능하면 Information Gain도요
 
@@ -396,7 +393,6 @@ Entropy에 대한 **계산**은 아래와 같이 나타 낼 수 있다.
 <div align='center'>
   <img src="https://render.githubusercontent.com/render/math?math=\text{Entropy(S)} = -\sum_i p_i \log_2(p_i)">
 </div>
-
 
 <div align='center'>
   S : 주어진 데이터들의 집합<br>
@@ -512,14 +508,11 @@ S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트�
 
 - [검정력 위키백과](https://ko.wikipedia.org/wiki/%EA%B2%80%EC%A0%95%EB%A0%A5)
 
-
 - [1종오류와 2종오류](https://www.abtasty.com/blog/type-1-and-type-2-errors/)
 
 - [귀무가설과 대립가설](https://drhongdatanote.tistory.com/59)
 
 - [검정력의 의미](https://m.blog.naver.com/PostView.nhn?blogId=hancury&logNo=220854934914&proxyReferer=https:%2F%2Fwww.google.com%2F)
-
-  
 
 ## #14
 
@@ -529,19 +522,15 @@ S집합의 엔트로피에서 A라는 속성을 가진 집합T에 대한 엔트�
 
 **Bayesian**: 모수는 확률변수이다. 우리가 얻은 sample로 알 수 있는것은 기존에 갖고 있던 결론을 sample 정보를 통해 업데이트 함으로써 새로운 모수를 추정할 수 있다. 확률을 현상에 대한 관찰자의 주관적인 믿음의 체계로 본다.
 
-
-
 ##### 상황을 바라보는 입장 차이 예시
 
- Q) fair한 6면 주사위가 하나 있을때, 이 주사위를 던져서 1의 눈이 나올 확률은?
+Q) fair한 6면 주사위가 하나 있을때, 이 주사위를 던져서 1의 눈이 나올 확률은?
 
 **Frequentist** : 1/6 (∵ 주사위는 fair하므로 6개의 경우들은 모두 같은 빈도로 발생할 것이다.)
 
 **bayesian** 우선 사전 확률을 정의한다. 1/6이라고 하자
 
-이제 주사위를 실제로 60번 던졌더니  1이 총 12번  나왔다.  이 사건에대해 두 파간 바라보는 관점이 다르다!
-
-
+이제 주사위를 실제로 60번 던졌더니 1이 총 12번 나왔다. 이 사건에대해 두 파간 바라보는 관점이 다르다!
 
 **Frequentist**
 
@@ -559,19 +548,15 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 > Frequentist의 이러한 action은 이미 내린 결론에 부합하는지를 확인하는 행동이다.
 
-
-
 **Beyesian**
 
 베이지안의 패러다임은 다음과 같다.
 
-1)  모수의 사전분포 결정
-2) 베이즈 정리를 통한 계산
-3) 사후분포를 이용한 모수 추정
+1.  모수의 사전분포 결정
+2.  베이즈 정리를 통한 계산
+3.  사후분포를 이용한 모수 추정
 
 ![](./images/math_14.PNG)
-
-
 
 <div align='center'>
   <img src="https://render.githubusercontent.com/render/math?math=P(\theta) = \frac{1}{6}, \hspace{0.2cm} P(D) = ?, \hspace{0.2cm} P(D|\theta) = {60 \choose 12}\frac{1}{6}^{12}\frac{5}{6}^{48}">
@@ -592,8 +577,6 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 - [Statistics: Are you Baysian or Frequentist?](https://towardsdatascience.com/statistics-are-you-bayesian-or-frequentist-4943f953f21b)
 - [Frequentist and Bayesian](https://www.ibric.org/myboard/read.php?id=19818&Page=&Board=SORI&FindIt=&FindText)
 
-
-
 ## #15
 
 ### missing value가 있을 경우 채워야 할까요? 그 이유는 무엇인가요?
@@ -605,8 +588,6 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 - **비무작위 결측(NMAR: Not Missing At Random)**
   : 위의 두가지 유형이 아닐 때, 비무작위 결측이라 합니다. 이 경우 결측치가 일어난 특성(X2)의 값이 다른 특성(X1)의 값과 상관관계가 있습니다.
 
-
-
 #### 제거한다면?
 
 결측치가 발생한 행 또는 열 삭제해버리는, 가장 쉽고, 단순한 방식입니다. 그러나 당연하게도, 이런 방식은 데이터의 손실(=표본 크기의 축소)로 이어집니다. 또한 경우에 따라 결측값을 무시하고 관측치만으로 분석을 시행할 경우 통계적 편향이 생길 가능성이 커지기에 조심히 시행되어야합니다.
@@ -615,44 +596,32 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 결측치를 예측하는 새로운 모델을 구성해, 이를 기반으로 결측치를 채워나갈 수 있습니다.
 
-
-
 #### Reference
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Missing_data)
 - [Incomplete data](http://www.math.chalmers.se/Stat/Grundutb/GU/MSA650/S09/Lecture5.pdf)
 
-
-
 ## #16
 
 ### 어떨 때 모수적 방법론을 쓸 수 있고, 어떨 때 비모수적 방법론을 쓸 수 있나요?
 
-표본의 평균, 표준편차, 분산 등을 **통계량**이라고 하며 모집단의 모평균, 모표준편차,모분산 등을 **모수**라고 한다. 
+표본의 평균, 표준편차, 분산 등을 **통계량**이라고 하며 모집단의 모평균, 모표준편차,모분산 등을 **모수**라고 한다.
 
 통계량을 통해 모수를 추정하는 방법을 **통계적 추론**이라고 한다.
-
-
 
 #### 모수적 방법
 
 중심극한정리에 의해서 본래의 분포에 상관없이 무작위로 복원추출된 연속형 자료의 평균의 분포는 **정규분포**를 띤다는것을 알고있다. 비교하고자 하는 두 집단이 모두 정규분포를 띤다면 두 집단의 평균을 비교함으로써 차이를 밝힐 수 있는데 이렇게 **정규성을 갖는 모수적 특성을 이용**하는 통계적 방법을 모수적 방법이라고 한다.
 
-
-
 #### 비모수적 방법
 
 모수적 방법을 사용할 수 없을 때 자료를 크기 순으로 배열하여 순위를 매긴 다음 순위의 합을 통해 차이를 비교하는 순위합검정을 적용할 수 있는데 이런 방법들은 모수의 특성을 이용하지 않는다고 하여 비모수적 방법이라고 한다.
 
-
-
 #### 어떨때 사용?
 
-일반적으로 표본의 개수가 30개 이상으로 충분히 크거나, 10~30개 이면서 정규성 검정에서 정규분포로 간주되는 연속형 자료의 경우 모수적 방법을 사용할 수 있으며, 그 외의 경우는 비모수적 방법을 사용한다. 
+일반적으로 표본의 개수가 30개 이상으로 충분히 크거나, 10~30개 이면서 정규성 검정에서 정규분포로 간주되는 연속형 자료의 경우 모수적 방법을 사용할 수 있으며, 그 외의 경우는 비모수적 방법을 사용한다.
 
 비모수적 방법보다 모수적 방법을 선호하는 이유는 모수적 방법이 검정력이 높고, 두 군 사이에 크기 차이를 함께 제시해 줄 수 있기때문이다. 대신 비모수적 방법은 숫자로 되어 있는 모든 경우에 적용할 수 있는 장점이 있다.
-
-
 
 #### Reference
 
@@ -661,6 +630,45 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 [모수적 검정 vs 비모수적 검정](https://specialscene.tistory.com/82)
 
 [순위합 검정](https://3months.tistory.com/128)
+
+## #18
+
+### 아웃라이어의 판단하는 기준은 무엇인가요?
+
+#### 아웃라이어(Outlier)란?
+
+> 통계적 자료분석의 결과를 왜곡시키거나, 자료 분석의 적절성을 위협하는 변수값 또는 사례를 말한다.
+
+![img](images/math_18.jpg)
+
+**기술 통계학적 기법**에서는 분포의 집중경향치의 값을 왜곡시키서나, 상관계수 추정치의 값을 왜곡시키는 개체 또는 변수의 값 의미한다.
+
+**추리 통계**에서는 모수추정치의 값을 왜곡시키는 개체 또는 변수의 값, 통상적으로 표준화된 잔차(residual)의 분석에서 개체의 변수 값이 0(평균)으로부터 +/- 3 표준편차 밖에 위치하는 사례나, 일반적인 경향에서 벗어나는 사례를 지칭한다.
+
+#### 아웃라이어의 특징
+
+- 아웃라이어의 정도에도 차이가 있다.
+- 아웃라이어는 실제로 가치있는 정보를 담고 있을 수도 있으며, 기록의 실수인한 무의미한 정보일 수도 있다.
+
+#### 아웃라이어 판단 기준 - 데이터 분석 기준
+
+아웃라이어를 발견하기 위해 가장많이 쓰는 그래프중 하나는 `boxplot`이다
+
+![](https://conversionxl.com/wp-content/uploads/2017/01/Boxplot3.png)
+
+위의 그림에서 보면 파란점들이 아웃라이어라는 것을 알 수 있는데 닫힌 점은 `extreme outlier` , 열려있는 점은 `mild outliers` 라 한다.
+
+이 boxplot을 통해 Outlier를 판단 할 수 있는데
+
+![](https://t1.daumcdn.net/cfile/tistory/1537CD474DD8207302)
+
+**IQR**(**Interquartile range**) 로 판단 기준을 잡아 아웃라이어를 걸러 내게 된다. 1.5이상일 경우 아웃라이러를 의심해봐야 하고, 2 IQR이상이면 극단치로 생각한다.
+
+#### Reference
+
+[극단치 - [네이버 교육심리학용어사전]](https://terms.naver.com/entry.naver?docId=1943645&cid=41989&categoryId=41989)
+
+[데이터 아웃라이어 처리하기](https://sjquant.tistory.com/17)
 
 ## #24
 
@@ -700,24 +708,16 @@ Z=1.2일때 양측검정에 대한 p-value를 계산하면 귀무가설을 기�
 
 : 관찰치(The observed percentage) 보통 최대 표본오차를 구하기 위해서 P=0.5를 사용한다
 
-
-
 <img src="images/samplesize.PNG" width="30%" height="30%">
 
-
-
 <img src="images/zscore.PNG" width="40%" height="50%" />
-
-
 
 #### Reference
 
 - [nownsurvey](https://www.nownsurvey.com/calculator/)
 - [SurveyMonkey](https://ko.surveymonkey.com/mp/sample-size-calculator/)
 
-
-
-## #25 
+## #25
 
 **Bias를 통제하는 방법은 무엇일까요?**
 
@@ -746,7 +746,7 @@ overfitting을 줄이는 방법(variance를 줄이는 방법)
 
 1. 모델의 복잡도를 줄인다.
 2. Feature 수를 감소 시킨다.
-3. 학습과정에서 Early stopping, Dropout 등을 이용한다. 
+3. 학습과정에서 Early stopping, Dropout 등을 이용한다.
 4. 데이터 수를 증가시킨다.
 
 **Bias-variance trade-off**
@@ -760,8 +760,6 @@ Variance와 Bias는 Trade off 관계에 있으므로 Total error를 최소한으
 - [ML | Underfitting and Overfitting - geeksforgeeks](!https://www.geeksforgeeks.org/underfitting-and-overfitting-in-machine-learning/)
 - [Overfitting and Underfitting With Machine Learning Algorithms](!https://machinelearningmastery.com/overfitting-and-underfitting-with-machine-learning-algorithms/)
 - [Wikipedia Bias–variance_tradeoff ](!https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff)
-
-
 
 ## #26
 
@@ -777,8 +775,6 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 
 기하급수적으로 증가하는 지수함수는 우상향 곡선을 띄고 있습니다. 이러한 비선형관계를 log를 활용해 직선으로 변환할 수 있습니다. 선형관계로 변환함으로서 문제해결을 위한 다양한 방법을 적용할 수 있다는 장점이 있습니다.
 
-
-
 3. **로그의 특성 활용**
 
 <div align='center'>
@@ -786,10 +782,9 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 </div>
 
 1번, 2번에서 언급한 로그의 특성 외에도 로그는 일반적인 수학관계에서 독특한 성질을 갖고 있습니다.
+​ 곱/나눔 관계인 것을 더하기/빼기 관계로 바꿀 수 있습니다.
 
-- 곱/나눔 관계인 것을 더하기/빼기 관계로 바꿀 수 있습니다.
-
-- 증가할수록 gradient가 줄어듭니다. 등이 있습니다.
+​ 증가할수록 gradient가 줄어듭니다. 등이 있습니다.
 
 이러한 로그의 특성을 이론에 대한 정립에 활용하곤 합니다. 대표적으로 정보량을 수식으로 표현한 섀넌 엔트로피 입니다. 정보량에 대한 성질이 로그의 특성과 맞아 떨어져서 로그 연산을 활용해 정보량을 계산합니다. 이는 cross-entropy의 기본이 되는 이론이 됩니다.
 
