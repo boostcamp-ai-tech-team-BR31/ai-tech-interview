@@ -46,13 +46,34 @@
 
 #### 정규화를 왜 해야할까요? 정규화의 방법은 무엇이 있나요?
 
+normalization, regularization, standardization. 세 용어가 모두 정규화로 번역됩니다. 여기서는 normalization을 집고 넘고 넘어가겠습니다.
 
+#### Normalization
 
+ML 알고리즘의 목적 중 하나는  feature들을 비교하여 데이터의 패턴을 찾는 것입니다. 하지만 feature의 scale이 심하게 차이나는 경우 문제가 발생합니다. 그래서 **모든 데이터가 동일한 정도의 sclae(중요도)로 반영되도록 해주는 게 normalization의 목표**입니다.
 
+1. **Min - Max normalization**
+
+   <div align='center'>
+     <img src="https://render.githubusercontent.com/render/math?math=\frac{x - min}{max-min}">
+   </div>
+
+   - 최소값과 최대값을 이용해 값의 범위를 0~1 사이 값으로 바꿉니다.
+   - 하지만 outlier(이상치)에 너무 많은 영향을 받습니다.
+
+2. **Z-score normalization**
+
+   <div align='center'>
+     <img src="https://render.githubusercontent.com/render/math?math=\frac{x - m}{\sigma}">
+   </div>
+
+   - standartdization을 활용해 outlier 문제를 어느정도 해결합니다.
+   - 하지만 동일한 척도로 정규화된 데이터를 생성하지 않는다는 문제가 있습니다.
 
 ##### References
 
-- [Wikipedia](https://en.wikipedia.org/wiki/Maxima_and_minima)
+- [정규화 : normalization, standardization, regularization](https://realblack0.github.io/2020/03/29/normalization-standardization-regularization.html)
+- [normalization 쉽게 이해하기](https://hleecaster.com/ml-normalization-concept/)
 
 
 
