@@ -55,6 +55,7 @@
 - 차원의 저주에 대해 설명해주세요.
 - dimension reduction기법으로 보통 어떤 것들이 있나요?
 - PCA는 차원 축소 기법이면서, 데이터 압축 기법이기도 하고, 노이즈 제거기법이기도 합니다. 왜 그런지 설명해주실 수 있나요?
+- LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
