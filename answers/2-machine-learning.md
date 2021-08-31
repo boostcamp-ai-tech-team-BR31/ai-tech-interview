@@ -42,9 +42,15 @@
 
 ---
 
+## #1
+
+### 알고 있는 metric에 대해 설명해주세요. (ex. RMSE, MAE, recall, precision ...)
+
+week4 민규님
+
 ## #2
 
-#### 정규화를 왜 해야할까요? 정규화의 방법은 무엇이 있나요?
+### 정규화를 왜 해야할까요? 정규화의 방법은 무엇이 있나요?
 
 normalization, regularization, standardization. 세 용어가 모두 정규화로 번역됩니다. 여기서는 normalization을 집고 넘고 넘어가겠습니다.
 
@@ -79,7 +85,7 @@ ML 알고리즘의 목적 중 하나는  feature들을 비교하여 데이터의
 
 ## #3
 
-#### Local Minima와 Global Minima에 대해 설명해주세요.
+### Local Minima와 Global Minima에 대해 설명해주세요.
 
 오차를 줄이기 위해 경사하강법을 이용하는데, 이는 오차를 계산하는 함수의 최소값을 찾기 위함이다. 이 때 경사하강법은 초기화된 위치에서부터 기울기를 구해 더 아래로 아래로 내려가려 한다. 
 
@@ -99,7 +105,17 @@ ML 알고리즘의 목적 중 하나는  feature들을 비교하여 데이터의
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Maxima_and_minima)
 
+## #4
 
+### 차원의 저주에 대해 설명해주세요.
+
+week4 재현님
+
+## #5
+
+### dimension reduction기법으로 보통 어떤 것들이 있나요?
+
+week4 민규님
 
 ## # 4
 
@@ -127,17 +143,21 @@ ML 알고리즘의 목적 중 하나는  feature들을 비교하여 데이터의
 
 ## #6
 
-**PCA는 차원 축소 기법이면서, 데이터 압축 기법이기도 하고, 노이즈 제거기법이기도 합니다. 왜 그런지 설명해주실 수 있나요?**
+### PCA는 차원 축소 기법이면서, 데이터 압축 기법이기도 하고, 노이즈 제거기법이기도 합니다. 왜 그런지 설명해주실 수 있나요?
 
 PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를, 데이터들의 분산을 잘 유지하는 주성분(데이터들의 선형결합으로 이뤄짐)들을 구하고, 이 주성분을 이용해 저차원으로 데이터들을 표현하는 방법이다. 여기서 주성분들은 서로 직교한다.
 
 주성분 분석은 기존의 고차원 데이터들을, 더 적은 차원의 주성분으로 데이터를 표현하므로 차원 축소 기법이라 할 수 있다. 주성분을 구할 때 데이터의 기존의 분산을 전체 다 이용하는 것이 아닌 분산을 설명하는 정도가 큰 몇개의 주성분만을 이용하므로 데이터를 압축한다고 할 수 있고, 이 과정에서 어느정도의 분산이 제거되므로 노이즈가 감소할 수 있다.
-
- 
 
 ##### References
 
 - [공돌이의 수학 노트 PCA](https://angeloyeo.github.io/2019/07/27/PCA.html)
 - [주성분분석(PCA)의 이해와 활용-다크 프로그래머 블로그](https://darkpgmr.tistory.com/110)
 - [PCA Eliminate noise in the data - stackExchange](https://stats.stackexchange.com/questions/247260/principal-component-analysis-eliminate-noise-in-the-data/247271)
+
+## #7
+
+### LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
+
+week4 재욱님
 
