@@ -56,6 +56,18 @@
 - dimension reduction기법으로 보통 어떤 것들이 있나요?
 - PCA는 차원 축소 기법이면서, 데이터 압축 기법이기도 하고, 노이즈 제거기법이기도 합니다. 왜 그런지 설명해주실 수 있나요?
 - LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
+- Markov Chain을 고등학생에게 설명하려면 어떤 방식이 제일 좋을까요?
+- 텍스트 더미에서 주제를 추출해야 합니다. 어떤 방식으로 접근해 나가시겠나요?
+- SVM은 왜 반대로 차원을 확장시키는 방식으로 동작할까요? SVM은 왜 좋을까요?
+- 다른 좋은 머신 러닝 대비, 오래된 기법인 나이브 베이즈(naive bayes)의 장점을 옹호해보세요.
+- 회귀 / 분류시 알맞은 metric은 무엇일까?
+- Association Rule의 Support, Confidence, Lift에 대해 설명해주세요.
+- 최적화 기법중 Newton’s Method와 Gradient Descent 방법에 대해 알고 있나요?
+- 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
+- 인공신경망(deep learning이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
+- 지금 나오고 있는 deep learning 계열의 혁신의 근간은 무엇이라고 생각하시나요?
+- ROC 커브에 대해 설명해주실 수 있으신가요?
+- 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
