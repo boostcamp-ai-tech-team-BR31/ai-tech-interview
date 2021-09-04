@@ -986,7 +986,52 @@ week4 재욱님
 ## #24
 
 ### “likelihood”와 “probability”의 차이는 무엇일까요?
-동진님
+
+확률(Probability): 분포에 대한 정보가 주어졌을때 **어떠한 사건**이 일어나는 정도
+
+우도(Likelihood): 주어진 사건이 **어떤 분포**에서 일어나는 정도
+
+확률은 분포에 대한 정보가 주어져서 사건의 정도를 계산하는 거라면 우도는 사건이 주어졌을때 어떤 분포에서 일어나는 정도를 구해 그 분포를 추정하는 것이다. 우도는 경우에 따라 값이 1이 넘을 수 있기에 확률이라 할 수 없다. 이산형과 연속형에 대해 예시를 들어보자
+
+**이산형(Discrete) 확률변수의 예시**
+
+**확률**
+
+동전이 10번 던졌을 때 7번 앞면이 나올 확률은 무엇일까? 이 때 동전이 나오는 횟수는 이항분포이고 앞면이 나올 확률은 1/2로 주어져있다. 
+
+위 상황에서의 관심은 동전이 7번 일어나는 사건에 대해 관심이 있는 것이다. 이미 분포에 대한 정보가 주어져있다. 이항분포, 1/2 따라서 위 사건의 확률은 아래와 같다.
+<img src="https://render.githubusercontent.com/render/math?math=P(X=7|\theta=\frac{1}{2})= {10 \choose 7}(\frac{1}{2})^7(\frac{1}{2})^3"> 
+**우도**
+
+우리가 동전이 앞면이 나오는 확률이 궁금하다. 이 때 10번 동전을 던졌을때 앞면이 7번 나왔다.
+
+위 상황은 사건은 주어졌고 분포에 대한 정보를 모르는 것이다. 우리가 동전이 앞면이 나오는 횟수는 이항분포를 따른다는것은 알고 있을때 여기서 우리의 관심사는 분포에 대한 모수이다. 이 우도를 계산하면 다음과 같다.
+<img src="https://render.githubusercontent.com/render/math?math=L(\theta|x) = {10 \choose 7}(\theta)^7(1-\theta)^3">
+
+위 식을 로그를 취한후 최대가 되는 지점을 구하면 그게 MLE이다.(여기서 사건의 수는 1개 이지만 여러개의 사건이 일어났을때는 하나하나의 사거의 우도값을 곱하면 된다)
+
+**연속형(Continuous) random variable에서의 예시**
+
+**확률**
+
+사람의 키의 분포가 정규분포를 따른다고 알려져 있을때(평균 = 170cm, 표준편차 = 20cm) 키가 170~175사이일 확률은? 
+
+위 상황에서는 키가 170cm~175cm일 사건이 궁금한 것이니 주어진 분포에 대한 정보를 이용하여 적분하면 위 상황의 확률을 계산할 수 있다.
+<img src="https://render.githubusercontent.com/render/math?math=P(x|\mu, \sigma) = \int^{175}_{170}\frac{1}{5\sqrt{2\pi}}exp(-\frac{(x-170)^2}{2*5^2})\partial{x}">
+**우도**
+
+우리가 어떠한 사람의 키가 170cm인걸 알고 있을때 사람들의 키의 평균이 궁금하다고 하자. 이때 사람들의 키의 평균의 분포는 정규분포이고 표준편차는 주어졌다.
+
+정규분포의 pdf를 이용해 우도를 구하면 다음과 같다.(여기서 표준편차는 알고있는 값!)
+<img src="https://render.githubusercontent.com/render/math?mathL(\theta|x) = \frac{1}{\sigma\sqrt{2\pi}}exp(-\frac{(170-\mu)^2}{2\sigma^2}) \hspace{0.5cm}">
+위 식에서 값이 최대가 되는 값은 평균이. 따라서 평균은 170이다. 위의 예시도 사건이 하나 밖에 일어났기 때문에 하나만 계산했지만 사건이 여러개인 경우는 각각의 우도를 곱하면 된다.
+### Reference
+
+- [[기초통계] 확률(Probability) vs 우도(가능도,Likelihood)](https://dlearner.tistory.com/43)
+
+- [[What is the difference between "likelihood" and "probability"?](https://stats.stackexchange.com/questions/2641/what-is-the-difference-between-likelihood-and-probability)]
+
+
 
 ## #25
 ### 통계에서 사용되는 bootstrap의 의미는 무엇인가요?
