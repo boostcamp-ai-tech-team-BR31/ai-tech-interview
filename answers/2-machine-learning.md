@@ -147,3 +147,51 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 ### LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
 
 week4 재욱님
+
+
+
+## #11
+
+### 다른 좋은 머신 러닝 대비, 오래된 기법인 나이브 베이즈(naive bayes)의 장점을 옹호해보세요.
+
+> 기하학에 피타고라스 정리가 있다면 확률론에는 베이즈 정리가 있다
+>
+> -해럴드 제프리스 경
+제프리스 경이 말한 것처럼 베이즈 정리는 AI와 통계학에 엄청난 영향을 끼친 이론입니다.
+- Naive : 예측한 특징이 상호 독립적이라는 가정 하에 확률 계산을 단순화. naive의 순진하다라는 의미를 모든 변수들이 동등하다는 것으로 사용하고 있습니다.
+- Bayes : 추론 대상의 사전 확률과 추가적인 정보를 기반으로 사후확률을 추론하는 방법입니다. Statistics/Math 카테고리의
+[Bayesian Estimation](.\1-statistics-math.md\#14)에서 좀 더 자세히 알 수 있습니다.
+나이브 베이지안에 대한 더 자세한 예시와 적용은 3번째 reference를 참고하면 됩니다.
+> 나이브 베이지안 장점
+>> 간단하고 빠르고 효율적인 알고리즘
+>> 잡으모가 누락 데이터를 잘 처리
+>> 데이터 크기에 상관 없음
+>> 예측을 위한 추정 확률을 쉽게 얻음
+
+> 나이브 베이지안 단점
+>> 모든 데이터가 독립이라는 가정이 전제 되어야 함
+>> nummeric feature이 많은 dataset에는 이상적이지 않음
+>> 추정된 확률이 예측된 클래스보다 덜 신뢰
+
+이러한 나이브 베이지안의 단점을 보완하기 위해 Laplace Smoothing, Underflow 등 보정 방법을 활용하곤 한다.
+##### References
+
+- [나이브 베이즈 분류](https://needjarvis.tistory.com/621)
+- [베이즈 추정](https://bkshin.tistory.com/entry/dd?category=1042793)
+- [딥 러닝을 이용한 자연어 처리 입문 : 나이브 베이즈 분류기](https://wikidocs.net/22892)
+
+
+## #19
+
+### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
+
+![Random Forest](.\images\ml_19_randomForest.png)
+
+Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 모델입니다. 새로운 데이터 포인트를 각 트리에 동시에 통과시키며 각 트리가 분류한 결과에서 가장 많이 결과를 최종 분류 결과로 선택합니다. 많은 Tree를 만들기 때문에 Forest라는 단어를 쓰기 시작한거죠. random이라는 요소 때문에 overfitting을 방지하는 ensemble효과를 가져옵니다. 수많은 Decision Tree를 만들기 위해 Bagging, Bagging Features 등의 과정을 거칩니다.
+인공신경망(Neural Network)은 각 단계별로 의존적인 end-to-end 구조로 하나의 서버에서 이뤄져야 합니다.
+서버수의 여유가 있다면 많은 Decision Tree 모델을 병렬적으로 처리하도록 하여 Random Forest를 활용하는 것이 효율적입니다. 
+##### References
+- [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
+- [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
+- [Interview Question & Answer
+출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
