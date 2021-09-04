@@ -990,3 +990,21 @@ week4 재욱님
 
 ## #25
 ### 통계에서 사용되는 bootstrap의 의미는 무엇인가요?
+<center>to pull oneself up by one's bootstraps</center>
+
+bootstrap은 이 영어 속담에서 유래했습니다. 자신의 부츠 끈을 잡아당겨서 자신을 끌어 올린다. 굉장히 모순적인 의미를 지닌 bootstrap은 통계에서 사용하는 bootstrap에도 어느정도 담겨있습니다.
+
+bootstrapping은 test나 metric을 계산하기 전에 random sampling을 적용하는 방법입니다. 
+- sample이 부족한 경우
+- dataset의 분포가 고르지 않는 경우
+- over-fitting을 줄이고 싶을 때
+
+**매번 training data를 random sampling하면, 서로 다른 n개의 모델이 만들어진다**는 model ensemble로 큰 도움이 됩니다. 그 이유가 되는 random sampling의 효과는 
+[#2 Sampling](#2) 에서 자세히 설명하고 있습니다.
+
+
+ML에서는 bootstrapping의 갈래인 Bagging, Boosting, XGBoost, Adaboost 등의 방법론이 있습니다.
+
+#### Reference
+- [bootstrapping에 대하여](https://learningcarrot.wordpress.com/2015/11/12/%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-bootstrapping/)
+- [bootstrap, bagging, boosting](https://greeksharifa.github.io/machine_learning/2018/11/06/TripleB/)
