@@ -147,3 +147,38 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 ### LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
 
 week4 재욱님
+
+## #10
+
+### SVM은 왜 반대로 차원을 확장시키는 방식으로 동작할까요? SVM은 왜 좋을까요?
+
+SVM(Support Vector Machine)은 데이터를 사상된 공간으로 표현하여, 이 공간에서 데이터간 가장 큰 폭을 갖는 경계(초평면: Hyperplane)를 찾는 알고리즘입니다. 분류와 회귀에 둘 다 적용 가능합니다.
+
+기존의 데이터 차원에서는 적절한 데이터 간의 경계를 구할 수 없기 때문에 kernel trick을 이용해 고차원의 특징 공간으로 사상하여 데이터간 가장 먼 거리를 갖는 초평면(Hyperplane)을 찾습니다.
+
+![img](https://t1.daumcdn.net/cfile/tistory/246E9C3A5852B48931)
+
+왼쪽 문제의 경우 선으로 분리 될 수 없기에 가운데의 mapping 함수를 이용해 고차원의 특징공간으로 사상하여 선형으로 분리 될 수있는 초평면을 구합니다. 여기서 주목할 점은 사실 고차원의 공간으로 직접 이동하는것은 많은 연산을 요구하기에 이 점이 실제로 이동하기 보다는 kernel trick을 이용해 문제를 단순화하여 문제를 해결한다.
+
+SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이터 수가 많아지면 연산이 느려지고 Cross-Validation을 통해 kernel 함수를 정해야 한다는 단점이 있습니다.
+
+#### Reference
+
+- [statquest Youtube SVM](https://www.youtube.com/watch?v=efR1C6CvhmE&t=1028s)
+- [커널과 커널트릭](https://sanghyu.tistory.com/14)
+- [SVM 설명 블로그](https://excelsior-cjh.tistory.com/66)
+- [SVM 장단점](https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/)
+
+## #16
+
+### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
+
+기존 단일 신경망(single layer perceptron)의 경우 xor과 같은 비선형 문제를 해결하지 못하는 문제점이 있었다. 그러나 비선형 활성화 함수와 Multi Layer Perceptron을 통해 xor 문제를 해결 할 수 있게 됬고 MLP를 학습시킬 수 있는 Backpropagation의 등장과 컴퓨팅 파워로 인해 지금의 deeplearning이 가능해졌다.
+
+#### Reference
+
+- [Solving XOR Problem with MLP](https://ynebula.tistory.com/22)
+
+- [Multi Layer Perceptron 설명](http://users.ics.aalto.fi/harri/thesis/valpola_thesis/node43.html)
+
+  
