@@ -318,6 +318,23 @@ SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이�
 
 - [Multi Layer Perceptron 설명](http://users.ics.aalto.fi/harri/thesis/valpola_thesis/node43.html)
 
+## #18
+
+#### ROC 커브에 대해 설명해주실 수 있으신가요?
+
+ROC 커브(Receiver operating characteristic)란 **이진 분류기의 성능을 표현하는 방법**이다. 설명하기 앞서 TPR과 FPR의 개념에 대해 이해해야 한다. TPR은 True Positive Rate, FPR은 False Positive Rate을 의미한다. 쉽게 말하자면, 의사가 환자가 암에 걸렸는지 아닌지를 판별하는 상황을 이진분류라고 가정했을 때, 실제로 암에 걸린 환자를 암에 걸렸다고 진단하는 것이 True Postiive, 암에 걸리지 않은 환자를 암에 걸렸다고 오진하는 것이 False Postive이다. Postive는 암에 걸린 상태, 이것을 잘 예측하면 앞에 True가 붙는 것이다.
+
+<img src="images/jaeuk_roc_curve.png" width="50%">
+
+ROC Curve 를 나타낸 그래프이다. 위 그래프에서 그래프가 좌측 상단쪽으로 쏠려있을 수록 좋은 True Positive가 1에 수렴하므로 Classifier임을 의미한다.
+
+gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋을 것 같다. (저작권 문제로 gif를 가져오지 못함)
+
+##### References
+
+- https://youtu.be/n7EoYT5kDO4
+- https://angeloyeo.github.io/2020/08/05/ROC.html
+- https://en.wikipedia.org/wiki/Receiver_operating_characteristic
 
 ## #19
 
@@ -333,5 +350,4 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer
 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-
 
