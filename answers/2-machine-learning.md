@@ -58,7 +58,7 @@
 3. Confusion Matrix
 
    <div align='center'>
-     <img src="images/ml_1_1.PNG">
+     <img src="images/ml_1_1.png">
    </div>
 
    confusion matrixs는 모델이 예측을 하면서 얼마나 헷갈리고 있는지를 보여주는 지표이다. 주로 이진 분류에서 많이 사용하며 이진 분류에 대한 오차 행렬은 위의 그림처럼 같이 나타낼 수 있다. True Positive는 긍정으로 예측을 했는데 실제로 긍정인 경우를, False Negative는 긍정으로 예측했는데 실제로 부정인 경우를, False Negative는 부정으로 예측했는데 실제로 긍정인 경우를, True Negative는 부정으로 예측했는데 실제로 부정인 경우를 말한다. 위의 값을 바탕으로 모델이 어떤 오류를 발생시켰는지를 살펴볼 수 있다.
@@ -76,7 +76,7 @@
 6. Area Under Curve(AUC, ROC)
 
    <div align='center'>
-     <img src="images/ml_1_2.PNG">
+     <img src="images/ml_1_2.png">
    </div>
 
    ROC는 FPR(False Positive Rate)가 변할 때 TPR(True Positive Rate)가 어떻게 변하는지를 나타내는 곡선을 말한다. 여기서 FPR이란 FP / (FP + TN)이고, TPR은 TP / (FN + TP)으로 재현율을 말한다. 그럼 어떻게 FPR을 움직일까? 바로 분류 결정 임계값을 변경함으로써 움직일 수 있다. FPR이 0이 되려면 임계값을 1로 설정하면 된다. 그럼 긍정의 기준이 높으니 모두 부정으로 예측될 것이다. 반대로 1이 되려면 임계값을 0으로 설정하여 모두 긍정으로 예측시키면 된다. 이렇게 임계값을 움직이면서 나오는 FPR과 TPR을 각각 x와 y 좌표로 두고 그린 곡선이 ROC이다.
@@ -90,7 +90,7 @@
    예측값과 정답값 사이의 차이의 제곱의 평균으로 정의한다. 제곱을 했기 때문에 특이치(아웃라이어)에 민감하다.
 
    <div align='center'>
-     <img src="images/ml_1_3.PNG">
+     <img src="images/ml_1_3.png">
    </div>
    
 2. RMSE
@@ -98,7 +98,7 @@
    MSE에 루트를 씌운 값을 말한다. 오류 지표를 실제 값과 유사한 단위로 다시 변환하기에 해석이 다소 용이해진다.
 
    <div align='center'>
-     <img src="images/ml_1_5.PNG">
+     <img src="images/ml_1_5.png">
    </div>
 
 3. R-squared
@@ -109,7 +109,7 @@
 
     예측값과 정답값 사이의 차이의 절대값의 평균을 말한다.
    <div align='center'>
-     <img src="images/ml_1_4.PNG">
+     <img src="images/ml_1_4.png">
    </div>
 
 ##### References
