@@ -117,3 +117,9 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 - [주성분분석(PCA)의 이해와 활용-다크 프로그래머 블로그](https://darkpgmr.tistory.com/110)
 - [PCA Eliminate noise in the data - stackExchange](https://stats.stackexchange.com/questions/247260/principal-component-analysis-eliminate-noise-in-the-data/247271)
 
+
+
+## #8
+
+#### Markov Chain을 고등학생에게 설명하려면 어떤 방식이 제일 좋을까요?
+
