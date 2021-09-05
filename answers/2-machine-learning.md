@@ -321,7 +321,64 @@ SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이�
 - [딥 러닝을 이용한 자연어 처리 입문 : 나이브 베이즈 분류기](https://wikidocs.net/22892)
 
 
-## #16
+
+## #13
+
+### Association Rule의 Support, Confidence, Lift에 대해 설명해주세요.
+
+Support : 전체 경우 중 X,Y가 같이 나오는 비율
+
+<img src="images/support.PNG" width="60%" >
+
+<img src="images/support2.PNG" width="60%" >
+
+support값이 높을수록 아이템 사이의 관계가 의미있다고 할 수 있다.
+
+Confidence : X가 나온 경우 중 X와 Y가 함께 나올 비율
+
+<img src="images/confidence.PNG" width="60%" >
+
+<img src="images/confidence2.PNG" width="60%" >
+
+Confidence값은 1에 가까울 수록 아이템 사이의 관계가 의미있다고 할 수 있다.
+
+Lift : X,Y가 같이 나오는 비율을 X가 나올 비율과 Y가 나올 비율의 곱으로 나눈 값
+
+<img src="images/lift.PNG" width="60%" >
+
+<img src="images/lift2.PNG" width="60%" >
+
+Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
+1미만이면 X를 샀을 때 Y를 사지 않을 확률이 높은 것이다.
+
+
+
+##### References
+
+- [Association rule](https://process-mining.tistory.com/34)
+- [support,confidence,lift](https://dodonam.tistory.com/167)
+
+
+
+## #15
+
+### 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
+
+통계학과 기계학습의 차이는 방법론의 차이가 아닌 목표와 전략에서 온다.
+
+통계학은 모델의 신뢰도를 확보하는 것, 즉 정해진 분포나 가정을 통해 실패의 위험을 줄이는 데 주 목적을 둔다.
+
+ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통계학에서는 비교적 비중이 낮다. 
+
+반면 기계학습의 제 1목적은 데이터의 '패턴'을 분석해, 높은 성공률로 새로운 데이터를 올바르게 분류하는 데 있다. 
+
+실패의 위험을 낮추는 것과 성공률을 높이는 것이 같은 말처럼 보일 수 있지만, ML은 실패에 집착하지 않기 때문에 모델에 필요한 갖가지 가정과 검증을 신경쓰는 데서 해방될 수 있다.
+
+##### References
+
+- [통계학과 기계학습의 차이](https://essencehan.tumblr.com/post/166414990009/%ED%86%B5%EA%B3%84%ED%95%99%EA%B3%BC-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4)
+
+### #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
 
