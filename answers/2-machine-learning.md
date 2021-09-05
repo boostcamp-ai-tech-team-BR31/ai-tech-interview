@@ -306,6 +306,87 @@ SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이�
 - [딥 러닝을 이용한 자연어 처리 입문 : 나이브 베이즈 분류기](https://wikidocs.net/22892)
 
 
+
+## #12
+
+### 회귀 / 분류시 알맞은 metric은 무엇일까?
+
+#### 회귀 (Regression)
+
+> **실제 값 VS 모델이 예측하는 값** 의 차이를 통해 평가 진행
+
+1. **RSS** (단순 오차 제곱합)
+
+   : 예측값과 실제 값의 오차의 제곱합
+
+2. **MSE** (평균 제곱 오차)
+
+   : RSS를 데이터의 갯수 만큼 나눈 값
+
+   오차의 제곱이므로, 이상치 (Outlier) 를 잡아내는데 효과적이다. 
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrFzwc%2FbtqZlPSD5KQ%2FG3Af5CAHdY9qWN9kWA5MNk%2Fimg.png)
+
+   - RMSE : MSE에 루트를 씌운 값
+
+3. **MAE** (평균 절대값 오차)
+
+    : 예측값과 실제값의 오차의 절대값의 평균
+
+   변동치가 큰 지표와 낮은 지표를 같이 예측하는데 효과적
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTog3q%2FbtqZhgDIf3S%2FvW0CKyTwwpqfv2Kx8pYGJ1%2Fimg.png)
+
+   - RMAE : MAE에 루트를 씌운 값
+
+4. ⭐️ **R2** (결정계수)
+
+   : 위의 MSE와 MAE는 가장 간단한 평가 방법으로 직관적인 해석이 가능하지만, 평균을 그대로 이용하기에 데이터의 크기(N)에 의존한다는 단점 존재 따라서 서로 다른 두 모델의 MSE, MAE만 비교해서는 어떤게 더 좋은 모델인지 판단하기 어려움
+
+   이를 해결하기 위한 metric으로 **R2** 존재
+
+   R2 = **1 - (RSS/전체 분산)** => **회귀 모델의 설명하는 지표** R2의 식에서 분자인 RSS의 근본은 실제값과 예측값의 차이인데 그 값이 0에 가까울 수록 모델이 잘 예측했다는 뜻이 될 수 있다.
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmCdAn%2FbtqZctREDAn%2Ff9OwYKm8pbvPOkAs6lY3Ok%2Fimg.png)
+
+#### 분류 (Classification)
+
+> 모델이 데이터를 **얼마나 알맞은 클래스로 분류 했느냐** 를 측정하는 **혼동 행렬(Confusion Matrix)** 를 사용한다.
+
+<img src="images/ml_12_1.png" width="100%">
+
+1. **정밀도** (**Precision**) : 모델이 **P라고 분류한 데이터** 중 **실제 데이터가 P** 인 비율
+
+   - N(음성 데이터) 가 중요하여 놓치지 말아야 할 때 사용
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeItVeh%2FbtqZkpz9V1v%2FKdHsQskDgccuSTid962SbK%2Fimg.png)
+
+2. **재현율 (Recall)** : **실제 데이터 P** 중 **모델이 P라고 잘 예측** 한 데이터의 비율
+   - P (양성 데이터)가 중요하여 놓치지 말아야 할 때 사용
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbC5zwW%2FbtqZhfrzpO0%2FO23Mdhoxgv0IfKVldf8cS0%2Fimg.png)
+
+3. **정확도 (Accuracy)** : 모델이 얼마나 데이터를 잘 분류 했느냐 / 분류 결과가 얼마나 True인가
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbxKwUK%2FbtqZoxYyi8R%2FN97LLGeXKZ9hlNR9ngmGek%2Fimg.png)
+
+4. **False Positive Rate (FPR)** : **실제로 N인 데이터** 중 에서 **모델이 P라고 잘못 분류** 한 데이터의 비율
+
+   **FPR = FP/(FP+TN)**
+
+5. **F1 score** : **정밀도와 재현율을 혼합**해 사용하기 위하여 만들어진 지표
+
+   정밀도와 재현율의 가중조화평균 값으로 구정되어있다. 아래의 식에서 `alpha` 값으로 정확도와 재현율 중 어느 쪽에 더 가중치를 둘 것이냐를 결정 **F1 score** 는 `alpha = 0.5` 인 경우
+
+<img src="images/ml_12_2.png" width="100%">
+
+#### Reference
+
+- [회귀 / 분류시 알맞은 metric과 그에 대한 설명](https://mole-starseeker.tistory.com/30)
+- [회귀/분류metric , OneHot인코딩, MDP(마르코프 결정 과정)](https://meme2.tistory.com/6#recentEntries)
+
+
+
 ## #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
@@ -333,5 +414,4 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer
 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-
 
