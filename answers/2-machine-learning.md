@@ -499,8 +499,4 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
-  <<<<<<< HEAD
-- # [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-- [Interview Question & Answer
-  출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-  > > > > > > > kjh
+- [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
