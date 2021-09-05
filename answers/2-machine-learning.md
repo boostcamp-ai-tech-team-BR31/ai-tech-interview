@@ -65,7 +65,7 @@
 
 4. precision, recall
 
-   precisionrhk recall은 긍정 데이터 예측 성능에 초점을 맞춘 평가지표이다. precision은 예측을 긍정으로 한 데이터 중 실제로 긍정인 비율을 말하며, recall은 실제로 긍정인 데이터 중 긍정으로 예측한 비율을 말한다. 오차 행렬을 기준으로 precission =  TP / (FP + TP), recall = TP / (FN + TP)으로 계산할 수 있다.
+   precisionrhk recall은 긍정 데이터 예측 성능에 초점을 맞춘 평가지표이다. precision은 예측을 긍정으로 한 데이터 중 실제로 긍정인 비율을 말하며, recall은 실제로 긍정인 데이터 중 긍정으로 예측한 비율을 말한다. 오차 행렬을 기준으로 precission = TP / (FP + TP), recall = TP / (FN + TP)으로 계산할 수 있다.
 
    precision과 recall은 trade-off 관계를 갖는다. 정밀도는 FP를, 재현율은 FN을 낮춤으로써 긍정 예측의 성능을 높인다. 이 같은 특성 때문에 정밀도가 높아지면 재현율은 낮아지고 재현율이 높아지면 정밀도는 낮아진다. 가장 좋은 경우는 두 지표 다 적절히 높은 경우이다.
 
@@ -92,7 +92,7 @@
    <div align='center'>
      <img src="images/ml_1_3.png">
    </div>
-   
+
 2. RMSE
 
    MSE에 루트를 씌운 값을 말한다. 오류 지표를 실제 값과 유사한 단위로 다시 변환하기에 해석이 다소 용이해진다.
@@ -107,7 +107,7 @@
 
 4. MAE
 
-    예측값과 정답값 사이의 차이의 절대값의 평균을 말한다.
+   예측값과 정답값 사이의 차이의 절대값의 평균을 말한다.
    <div align='center'>
      <img src="images/ml_1_4.png">
    </div>
@@ -198,13 +198,11 @@ ML 알고리즘의 목적 중 하나는 feature들을 비교하여 데이터의 
 
 ### dimension reduction기법으로 보통 어떤 것들이 있나요?
 
-차원 축소는 매우 많은 feature로 구성된 다차원 dataset의 차원을 축소해 새로운 차원의 dataset을 생성하는 것이다. 일반적으로 차원이 증가할수록 데이터 포인트 간의 거리가 기하급수적으로 멀어지게 되고, 희소(sparse)한 구조를 가지게 된다. 즉, 데이터가 넓게 분포되어 있어 지역적으로 밀도가 적게 분포되어 있는 구조를 말한다. 
+차원 축소는 매우 많은 feature로 구성된 다차원 dataset의 차원을 축소해 새로운 차원의 dataset을 생성하는 것이다. 일반적으로 차원이 증가할수록 데이터 포인트 간의 거리가 기하급수적으로 멀어지게 되고, 희소(sparse)한 구조를 가지게 된다. 즉, 데이터가 넓게 분포되어 있어 지역적으로 밀도가 적게 분포되어 있는 구조를 말한다.
 
 차원 축소는 피처 선택(feature selection)과 피처 추출(feature extraction)으로 나눌 수 있다. 피처 선택이란 특정 feature에 종속성이 강한 불필요한 feature는 아예 제거하고, 데이터의 특성을 잘 나타내는 주요 feature만 선택하는 것이다. 피처 추출은 기존 feature를 저차원의 중요 feature로 압축해서 추출하는 것이다. 이렇게 새로 추출된 중요 특성은 기존 feature와는 완전히 다른 값이 된다.
 
- PCA, SVD, NMF는 잠재적인 요소를 찾는 대표적인 차원 축소 알고리즘이다. 매우 많은 의미를 가지는 이미지나 텍스트에서 차원 축소를 통해 잠재적인 의미를 찾아 주는 데 이러한 알고리즘들이 잘 활용되고 있다.
-
-
+PCA, SVD, NMF는 잠재적인 요소를 찾는 대표적인 차원 축소 알고리즘이다. 매우 많은 의미를 가지는 이미지나 텍스트에서 차원 축소를 통해 잠재적인 의미를 찾아 주는 데 이러한 알고리즘들이 잘 활용되고 있다.
 
 ##### References
 
@@ -233,7 +231,7 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 #### Markov Chain을 고등학생에게 설명하려면 어떤 방식이 제일 좋을까요?
 
-마르코프 체인이란 각 사건의 확률이 이전 사건에서 얻은 상태에 따라서만 달라지는 일련의 가능한 사건들을 설명하는 확률적 모델이다. 고등학생에게 설명하기 위해 쉽게 표현하자면, 오늘의 날씨가 맑을 때, 내일의 날씨가 맑을지 비가 내릴지를 확률적으로 표현하는 것이다. 
+마르코프 체인이란 각 사건의 확률이 이전 사건에서 얻은 상태에 따라서만 달라지는 일련의 가능한 사건들을 설명하는 확률적 모델이다. 고등학생에게 설명하기 위해 쉽게 표현하자면, 오늘의 날씨가 맑을 때, 내일의 날씨가 맑을지 비가 내릴지를 확률적으로 표현하는 것이다.
 
 <img src="images/Markovkate_01.svg" width="30%">
 
@@ -249,14 +247,14 @@ A가 연속적으로 발생할 확률 : 0.6
 
 **간단한 날씨 예측 모델을 마르코프 체인으로 구현한다고 가정해보자**
 
-| 오늘/내일 | 맑음 |  비  |
-| :-------: | :--: | :--: |
-|   맑음    | 0.7  | 0.3  |
-|    비     | 0.5  | 0.5  |
+| 오늘/내일 | 맑음 | 비  |
+| :-------: | :--: | :-: |
+|   맑음    | 0.7  | 0.3 |
+|    비     | 0.5  | 0.5 |
 
-*오늘 맑고 내일 맑고 모레 비가올 확률은?*
+_오늘 맑고 내일 맑고 모레 비가올 확률은?_
 
-0.7 (오늘 맑고 내일 맑을 확률) * 0.3(맑은 다음 비올 확률) = 0.21
+0.7 (오늘 맑고 내일 맑을 확률) \* 0.3(맑은 다음 비올 확률) = 0.21
 
 ##### References
 
@@ -293,34 +291,114 @@ SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이�
 > -해럴드 제프리스 경
 
 제프리스 경이 말한 것처럼 베이즈 정리는 AI와 통계학에 엄청난 영향을 끼친 이론입니다.
+
 - Naive : 예측한 특징이 상호 독립적이라는 가정 하에 확률 계산을 단순화. naive의 순진하다라는 의미를 모든 변수들이 동등하다는 것으로 사용하고 있습니다.
 - Bayes : 추론 대상의 사전 확률과 추가적인 정보를 기반으로 사후확률을 추론하는 방법입니다. Statistics/Math 카테고리의
-[Bayesian Estimation](.\1-statistics-math.md\#14)에서 좀 더 자세히 알 수 있습니다.
-나이브 베이지안에 대한 더 자세한 예시와 적용은 3번째 reference를 참고하면 됩니다.
-> 나이브 베이지안 장점
->> 간단하고 빠르고 효율적인 알고리즘
->> 
->> 잡음과 누락 데이터를 잘 처리
->> 
->> 데이터 크기에 상관 없음
->> 
->> 예측을 위한 추정 확률을 쉽게 얻음
+  [Bayesian Estimation](.\1-statistics-math.md#14)에서 좀 더 자세히 알 수 있습니다.
+  나이브 베이지안에 대한 더 자세한 예시와 적용은 3번째 reference를 참고하면 됩니다.
+  > 나이브 베이지안 장점
+  >
+  > > 간단하고 빠르고 효율적인 알고리즘
+  > >
+  > > 잡음과 누락 데이터를 잘 처리
+  > >
+  > > 데이터 크기에 상관 없음
+  > >
+  > > 예측을 위한 추정 확률을 쉽게 얻음
 
 > 나이브 베이지안 단점
->> 모든 데이터가 독립이라는 가정이 전제 되어야 함
->> 
->> nummeric feature이 많은 dataset에는 이상적이지 않음
->> 
->> 추정된 확률이 예측된 클래스보다 덜 신뢰
+>
+> > 모든 데이터가 독립이라는 가정이 전제 되어야 함
+> >
+> > nummeric feature이 많은 dataset에는 이상적이지 않음
+> >
+> > 추정된 확률이 예측된 클래스보다 덜 신뢰
 
 이러한 나이브 베이지안의 단점을 보완하기 위해 Laplace Smoothing, Underflow 등 보정 방법을 활용하곤 한다.
+
 ##### References
 
 - [나이브 베이즈 분류](https://needjarvis.tistory.com/621)
 - [베이즈 추정](https://bkshin.tistory.com/entry/dd?category=1042793)
 - [딥 러닝을 이용한 자연어 처리 입문 : 나이브 베이즈 분류기](https://wikidocs.net/22892)
 
+## #12
 
+### 회귀 / 분류시 알맞은 metric은 무엇일까?
+
+#### 회귀 (Regression)
+
+> **실제 값 VS 모델이 예측하는 값** 의 차이를 통해 평가 진행
+
+1. **RSS** (단순 오차 제곱합)
+
+   : 예측값과 실제 값의 오차의 제곱합
+
+2. **MSE** (평균 제곱 오차)
+
+   : RSS를 데이터의 갯수 만큼 나눈 값
+
+   오차의 제곱이므로, 이상치 (Outlier) 를 잡아내는데 효과적이다.
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrFzwc%2FbtqZlPSD5KQ%2FG3Af5CAHdY9qWN9kWA5MNk%2Fimg.png)
+
+   - RMSE : MSE에 루트를 씌운 값
+
+3. **MAE** (평균 절대값 오차)
+
+   : 예측값과 실제값의 오차의 절대값의 평균
+
+   변동치가 큰 지표와 낮은 지표를 같이 예측하는데 효과적
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTog3q%2FbtqZhgDIf3S%2FvW0CKyTwwpqfv2Kx8pYGJ1%2Fimg.png)
+
+   - RMAE : MAE에 루트를 씌운 값
+
+4. ⭐️ **R2** (결정계수)
+
+   : 위의 MSE와 MAE는 가장 간단한 평가 방법으로 직관적인 해석이 가능하지만, 평균을 그대로 이용하기에 데이터의 크기(N)에 의존한다는 단점 존재 따라서 서로 다른 두 모델의 MSE, MAE만 비교해서는 어떤게 더 좋은 모델인지 판단하기 어려움
+
+   이를 해결하기 위한 metric으로 **R2** 존재
+
+   R2 = **1 - (RSS/전체 분산)** => **회귀 모델의 설명하는 지표** R2의 식에서 분자인 RSS의 근본은 실제값과 예측값의 차이인데 그 값이 0에 가까울 수록 모델이 잘 예측했다는 뜻이 될 수 있다.
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmCdAn%2FbtqZctREDAn%2Ff9OwYKm8pbvPOkAs6lY3Ok%2Fimg.png)
+
+#### 분류 (Classification)
+
+> 모델이 데이터를 **얼마나 알맞은 클래스로 분류 했느냐** 를 측정하는 **혼동 행렬(Confusion Matrix)** 를 사용한다.
+
+<img src="images/ml_12_1.png" width="100%">
+
+1. **정밀도** (**Precision**) : 모델이 **P라고 분류한 데이터** 중 **실제 데이터가 P** 인 비율
+
+   - N(음성 데이터) 가 중요하여 놓치지 말아야 할 때 사용
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeItVeh%2FbtqZkpz9V1v%2FKdHsQskDgccuSTid962SbK%2Fimg.png)
+
+2. **재현율 (Recall)** : **실제 데이터 P** 중 **모델이 P라고 잘 예측** 한 데이터의 비율
+   - P (양성 데이터)가 중요하여 놓치지 말아야 할 때 사용
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbC5zwW%2FbtqZhfrzpO0%2FO23Mdhoxgv0IfKVldf8cS0%2Fimg.png)
+
+3. **정확도 (Accuracy)** : 모델이 얼마나 데이터를 잘 분류 했느냐 / 분류 결과가 얼마나 True인가
+
+   ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbxKwUK%2FbtqZoxYyi8R%2FN97LLGeXKZ9hlNR9ngmGek%2Fimg.png)
+
+4. **False Positive Rate (FPR)** : **실제로 N인 데이터** 중 에서 **모델이 P라고 잘못 분류** 한 데이터의 비율
+
+   **FPR = FP/(FP+TN)**
+
+5. **F1 score** : **정밀도와 재현율을 혼합**해 사용하기 위하여 만들어진 지표
+
+   정밀도와 재현율의 가중조화평균 값으로 구정되어있다. 아래의 식에서 `alpha` 값으로 정확도와 재현율 중 어느 쪽에 더 가중치를 둘 것이냐를 결정 **F1 score** 는 `alpha = 0.5` 인 경우
+
+<img src="images/ml_12_2.png" width="100%">
+
+#### Reference
+
+- [회귀 / 분류시 알맞은 metric과 그에 대한 설명](https://mole-starseeker.tistory.com/30)
+- [회귀/분류metric , OneHot인코딩, MDP(마르코프 결정 과정)](https://meme2.tistory.com/6#recentEntries)
 
 ## #13
 
@@ -351,14 +429,10 @@ Lift : X,Y가 같이 나오는 비율을 X가 나올 비율과 Y가 나올 비�
 Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 1미만이면 X를 샀을 때 Y를 사지 않을 확률이 높은 것이다.
 
-
-
 ##### References
 
 - [Association rule](https://process-mining.tistory.com/34)
 - [support,confidence,lift](https://dodonam.tistory.com/167)
-
-
 
 ## #15
 
@@ -368,9 +442,9 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 
 통계학은 모델의 신뢰도를 확보하는 것, 즉 정해진 분포나 가정을 통해 실패의 위험을 줄이는 데 주 목적을 둔다.
 
-ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통계학에서는 비교적 비중이 낮다. 
+ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통계학에서는 비교적 비중이 낮다.
 
-반면 기계학습의 제 1목적은 데이터의 '패턴'을 분석해, 높은 성공률로 새로운 데이터를 올바르게 분류하는 데 있다. 
+반면 기계학습의 제 1목적은 데이터의 '패턴'을 분석해, 높은 성공률로 새로운 데이터를 올바르게 분류하는 데 있다.
 
 실패의 위험을 낮추는 것과 성공률을 높이는 것이 같은 말처럼 보일 수 있지만, ML은 실패에 집착하지 않기 때문에 모델에 필요한 갖가지 가정과 검증을 신경쓰는 데서 해방될 수 있다.
 
@@ -378,7 +452,7 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 
 - [통계학과 기계학습의 차이](https://essencehan.tumblr.com/post/166414990009/%ED%86%B5%EA%B3%84%ED%95%99%EA%B3%BC-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4)
 
-### #16
+## #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
 
@@ -411,6 +485,7 @@ gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋�
 ## #19
 
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
+
    <div align='center'>
      <img src="images\ml_19_randomForest.png">
    </div>
@@ -424,5 +499,8 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
-- [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-
+  <<<<<<< HEAD
+- # [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+- [Interview Question & Answer
+  출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+  > > > > > > > kjh
