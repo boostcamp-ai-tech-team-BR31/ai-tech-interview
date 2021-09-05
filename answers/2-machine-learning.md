@@ -278,6 +278,36 @@ SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이�
 - [딥 러닝을 이용한 자연어 처리 입문 : 나이브 베이즈 분류기](https://wikidocs.net/22892)
 
 
+
+## #13
+
+### Association Rule의 Support, Confidence, Lift에 대해 설명해주세요.
+
+Support : 전체 경우 중 X,Y가 같이 나오는 비율
+
+<img src="images/support.PNG" width="60%" >
+
+<img src="images/support2.PNG" width="60%" >
+
+support값이 높을수록 아이템 사이의 관계가 의미있다고 할 수 있다.
+
+Confidence : X가 나온 경우 중 X와 Y가 함께 나올 비율
+
+<img src="images/confidence.PNG" width="60%" >
+
+<img src="images/confidence2.PNG" width="60%" >
+
+Confidence값은 1에 가까울 수록 아이템 사이의 관계가 의미있다고 할 수 있다.
+
+Lift : X,Y가 같이 나오는 비율을 X가 나올 비율과 Y가 나올 비율의 곱으로 나눈 값
+
+<img src="images/lift.PNG" width="60%" >
+
+<img src="images/lift2.PNG" width="60%" >
+
+Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
+1미만이면 X를 샀을 때 Y를 사지 않을 확률이 높은 것이다.
+
 ## #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
