@@ -210,10 +210,6 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 주성분 분석은 기존의 고차원 데이터들을, 더 적은 차원의 주성분으로 데이터를 표현하므로 차원 축소 기법이라 할 수 있다. 주성분을 구할 때 데이터의 기존의 분산을 전체 다 이용하는 것이 아닌 분산을 설명하는 정도가 큰 몇개의 주성분만을 이용하므로 데이터를 압축한다고 할 수 있고, 이 과정에서 어느정도의 분산이 제거되므로 노이즈가 감소할 수 있다.
 
-
-
-
-
 ##### References
 
 - [공돌이의 수학 노트 PCA](https://angeloyeo.github.io/2019/07/27/PCA.html)
@@ -224,7 +220,39 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 ### LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
 
-week4 재욱님
+## #8
+
+#### Markov Chain을 고등학생에게 설명하려면 어떤 방식이 제일 좋을까요?
+
+마르코프 체인이란 각 사건의 확률이 이전 사건에서 얻은 상태에 따라서만 달라지는 일련의 가능한 사건들을 설명하는 확률적 모델이다. 고등학생에게 설명하기 위해 쉽게 표현하자면, 오늘의 날씨가 맑을 때, 내일의 날씨가 맑을지 비가 내릴지를 확률적으로 표현하는 것이다. 
+
+<img src="images/Markovkate_01.svg" width="30%">
+
+위 그림을 풀어서 말하면 아래와 같다.
+
+E가 연속적으로 발생할 확률 : 0.3
+
+E다음에 A가 발생할 확률 : 0.7
+
+A다음에 E가 발생할 확률 : 0.4
+
+A가 연속적으로 발생할 확률 : 0.6
+
+**간단한 날씨 예측 모델을 마르코프 체인으로 구현한다고 가정해보자**
+
+| 오늘/내일 | 맑음 |  비  |
+| :-------: | :--: | :--: |
+|   맑음    | 0.7  | 0.3  |
+|    비     | 0.5  | 0.5  |
+
+*오늘 맑고 내일 맑고 모레 비가올 확률은?*
+
+0.7 (오늘 맑고 내일 맑을 확률) * 0.3(맑은 다음 비올 확률) = 0.21
+
+##### References
+
+- https://en.wikipedia.org/wiki/Markov_chain
+- https://www.puzzledata.com/blog190423/
 
 ## #10
 
@@ -305,4 +333,5 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer
 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+
 
