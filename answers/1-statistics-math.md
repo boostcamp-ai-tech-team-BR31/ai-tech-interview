@@ -1018,6 +1018,7 @@ week4 재욱님
 
 위 상황에서는 키가 170cm~175cm일 사건이 궁금한 것이니 주어진 분포에 대한 정보를 이용하여 적분하면 위 상황의 확률을 계산할 수 있다.
 <img src="https://render.githubusercontent.com/render/math?math=P(x|\mu, \sigma) = \int^{175}_{170}\frac{1}{5\sqrt{2\pi}}exp(-\frac{(x-170)^2}{2*5^2})\partial{x}">
+
 **우도**
 
 우리가 어떠한 사람의 키가 170cm인걸 알고 있을때 사람들의 키의 평균이 궁금하다고 하자. 이때 사람들의 키의 평균의 분포는 정규분포이고 표준편차는 주어졌다.
