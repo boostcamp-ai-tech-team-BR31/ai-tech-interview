@@ -309,13 +309,17 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
 
 1. **모든 문서와 문서 속 단어들을 임의의 토픽 번호 부여**
 
-<img src="images/ml_9_2.PNG" width="50%">
+   <div align='center'>
+     <img src="images/ml_9_2.png", width = "50%">
+   </div>
 
 
 
 2. **토픽-문서의 단어 분포를 계산**
 
-<img src="images/ml_9_3.PNG" width="50%">
+   <div align='center'>
+     <img src="images/ml_9_3.png", width = "50%">
+   </div>
 
 ​		1번문서의 문고리 단어가 topic1로 배정되어 1의 값이 생기고, LDA 파라미터 값인 α를 0.01로 설정하면 그 값을 같이 더해줍니다.
 
@@ -325,7 +329,11 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
 
 3. **토픽-단어 분포 계산**
 
-   <img src="images/ml_9_4.PNG" width="50%">
+   <div align='center'>
+     <img src="images/ml_9_4.png", width = "50%">
+   </div>
+
+   
 
    임의로 배정된 토픽-단어 분포를 계산해줍니다. 문고리” 단어의 경우 3번 토픽에 지정되어 있지않으나,
    β값을 0.001로 지정함으로써 최소한의 값을 부여합니다.
@@ -334,7 +342,11 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
 
 4. **단어 하나를 제외한 나머지 토픽-단어, 문서의 분포를 고정**
 
-   <img src="images/ml_9_5.PNG" width="50%">
+   <div align='center'>
+     <img src="images/ml_9_5.png", width = "50%">
+   </div>
+
+   
 
 5. **미분류된 키워드의 토픽 선정**
 
