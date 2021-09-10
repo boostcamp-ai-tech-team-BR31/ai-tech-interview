@@ -100,9 +100,9 @@ ML 알고리즘의 목적 중 하나는 feature들을 비교하여 데이터의 
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Maxima_and_minima)
 
-## #4
+## # 4
 
-### 차원의 저주에 대해 설명해주세요.
+#### 차원의 저주에 대해 설명해주세요
 
 **차원의 저주(Curse of dimensionality)** 란, 데이터 학습을 위해 차원이 증가하면서 고차원 데이터 공간에서 데이터 표본이 희박해지는 것을 의미한다. 즉, 차원이 증가함에 따라(=변수의 수 증가) 모델의 성능이 안좋아지는 현상을 의미한다.
 
@@ -185,7 +185,9 @@ week4 재욱님
 
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
 
-![Random Forest](.\images\ml_19_randomForest.png)
+   <div align='center'>
+     <img src=".\images\ml_19_randomForest.png">
+   </div>
 
 Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 모델입니다. 새로운 데이터 포인트를 각 트리에 동시에 통과시키며 각 트리가 분류한 결과에서 가장 많이 결과를 최종 분류 결과로 선택합니다. 많은 Tree를 만들기 때문에 Forest라는 단어를 쓰기 시작한거죠. random이라는 요소 때문에 overfitting을 방지하는 ensemble효과를 가져옵니다. 수많은 Decision Tree를 만들기 위해 Bagging, Bagging Features 등의 과정을 거칩니다.
 인공신경망(Neural Network)은 각 단계별로 의존적인 end-to-end 구조로 하나의 서버에서 이뤄져야 합니다.
@@ -193,5 +195,5 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 ##### References
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
-- [Interview Question & Answer
-출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+- [Interview Question & Answer출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+
