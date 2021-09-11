@@ -487,14 +487,12 @@ gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋�
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
 
    <div align='center'>
-<<<<<<< HEAD
      <img src="images\ml_19_randomForest.png">
    </div>
-=======
      <img src=".\images\ml_19_randomForest.png">
    </div>
 
->>>>>>> ede0ba0a4bf9b7fe8d3375600e3b812674989a51
+
 Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 모델입니다. 새로운 데이터 포인트를 각 트리에 동시에 통과시키며 각 트리가 분류한 결과에서 가장 많이 결과를 최종 분류 결과로 선택합니다. 많은 Tree를 만들기 때문에 Forest라는 단어를 쓰기 시작한거죠. random이라는 요소 때문에 overfitting을 방지하는 ensemble효과를 가져옵니다. 수많은 Decision Tree를 만들기 위해 Bagging, Bagging Features 등의 과정을 거칩니다.
 
 인공신경망(Neural Network)은 각 단계별로 의존적인 end-to-end 구조로 하나의 서버에서 이뤄져야 합니다.
@@ -505,9 +503,58 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
-<<<<<<< HEAD
 - [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-=======
 - [Interview Question & Answer출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
 
->>>>>>> ede0ba0a4bf9b7fe8d3375600e3b812674989a51
+## #20
+
+#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
+
+K-means 클러스터링이란?
+
+비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+
+1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
+2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
+4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
+
+**장점**
+
+- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
+
+**단점**
+
+- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
+- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
+- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
+
+
+
+**활용**
+
+- CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
+
+#### Reference
+
+- [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
+- [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+
+  
+## #26
+
+#### 좋은 모델의 정의는 무엇일까요?
+
+좋은 모델이란? 내가 정의한 문제에 대하여, 기존에 갖고 있던 데이터로 학습한 모델의 성능이 새로운 상황에서도 동일하게 적용되는 것이다.
+
+예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에  대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
+
+만약 내가 모델의 해석이 목적이라면 변수간의 관계를 잘 설명하여, 그 관계를 올바르게 파악하는 것이될것이다.
+
+
+#### Reference
+
+- [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
+- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
+
+
