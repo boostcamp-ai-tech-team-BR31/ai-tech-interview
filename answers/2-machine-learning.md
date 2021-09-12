@@ -220,6 +220,37 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 ### LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
 
+**LSA**
+
+Latent Semantic Analysis는 토픽 모델링을 위해 최적화 된 알고리즘은 아니지만, 토픽 모델링이라는 분야에 아이디어를 제공한 알고리즘이라고 볼 수 있다. 뒤에 나올 **LDA**는 LSA의 단점을 개선하여 탄생한 알고리즘으로 토픽 모델링에 보다 적합한 알고리즘이다. 
+
+BoW (Bag of Words)에 기반한 알고리즘은 기본적으로 단어의 빈도 수를 이용한 수최화 방법이기 때문에 단어의 의미를 고려하지 못한다는 단점이 있다. 이를 토픽 모델링 관점에서는 단어의 토픽을 고려하지 못한다고 한다. 이를 위한 대안으로 잠재된 의미를 이끌어내는 방법으로 잠재 의미 분석(LSA)이 사용된다.
+
+**LSA는 DTM(Document-Term Matrix)나 TF-IDF(Term Frequency-Inverse Document Frequency) 행렬에 Truncated SVD를 적용하여 차원을 축소시키고 단어들의 잠재적인 의미를 이끌어낸다. Full-SVD는 모든 특이값을 사용하는 것이고 Truncated SVD는 상위 N개의 특이값만 사용하는 축소 방법이다. 이 방법을 쓸 경우 원 행렬로 복원이 불가능하다.**
+
+이 방법을 이해하기 위해서는 선형대수학의 특이값 분해(Singular Value Decomposition, SVD)를 이해해야할 필요가 있다. 
+
+**SVD** 
+
+A가 m x n 행렬일 때, 3개의 행렬의 곱으로 분해하는 것을 말한다.
+
+![Screen Shot 2021-09-12 at 9.55.41 PM](images/jaeuk-2-7-1.png)
+
+여기서 각 3개의 행렬은 다음과 같은 조건을 만족한다.
+
+![Screen Shot 2021-09-12 at 9.57.09 PM](images/jaeuk-2-7-2.png)
+
+SVD를 통해 나온 m x n 대각행렬의 대각 원소의 값을 행렬 A의 특이값(singular value)라고 한다.
+
+**LDA**
+
+**Latent Dirichlet Allocation** 혹은 **Linear Discriminant Analysis**의 약자이다. 전자는 토픽모델링에 사용되는 기법 중 하나로 LSA와는 달리 단어가 특정 토픽에 존재할 확률과 문서에 특정 토픽이 존재할 확률을 결합확률로 추정하여 토픽을 추정하는 기법을 말한다. 후자는 차원축소기법 중 하나로 분류하기 쉽도록 클래스 간 분산을 최대화하고 클래스 내부의 분산은 최소화하는 방식을 말한다.
+
+##### References
+
+- https://wikidocs.net/24949
+- https://bkshin.tistory.com/entry/NLP-9-%EC%BD%94%EC%82%AC%EC%9D%B8-%EC%9C%A0%EC%82%AC%EB%8F%84%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%98%81%ED%99%94-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C
+
 ## #8
 
 #### Markov Chain을 고등학생에게 설명하려면 어떤 방식이 제일 좋을까요?
