@@ -69,3 +69,12 @@
 
 - [제목](링크)
 
+## #2
+
+### Cost Function과 Activation Function은 무엇인가요?
+
+내용
+
+##### References
+
+- [제목](링크)
