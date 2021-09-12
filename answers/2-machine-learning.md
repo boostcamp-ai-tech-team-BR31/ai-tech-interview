@@ -434,6 +434,52 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 - [Association rule](https://process-mining.tistory.com/34)
 - [support,confidence,lift](https://dodonam.tistory.com/167)
 
+## #14
+
+### 최적화 기법중 Newton’s Method와 Gradient Descent 방법에 대해 알고 있나요?
+
+#### Newton's Method
+
+> 방정식 **f(x) = 0의 해**를 근사적으로 찾을 때 유용하게 사용되는 방법
+
+**개념**
+
+뉴턴법(Newton's Method)는 기본적으로 f'(a) 가 x = a 에서의 접선의 기울기라는 미분의 기하학적 해석을 이용한다.
+
+예를 들어 아래와 같은 식이 있을 때,
+
+![](https://t1.daumcdn.net/cfile/tistory/0162A54D51842ADD3B)
+
+인수분해도 안되고 정상적인 방법으로 해를 구하기 힘들다. 이때 뉴턴 법을 이용하게 되는데 일단 아무 값이나 x= a를 넣고 f(a)의 값을 살펴본다. 만약 f(a)>0이고 f'(a)>0 이라면 f(x) = 0이 되는 x는 a보다 작은 값일 것이다. 그러니 a의 값을 더 줄이고 대입을 하면서 값의 변화를 살펴보는 식으로 해를 찾아간다.
+
+만약 x= a에서의 |함수값|이 작고 접선의 기울기가 가파르다면 바로 근처에 해가 있을 것이고, 반대로 |함수값|이 크고 접선 기울기가 완만하면 멀리 떨어진 곳에 해가 존재한다.
+
+**특징 및 제약점**
+
+- f(x)가 연속이고 미분이 가능해야한다는 조건 존재
+
+- 만일 f(x) = 0인 해가 여러개 있다면 뉴턴법은 그 중 하나의 해만 찾을 뿐이다.
+- 해가 여러개인 경우 초기값을 어떻게 주냐에 따라 찾는 해가 달라질 수 있다.
+
+#### Gradient Descent
+
+> **f'(x) = 0**이 되는 지점을 찾아가는 방법
+
+어떤 다변수 함수의 f(x1, x2, ..., xn)이 있을 때, f의 gradient는 아래와 같이 정의 된다
+
+![](https://t1.daumcdn.net/cfile/tistory/21639349534B06051A)
+
+즉, gradient는 각 변수로의 일차 편미분 값으로 구성되는 벡터이다. 또한 **f의 값이 가장 가파르게 증가하는 방향**을 나타낸다. 이를 통해 어떤 함수를 지역적으로 선형근사 ([linear approximation](https://ko.wikipedia.org/wiki/선형_근사))하거나 gradient descent 방법을 통해 함수의 극점을 찾는 용도로 활용 가능하다.
+
+Gradient Descent는 아래와 같은 식으로 그레디언트의 특성을 이용해 극소값을 찾아 가는 방법이다.
+
+![](https://t1.daumcdn.net/cfile/tistory/2762E645534CD7560E)
+
+##### Reference
+
+- [뉴턴법/뉴턴-랩슨법의 이해와 활용(Newton's method)](https://darkpgmr.tistory.com/58)
+- [Gradient Descent 탐색 방법](https://darkpgmr.tistory.com/133)
+
 ## #15
 
 ### 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
@@ -487,14 +533,9 @@ gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋�
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
 
    <div align='center'>
-<<<<<<< HEAD
-     <img src="images\ml_19_randomForest.png">
-   </div>
-=======
      <img src=".\images\ml_19_randomForest.png">
    </div>
 
->>>>>>> ede0ba0a4bf9b7fe8d3375600e3b812674989a51
 Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 모델입니다. 새로운 데이터 포인트를 각 트리에 동시에 통과시키며 각 트리가 분류한 결과에서 가장 많이 결과를 최종 분류 결과로 선택합니다. 많은 Tree를 만들기 때문에 Forest라는 단어를 쓰기 시작한거죠. random이라는 요소 때문에 overfitting을 방지하는 ensemble효과를 가져옵니다. 수많은 Decision Tree를 만들기 위해 Bagging, Bagging Features 등의 과정을 거칩니다.
 
 인공신경망(Neural Network)은 각 단계별로 의존적인 end-to-end 구조로 하나의 서버에서 이뤄져야 합니다.
@@ -505,9 +546,4 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
-<<<<<<< HEAD
-- [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-=======
 - [Interview Question & Answer출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
-
->>>>>>> ede0ba0a4bf9b7fe8d3375600e3b812674989a51
