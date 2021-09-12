@@ -606,6 +606,7 @@ L1 Norm
 </h4>
  <div align='center'>
      <img src=".\images\norm1.PNG">
+     </div>
 
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
