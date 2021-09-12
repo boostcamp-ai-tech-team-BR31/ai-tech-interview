@@ -500,3 +500,114 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+
+
+
+## #21
+
+### L1, L2 정규화에 대해 설명해주세요.
+
+#### Norm
+
+벡터의 크기 (혹은 길이)를 측정하는 방법(혹은 함수) or 두 벡터 사이의 거리를 측정하는 방법
+
+<h4>
+L1 Norm
+</h4>
+
+ <div align='center'>
+     <img src="images\norm1.png">
+   </div>
+
+벡터 p,q의 각 원소들의 차이의 절대값의 합
+
+예를 들어 벡터 p=(3,1,-3),q=(5,0,7) 이라면 p,q의 L1 Norm은 13
+
+
+
+<h4>
+L2 Norm
+</h4>
+
+ <div align='center'>
+     <img src="images\norm2.png">
+   </div>
+
+벡터 p,q의 유클리디안 거리(직선 거리)
+
+q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 직선거리
+
+위 수식이 q가 원점일 때
+
+<h4>
+L1 Norm 과 L2 Norm 의 차이
+</h4>
+
+ <div align='center'>
+     <img src="images\dif.png" width="60%">
+   </div>
+
+L1 Norm은 여러가지 path
+
+L2 Norm Unique shortest path
+
+<h4>
+L1 Loss
+</h4>
+
+ <div align='center'>
+     <img src="images\loss1.png" width="40%">
+   </div>
+
+실제값과 예측치 사이의 차이 값의 절대값의 합
+
+=Least absolute deviations(LAD)
+
+=Least absolute Errors(LAE)
+
+=Least absolute value(LAV)
+
+=Least absolute residual(LAR)
+
+=Sum of absolute deviations
+
+<h4>
+L2 Loss
+</h4>
+
+ <div align='center'>
+     <img src="images\loss2.png" width="40%">
+   </div>
+
+오차 제곱의 합
+
+=Least squares error(LSE)
+
+<h4>
+L1 Loss 와 L2 Loss 의 차이
+</h4>
+
+L2 Loss는 직관적으로 오차의 제곱을 더하기 때문에 outlier에 더 큰 영향을 받는다.
+
+outlier가 적당히 무시되길 원한다면 L1 Loss를 사용하고, Outlier에 신경써야 한다면 L2 Loss를 사용하는 것이 좋다.
+
+L1 Loss는 0인 지점에서 미분이 불가능하다는 단점이 있다.
+
+<h4>
+Regularization
+</h4>
+
+보통 정규화 라고 하지만 일반화 라고 하는 것이 이해에 더 도움이 될 수 있다.
+
+모델 복잡도에 대한 패널티로서, overfitting을 예방하고 generalization성능을 높이는 데 도움을 준다.
+
+regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early stopping 등이 있다.
+
+<h4>
+Regularization
+</h4>
+
+ <div align='center'>
+     <img src="images\reg1.png" width="40%">
+   </div>
+
