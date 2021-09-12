@@ -604,10 +604,17 @@ Regularization
 regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early stopping 등이 있다.
 
 <h4>
-Regularization
+L1 Regularization
 </h4>
 
  <div align='center'>
      <img src="images\reg1.png" width="40%">
    </div>
 
+<h4>
+L2 Regularization
+</h4>
+
+ <div align='center'>
+     <img src="images\reg2.png" width="40%">
+   </div>
