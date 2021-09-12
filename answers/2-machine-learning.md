@@ -752,14 +752,6 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 
 #### Reference
 
-<<<<<<< HEAD
 - [original answer
-
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
 
-  
-=======
-- [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
-- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택
-
->>>>>>> 922392a693fd28eb8ef036a3d59e820ac2b483b2
