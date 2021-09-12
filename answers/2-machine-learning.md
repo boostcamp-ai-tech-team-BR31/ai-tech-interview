@@ -665,8 +665,7 @@ L2 Regularization
 
 
    <div align='center'>
-     <img src=".\images\ml_22_cross_validation
-.png">
+     <img src=".\images\ml_22_cross_validation.png">
    </div>
 
 
