@@ -674,3 +674,50 @@ K-means 클러스터링이란?
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
 
 
+
+## #22
+
+### Cross Validation은 무엇이고 어떻게 해야하나요?
+
+**Cross Validation**(교차검증)은 test set은 하나로 고정하는 대신 데이터의 모든 부분을 사용하여 모델을 검증하는 것을 말합니다. train set의 일부를 validation set으로 분리하는 것을 말합니다. 이렇게 dataset을 나눈다면, epoch마다 train set으로 학습한 후, validation set으로 검증하여 모델의 예측을 train하면서 알 수 있게 됩니다.
+
+
+   <div align='center'>
+     <img src=".\images\ml_22_cross_validation
+.png">
+   </div>
+
+
+cross validation을 하지 않으면 dataset은 고정된 train set과 test set만 존재하게 됩니다. 그러면 오로지 train set에 대해서만 잘 작동하는 overfitting이 됩니다. 이를 막기위해 데이터의 모든 부분을 사용하여 모델을 검증하여, 변동성을 낮추고 여러 번의 검증 결과를 결합하여 모델의 예측 성능을 추정하는 cross validation을 사용하게 됩니다.
+
+#### K-fold Cross Validation
+
+   <div align='center'>
+     <img src=".\images\ml_22_kfold_cross_validation.png">
+   </div>
+
+대표적인 cross validation입니다. train set을 k개의 fold로 나눕니다. (k-1)개의 fold는 train에 사용하고, 1개의 fold는 validation에 사용합니도. 모든 fold를 validation에 한번씩 사용하요 총 k번의 lteration을 하고 난 후, validation 결과를 평균하여 최종 validation 결과를 도출하게 됩니다.
+
+#### Stratified K-fold Cross Validation
+
+   <div align='center'>
+     <img src=".\images\ml_22_stratified_kfold_cross_validation.png">
+   </div>
+
+K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분포가 각 클래스 별로 불균형한 경우 활용할 수 있는 Cross Validation입니다. label 분포가 불균형한 상태에서 sample의 index 순으로 fold를 구성한다면 validation에서 오류가 생깁니다. 이때 label 분포를 고려하여 각 fold가 전체 dataset분포에 근사하여 구성하도록 한 방법을 **Stratified K-fold Cross Validation**이라고 부릅니다.
+
+#### Cross Validation의 장단점
+**장점**
+- 모든 dataset을 train/validation에 활용할 수 있다.
+  - 특정 dataset(test dataset)만 학습하는 data 편중을 막고
+  - 좀 더 일반화된 모델을 만들 수 있다.
+  
+**단점**
+- iteration 횟수가 많기 때문에 시간이 오래 걸린다.
+- train dataset에서 validation dataset을 할애해야하기 때문에 train dataset 수가 줄어듬
+  - 하지만 train data의 감소보다 Cross Validation의 효과가 더 가치 있다고 평가됨 
+  
+
+##### References
+- [네이버 블로그 : cross validation](https://m.blog.naver.com/ckdgus1433/221599517834)
+- [CLICK AI : cross validation](https://www.clickai.ai/resource/wiki/modeling/crossvalidation_kor)
