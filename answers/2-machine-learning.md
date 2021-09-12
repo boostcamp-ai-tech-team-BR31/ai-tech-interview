@@ -546,7 +546,6 @@ gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋�
 
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
 
-   <div align='center'>
      <img src=".\images\ml_19_randomForest.png">
    </div>
 
@@ -568,10 +567,10 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 
 K-means 클러스터링이란?
 
-비지도학습인 클러스터링 알고리즘입니다. 작동방법은 다음과 같습니다.
+비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
 
 1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
-2. 각 데이터들을 가장 가까운 centroids가 속한 그룹에 할당합니다.
+2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
 3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
 4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
 
@@ -606,8 +605,8 @@ K-means 클러스터링이란?
 L1 Norm
 </h4>
  <div align='center'>
-     <img src="images/norm1.PNG">
-   </div>
+     <img src=".\images\norm1.PNG">
+
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
 
@@ -616,8 +615,9 @@ L1 Norm
 <h4>
 L2 Norm
 </h4>
+
  <div align='center'>
-     <img src="images/norm2.PNG">
+     <img src=".\images\norm2.PNG">
    </div>
 
 벡터 p,q의 유클리디안 거리(직선 거리)
@@ -629,10 +629,11 @@ q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 
 <h4>
 L1 Norm 과 L2 Norm 의 차이
 </h4>
- <div align='center'>
-     <img src="images/dif.PNG" width="40%">
- </div>
 
+ <div align='center'>
+     <img src=".\images\dif.PNG" width="60%">
+   </div>
+   
 L1 Norm은 여러가지 path
 
 L2 Norm Unique shortest path
@@ -640,9 +641,10 @@ L2 Norm Unique shortest path
 <h4>
 L1 Loss
 </h4>
+
  <div align='center'>
-     <img src="images/loss1.PNG" width="30%">
- </div>
+     <img src=".\images\loss1.PNG" width="40%">
+   </div>
 
 실제값과 예측치 사이의 차이 값의 절대값의 합
 
@@ -659,9 +661,10 @@ L1 Loss
 <h4>
 L2 Loss
 </h4>
+
  <div align='center'>
-     <img src="images/loss2.PNG" width="30%">
- </div>
+     <img src=".\images\loss2.PNG" width="40%">
+   </div>
 
 오차 제곱의 합
 
@@ -691,15 +694,18 @@ regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early 
 L1 Regularization
 </h4>
  <div align='center'>
-     <img src="images/reg1.PNG" width="40%">
+     <img src=".\images\reg1.PNG" width="40%">
+
    </div>
 
 <h4>
 L2 Regularization
 </h4>
+  
  <div align='center'>
-     <img src="images/reg2.PNG" width="40%">
+     <img src=".\images\reg2.PNG" width="40%">
    </div>
+
 
 ## #20
 
@@ -731,8 +737,7 @@ K-means 클러스터링이란?
 **Cross Validation**(교차검증)은 test set은 하나로 고정하는 대신 데이터의 모든 부분을 사용하여 모델을 검증하는 것을 말합니다. train set의 일부를 validation set으로 분리하는 것을 말합니다. 이렇게 dataset을 나눈다면, epoch마다 train set으로 학습한 후, validation set으로 검증하여 모델의 예측을 train하면서 알 수 있게 됩니다.
 
    <div align='center'>
-     <img src=".\images\ml_22_cross_validation
-.png">
+     <img src=".\images\ml_22_cross_validation.png">
    </div>
 
 cross validation을 하지 않으면 dataset은 고정된 train set과 test set만 존재하게 됩니다. 그러면 오로지 train set에 대해서만 잘 작동하는 overfitting이 됩니다. 이를 막기위해 데이터의 모든 부분을 사용하여 모델을 검증하여, 변동성을 낮추고 여러 번의 검증 결과를 결합하여 모델의 예측 성능을 추정하는 cross validation을 사용하게 됩니다.
@@ -778,7 +783,7 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 
 좋은 모델이란? 내가 정의한 문제에 대하여, 기존에 갖고 있던 데이터로 학습한 모델의 성능이 새로운 상황에서도 동일하게 적용되는 것이다.
 
-예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에 대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
+예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에  대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
 
 만약 내가 모델의 해석이 목적이라면 변수간의 관계를 잘 설명하여, 그 관계를 올바르게 파악하는 것이될것이다.
 
