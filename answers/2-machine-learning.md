@@ -786,3 +786,21 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
+
+## #28
+
+### 스팸 필터에 Logistic Regression을 많이 사용하는 이유는 무엇일까요?
+
+스팸 필터의 경우 결과가 True(1) / False(0) 로 이진으로 구분 되어져 나온다.
+
+**Linear Regression의 경우** outlier과 같은 변수로 인해 분류 전체가 뒤틀리는 결과를 만들어 낼 수 있을 뿐더러 Hypothesis가 H(x) = WX + B 이므로 x값에 매우 민감한 모델이 만들어진다
+
+**Logistic Regression**을 이용하면 결과 값이 0과 1사이의 값이 나오고 이를 통해 linear와 달리 0과 1에 얼마나 가까운지 평가하기 편해지며 x 값에도 덜 민감한 모델이 만들어진다.
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/0308cff86f60a3e4a602daf797f33cb93de29489)
+
+##### Reference
+
+- [모두를 위한 딥러닝 (sung kim) lec5 - Logistic Classification (로지스틱 회귀분석)](https://cding.tistory.com/55)
+- [선형 회귀 - wiki](https://ko.wikipedia.org/wiki/선형_회귀)
+- [로지스틱 회귀 - wiki](https://ko.wikipedia.org/wiki/로지스틱_회귀)
