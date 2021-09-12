@@ -434,6 +434,52 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 - [Association rule](https://process-mining.tistory.com/34)
 - [support,confidence,lift](https://dodonam.tistory.com/167)
 
+## #14
+
+### 최적화 기법중 Newton’s Method와 Gradient Descent 방법에 대해 알고 있나요?
+
+#### Newton's Method
+
+> 방정식 **f(x) = 0의 해**를 근사적으로 찾을 때 유용하게 사용되는 방법
+
+**개념**
+
+뉴턴법(Newton's Method)는 기본적으로 f'(a) 가 x = a 에서의 접선의 기울기라는 미분의 기하학적 해석을 이용한다.
+
+예를 들어 아래와 같은 식이 있을 때,
+
+![](https://t1.daumcdn.net/cfile/tistory/0162A54D51842ADD3B)
+
+인수분해도 안되고 정상적인 방법으로 해를 구하기 힘들다. 이때 뉴턴 법을 이용하게 되는데 일단 아무 값이나 x= a를 넣고 f(a)의 값을 살펴본다. 만약 f(a)>0이고 f'(a)>0 이라면 f(x) = 0이 되는 x는 a보다 작은 값일 것이다. 그러니 a의 값을 더 줄이고 대입을 하면서 값의 변화를 살펴보는 식으로 해를 찾아간다.
+
+만약 x= a에서의 |함수값|이 작고 접선의 기울기가 가파르다면 바로 근처에 해가 있을 것이고, 반대로 |함수값|이 크고 접선 기울기가 완만하면 멀리 떨어진 곳에 해가 존재한다.
+
+**특징 및 제약점**
+
+- f(x)가 연속이고 미분이 가능해야한다는 조건 존재
+
+- 만일 f(x) = 0인 해가 여러개 있다면 뉴턴법은 그 중 하나의 해만 찾을 뿐이다.
+- 해가 여러개인 경우 초기값을 어떻게 주냐에 따라 찾는 해가 달라질 수 있다.
+
+#### Gradient Descent
+
+> **f'(x) = 0**이 되는 지점을 찾아가는 방법
+
+어떤 다변수 함수의 f(x1, x2, ..., xn)이 있을 때, f의 gradient는 아래와 같이 정의 된다
+
+![](https://t1.daumcdn.net/cfile/tistory/21639349534B06051A)
+
+즉, gradient는 각 변수로의 일차 편미분 값으로 구성되는 벡터이다. 또한 **f의 값이 가장 가파르게 증가하는 방향**을 나타낸다. 이를 통해 어떤 함수를 지역적으로 선형근사 ([linear approximation](https://ko.wikipedia.org/wiki/선형_근사))하거나 gradient descent 방법을 통해 함수의 극점을 찾는 용도로 활용 가능하다.
+
+Gradient Descent는 아래와 같은 식으로 그레디언트의 특성을 이용해 극소값을 찾아 가는 방법이다.
+
+![](https://t1.daumcdn.net/cfile/tistory/2762E645534CD7560E)
+
+##### Reference
+
+- [뉴턴법/뉴턴-랩슨법의 이해와 활용(Newton's method)](https://darkpgmr.tistory.com/58)
+- [Gradient Descent 탐색 방법](https://darkpgmr.tistory.com/133)
+
 ## #15
 
 ### 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
@@ -449,7 +495,6 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 반면 통계학에서는 유저가 왜 특정 영화를 선택하게 되는지를 이해할 수 있게하는 모형을 만드려고 할 것이다. 그 이해라는 것은 가령, A종류의 영화를 좋아하는 사람은 또 B종류의 영화를 좋아하는구나라는 심리학적인 설명을 할 수도 있는 것이다.
 
 머신러닝은 이러한 이유의 해석가능성이 부족하다.
-
 
 통계학과 기계학습의 차이는 방법론의 차이가 아닌 목표와 전략에서 온다.
 
@@ -467,7 +512,6 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 
 - [머신러닝과 전통적 통계학의 차이](https://medium.com/@hyunseok/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B3%BC-%EC%A0%84%ED%86%B5%EC%A0%81-%ED%86%B5%EA%B3%84%ED%95%99%EC%9D%98-%EC%B0%A8%EC%9D%B4-a560f0708db0)
 
-  
 ## #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
@@ -503,11 +547,8 @@ gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋�
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
 
    <div align='center'>
-     <img src="images\ml_19_randomForest.png">
-   </div>
      <img src=".\images\ml_19_randomForest.png">
    </div>
-
 
 Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 모델입니다. 새로운 데이터 포인트를 각 트리에 동시에 통과시키며 각 트리가 분류한 결과에서 가장 많이 결과를 최종 분류 결과로 선택합니다. 많은 Tree를 만들기 때문에 Forest라는 단어를 쓰기 시작한거죠. random이라는 요소 때문에 overfitting을 방지하는 ensemble효과를 가져옵니다. 수많은 Decision Tree를 만들기 위해 Bagging, Bagging Features 등의 과정을 거칩니다.
 
@@ -527,10 +568,10 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 
 K-means 클러스터링이란?
 
-비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+비지도학습인 클러스터링 알고리즘입니다. 작동방법은 다음과 같습니다.
 
 1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
-2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+2. 각 데이터들을 가장 가까운 centroids가 속한 그룹에 할당합니다.
 3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
 4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
 
@@ -544,7 +585,6 @@ K-means 클러스터링이란?
 - 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
 - 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
 
-
 **활용**
 
 - CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
@@ -553,7 +593,6 @@ K-means 클러스터링이란?
 
 - [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
 - [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-
 
 ## #21
 
@@ -573,8 +612,6 @@ L1 Norm
 벡터 p,q의 각 원소들의 차이의 절대값의 합
 
 예를 들어 벡터 p=(3,1,-3),q=(5,0,7) 이라면 p,q의 L1 Norm은 13
-
-
 
 <h4>
 L2 Norm
@@ -607,7 +644,6 @@ L1 Loss
      <img src="images/loss1.PNG" width="30%">
  </div>
 
-
 실제값과 예측치 사이의 차이 값의 절대값의 합
 
 =Least absolute deviations(LAD)
@@ -626,7 +662,6 @@ L2 Loss
  <div align='center'>
      <img src="images/loss2.PNG" width="30%">
  </div>
-
 
 오차 제곱의 합
 
@@ -666,16 +701,16 @@ L2 Regularization
      <img src="images/reg2.PNG" width="40%">
    </div>
 
-
 ## #20
+
 #### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
 
 K-means 클러스터링이란?
 
-비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+비지도학습인 클러스터링 알고리즘입니다. 작동방법은 다음과 같습니다.
 
 1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
-2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+2. 각 데이터들을 가장 가까운 centroids가 속한 그룹에 할당합니다.
 3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
 4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
 
@@ -689,19 +724,16 @@ K-means 클러스터링이란?
 - 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
 - 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
 
-
 ## #22
 
 ### Cross Validation은 무엇이고 어떻게 해야하나요?
 
 **Cross Validation**(교차검증)은 test set은 하나로 고정하는 대신 데이터의 모든 부분을 사용하여 모델을 검증하는 것을 말합니다. train set의 일부를 validation set으로 분리하는 것을 말합니다. 이렇게 dataset을 나눈다면, epoch마다 train set으로 학습한 후, validation set으로 검증하여 모델의 예측을 train하면서 알 수 있게 됩니다.
 
-
    <div align='center'>
      <img src=".\images\ml_22_cross_validation
 .png">
    </div>
-
 
 cross validation을 하지 않으면 dataset은 고정된 train set과 test set만 존재하게 됩니다. 그러면 오로지 train set에 대해서만 잘 작동하는 overfitting이 됩니다. 이를 막기위해 데이터의 모든 부분을 사용하여 모델을 검증하여, 변동성을 낮추고 여러 번의 검증 결과를 결합하여 모델의 예측 성능을 추정하는 cross validation을 사용하게 됩니다.
 
@@ -722,22 +754,23 @@ cross validation을 하지 않으면 dataset은 고정된 train set과 te
 K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분포가 각 클래스 별로 불균형한 경우 활용할 수 있는 Cross Validation입니다. label 분포가 불균형한 상태에서 sample의 index 순으로 fold를 구성한다면 validation에서 오류가 생깁니다. 이때 label 분포를 고려하여 각 fold가 전체 dataset분포에 근사하여 구성하도록 한 방법을 **Stratified K-fold Cross Validation**이라고 부릅니다.
 
 #### Cross Validation의 장단점
+
 **장점**
+
 - 모든 dataset을 train/validation에 활용할 수 있다.
   - 특정 dataset(test dataset)만 학습하는 data 편중을 막고
   - 좀 더 일반화된 모델을 만들 수 있다.
 
-
 **단점**
+
 - iteration 횟수가 많기 때문에 시간이 오래 걸린다.
 - train dataset에서 validation dataset을 할애해야하기 때문에 train dataset 수가 줄어듬
-  - 하지만 train data의 감소보다 Cross Validation의 효과가 더 가치 있다고 평가됨 
-  
+  - 하지만 train data의 감소보다 Cross Validation의 효과가 더 가치 있다고 평가됨
 
 ##### References
+
 - [네이버 블로그 : cross validation](https://m.blog.naver.com/ckdgus1433/221599517834)
 - [CLICK AI : cross validation](https://www.clickai.ai/resource/wiki/modeling/crossvalidation_kor)
-
 
 ## #26
 
@@ -745,13 +778,11 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 
 좋은 모델이란? 내가 정의한 문제에 대하여, 기존에 갖고 있던 데이터로 학습한 모델의 성능이 새로운 상황에서도 동일하게 적용되는 것이다.
 
-예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에  대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
+예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에 대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
 
 만약 내가 모델의 해석이 목적이라면 변수간의 관계를 잘 설명하여, 그 관계를 올바르게 파악하는 것이될것이다.
-
 
 #### Reference
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
-
