@@ -826,7 +826,7 @@ L2 Loss
 
  <div align='center'>
      <img src=".\images\loss2.PNG" width="40%">
-   </div>
+ </div>
 
 오차 제곱의 합
 
