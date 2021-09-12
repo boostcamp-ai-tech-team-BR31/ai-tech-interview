@@ -516,7 +516,7 @@ L1 Norm
 </h4>
 
  <div align='center'>
-     <img src="images\norm1.png">
+     <img src="images\norm1.PNG">
    </div>
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
@@ -530,7 +530,7 @@ L2 Norm
 </h4>
 
  <div align='center'>
-     <img src="images\norm2.png">
+     <img src="images\norm2.PNG">
    </div>
 
 벡터 p,q의 유클리디안 거리(직선 거리)
@@ -544,7 +544,7 @@ L1 Norm 과 L2 Norm 의 차이
 </h4>
 
  <div align='center'>
-     <img src="images\dif.png" width="60%">
+     <img src="images\dif.PNG" width="60%">
    </div>
 
 L1 Norm은 여러가지 path
@@ -556,7 +556,7 @@ L1 Loss
 </h4>
 
  <div align='center'>
-     <img src="images\loss1.png" width="40%">
+     <img src="images\loss1.PNG" width="40%">
    </div>
 
 실제값과 예측치 사이의 차이 값의 절대값의 합
@@ -576,7 +576,7 @@ L2 Loss
 </h4>
 
  <div align='center'>
-     <img src="images\loss2.png" width="40%">
+     <img src="images\loss2.PNG" width="40%">
    </div>
 
 오차 제곱의 합
@@ -608,7 +608,7 @@ L1 Regularization
 </h4>
 
  <div align='center'>
-     <img src="images\reg1.png" width="40%">
+     <img src="images\reg1.PNG" width="40%">
    </div>
 
 <h4>
@@ -616,5 +616,5 @@ L2 Regularization
 </h4>
 
  <div align='center'>
-     <img src="images\reg2.png" width="40%">
+     <img src="images\reg2.PNG" width="40%">
    </div>
