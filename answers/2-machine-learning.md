@@ -438,6 +438,19 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 
 ### 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
 
+머신러닝은 예측에 집중한다. overfitting되지 않고, 일반화 성능이 좋길 바란다.
+
+통계학은 해석 가능성을 중요시하고, 모델링과 샘플링의 가정(assumption)에 중점을 둔다.
+
+넷플릭스를 예로 들자면,
+
+넷플릭스에서는 유저의 영화 평가를 다량으로 수집하여 영화를 예측하여 추천해준다. 예측에 필요한 데이터를 이미 가지고 있는 상태에서 넷플릭스의 영화 추천 시스템이 작동하는 것이다. 이에 대한 성공은 믿을만한 영화를 추천해주는지로 평가할 수 있다.
+
+반면 통계학에서는 유저가 왜 특정 영화를 선택하게 되는지를 이해할 수 있게하는 모형을 만드려고 할 것이다. 그 이해라는 것은 가령, A종류의 영화를 좋아하는 사람은 또 B종류의 영화를 좋아하는구나라는 심리학적인 설명을 할 수도 있는 것이다.
+
+머신러닝은 이러한 이유의 해석가능성이 부족하다.
+
+
 통계학과 기계학습의 차이는 방법론의 차이가 아닌 목표와 전략에서 온다.
 
 통계학은 모델의 신뢰도를 확보하는 것, 즉 정해진 분포나 가정을 통해 실패의 위험을 줄이는 데 주 목적을 둔다.
@@ -452,6 +465,9 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 
 - [통계학과 기계학습의 차이](https://essencehan.tumblr.com/post/166414990009/%ED%86%B5%EA%B3%84%ED%95%99%EA%B3%BC-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4)
 
+- [머신러닝과 전통적 통계학의 차이](https://medium.com/@hyunseok/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B3%BC-%EC%A0%84%ED%86%B5%EC%A0%81-%ED%86%B5%EA%B3%84%ED%95%99%EC%9D%98-%EC%B0%A8%EC%9D%B4-a560f0708db0)
+
+  
 ## #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
@@ -550,9 +566,8 @@ K-means 클러스터링이란?
 <h4>
 L1 Norm
 </h4>
-
  <div align='center'>
-     <img src=".\images\norm1.PNG">
+     <img src="images/norm1.PNG">
    </div>
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
@@ -564,9 +579,8 @@ L1 Norm
 <h4>
 L2 Norm
 </h4>
-
  <div align='center'>
-     <img src=".\images\norm2.PNG">
+     <img src="images/norm2.PNG">
    </div>
 
 벡터 p,q의 유클리디안 거리(직선 거리)
@@ -578,10 +592,9 @@ q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 
 <h4>
 L1 Norm 과 L2 Norm 의 차이
 </h4>
-
  <div align='center'>
-     <img src=".\images\dif.PNG" width="60%">
-   </div>
+     <img src="images/dif.PNG" width="40%">
+ </div>
 
 L1 Norm은 여러가지 path
 
@@ -590,10 +603,10 @@ L2 Norm Unique shortest path
 <h4>
 L1 Loss
 </h4>
-
  <div align='center'>
-     <img src=".\images\loss1.PNG" width="40%">
-   </div>
+     <img src="images/loss1.PNG" width="30%">
+ </div>
+
 
 실제값과 예측치 사이의 차이 값의 절대값의 합
 
@@ -610,10 +623,10 @@ L1 Loss
 <h4>
 L2 Loss
 </h4>
-
  <div align='center'>
-     <img src=".\images\loss2.PNG" width="40%">
-   </div>
+     <img src="images/loss2.PNG" width="30%">
+ </div>
+
 
 오차 제곱의 합
 
@@ -642,19 +655,39 @@ regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early 
 <h4>
 L1 Regularization
 </h4>
-
  <div align='center'>
-     <img src=".\images\reg1.PNG" width="40%">
+     <img src="images/reg1.PNG" width="40%">
    </div>
 
 <h4>
 L2 Regularization
 </h4>
-
  <div align='center'>
-     <img src=".\images\reg2.PNG" width="40%">
+     <img src="images/reg2.PNG" width="40%">
    </div>
-   
+
+
+## #20
+#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
+
+K-means 클러스터링이란?
+
+비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+
+1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
+2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
+4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
+
+**장점**
+
+- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
+
+**단점**
+
+- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
+- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
+- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
 
 
 ## #22
@@ -693,7 +726,8 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 - 모든 dataset을 train/validation에 활용할 수 있다.
   - 특정 dataset(test dataset)만 학습하는 data 편중을 막고
   - 좀 더 일반화된 모델을 만들 수 있다.
-  
+
+
 **단점**
 - iteration 횟수가 많기 때문에 시간이 오래 걸린다.
 - train dataset에서 validation dataset을 할애해야하기 때문에 train dataset 수가 줄어듬
@@ -719,4 +753,5 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 #### Reference
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
-- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
+- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택
+
