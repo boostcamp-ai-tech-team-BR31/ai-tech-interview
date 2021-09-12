@@ -73,7 +73,7 @@
 
 ### Cost Function과 Activation Function은 무엇인가요?
 
-내용
+**Cost Function**은
 
 ##### References
 
