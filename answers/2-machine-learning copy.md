@@ -505,6 +505,39 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
 
+## #20
+
+#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
+
+K-means 클러스터링이란?
+
+비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+
+1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
+2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
+4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
+
+**장점**
+
+- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
+
+**단점**
+
+- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
+- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
+- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
+
+
+**활용**
+
+- CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
+
+#### Reference
+
+- [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
+- [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+
 
 ## #21
 
@@ -519,7 +552,7 @@ L1 Norm
 </h4>
 
  <div align='center'>
-     <img src="images\norm1.png">
+     <img src=".\images\norm1.png">
    </div>
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
@@ -533,7 +566,7 @@ L2 Norm
 </h4>
 
  <div align='center'>
-     <img src="images\norm2.png">
+     <img src=".\images\norm2.png">
    </div>
 
 벡터 p,q의 유클리디안 거리(직선 거리)
@@ -547,7 +580,7 @@ L1 Norm 과 L2 Norm 의 차이
 </h4>
 
  <div align='center'>
-     <img src="images\dif.png" width="60%">
+     <img src=".\images\dif.png" width="60%">
    </div>
 
 L1 Norm은 여러가지 path
@@ -559,7 +592,7 @@ L1 Loss
 </h4>
 
  <div align='center'>
-     <img src="images\loss1.png" width="40%">
+     <img src=".\images\loss1.png" width="40%">
    </div>
 
 실제값과 예측치 사이의 차이 값의 절대값의 합
@@ -579,7 +612,7 @@ L2 Loss
 </h4>
 
  <div align='center'>
-     <img src="images\loss2.png" width="40%">
+     <img src=".\images\loss2.png" width="40%">
    </div>
 
 오차 제곱의 합
@@ -611,7 +644,7 @@ L1 Regularization
 </h4>
 
  <div align='center'>
-     <img src="images\reg1.png" width="40%">
+     <img src=".\images\reg1.png" width="40%">
    </div>
 
 <h4>
@@ -619,60 +652,9 @@ L2 Regularization
 </h4>
 
  <div align='center'>
-     <img src="images\reg2.png" width="40%">
+     <img src=".\images\reg2.png" width="40%">
    </div>
    
-## #20
-
-#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
-
-K-means 클러스터링이란?
-
-비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
-
-1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
-2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
-3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
-4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
-
-**장점**
-
-- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
-
-**단점**
-
-- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
-- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
-- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
-
-
-
-**활용**
-
-- CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
-
-#### Reference
-
-- [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
-- [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-
-  
-## #26
-
-#### 좋은 모델의 정의는 무엇일까요?
-
-좋은 모델이란? 내가 정의한 문제에 대하여, 기존에 갖고 있던 데이터로 학습한 모델의 성능이 새로운 상황에서도 동일하게 적용되는 것이다.
-
-예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에  대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
-
-만약 내가 모델의 해석이 목적이라면 변수간의 관계를 잘 설명하여, 그 관계를 올바르게 파악하는 것이될것이다.
-
-
-#### Reference
-
-- [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
-- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
-
 
 
 ## #22
@@ -721,3 +703,20 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 ##### References
 - [네이버 블로그 : cross validation](https://m.blog.naver.com/ckdgus1433/221599517834)
 - [CLICK AI : cross validation](https://www.clickai.ai/resource/wiki/modeling/crossvalidation_kor)
+
+
+## #26
+
+#### 좋은 모델의 정의는 무엇일까요?
+
+좋은 모델이란? 내가 정의한 문제에 대하여, 기존에 갖고 있던 데이터로 학습한 모델의 성능이 새로운 상황에서도 동일하게 적용되는 것이다.
+
+예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에  대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
+
+만약 내가 모델의 해석이 목적이라면 변수간의 관계를 잘 설명하여, 그 관계를 올바르게 파악하는 것이될것이다.
+
+
+#### Reference
+
+- [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
+- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
