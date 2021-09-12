@@ -517,10 +517,10 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 <h4>
 L1 Norm
 </h4>
-
  <div align='center'>
      <img src="images/norm1.PNG">
    </div>
+
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
 
@@ -546,7 +546,7 @@ q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 
 L1 Norm 과 L2 Norm 의 차이
 </h4>
  <div align='center'>
-     <img src="images/dif.PNG" width="60%">
+     <img src="images/dif.PNG" width="40%">
    </div>
 
 
@@ -558,7 +558,7 @@ L2 Norm Unique shortest path
 L1 Loss
 </h4>
  <div align='center'>
-     <img src="images/loss1.PNG" width="40%">
+     <img src="images/loss1.PNG" width="30%">
    </div>
 
 
@@ -578,7 +578,7 @@ L1 Loss
 L2 Loss
 </h4>
  <div align='center'>
-     <img src="images/loss2.PNG" width="40%">
+     <img src="images/loss2.PNG" width="30%">
    </div>
 
 
