@@ -523,6 +523,39 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
 
+## #20
+
+#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
+
+K-means 클러스터링이란?
+
+비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+
+1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
+2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
+4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
+
+**장점**
+
+- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
+
+**단점**
+
+- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
+- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
+- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
+
+
+**활용**
+
+- CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
+
+#### Reference
+
+- [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
+- [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+
 
 ## #21
 
@@ -536,7 +569,11 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 L1 Norm
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/norm1.PNG">
+=======
+     <img src=".\images\norm1.PNG">
+>>>>>>> main:answers/2-machine-learning copy.md
    </div>
 
 
@@ -550,7 +587,11 @@ L1 Norm
 L2 Norm
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/norm2.PNG">
+=======
+     <img src=".\images\norm2.PNG">
+>>>>>>> main:answers/2-machine-learning copy.md
    </div>
 
 
@@ -564,7 +605,11 @@ q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 
 L1 Norm 과 L2 Norm 의 차이
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/dif.PNG" width="40%">
+=======
+     <img src=".\images\dif.PNG" width="60%">
+>>>>>>> main:answers/2-machine-learning copy.md
    </div>
 
 
@@ -576,7 +621,11 @@ L2 Norm Unique shortest path
 L1 Loss
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/loss1.PNG" width="30%">
+=======
+     <img src=".\images\loss1.PNG" width="40%">
+>>>>>>> main:answers/2-machine-learning copy.md
    </div>
 
 
@@ -596,7 +645,11 @@ L1 Loss
 L2 Loss
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/loss2.PNG" width="30%">
+=======
+     <img src=".\images\loss2.PNG" width="40%">
+>>>>>>> main:answers/2-machine-learning copy.md
    </div>
 
 
@@ -628,7 +681,11 @@ regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early 
 L1 Regularization
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/reg1.PNG" width="40%">
+=======
+     <img src=".\images\reg1.PNG" width="40%">
+>>>>>>> main:answers/2-machine-learning copy.md
    </div>
 
 
@@ -636,45 +693,67 @@ L1 Regularization
 L2 Regularization
 </h4>
  <div align='center'>
+<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/reg2.PNG" width="40%">
    </div>
 
 
 ## #20
+=======
+     <img src=".\images\reg2.PNG" width="40%">
+   </div>
+   
+>>>>>>> main:answers/2-machine-learning copy.md
 
-#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
 
-K-means 클러스터링이란?
+## #22
 
-비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+### Cross Validation은 무엇이고 어떻게 해야하나요?
 
-1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
-2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
-3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
-4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
+**Cross Validation**(교차검증)은 test set은 하나로 고정하는 대신 데이터의 모든 부분을 사용하여 모델을 검증하는 것을 말합니다. train set의 일부를 validation set으로 분리하는 것을 말합니다. 이렇게 dataset을 나눈다면, epoch마다 train set으로 학습한 후, validation set으로 검증하여 모델의 예측을 train하면서 알 수 있게 됩니다.
 
+
+   <div align='center'>
+     <img src=".\images\ml_22_cross_validation
+.png">
+   </div>
+
+
+cross validation을 하지 않으면 dataset은 고정된 train set과 test set만 존재하게 됩니다. 그러면 오로지 train set에 대해서만 잘 작동하는 overfitting이 됩니다. 이를 막기위해 데이터의 모든 부분을 사용하여 모델을 검증하여, 변동성을 낮추고 여러 번의 검증 결과를 결합하여 모델의 예측 성능을 추정하는 cross validation을 사용하게 됩니다.
+
+#### K-fold Cross Validation
+
+   <div align='center'>
+     <img src=".\images\ml_22_kfold_cross_validation.png">
+   </div>
+
+대표적인 cross validation입니다. train set을 k개의 fold로 나눕니다. (k-1)개의 fold는 train에 사용하고, 1개의 fold는 validation에 사용합니도. 모든 fold를 validation에 한번씩 사용하요 총 k번의 lteration을 하고 난 후, validation 결과를 평균하여 최종 validation 결과를 도출하게 됩니다.
+
+#### Stratified K-fold Cross Validation
+
+   <div align='center'>
+     <img src=".\images\ml_22_stratified_kfold_cross_validation.png">
+   </div>
+
+K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분포가 각 클래스 별로 불균형한 경우 활용할 수 있는 Cross Validation입니다. label 분포가 불균형한 상태에서 sample의 index 순으로 fold를 구성한다면 validation에서 오류가 생깁니다. 이때 label 분포를 고려하여 각 fold가 전체 dataset분포에 근사하여 구성하도록 한 방법을 **Stratified K-fold Cross Validation**이라고 부릅니다.
+
+#### Cross Validation의 장단점
 **장점**
-
-- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
-
-**단점**
-
-- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
-- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
-- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
-
-
-
-**활용**
-
-- CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
-
-#### Reference
-
-- [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
-- [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-
+- 모든 dataset을 train/validation에 활용할 수 있다.
+  - 특정 dataset(test dataset)만 학습하는 data 편중을 막고
+  - 좀 더 일반화된 모델을 만들 수 있다.
   
+**단점**
+- iteration 횟수가 많기 때문에 시간이 오래 걸린다.
+- train dataset에서 validation dataset을 할애해야하기 때문에 train dataset 수가 줄어듬
+  - 하지만 train data의 감소보다 Cross Validation의 효과가 더 가치 있다고 평가됨 
+  
+
+##### References
+- [네이버 블로그 : cross validation](https://m.blog.naver.com/ckdgus1433/221599517834)
+- [CLICK AI : cross validation](https://www.clickai.ai/resource/wiki/modeling/crossvalidation_kor)
+
+
 ## #26
 
 #### 좋은 모델의 정의는 무엇일까요?
@@ -689,5 +768,9 @@ K-means 클러스터링이란?
 #### Reference
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
+<<<<<<< HEAD:answers/2-machine-learning.md
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
 
+=======
+- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
+>>>>>>> main:answers/2-machine-learning copy.md
