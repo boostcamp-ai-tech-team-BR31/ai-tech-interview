@@ -451,7 +451,6 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 머신러닝은 이러한 이유의 해석가능성이 부족하다.
 
 
-
 통계학과 기계학습의 차이는 방법론의 차이가 아닌 목표와 전략에서 온다.
 
 통계학은 모델의 신뢰도를 확보하는 것, 즉 정해진 분포나 가정을 통해 실패의 위험을 줄이는 데 주 목적을 둔다.
@@ -469,7 +468,6 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 - [머신러닝과 전통적 통계학의 차이](https://medium.com/@hyunseok/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B3%BC-%EC%A0%84%ED%86%B5%EC%A0%81-%ED%86%B5%EA%B3%84%ED%95%99%EC%9D%98-%EC%B0%A8%EC%9D%B4-a560f0708db0)
 
   
-
 ## #16
 
 ### 인공신경망(deep learning 이전의 전통적인)이 가지는 일반적인 문제점은 무엇일까요?
@@ -569,13 +567,8 @@ K-means 클러스터링이란?
 L1 Norm
 </h4>
  <div align='center'>
-<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/norm1.PNG">
-=======
-     <img src=".\images\norm1.PNG">
->>>>>>> main:answers/2-machine-learning copy.md
    </div>
-
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
 
@@ -587,13 +580,8 @@ L1 Norm
 L2 Norm
 </h4>
  <div align='center'>
-<<<<<<< HEAD:answers/2-machine-learning.md
      <img src="images/norm2.PNG">
-=======
-     <img src=".\images\norm2.PNG">
->>>>>>> main:answers/2-machine-learning copy.md
    </div>
-
 
 벡터 p,q의 유클리디안 거리(직선 거리)
 
@@ -608,8 +596,6 @@ L1 Norm 과 L2 Norm 의 차이
      <img src="images/dif.PNG" width="40%">
  </div>
 
-
-
 L1 Norm은 여러가지 path
 
 L2 Norm Unique shortest path
@@ -620,7 +606,6 @@ L1 Loss
  <div align='center'>
      <img src="images/loss1.PNG" width="30%">
  </div>
-
 
 
 실제값과 예측치 사이의 차이 값의 절대값의 합
@@ -641,7 +626,6 @@ L2 Loss
  <div align='center'>
      <img src="images/loss2.PNG" width="30%">
  </div>
-
 
 
 오차 제곱의 합
@@ -675,15 +659,12 @@ L1 Regularization
      <img src="images/reg1.PNG" width="40%">
    </div>
 
-
-
 <h4>
 L2 Regularization
 </h4>
  <div align='center'>
      <img src="images/reg2.PNG" width="40%">
    </div>
-
 
 
 ## #20
@@ -745,7 +726,7 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 - 모든 dataset을 train/validation에 활용할 수 있다.
   - 특정 dataset(test dataset)만 학습하는 data 편중을 막고
   - 좀 더 일반화된 모델을 만들 수 있다.
-  
+
 
 **단점**
 - iteration 횟수가 많기 때문에 시간이 오래 걸린다.
@@ -773,3 +754,4 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택
+
