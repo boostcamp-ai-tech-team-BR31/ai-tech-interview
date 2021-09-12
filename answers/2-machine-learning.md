@@ -519,7 +519,7 @@ L1 Norm
 </h4>
 
  <div align='center'>
-     <img src="images\norm1.PNG">
+     <img src="images/norm1.PNG">
    </div>
 
 벡터 p,q의 각 원소들의 차이의 절대값의 합
@@ -531,10 +531,10 @@ L1 Norm
 <h4>
 L2 Norm
 </h4>
-
  <div align='center'>
-     <img src="images\norm2.PNG">
+     <img src="images/norm2.PNG">
    </div>
+
 
 벡터 p,q의 유클리디안 거리(직선 거리)
 
@@ -545,10 +545,10 @@ q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 
 <h4>
 L1 Norm 과 L2 Norm 의 차이
 </h4>
-
  <div align='center'>
-     <img src="images\dif.PNG" width="60%">
+     <img src="images/dif.PNG" width="60%">
    </div>
+
 
 L1 Norm은 여러가지 path
 
@@ -557,10 +557,10 @@ L2 Norm Unique shortest path
 <h4>
 L1 Loss
 </h4>
-
  <div align='center'>
-     <img src="images\loss1.PNG" width="40%">
+     <img src="images/loss1.PNG" width="40%">
    </div>
+
 
 실제값과 예측치 사이의 차이 값의 절대값의 합
 
@@ -577,10 +577,10 @@ L1 Loss
 <h4>
 L2 Loss
 </h4>
-
  <div align='center'>
-     <img src="images\loss2.PNG" width="40%">
+     <img src="images/loss2.PNG" width="40%">
    </div>
+
 
 오차 제곱의 합
 
@@ -609,19 +609,19 @@ regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early 
 <h4>
 L1 Regularization
 </h4>
-
  <div align='center'>
-     <img src="images\reg1.PNG" width="40%">
+     <img src="images/reg1.PNG" width="40%">
    </div>
+
 
 <h4>
 L2 Regularization
 </h4>
-
  <div align='center'>
-     <img src="images\reg2.PNG" width="40%">
+     <img src="images/reg2.PNG" width="40%">
    </div>
-   
+
+
 ## #20
 
 #### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
@@ -672,5 +672,4 @@ K-means 클러스터링이란?
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
-
 
