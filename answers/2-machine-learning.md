@@ -855,7 +855,9 @@ regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early 
 L1 Regularization (Lasso)
 </h4>
  <div align='center'>
-     <img src=".\images\reg1.PNG" width="40%">
+     <img src=".\images\reg1.PNG" width="40%"></div>
+
+
 
 
    gradient descent 과정에서 cost function을 미분해서 빼주는 방식으로 W를 update하기 때문에, 계속해서 특정 상수를 빼주게 된다. 이렇게 되면, W를 업데이트 해 나갈 때, W중 어떤 wi는 0이 되어버린다. 결과적으로 영향을 크게 미치는 핵심적인 wi만 남게된다.
