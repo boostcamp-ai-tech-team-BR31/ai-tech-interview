@@ -69,3 +69,52 @@
 
 - [제목](링크)
 
+## #2
+
+### Cost Function과 Activation Function은 무엇인가요?
+
+#### **1) Cost Function**
+
+**Cost Function**은 label와 prediction의 차이, 즉 loss의 평균을 다루는 함수입니다. loss가 가장 적을 때의 parameter를 정하기 위해 사용합니다. 대표적으로 MSE, Cross-Entropy가 있죠.
+
+Cost Function과 관련 깊은 함수들은 loss function, objective function에 대해서도 정리해보겠습니다.
+
+  - **Loss Fuction**은 label과 prediction의 차이(loss)를 single data set에서 다룹니다.
+
+  - **Cost Function**은 entire data set을 다루죠.
+
+  - **Objective function**은 cost의 best value를 구하는 함수입니다. obtimizer가 이에 해당합니다.
+
+그러면 세 함수가 미묘하게 다르며, 순서대로 포함관계를 갖게 됩니다.
+
+**TMI) label과 Ground-Truth의 차이**
+
+둘 다 정답을 의미해 통용할 줄 알았는데 다르더라구요.
+
+  - **label**은 답이 명확하게 정해져 있는 값이라고 생각하면 됩니다. 그래서 일반적인 정답을 의미하고 싶을 땐 label을 쓰면 됩니다.
+
+  - **Ground-Truth**는 G.T라고 줄여서 말하곤 합니다. '우리가 정한 정답', '모델이 우리가 원하는 답으로 예측해주길 바라는 답'입니다. 영화 cats에서 고양이 분장을 한 사진을 생각해보면, 고양인지 사람인지 정답이 없는 상황입니다. 하지만 모델이 고양이로 분류하길 원한다면 G.T값은 '고양이'가 됩니다.
+
+   <div align='center'>
+     <img src="./images/dl_2_cats.PNG">
+   </div>
+
+#### **2) Activation Function**
+
+**Activation Function**은 입력신호를 출력신호로 변환하는 함수입니다. 인공신경망에서 전달하는 신호의 세기를 정한다고 생각하면 됩니다. activation function은 sigmoid, tanh, relu 등이 있으며 각자 다른 특징을 갖고 있습니다.
+
+   <div align='center'>
+     <img src="./images/dl_2_activation_function.PNG">
+   </div>
+
+#### why use activation function?
+
+input layer value(또는 이전 hidden layer value)와 weight은 linear관계로 이어집니다. 하지만 우리가 다룰 다양한 사회적 문제는 복잡한 non-linear관계를 갖습니다. Activation Function은 선형모델을 비선형모델로 만들어줌으로써 모델이 문제를 더욱 잘 표현하도록 합니다.
+
+##### References
+
+- [model과 cost function](https://mangkyu.tistory.com/33)
+- [cost function, loss function, objective function](https://ganghee-lee.tistory.com/28)
+- [label과 ground trouth](https://mac-user-guide.tistory.com/m/14?category=882578)
+- [activation function](https://pozalabs.github.io/Activation_Function/)
+- [activation function을 사용하는 이유](https://ganghee-lee.tistory.com/30)
