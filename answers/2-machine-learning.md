@@ -380,9 +380,8 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
    <div align='center'>
      <img src="images/ml_9_5.png", width = "50%">
    </div>
-
    
-
+   
 5. **미분류된 키워드의 토픽 선정**
 
    1번 문서 내 topic1이 있을 확률 : 1.01/3.03 = 0.333
@@ -795,7 +794,7 @@ L1 Norm 과 L2 Norm 의 차이
  <div align='center'>
      <img src=".\images\dif.PNG" width="60%">
    </div>
-   
+
 L1 Norm은 여러가지 path
 
 L2 Norm Unique shortest path
@@ -853,20 +852,44 @@ Regularization
 regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early stopping 등이 있다.
 
 <h4>
-L1 Regularization
+L1 Regularization (Lasso)
 </h4>
  <div align='center'>
-     <img src=".\images\reg1.PNG" width="40%">
+     <img src=".\images\reg1.PNG" width="40%"></div>
 
-   </div>
+
+
+
+   gradient descent 과정에서 cost function을 미분해서 빼주는 방식으로 W를 update하기 때문에, 계속해서 특정 상수를 빼주게 된다. 이렇게 되면, W를 업데이트 해 나갈 때, W중 어떤 wi는 0이 되어버린다. 결과적으로 영향을 크게 미치는 핵심적인 wi만 남게된다.
 
 <h4>
-L2 Regularization
+L2 Regularization (Ridge)
 </h4>
-  
+
+
  <div align='center'>
      <img src=".\images\reg2.PNG" width="40%">
    </div>
+여기선 gradient descent과정에서 전체적으로 w값이 작아지도록 하게 된다. Lasso처럼 일부를 0으로 만들어버리지는 않고, 전체적인 wi들의 값을 감소시킨다.
+
+<h4>
+L1/L2 Regularization
+</h4>
+
+ <div align='center'>
+     <img src=".\images\dbr.PNG" width="60%">
+   </div>
+
+ <div align='center'>
+     <img src=".\images\l1l2.PNG" width="60%">
+   </div>
+
+#### Reference
+
+- [L1 Regularization, L2 Regularization 의 이해, 용도와 차이 설명](https://light-tree.tistory.com/125)
+- [L1, L2 Regularization (Lasso, Ridge)](https://dailyheumsi.tistory.com/57)
+
+
 
 ## #22
 
