@@ -880,6 +880,15 @@ L1/L2 Regularization
      <img src=".\images\dbr.PNG" width="60%">
    </div>
 
+ <div align='center'>
+     <img src=".\images\l1l2.PNG" width="60%">
+   </div>
+
+#### Reference
+
+- [L1 Regularization, L2 Regularization 의 이해, 용도와 차이 설명](https://light-tree.tistory.com/125)
+- [L1, L2 Regularization (Lasso, Ridge)](https://dailyheumsi.tistory.com/57)
+
 
 
 ## #22
