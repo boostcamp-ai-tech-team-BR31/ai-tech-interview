@@ -217,11 +217,20 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 주성분 분석은 기존의 고차원 데이터들을, 더 적은 차원의 주성분으로 데이터를 표현하므로 차원 축소 기법이라 할 수 있다. 주성분을 구할 때 데이터의 기존의 분산을 전체 다 이용하는 것이 아닌 분산을 설명하는 정도가 큰 몇개의 주성분만을 이용하므로 데이터를 압축한다고 할 수 있고, 이 과정에서 어느정도의 분산이 제거되므로 노이즈가 감소할 수 있다.
 
+
+
+PCA란 ?
+
+> 기존 데이터들의 분산(정보)을 잘 보존하는 주성분(기존 변수들의 선형결합)들을 이용하여, 더 적은 변수들로 데이터를 표현하는 방법이다. 데이터의 구조, 즉 변수들의 관계를 파악하기 위해 공분산 행렬을 이용하며 공분산 행렬로부터 얻은 eigen vector가 주성분, eigen value가 데이터의 퍼진 정도 즉 분산의 크기를 의미한다. 여기서 eigen value가 큰 몇개의 eigen vector(주성분) 값들만 이용하여 데이터를 표현하는 것이 주성분이다.  
+
+
+
 ##### References
 
 - [공돌이의 수학 노트 PCA](https://angeloyeo.github.io/2019/07/27/PCA.html)
 - [주성분분석(PCA)의 이해와 활용-다크 프로그래머 블로그](https://darkpgmr.tistory.com/110)
 - [PCA Eliminate noise in the data - stackExchange](https://stats.stackexchange.com/questions/247260/principal-component-analysis-eliminate-noise-in-the-data/247271)
+- [PCA에서 고유값과 고유벡터의 의미](https://medium.com/@dareyadewumi650/understanding-the-role-of-eigenvectors-and-eigenvalues-in-pca-dimensionality-reduction-10186dad0c5c)
 
 ## #7
 
