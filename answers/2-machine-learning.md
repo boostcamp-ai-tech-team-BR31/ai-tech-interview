@@ -172,9 +172,9 @@ ML 알고리즘의 목적 중 하나는 feature들을 비교하여 데이터의 
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Maxima_and_minima)
 
-## #4
+## # 4
 
-### 차원의 저주에 대해 설명해주세요.
+#### 차원의 저주에 대해 설명해주세요
 
 **차원의 저주(Curse of dimensionality)** 란, 데이터 학습을 위해 차원이 증가하면서 고차원 데이터 공간에서 데이터 표본이 희박해지는 것을 의미한다. 즉, 차원이 증가함에 따라(=변수의 수 증가) 모델의 성능이 안좋아지는 현상을 의미한다.
 
@@ -217,15 +217,55 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 주성분 분석은 기존의 고차원 데이터들을, 더 적은 차원의 주성분으로 데이터를 표현하므로 차원 축소 기법이라 할 수 있다. 주성분을 구할 때 데이터의 기존의 분산을 전체 다 이용하는 것이 아닌 분산을 설명하는 정도가 큰 몇개의 주성분만을 이용하므로 데이터를 압축한다고 할 수 있고, 이 과정에서 어느정도의 분산이 제거되므로 노이즈가 감소할 수 있다.
 
+
+
+PCA란 ?
+
+> 기존 데이터들의 분산(정보)을 잘 보존하는 주성분(기존 변수들의 선형결합)들을 이용하여, 더 적은 변수들로 데이터를 표현하는 방법이다. 데이터의 구조, 즉 변수들의 관계를 파악하기 위해 공분산 행렬을 이용하며 공분산 행렬로부터 얻은 eigen vector가 주성분, eigen value가 데이터의 퍼진 정도 즉 분산의 크기를 의미한다. 여기서 eigen value가 큰 몇개의 eigen vector(주성분) 값들만 이용하여 데이터를 표현하는 것이 주성분이다.  
+
+
+
 ##### References
 
 - [공돌이의 수학 노트 PCA](https://angeloyeo.github.io/2019/07/27/PCA.html)
 - [주성분분석(PCA)의 이해와 활용-다크 프로그래머 블로그](https://darkpgmr.tistory.com/110)
 - [PCA Eliminate noise in the data - stackExchange](https://stats.stackexchange.com/questions/247260/principal-component-analysis-eliminate-noise-in-the-data/247271)
+- [PCA에서 고유값과 고유벡터의 의미](https://medium.com/@dareyadewumi650/understanding-the-role-of-eigenvectors-and-eigenvalues-in-pca-dimensionality-reduction-10186dad0c5c)
 
 ## #7
 
 ### LSA, LDA, SVD 등의 약자들이 어떤 뜻이고 서로 어떤 관계를 가지는지 설명할 수 있나요?
+
+**LSA**
+
+Latent Semantic Analysis는 토픽 모델링을 위해 최적화 된 알고리즘은 아니지만, 토픽 모델링이라는 분야에 아이디어를 제공한 알고리즘이라고 볼 수 있다. 뒤에 나올 **LDA**는 LSA의 단점을 개선하여 탄생한 알고리즘으로 토픽 모델링에 보다 적합한 알고리즘이다. 
+
+BoW (Bag of Words)에 기반한 알고리즘은 기본적으로 단어의 빈도 수를 이용한 수최화 방법이기 때문에 단어의 의미를 고려하지 못한다는 단점이 있다. 이를 토픽 모델링 관점에서는 단어의 토픽을 고려하지 못한다고 한다. 이를 위한 대안으로 잠재된 의미를 이끌어내는 방법으로 잠재 의미 분석(LSA)이 사용된다.
+
+**LSA는 DTM(Document-Term Matrix)나 TF-IDF(Term Frequency-Inverse Document Frequency) 행렬에 Truncated SVD를 적용하여 차원을 축소시키고 단어들의 잠재적인 의미를 이끌어낸다. Full-SVD는 모든 특이값을 사용하는 것이고 Truncated SVD는 상위 N개의 특이값만 사용하는 축소 방법이다. 이 방법을 쓸 경우 원 행렬로 복원이 불가능하다.**
+
+이 방법을 이해하기 위해서는 선형대수학의 특이값 분해(Singular Value Decomposition, SVD)를 이해해야할 필요가 있다. 
+
+**SVD** 
+
+A가 m x n 행렬일 때, 3개의 행렬의 곱으로 분해하는 것을 말한다.
+
+![Screen Shot 2021-09-12 at 9.55.41 PM](images/jaeuk-2-7-1.png)
+
+여기서 각 3개의 행렬은 다음과 같은 조건을 만족한다.
+
+![Screen Shot 2021-09-12 at 9.57.09 PM](images/jaeuk-2-7-2.png)
+
+SVD를 통해 나온 m x n 대각행렬의 대각 원소의 값을 행렬 A의 특이값(singular value)라고 한다.
+
+**LDA**
+
+**Latent Dirichlet Allocation** 혹은 **Linear Discriminant Analysis**의 약자이다. 전자는 토픽모델링에 사용되는 기법 중 하나로 LSA와는 달리 단어가 특정 토픽에 존재할 확률과 문서에 특정 토픽이 존재할 확률을 결합확률로 추정하여 토픽을 추정하는 기법을 말한다. 후자는 차원축소기법 중 하나로 분류하기 쉽도록 클래스 간 분산을 최대화하고 클래스 내부의 분산은 최소화하는 방식을 말한다.
+
+##### References
+
+- https://wikidocs.net/24949
+- https://bkshin.tistory.com/entry/NLP-9-%EC%BD%94%EC%82%AC%EC%9D%B8-%EC%9C%A0%EC%82%AC%EB%8F%84%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%98%81%ED%99%94-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C
 
 ## #8
 
@@ -294,13 +334,17 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
 - 문서
 
   1번 문서 : 문고리거래 하실분
+
   2번 문서 : 가방 나눔합니다. 문고리드림
+
   3번 문서 : 비대면거래로 합니다. 택배로 할게요.
 
 - 명사 추출
 
   1번 문서 : 문고리, 거래
+  
   2번 문서 : 가방, 나눔, 문고리, 드림
+  
   3번 문서 : 비대면, 거래, 택배
 
 
@@ -345,9 +389,8 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
    <div align='center'>
      <img src="images/ml_9_5.png", width = "50%">
    </div>
-
    
-
+   
 5. **미분류된 키워드의 토픽 선정**
 
    1번 문서 내 topic1이 있을 확률 : 1.01/3.03 = 0.333
@@ -361,6 +404,12 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
    위처럼 1번 문서 내 topic2이 있을 확률, 1번 문서 내 topic3이 있을 확률 모두 구해줍니다.
 
    해당 과정을 모두 반복하면 가장 높은 확률을 가진 토픽에 해당 단어와 문서가 분류됨으로써 LDA학습은 완료가 됩니다.
+
+
+
+#### Reference
+
+- [텍스트분석 – 토픽모델링(LDA)](http://bigdata.emforce.co.kr/index.php/2020072401/)
 
 ## #10
 
@@ -397,15 +446,15 @@ SVM은 고차원 데이터에서 잘 작동한다는 장점이 있지만 데이�
 - Bayes : 추론 대상의 사전 확률과 추가적인 정보를 기반으로 사후확률을 추론하는 방법입니다. Statistics/Math 카테고리의
   [Bayesian Estimation](.\1-statistics-math.md#14)에서 좀 더 자세히 알 수 있습니다.
   나이브 베이지안에 대한 더 자세한 예시와 적용은 3번째 reference를 참고하면 됩니다.
-  > 나이브 베이지안 장점
-  >
-  > > 간단하고 빠르고 효율적인 알고리즘
-  > >
-  > > 잡음과 누락 데이터를 잘 처리
-  > >
-  > > 데이터 크기에 상관 없음
-  > >
-  > > 예측을 위한 추정 확률을 쉽게 얻음
+> 나이브 베이지안 장점
+>
+> > 간단하고 빠르고 효율적인 알고리즘
+> >
+> > 잡음과 누락 데이터를 잘 처리
+> >
+> > 데이터 크기에 상관 없음
+> >
+> > 예측을 위한 추정 확률을 쉽게 얻음
 
 > 나이브 베이지안 단점
 >
@@ -535,9 +584,67 @@ Lift값이 1보다 크면 X를 샀을 때 Y를 살 확률이 높은 것이고,
 - [Association rule](https://process-mining.tistory.com/34)
 - [support,confidence,lift](https://dodonam.tistory.com/167)
 
+## #14
+
+### 최적화 기법중 Newton’s Method와 Gradient Descent 방법에 대해 알고 있나요?
+
+#### Newton's Method
+
+> 방정식 **f(x) = 0의 해**를 근사적으로 찾을 때 유용하게 사용되는 방법
+
+**개념**
+
+뉴턴법(Newton's Method)는 기본적으로 f'(a) 가 x = a 에서의 접선의 기울기라는 미분의 기하학적 해석을 이용한다.
+
+예를 들어 아래와 같은 식이 있을 때,
+
+![](https://t1.daumcdn.net/cfile/tistory/0162A54D51842ADD3B)
+
+인수분해도 안되고 정상적인 방법으로 해를 구하기 힘들다. 이때 뉴턴 법을 이용하게 되는데 일단 아무 값이나 x= a를 넣고 f(a)의 값을 살펴본다. 만약 f(a)>0이고 f'(a)>0 이라면 f(x) = 0이 되는 x는 a보다 작은 값일 것이다. 그러니 a의 값을 더 줄이고 대입을 하면서 값의 변화를 살펴보는 식으로 해를 찾아간다.
+
+만약 x= a에서의 |함수값|이 작고 접선의 기울기가 가파르다면 바로 근처에 해가 있을 것이고, 반대로 |함수값|이 크고 접선 기울기가 완만하면 멀리 떨어진 곳에 해가 존재한다.
+
+**특징 및 제약점**
+
+- f(x)가 연속이고 미분이 가능해야한다는 조건 존재
+
+- 만일 f(x) = 0인 해가 여러개 있다면 뉴턴법은 그 중 하나의 해만 찾을 뿐이다.
+- 해가 여러개인 경우 초기값을 어떻게 주냐에 따라 찾는 해가 달라질 수 있다.
+
+#### Gradient Descent
+
+> **f'(x) = 0**이 되는 지점을 찾아가는 방법
+
+어떤 다변수 함수의 f(x1, x2, ..., xn)이 있을 때, f의 gradient는 아래와 같이 정의 된다
+
+![](https://t1.daumcdn.net/cfile/tistory/21639349534B06051A)
+
+즉, gradient는 각 변수로의 일차 편미분 값으로 구성되는 벡터이다. 또한 **f의 값이 가장 가파르게 증가하는 방향**을 나타낸다. 이를 통해 어떤 함수를 지역적으로 선형근사 ([linear approximation](https://ko.wikipedia.org/wiki/선형_근사))하거나 gradient descent 방법을 통해 함수의 극점을 찾는 용도로 활용 가능하다.
+
+Gradient Descent는 아래와 같은 식으로 그레디언트의 특성을 이용해 극소값을 찾아 가는 방법이다.
+
+![](https://t1.daumcdn.net/cfile/tistory/2762E645534CD7560E)
+
+##### Reference
+
+- [뉴턴법/뉴턴-랩슨법의 이해와 활용(Newton's method)](https://darkpgmr.tistory.com/58)
+- [Gradient Descent 탐색 방법](https://darkpgmr.tistory.com/133)
+
 ## #15
 
 ### 머신러닝(machine)적 접근방법과 통계(statistics)적 접근방법의 둘간에 차이에 대한 견해가 있나요?
+
+머신러닝은 예측에 집중한다. overfitting되지 않고, 일반화 성능이 좋길 바란다.
+
+통계학은 해석 가능성을 중요시하고, 모델링과 샘플링의 가정(assumption)에 중점을 둔다.
+
+넷플릭스를 예로 들자면,
+
+넷플릭스에서는 유저의 영화 평가를 다량으로 수집하여 영화를 예측하여 추천해준다. 예측에 필요한 데이터를 이미 가지고 있는 상태에서 넷플릭스의 영화 추천 시스템이 작동하는 것이다. 이에 대한 성공은 믿을만한 영화를 추천해주는지로 평가할 수 있다.
+
+반면 통계학에서는 유저가 왜 특정 영화를 선택하게 되는지를 이해할 수 있게하는 모형을 만드려고 할 것이다. 그 이해라는 것은 가령, A종류의 영화를 좋아하는 사람은 또 B종류의 영화를 좋아하는구나라는 심리학적인 설명을 할 수도 있는 것이다.
+
+머신러닝은 이러한 이유의 해석가능성이 부족하다.
 
 통계학과 기계학습의 차이는 방법론의 차이가 아닌 목표와 전략에서 온다.
 
@@ -549,9 +656,28 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 
 실패의 위험을 낮추는 것과 성공률을 높이는 것이 같은 말처럼 보일 수 있지만, ML은 실패에 집착하지 않기 때문에 모델에 필요한 갖가지 가정과 검증을 신경쓰는 데서 해방될 수 있다.
 
+<h5>
+    통계
+</h5>
+
++ 관심있는 프로세스 자체의 분포를 밝혀내서 해당 프로세스를 수학적으로 이해하는 것이 주 목적
++ 사람이 만든 가설의 검증이 목적
++ 표본 데이터를 이용하여 모집단에 대해 추론
+
+<h5>
+    기계학습
+</h5>
+
++ 프로세스 자체를 꼭 이해하지는 못하더라도 명확한 goal(주로 prediction)을 가지고 그 goal에 최적화된 working 모델을 만드는 것을 강조
++ 기존 데이터로 모델을 학습시킨 후 새로운 데이터를 입력 했을 때 예측 값을 알아내기 위한 목적
++ 데이터로부터 가설을 만들어내는 과정
++ 전체 데이터를 이용해 개별값 예측
+
 ##### References
 
 - [통계학과 기계학습의 차이](https://essencehan.tumblr.com/post/166414990009/%ED%86%B5%EA%B3%84%ED%95%99%EA%B3%BC-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4)
+- [머신러닝과 전통적 통계학의 차이](https://medium.com/@hyunseok/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B3%BC-%EC%A0%84%ED%86%B5%EC%A0%81-%ED%86%B5%EA%B3%84%ED%95%99%EC%9D%98-%EC%B0%A8%EC%9D%B4-a560f0708db0)
+- [머신러닝 vs 통계학](https://codedragon.tistory.com/10073)
 
 ## #16
 
@@ -562,12 +688,31 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 #### Reference
 
 - [Solving XOR Problem with MLP](https://ynebula.tistory.com/22)
-
 - [Multi Layer Perceptron 설명](http://users.ics.aalto.fi/harri/thesis/valpola_thesis/node43.html)
+
+## #17
+
+### 지금 나오고 있는 deep learning 계열의 혁신의 근간은 무엇이라고 생각하시나요?
+
+- ImageNet과 같은 거대하고 높은 품질의 데이터 
+- GPU 등의 컴퓨팅 리소스의 발전(하드웨어의 발전)
+- 딥러닝 커뮤니티의 개방과 공유 정신
+  - 논문을 무상으로 공개하는 오픈 엑세스
+  - 소프트웨어의 소스코드를 공개하는 오픈 소스
+
+
+
+빅데이터, 하드웨어의 발전 등의 이유가 있겠지만 논문과 소스 코드 공개 등의 공유 정신이 가장 큰 원동력이라고 생각합니다. 인터넷과 웹의 인프라 구축이 완성되고 참여, 공유, 개방을 하면서 딥러닝이 혁신적으로 발전하게 되었다고 생각합니다.
+
+"내가 멀리 볼 수 있었던 것은, 거인의 어깨 위에 있었기 때문이다" - 아이작 뉴턴
+
+#### Reference
+
+- [최근 딥러닝의 폭발적인 학술적, 기술적 발전의  이유는 뭘까?](https://brunch.co.kr/@justinleeanac/1)
 
 ## #18
 
-#### ROC 커브에 대해 설명해주실 수 있으신가요?
+### ROC 커브에 대해 설명해주실 수 있으신가요?
 
 ROC 커브(Receiver operating characteristic)란 **이진 분류기의 성능을 표현하는 방법**이다. 설명하기 앞서 TPR과 FPR의 개념에 대해 이해해야 한다. TPR은 True Positive Rate, FPR은 False Positive Rate을 의미한다. 쉽게 말하자면, 의사가 환자가 암에 걸렸는지 아닌지를 판별하는 상황을 이진분류라고 가정했을 때, 실제로 암에 걸린 환자를 암에 걸렸다고 진단하는 것이 True Postiive, 암에 걸리지 않은 환자를 암에 걸렸다고 오진하는 것이 False Postive이다. Postive는 암에 걸린 상태, 이것을 잘 예측하면 앞에 True가 붙는 것이다.
 
@@ -586,10 +731,10 @@ gif로 보면 이해가 빠르니 아래 2번째 링크에서 확인하면 좋�
 ## #19
 
 ### 여러분이 서버를 100대 가지고 있습니다. 이때 인공신경망보다 Random Forest를 써야하는 이유는 뭘까요?
-
-   <div align='center'>
-     <img src="images\ml_19_randomForest.png">
+<div align='center'>
+     <img src=".\images\ml_19_randomForest.png">
    </div>
+
 Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 모델입니다. 새로운 데이터 포인트를 각 트리에 동시에 통과시키며 각 트리가 분류한 결과에서 가장 많이 결과를 최종 분류 결과로 선택합니다. 많은 Tree를 만들기 때문에 Forest라는 단어를 쓰기 시작한거죠. random이라는 요소 때문에 overfitting을 방지하는 ensemble효과를 가져옵니다. 수많은 Decision Tree를 만들기 위해 Bagging, Bagging Features 등의 과정을 거칩니다.
 
 인공신경망(Neural Network)은 각 단계별로 의존적인 end-to-end 구조로 하나의 서버에서 이뤄져야 합니다.
@@ -601,3 +746,253 @@ Random Forest는 수많은 의사결정 트리(Decision Tree)로 만들어진 �
 - [Random Forest : iris 데이터 예측](https://myjamong.tistory.com/79)
 - [Random Forest 개념 정리](https://eunsukimme.github.io/ml/2019/11/26/Random-Forest/)
 - [Interview Question & Answer: 출근 루틴, 하루 3문제](https://yongwookha.github.io/MachineLearning/2021-01-29-interview-question) : 다른 문항들도 보는 것을 추천!
+
+## #20
+
+#### K-means의 대표적 의미론적 단점은 무엇인가요?(계산량 많다는것 말고)
+
+K-means 클러스터링이란?
+
+비지도학습인 클러스터링 알고리즘입니다.  작동방법은 다음과 같습니다.
+
+1. k개의 centroids(중심이 되는 어떤 점)를 임의로 지정하비다.
+2. 각 데이터들을 가장 가까운 centroids가  속한 그룹에 할당합니다.
+3. 2번 과정에서 할당된 결과를 바탕으로 centroids를 새롭게 지정합니다.
+4. 2~3번 과정을 반복하며 centroids가 더이상 변하지 않을때 까지 반복합니다.
+
+**장점**
+
+- 알고리즘의 수행이 간단하고 새로들어온 데이터에 쉽게 적용(Centroid 거리만 계산)할 수 있다.
+
+**단점**
+
+- 클러스터 개수 k값을 미리 지정을 해줘야 한다. K 에 개수에 따라 결과가 심하게 달라 질 수 있기 때문에 문제가 된다.
+- 초기값에 민감하여 전역 최소값이 아닌 지역 최소값에 빠질 가능성이 있다.
+- 구형(spherical)이 아닌 클러스터를 찾는 데에는 적절하지 않다.
+
+**활용**
+
+- CV: Image Segmentation, NLP: 문서 군집화 (Bag of world)
+
+#### Reference
+
+- [K-menas clustering 개념정리 블로그](https://eunsukimme.github.io/ml/2019/12/16/K-Means/)
+- [k means clustering wikepedia](https://ko.wikipedia.org/wiki/K-%ED%8F%89%EA%B7%A0_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+
+## #21
+
+### L1, L2 정규화에 대해 설명해주세요.
+
+#### Norm
+
+벡터의 크기 (혹은 길이)를 측정하는 방법(혹은 함수) or 두 벡터 사이의 거리를 측정하는 방법
+
+<h4>
+L1 Norm
+</h4>
+ <div align='center'>
+     <img src=".\images\norm1.PNG">
+     </div>
+
+
+벡터 p,q의 각 원소들의 차이의 절대값의 합
+
+예를 들어 벡터 p=(3,1,-3),q=(5,0,7) 이라면 p,q의 L1 Norm은 13
+
+<h4>
+L2 Norm
+</h4>
+
+ <div align='center'>
+     <img src=".\images\norm2.PNG">
+   </div>
+
+벡터 p,q의 유클리디안 거리(직선 거리)
+
+q가 원점이라면 벡터 p,q의 L2 Norm은 벡터 p의 원점으로부터의 직선거리
+
+위 수식이 q가 원점일 때
+
+<h4>
+L1 Norm 과 L2 Norm 의 차이
+</h4>
+
+ <div align='center'>
+     <img src=".\images\dif.PNG" width="60%">
+   </div>
+
+L1 Norm은 여러가지 path
+
+L2 Norm Unique shortest path
+
+<h4>
+L1 Loss
+</h4>
+
+ <div align='center'>
+     <img src=".\images\loss1.PNG" width="40%">
+   </div>
+
+실제값과 예측치 사이의 차이 값의 절대값의 합
+
+=Least absolute deviations(LAD)
+
+=Least absolute Errors(LAE)
+
+=Least absolute value(LAV)
+
+=Least absolute residual(LAR)
+
+=Sum of absolute deviations
+
+<h4>
+L2 Loss
+</h4>
+
+ <div align='center'>
+     <img src=".\images\loss2.PNG" width="40%">
+ </div>
+
+오차 제곱의 합
+
+=Least squares error(LSE)
+
+<h4>
+L1 Loss 와 L2 Loss 의 차이
+</h4>
+
+L2 Loss는 직관적으로 오차의 제곱을 더하기 때문에 outlier에 더 큰 영향을 받는다.
+
+outlier가 적당히 무시되길 원한다면 L1 Loss를 사용하고, Outlier에 신경써야 한다면 L2 Loss를 사용하는 것이 좋다.
+
+L1 Loss는 0인 지점에서 미분이 불가능하다는 단점이 있다.
+
+<h4>
+Regularization
+</h4>
+
+보통 정규화 라고 하지만 일반화 라고 하는 것이 이해에 더 도움이 될 수 있다.
+
+모델 복잡도에 대한 패널티로서, overfitting을 예방하고 generalization성능을 높이는 데 도움을 준다.
+
+regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early stopping 등이 있다.
+
+<h4>
+L1 Regularization (Lasso)
+</h4>
+ <div align='center'>
+     <img src=".\images\reg1.PNG" width="40%"></div>
+
+
+
+
+   gradient descent 과정에서 cost function을 미분해서 빼주는 방식으로 W를 update하기 때문에, 계속해서 특정 상수를 빼주게 된다. 이렇게 되면, W를 업데이트 해 나갈 때, W중 어떤 wi는 0이 되어버린다. 결과적으로 영향을 크게 미치는 핵심적인 wi만 남게된다.
+
+<h4>
+L2 Regularization (Ridge)
+</h4>
+
+
+ <div align='center'>
+     <img src=".\images\reg2.PNG" width="40%">
+   </div>
+여기선 gradient descent과정에서 전체적으로 w값이 작아지도록 하게 된다. Lasso처럼 일부를 0으로 만들어버리지는 않고, 전체적인 wi들의 값을 감소시킨다.
+
+<h4>
+L1/L2 Regularization
+</h4>
+
+ <div align='center'>
+     <img src=".\images\dbr.PNG" width="60%">
+   </div>
+
+ <div align='center'>
+     <img src=".\images\l1l2.PNG" width="60%">
+   </div>
+
+#### Reference
+
+- [L1 Regularization, L2 Regularization 의 이해, 용도와 차이 설명](https://light-tree.tistory.com/125)
+- [L1, L2 Regularization (Lasso, Ridge)](https://dailyheumsi.tistory.com/57)
+
+
+
+## #22
+
+### Cross Validation은 무엇이고 어떻게 해야하나요?
+
+**Cross Validation**(교차검증)은 test set은 하나로 고정하는 대신 데이터의 모든 부분을 사용하여 모델을 검증하는 것을 말합니다. train set의 일부를 validation set으로 분리하는 것을 말합니다. 이렇게 dataset을 나눈다면, epoch마다 train set으로 학습한 후, validation set으로 검증하여 모델의 예측을 train하면서 알 수 있게 됩니다.
+
+   <div align='center'>
+     <img src=".\images\ml_22_cross_validation.png">
+   </div>
+
+cross validation을 하지 않으면 dataset은 고정된 train set과 test set만 존재하게 됩니다. 그러면 오로지 train set에 대해서만 잘 작동하는 overfitting이 됩니다. 이를 막기위해 데이터의 모든 부분을 사용하여 모델을 검증하여, 변동성을 낮추고 여러 번의 검증 결과를 결합하여 모델의 예측 성능을 추정하는 cross validation을 사용하게 됩니다.
+
+#### K-fold Cross Validation
+
+   <div align='center'>
+     <img src=".\images\ml_22_kfold_cross_validation.png">
+   </div>
+
+대표적인 cross validation입니다. train set을 k개의 fold로 나눕니다. (k-1)개의 fold는 train에 사용하고, 1개의 fold는 validation에 사용합니도. 모든 fold를 validation에 한번씩 사용하요 총 k번의 lteration을 하고 난 후, validation 결과를 평균하여 최종 validation 결과를 도출하게 됩니다.
+
+#### Stratified K-fold Cross Validation
+
+   <div align='center'>
+     <img src=".\images\ml_22_stratified_kfold_cross_validation.png">
+   </div>
+
+K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분포가 각 클래스 별로 불균형한 경우 활용할 수 있는 Cross Validation입니다. label 분포가 불균형한 상태에서 sample의 index 순으로 fold를 구성한다면 validation에서 오류가 생깁니다. 이때 label 분포를 고려하여 각 fold가 전체 dataset분포에 근사하여 구성하도록 한 방법을 **Stratified K-fold Cross Validation**이라고 부릅니다.
+
+#### Cross Validation의 장단점
+
+**장점**
+
+- 모든 dataset을 train/validation에 활용할 수 있다.
+  - 특정 dataset(test dataset)만 학습하는 data 편중을 막고
+  - 좀 더 일반화된 모델을 만들 수 있다.
+
+**단점**
+
+- iteration 횟수가 많기 때문에 시간이 오래 걸린다.
+- train dataset에서 validation dataset을 할애해야하기 때문에 train dataset 수가 줄어듬
+  - 하지만 train data의 감소보다 Cross Validation의 효과가 더 가치 있다고 평가됨
+
+##### References
+
+- [네이버 블로그 : cross validation](https://m.blog.naver.com/ckdgus1433/221599517834)
+- [CLICK AI : cross validation](https://www.clickai.ai/resource/wiki/modeling/crossvalidation_kor)
+
+## #26
+
+#### 좋은 모델의 정의는 무엇일까요?
+
+좋은 모델이란? 내가 정의한 문제에 대하여, 기존에 갖고 있던 데이터로 학습한 모델의 성능이 새로운 상황에서도 동일하게 적용되는 것이다.
+
+예를 들어 내가 예측의 속도나 복잡도는 전혀 신경쓰지 않고 잘 맞추는 것이 목적이라면, 내가 정의한 평가지표(ex: F1-score, Accuracy, AUC..)에  대하여, 기존의 데이터로 학습한 모델의 성능이 새로운 데이터에도 동일한 값을 갖는 경우일것이며
+
+만약 내가 모델의 해석이 목적이라면 변수간의 관계를 잘 설명하여, 그 관계를 올바르게 파악하는 것이될것이다.
+
+#### Reference
+
+- [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
+- [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
+
+## #28
+
+### 스팸 필터에 Logistic Regression을 많이 사용하는 이유는 무엇일까요?
+
+스팸 필터의 경우 결과가 True(1) / False(0) 로 이진으로 구분 되어져 나온다.
+
+**Linear Regression의 경우** outlier과 같은 변수로 인해 분류 전체가 뒤틀리는 결과를 만들어 낼 수 있을 뿐더러 Hypothesis가 H(x) = WX + B 이므로 x값에 매우 민감한 모델이 만들어진다
+
+**Logistic Regression**을 이용하면 결과 값이 0과 1사이의 값이 나오고 이를 통해 linear와 달리 0과 1에 얼마나 가까운지 평가하기 편해지며 x 값에도 덜 민감한 모델이 만들어진다.
+
+![](https://wikimedia.org/api/rest_v1/media/math/render/svg/0308cff86f60a3e4a602daf797f33cb93de29489)
+
+##### Reference
+
+- [모두를 위한 딥러닝 (sung kim) lec5 - Logistic Classification (로지스틱 회귀분석)](https://cding.tistory.com/55)
+- [선형 회귀 - wiki](https://ko.wikipedia.org/wiki/선형_회귀)
+- [로지스틱 회귀 - wiki](https://ko.wikipedia.org/wiki/로지스틱_회귀)
