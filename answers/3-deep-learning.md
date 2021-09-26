@@ -118,3 +118,15 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 - [label과 ground trouth](https://mac-user-guide.tistory.com/m/14?category=882578)
 - [activation function](https://pozalabs.github.io/Activation_Function/)
 - [activation function을 사용하는 이유](https://ganghee-lee.tistory.com/30)
+
+## #5
+
+### 알고있는 Activation Function에 대해 알려주세요. (Sigmoid, ReLU, LeakyReLU, Tanh 등)
+#### sigmoid
+
+
+##### References
+
+- [cs231n를 참고한 activation functions](https://deepinsight.tistory.com/113)
+- [MS engineer가 알려주는 activation functions](https://towardsdatascience.com/everything-you-need-to-know-about-activation-functions-in-deep-learning-models-84ba9f82c253)
+- [research paper about activation function - publish in 2018](https://arxiv.org/abs/1811.03378)
