@@ -979,6 +979,24 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
 
+## #27
+
+### 50개의 작은 의사결정 나무는 큰 의사결정 나무보다 괜찮을까요? 왜 그렇게 생각하나요?
+
+의사결정나무는 순차적으로 질문을 던져서 답을 고르게 하는 방식의 머신러닝모델로 스무고개와 같다.
+
+ <div align='center'>
+     <img src=".\images\ml_27.PNG" width="60%">
+   </div>
+
+큰 모델로 분류할 경우 훈련 데이터에서의 오류를 줄이기 위해 과적합되지만, 작은 모델로 분류해 앙상블한다면 더 잘 일반화시킬 수 있다. 한 나무에서 잘못 분류해도 다른 나무들의 영향으로 올바르게 분류할 가능성이 커지는 것이다. random forest를 사용한다면 더욱 일반화된 결과를 얻을 수 있다. 
+
+#### Reference
+
+- [Decision tree(의사결정나무) 원리](https://sanghyu.tistory.com/8)
+- [의사결정나무](https://dementopolous.wordpress.com/2016/09/20/do-you-think-50-small-decision-trees-are-bigger-than-one-large-one/)
+- [의사결정나무](https://www.quora.com/Do-you-think-50-small-decision-trees-are-better-than-a-large-one-Why)
+
 ## #28
 
 ### 스팸 필터에 Logistic Regression을 많이 사용하는 이유는 무엇일까요?
