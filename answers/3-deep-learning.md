@@ -122,11 +122,56 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 ## #5
 
 ### 알고있는 Activation Function에 대해 알려주세요. (Sigmoid, ReLU, LeakyReLU, Tanh 등)
-#### sigmoid
+#### 1. sigmoid
+   <div align='center'>
+     <img src="./images/dl_5_sigmoid.PNG">
+   </div>
 
+- 특징
+  - 출력 값이 0 ~ 1
+  - ReLU 이전, 가장 많이 사용 되던 active function
+- 단점
+  - saturation(포화)
+    - 너무 크거나, 너무 작으면 0에 가까워지는 문제가 발생.
+    - vanishing gradient 문제로 이어짐
+  - not zero centered
+    - gradient w가 비효율적으로 최적해를 탐색
+#### 2. tanh
+   <div align='center'>
+     <img src="./images/dl_5_tanh.PNG">
+   </div>
+
+- 특징
+  - 출력 값은 -1 ~ 1
+  - zero centered
+- 단점
+  - 여전히 gradient saturation 되는 구간이 있음
+#### 3. ReLU
+   <div align='center'>
+     <img src="./images/dl_5_relu.PNG">
+   </div>
+
+- 특징
+  - 양의 값에서 saturated 되지 않음
+  - 계산 효율이 빠름 : 미분이 편하니까! sigmoid / tanh보다 6배정도
+  - 생물학적 타당성도 가장 높음 : 약간 dropout느낌
+- 단점
+  - non zero centered
+  - 음수 영역에서 saturated
+  - dying ReLU
+    - 음수 영역에서 모두 0이 되기 때문에 node들이 학습이 되지 않는 현상
+    - 이를 해결하기 위해 Leaky ReLU, Parametric ReLU, Exponential LU 등이 나옴
+
+그 외에
+ - swish(x) = x * sigmoid(x)
+ - mish(x) = x * tanh(ln(1+exp(x)))
+
+ 라는 최신(2018년 쯤 나온 듯) activation function도 있답니다! research paper 참조!
 
 ##### References
 
 - [cs231n를 참고한 activation functions](https://deepinsight.tistory.com/113)
 - [MS engineer가 알려주는 activation functions](https://towardsdatascience.com/everything-you-need-to-know-about-activation-functions-in-deep-learning-models-84ba9f82c253)
 - [research paper about activation function - publish in 2018](https://arxiv.org/abs/1811.03378)
+- [ReLU 계열 activation function 시각화 설명](https://github.com/jaejunlee96/AIFFEL-Project/blob/master/Fundamental/FD23_Activation_Function.ipynb)
+- [swish, mish](https://krutikabapat.github.io/Swish-Vs-Mish-Latest-Activation-Functions/)
