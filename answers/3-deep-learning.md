@@ -118,3 +118,68 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 - [label과 ground trouth](https://mac-user-guide.tistory.com/m/14?category=882578)
 - [activation function](https://pozalabs.github.io/Activation_Function/)
 - [activation function을 사용하는 이유](https://ganghee-lee.tistory.com/30)
+
+## #6
+
+### 오버피팅일 경우 어떻게 대처해야 할까요?
+
+학습 데이터에 모델이 과적합되는 현상은 모델의 성능을 떨어지게 하는 주요 이슈입니다. 특히 새로운 데이터가 입력으로 주어졌을 때 매우 취약한 모습을 보입니다. 이는 모델이 학습 데이터에 대해 과도하게 학습되어 새로운 데이터를 잘 못 맞추는 상태를 말합니다. 지금부터 오버비팅을 해결하기 위한 몇 가지 방법을 알아보겠습니다.
+
+#### 1. 데이터 양 늘리기
+
+데이터의 양이 적을 때 오버피팅이 자주 발생하는 데, 이는 적은 데이터가 모델에 반복적으로 학습되면서 일정한 패턴이 모델에 학습되기 때문입니다. 따라서 데이터의 양이 많다면 무수히 많은 패턴을 학습할 수 있기 때문에 오버피팅이 발생할 확률이 낮아집니다. 
+
+하지만 대규모의 데이터를 수집하거나 구매하는 것은 현실적으로 어렵습니다. 데이터의 양이 적을 때는 의도적으로 기존의 데이터를 조금씩 변형하고 추가하여 데이터의 양을 늘리기도 하는데 이를 데이터 증식 또는 Data Augmentation이라고 합니다. 이미지의 경우에는 Data Augmentation이 많이 사용되는데 이미지를 돌리거나 노이즈를 추가하고, 일부분을 수정하는 등으로 데이터를 증식시킵니다.
+
+#### 2. Regularization
+
+- L1 regularization
+- L2 regularization
+
+L1 regularization은 기존의 비용 함수에 모든 가중치에 대해서 <img src="https://render.githubusercontent.com/render/math?math=\lambda | w |">를 더 한 값을 비용 함수로 하고, L2 regularization은 기존 비용함수에 모든 가중치에 대해서 <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2}\lambda w^2">를 더 한 값을 비용 함수로 합니다. <img src="https://render.githubusercontent.com/render/math?math=\lambda">는 규제의 강도를 정하는 하이퍼파라미터입니다. <img src="https://render.githubusercontent.com/render/math?math=\lambda">가 크다면 모델이 훈련 데이터에 대해서 적합한 매개 변수를 찾는 것보다 규제를 위해 추가된 항들을 작게 유지하는 것을 우선한다는 의미가 됩니다.
+
+L1 regularization
+
+<img src="https://render.githubusercontent.com/render/math?math=Cost = \frac{1}{n}\sum \{L(y_i, \hat y_i) %2B \frac{\lambda}{2}|w|\}">
+
+L2 regularization
+
+<img src="https://render.githubusercontent.com/render/math?math=Cost = \frac{1}{n}\sum \{L(y_i, \hat y_i) %2B \frac{\lambda}{2}|w|^2\}">
+
+#### 3. Dropout
+
+드롭아웃은 학습 과정에서 신경망의 일부를 사용하지 않는 방법입니다. 예를 들어 드롭아웃의 비율을 0.5로 한다면 학습 과정마다 랜덤으로 절반의 뉴런을 사용하지 않고, 절반의 뉴런만을 사용합니다.
+
+![img](images/jaeuk-dropout.PNG)
+
+#### 4. Early stopping
+
+training loss는 계속 낮아지더라도 validation loss는 올라가는 시점을 overfitting으로 간주하여 학습을 종료하는 방법
+
+![img](images/jaeuk-early_stopping.png)
+
+#### 5. Label smoothing
+
+모델이 Ground Truth를 정확하게 예측하지 않아도 되게 만들어 주어 정확하지 않은 학습 데이터셋에 치중되는 경향을 막아주는 방법. 쉽게 말하자면, 원래 0과 1이었던 레이블을 0.1 or 0.9로 만들어주는 기법입니다.
+
+![Label Smoothing — Make your model less (over)confident | by Parthvi Shah |  Towards Data Science](images/jaeuk-ls.png)
+
+#### 6. Batch normalization
+
+활성화 함수의 활성화값 또는 출력값을 정규화하는 방법. 각 hidden layer에서 정규화를 하면서 입력분포가 일정하게 되고, 이에 따라 Learning rate을 크게 설정해도 괜찮아진다. 결과적으로 학습속도가 빨라지게 된다.
+
+![http://sanghyukchun.github.io/images/post/88-5.png](images/jaeuk-bn.png)
+
+#### 7. Noise robustness
+
+노이즈가 낀 데이터가 들어와도 잘 맞출 수 있는 모델을 구축하기 위해 학습단에서 의도적으로 학습데이터에 노이즈를 씌우는 기법. 
+
+![img](images/jaeuk-noise_robustness.PNG)
+
+##### Reference
+
+- [딥러닝 용어 정리](https://light-tree.tistory.com/125)
+- [위키독스](https://wikidocs.net/61374)
+- [데이터 분석하는 문과생, 싸코](https://sacko.tistory.com/44)
+- [BN Image](http://sanghyukchun.github.io/88/)
+
