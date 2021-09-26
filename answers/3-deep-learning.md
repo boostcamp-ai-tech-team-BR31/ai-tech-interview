@@ -136,15 +136,15 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 - L1 regularization
 - L2 regularization
 
-L1 regularization은 기존의 비용 함수에 모든 가중치에 대해서 $\lambda | w |$를 더 한 값을 비용 함수로 하고, L2 regularization은 기존 비용함수에 모든 가중치에 대해서 $\frac{1}{2}\lambda w^2$ 를 더 한 값을 비용 함수로 합니다. $\lambda$ 는 규제의 강도를 정하는 하이퍼파라미터입니다. $\lambda$ 가 크다면 모델이 훈련 데이터에 대해서 적합한 매개 변수를 찾는 것보다 규제를 위해 추가된 항들을 작게 유지하는 것을 우선한다는 의미가 됩니다.
+L1 regularization은 기존의 비용 함수에 모든 가중치에 대해서 <img src="https://render.githubusercontent.com/render/math?math=\lambda | w |">를 더 한 값을 비용 함수로 하고, L2 regularization은 기존 비용함수에 모든 가중치에 대해서 <img src="https://render.githubusercontent.com/render/math?math=\frac{1}{2}\lambda w^2">를 더 한 값을 비용 함수로 합니다. <img src="https://render.githubusercontent.com/render/math?math=\lambda">는 규제의 강도를 정하는 하이퍼파라미터입니다. <img src="https://render.githubusercontent.com/render/math?math=\lambda">가 크다면 모델이 훈련 데이터에 대해서 적합한 매개 변수를 찾는 것보다 규제를 위해 추가된 항들을 작게 유지하는 것을 우선한다는 의미가 됩니다.
 
 L1 regularization
 
-$$ Cost = \frac{1}{n}\sum \{L(y_i, \hat y_i) + \frac{\lambda}{2}|w|\} $$
+<img src="https://render.githubusercontent.com/render/math?math=Cost = \frac{1}{n}\sum \{L(y_i, \hat y_i) %2B \frac{\lambda}{2}|w|\}">
 
 L2 regularization
 
-$$ Cost = \frac{1}{n}\sum \{L(y_i, \hat y_i) + \frac{\lambda}{2}|w|^2\} $$
+<img src="https://render.githubusercontent.com/render/math?math=Cost = \frac{1}{n}\sum \{L(y_i, \hat y_i) %2B \frac{\lambda}{2}|w|^2\}">
 
 #### 3. Dropout
 
