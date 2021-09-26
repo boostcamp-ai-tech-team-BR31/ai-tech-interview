@@ -964,6 +964,32 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 - [네이버 블로그 : cross validation](https://m.blog.naver.com/ckdgus1433/221599517834)
 - [CLICK AI : cross validation](https://www.clickai.ai/resource/wiki/modeling/crossvalidation_kor)
 
+
+
+## #24
+
+#### 앙상블 방법엔 어떤 것들이 있나요?
+
+
+
+#### 앙상블
+
+앙상블 학습은 여러 개의 결정 트리(Decision Tree)를 결합하여 하나의 결정 트리보다 더 좋은 성능을 내는 머신러닝 기법입니다. 앙상블 학습의 핵심은 여러 개의 약 분류기를 결합하여 강 분류기를 만드는 것입니다. 앙상블 학습법에는 **Bagging, Boosting, stacking** 등이 있습니다.
+
+#### Bagging
+
+**주어진 데이터에 대해서 여러 개의 bootstrap자료를 생성하고 각 bootstrap 자료를 모델링한 후 결합하여 최종의 예측 모형을 산출하는 방법**입니다. bootstrap 자료란 단순 복원 임의 추출법을 통해 원자료로 부터 크기가 동일한 여러 개의 표본 자료를 말합니다. 
+
+Bagging은 예측 모형의 변동성이 큰 경우 예측모형의 변동성을 감소시키기 위해 사용됩니다. bagging의 알고리즘은 원자료로부터의 n번의 랜덤 복원샘플링을 하고 각 생플의 모델링을 통해 나온 예측변수들을 결합하여 최종 모형을 생성하는 것입니다.
+
+#### Boosting
+
+**일반적으로 분류 문제는 잘못 분류된 개체들에게 관심을 가지고 이들을 더 잘 분류하는 것이 목적입니다. Boosting은 잘못 분류된 개체들에 집중하여 새로운 분류규칙을 만드는 단계를 반복하는 방법입니다.** 즉, 약한 예측모형들을 결합하여 강한 예측모형을 만드는 것이 Boosting 알고리즘 입니다. Boosting 방법의 초첨은 예측변수를 순차적으로 생성하는 것 입니다. 원자료의 객체들에는 동일한 가중치에서 시작하지만, 모델링을 통한 예측변수에 의해 오분류된 개체들에게는 높은 가중치를 부여하고, 정분류된 객체들에는 낮은 가중치를 부여하여 오분류된 객체들이 더 잘 분류되도록 하는 방법입니다. **즉, boosting은 예측모형의 정확도를 향상시키기 위한 방법입니다.**
+
+##### Reference
+
+- [bagging,  boosting](https://m.blog.naver.com/muzzincys/220201299384)
+
 ## #26
 
 #### 좋은 모델의 정의는 무엇일까요?
@@ -978,6 +1004,24 @@ K-fold Cross validation의 매커니즘을 그대로 가져오면서 label 분�
 
 - [original answer](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/2-machine-learning.md)
 - [머신 러닝의 모델 평가와 모델 선택, 알고리즘 선택](https://tensorflow.blog/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80%EC%99%80-%EB%AA%A8%EB%8D%B8-%EC%84%A0%ED%83%9D-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%A0%ED%83%9D-1/)
+
+## #27
+
+### 50개의 작은 의사결정 나무는 큰 의사결정 나무보다 괜찮을까요? 왜 그렇게 생각하나요?
+
+의사결정나무는 순차적으로 질문을 던져서 답을 고르게 하는 방식의 머신러닝모델로 스무고개와 같다.
+
+ <div align='center'>
+     <img src=".\images\ml_27.PNG" width="60%">
+   </div>
+
+큰 모델로 분류할 경우 훈련 데이터에서의 오류를 줄이기 위해 과적합되지만, 작은 모델로 분류해 앙상블한다면 더 잘 일반화시킬 수 있다. 한 나무에서 잘못 분류해도 다른 나무들의 영향으로 올바르게 분류할 가능성이 커지는 것이다. random forest를 사용한다면 더욱 일반화된 결과를 얻을 수 있다. 
+
+#### Reference
+
+- [Decision tree(의사결정나무) 원리](https://sanghyu.tistory.com/8)
+- [의사결정나무](https://dementopolous.wordpress.com/2016/09/20/do-you-think-50-small-decision-trees-are-bigger-than-one-large-one/)
+- [의사결정나무](https://www.quora.com/Do-you-think-50-small-decision-trees-are-better-than-a-large-one-Why)
 
 ## #28
 
