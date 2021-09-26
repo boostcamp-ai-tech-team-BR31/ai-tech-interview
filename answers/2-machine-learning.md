@@ -217,11 +217,20 @@ PCA(Pricipal Component Analysis: 주성분 분석)는 고차원의 데이터를,
 
 주성분 분석은 기존의 고차원 데이터들을, 더 적은 차원의 주성분으로 데이터를 표현하므로 차원 축소 기법이라 할 수 있다. 주성분을 구할 때 데이터의 기존의 분산을 전체 다 이용하는 것이 아닌 분산을 설명하는 정도가 큰 몇개의 주성분만을 이용하므로 데이터를 압축한다고 할 수 있고, 이 과정에서 어느정도의 분산이 제거되므로 노이즈가 감소할 수 있다.
 
+
+
+PCA란 ?
+
+> 기존 데이터들의 분산(정보)을 잘 보존하는 주성분(기존 변수들의 선형결합)들을 이용하여, 더 적은 변수들로 데이터를 표현하는 방법이다. 데이터의 구조, 즉 변수들의 관계를 파악하기 위해 공분산 행렬을 이용하며 공분산 행렬로부터 얻은 eigen vector가 주성분, eigen value가 데이터의 퍼진 정도 즉 분산의 크기를 의미한다. 여기서 eigen value가 큰 몇개의 eigen vector(주성분) 값들만 이용하여 데이터를 표현하는 것이 주성분이다.  
+
+
+
 ##### References
 
 - [공돌이의 수학 노트 PCA](https://angeloyeo.github.io/2019/07/27/PCA.html)
 - [주성분분석(PCA)의 이해와 활용-다크 프로그래머 블로그](https://darkpgmr.tistory.com/110)
 - [PCA Eliminate noise in the data - stackExchange](https://stats.stackexchange.com/questions/247260/principal-component-analysis-eliminate-noise-in-the-data/247271)
+- [PCA에서 고유값과 고유벡터의 의미](https://medium.com/@dareyadewumi650/understanding-the-role-of-eigenvectors-and-eigenvalues-in-pca-dimensionality-reduction-10186dad0c5c)
 
 ## #7
 
@@ -380,9 +389,8 @@ K는 토픽을 몇개로 설정할 것인지에 대한 설정 값
    <div align='center'>
      <img src="images/ml_9_5.png", width = "50%">
    </div>
-
    
-
+   
 5. **미분류된 키워드의 토픽 선정**
 
    1번 문서 내 topic1이 있을 확률 : 1.01/3.03 = 0.333
@@ -648,11 +656,28 @@ ML의 목적인 '본 적 없는 새로운 데이터를 분류하는 것'은 통�
 
 실패의 위험을 낮추는 것과 성공률을 높이는 것이 같은 말처럼 보일 수 있지만, ML은 실패에 집착하지 않기 때문에 모델에 필요한 갖가지 가정과 검증을 신경쓰는 데서 해방될 수 있다.
 
+<h5>
+    통계
+</h5>
+
++ 관심있는 프로세스 자체의 분포를 밝혀내서 해당 프로세스를 수학적으로 이해하는 것이 주 목적
++ 사람이 만든 가설의 검증이 목적
++ 표본 데이터를 이용하여 모집단에 대해 추론
+
+<h5>
+    기계학습
+</h5>
+
++ 프로세스 자체를 꼭 이해하지는 못하더라도 명확한 goal(주로 prediction)을 가지고 그 goal에 최적화된 working 모델을 만드는 것을 강조
++ 기존 데이터로 모델을 학습시킨 후 새로운 데이터를 입력 했을 때 예측 값을 알아내기 위한 목적
++ 데이터로부터 가설을 만들어내는 과정
++ 전체 데이터를 이용해 개별값 예측
+
 ##### References
 
 - [통계학과 기계학습의 차이](https://essencehan.tumblr.com/post/166414990009/%ED%86%B5%EA%B3%84%ED%95%99%EA%B3%BC-%EA%B8%B0%EA%B3%84%ED%95%99%EC%8A%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4)
-
 - [머신러닝과 전통적 통계학의 차이](https://medium.com/@hyunseok/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B3%BC-%EC%A0%84%ED%86%B5%EC%A0%81-%ED%86%B5%EA%B3%84%ED%95%99%EC%9D%98-%EC%B0%A8%EC%9D%B4-a560f0708db0)
+- [머신러닝 vs 통계학](https://codedragon.tistory.com/10073)
 
 ## #16
 
@@ -795,7 +820,7 @@ L1 Norm 과 L2 Norm 의 차이
  <div align='center'>
      <img src=".\images\dif.PNG" width="60%">
    </div>
-   
+
 L1 Norm은 여러가지 path
 
 L2 Norm Unique shortest path
@@ -853,20 +878,44 @@ Regularization
 regularization방법으로 L1 Regularization, L2 Regularization, Dropout, Early stopping 등이 있다.
 
 <h4>
-L1 Regularization
+L1 Regularization (Lasso)
 </h4>
  <div align='center'>
-     <img src=".\images\reg1.PNG" width="40%">
+     <img src=".\images\reg1.PNG" width="40%"></div>
 
-   </div>
+
+
+
+   gradient descent 과정에서 cost function을 미분해서 빼주는 방식으로 W를 update하기 때문에, 계속해서 특정 상수를 빼주게 된다. 이렇게 되면, W를 업데이트 해 나갈 때, W중 어떤 wi는 0이 되어버린다. 결과적으로 영향을 크게 미치는 핵심적인 wi만 남게된다.
 
 <h4>
-L2 Regularization
+L2 Regularization (Ridge)
 </h4>
-  
+
+
  <div align='center'>
      <img src=".\images\reg2.PNG" width="40%">
    </div>
+여기선 gradient descent과정에서 전체적으로 w값이 작아지도록 하게 된다. Lasso처럼 일부를 0으로 만들어버리지는 않고, 전체적인 wi들의 값을 감소시킨다.
+
+<h4>
+L1/L2 Regularization
+</h4>
+
+ <div align='center'>
+     <img src=".\images\dbr.PNG" width="60%">
+   </div>
+
+ <div align='center'>
+     <img src=".\images\l1l2.PNG" width="60%">
+   </div>
+
+#### Reference
+
+- [L1 Regularization, L2 Regularization 의 이해, 용도와 차이 설명](https://light-tree.tistory.com/125)
+- [L1, L2 Regularization (Lasso, Ridge)](https://dailyheumsi.tistory.com/57)
+
+
 
 ## #22
 
