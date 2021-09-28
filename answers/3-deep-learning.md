@@ -119,6 +119,14 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 - [activation function](https://pozalabs.github.io/Activation_Function/)
 - [activation function을 사용하는 이유](https://ganghee-lee.tistory.com/30)
 
+
+
+## #4
+
+### Data Normalization은 무엇이고 왜 필요한가요?
+
+
+
 ## #5
 
 ### 알고있는 Activation Function에 대해 알려주세요. (Sigmoid, ReLU, LeakyReLU, Tanh 등)
