@@ -125,7 +125,23 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 
 ### Data Normalization은 무엇이고 왜 필요한가요?
 
+데이터를 조작하여 원하는 범위로 제한하는 것.
 
+모든 데이터가 같은 정도의 중요도로 반영되도록 해주기 위하여.
+
+학습을 더 빨리하고 Local minumum에 빠지는 위험을 줄이기 위하여.
+
+   <div align='center'>
+     <img src="./images/normalize.PNG" width="50%">
+   </div>
+
+##### References
+
+- [정규화의 목적과 방법들]([정규화(Normalization)의 목적과 방법들 (tistory.com)](https://mole-starseeker.tistory.com/31))
+
+- [정규화 설명]([딥러닝 용어 정리, Normalization(정규화) 설명 (tistory.com)](https://light-tree.tistory.com/132))
+
+  
 
 ## #5
 
