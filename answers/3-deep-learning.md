@@ -263,3 +263,12 @@ training loss는 계속 낮아지더라도 validation loss는 올라가는 시�
 - [위키독스](https://wikidocs.net/61374)
 - [데이터 분석하는 문과생, 싸코](https://sacko.tistory.com/44)
 - [BN Image](http://sanghyukchun.github.io/88/)
+
+
+
+
+
+## #6
+
+### 볼츠만 머신은 무엇인가요?
+
