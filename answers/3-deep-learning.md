@@ -263,3 +263,109 @@ training loss는 계속 낮아지더라도 validation loss는 올라가는 시�
 - [위키독스](https://wikidocs.net/61374)
 - [데이터 분석하는 문과생, 싸코](https://sacko.tistory.com/44)
 - [BN Image](http://sanghyukchun.github.io/88/)
+
+
+
+
+
+## #8
+
+------------
+
+### Weight Initialization 방법에 대해 말해주세요 그리고 무엇을 많이 사용하나요?
+
+weight Initialization은 model의 weight의 값의 초기값을 설정하는 것으로 0, 1, 상수로 초기화 하는 방법이 있고 정규분포나 유니폼 분포에서 값을 얻는 방법이 있으나 주로 사용되는 방법은  **Xavier Initialization**, **He Initialization** 방법이 쓰인다.
+
+![img](images/3.8.initalization_image.png)
+
+<sub>이미지 출처: https://eda-ai-lab.tistory.com/404</sub>
+
+Xavier / He initialization은 정규분포에서 평균은 0 분산은 인풋 아웃풋 노드의 수를 고려한 분산 값을 설정한다.
+
+- Sigmoid, tanh 경우 Xavier 초기화 방법이 효율적이다.
+- ReLU계의 활성화 함수 사용 시 He 초기화 방법이 효율적이다.(Dying relu를 막는다.)
+
+
+
+**그렇다면 왜 weight initialization이 중요할까?**
+
+- 단순히 0이나 상수값으로 하면 모든 뉴런이 동일한 feature를 학습하게 되어 다른 차이를 구분하지 못하게 된다.
+- weight 가 너무 작다면 vanishing gradient가 발생 반대로 weight가 너무 작다면 Vanish exploding 문제 발생
+- 적절히 weight initilalization 하면 학습이 잘되더라
+
+**왜 정규분포 이용?**
+
+불분명함..그러나 xavier initialization 논문 참고하면 정규분포를 이용하는것이 activation 값의 분산과 gradient의 분산의 값을 절적하게 유지시켜서 학습이 잘 되더라라는듯
+
+**He initialization Dying relu 반드시 막는다 그런것은 아닌듯**
+
+2019년 논문(Dying ReLU and Initialization: Theory and Numerical Examples)에 따르면 꼭 그런것도 아닌듯 그래서 논문에서 새로운 방법 제시
+
+**dying relu가 모델의 일반화 성능 해결하기도 한다?**
+
+출처: [블로그](https://brunch.co.kr/@kdh7575070/27)
+
+신경망이 충분히 wide한 Sparse 한 효과로 regularization 효과. 이게 출처가 안들어가져서 불확신하나 그럴 수 있을것 같다. drop-out과 비슷한 효과이지 않을까?
+
+#### Reference
+
+- [Deeplearning.AI: **Initializing neural networks** ](https://www.deeplearning.ai/ai-notes/initialization/)
+- [Why better weight initialization is important in neural networks?](https://towardsdatascience.com/why-better-weight-initialization-is-important-in-neural-networks-ff9acf01026d)
+
+## # 12
+
+### (요즘) Sigmoid 보다 ReLU를 많이 쓰는데 그 이유는?
+
+![img](images/3.12.activation_function.png)
+
+sigmoid 함수는 값이 커질수록 기울기가 0이 되기 때문에 gradient가 소멸되는 문제가 발생한다. 하지만 relu는 값이 커져도 기울기가 상수이기 때문에 gradient가 소멸되지 않는다. 이는 학습이 빨라지는 효과를 갖고 온다. 다른 장점으로는 relu는 input값이 음수일 때 값이 0이 되므로 Sparsity representations효과를 불러오나 sigmoid같은 경우는 정확히 0은 아니기에 dense representations 효과를 나타나게 된다.
+
+#### #12-1 Non-Linearity라는 말의 의미와 그 필요성은?
+
+비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수  [![img](https://render.githubusercontent.com/render/math?math=x_1%2C%20x_2%2C%20...%20%2C%20x_n)](https://render.githubusercontent.com/render/math?math=x_1%2C x_2%2C ... %2C x_n)과 가중치  [![img](https://render.githubusercontent.com/render/math?math=w_1%2C%20w_2%2C%20...%20%2C%20w_n)](https://render.githubusercontent.com/render/math?math=w_1%2C w_2%2C ... %2C w_n)으로  [![img](https://render.githubusercontent.com/render/math?math=y%20%3D%20w_1*x_1%20%2B%20w_2*x_2%20%2B%20...%20%2B%20w_n*x_n)](https://render.githubusercontent.com/render/math?math=y %3D w_1*x_1 %2B w_2*x_2 %2B ... %2B w_n*x_n)으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
+
+- **가산성**: 임의의 수  [![img](https://render.githubusercontent.com/render/math?math=x%2C%20y)](https://render.githubusercontent.com/render/math?math=x%2C y)에 대해  [![img](https://render.githubusercontent.com/render/math?math=f(x%2By)%20%3D%20f(x)%20%2B%20f(y))](https://render.githubusercontent.com/render/math?math=f(x%2By) %3D f(x) %2B f(y))가 성립
+- **동차성**: 임의의 수 $x, \alpha$에 대해  [![img](https://render.githubusercontent.com/render/math?math=f(%5Calpha%20x)%20%3D%20%5Calpha%20f(x))](https://render.githubusercontent.com/render/math?math=f(\alpha x) %3D \alpha f(x))가 성립
+
+이를 만족하지 못하는 모델을 비선형 관계에 있는 모델이라고 한다.
+
+딥러닝에서 이런 비선형 관계는 비선형 활성화 함수(non-linear activation function)을 도입함으로써 표현할 수 있다. 비선형 활성화 함수가 없다면 아무리 많은 레이어를 쌓아도 단순 선형연산의 반복이기 떄문에 하나의 레이어를 쌓은것이랑은 차이가 없다. 
+
+그럼 비선형 관계 즉, 활성화 함수가 왜 필요할까?  
+
+바로 **활성화 함수를 사용해 여러 층을 쌓아서 더 복잡한 표현을 하기 위해서**이다. 현실의 문제들은 선형관계로 해결되지 않기 때문에 복잡한 비선형 모델을 고려해야한다.
+
+#### #12-2 ReLU로 어떻게 곡선 함수를 근사하나?
+
+ReLU는 양수일 때 [![img](https://render.githubusercontent.com/render/math?math=y%3Dx)](https://render.githubusercontent.com/render/math?math=y%3Dx)인 선형 함수와 음수일 때 [![img](https://render.githubusercontent.com/render/math?math=y%3D0)](https://render.githubusercontent.com/render/math?math=y%3D0)인 선형 함수 두 개를 결합된 형태이다. 그렇지만 ReLU는 선형 함수가 갖는 가산성을 만족하지 못하기 때문에 비선형 함수로 볼 수 있다. 하지만 ReLU가 어떻게 곡선 함수를 근사할 수 있을까?
+
+![img](images/3.12.1.relu.png)
+
+ReLU를 여러 개 결합하면, 특정 지점에서 특정 각도만큼 선형 함수를 구부릴 수 있다. 이 성질을 이용하여 곡선 함수 뿐만 아니라 모든 함수에 근사를 할 수 있게 된다.
+
+#### #12-3 ReLU의 문제점은?
+
+ReLU는 양수일때만 backporbagation이 이뤄지고 다른 경우에는 0의 값을 갖는다 이는 2가지 문제점으로 이어진다.
+
+1) **Dead Neurons** : 입력값이 음수인경우 gradient 값이 0으로 되기 때문에 학습이 이뤄지지 않는다(Dead nurerons). 이러한 문제는 음의 기울기를 설정하여 해결하거나(leaky relu) 음수의 기울기를 parameter로 설정하여 학습하는 PRelu로 문제를 해결할 수 있습니다.
+2) **Bias Shift** : relu는 주로 0이상의 값을 출력하기 때문에 positive한 방향으로 편향되는 경향이 있다. 이러한 positive mean shift는 학습을 느리게 만든다. 이러한 문제는 평균을 0으로 만들어주는 batch-normalization 이나 Elu나 Selu 같은 activation function 을 이용해 문제를 해결할 수 있다. -> [CS231n 6강 8:46](https://youtu.be/wEoyxE0GP2M?t=526)을 참고!
+
+#### #12-4 Bias는 왜 있는걸까?
+
+![img](images/12.4.grpah.png)
+
+편향(bias)는 활성화 함수가 왼쪽 혹은 오른쪽으로 이동한다. 가중치(weight)는 활성화 함수의 가파른 정도 즉, 기울기를 조절하는 반면, 편향(bias)는 **활성화 함수를 움직임으로써 데이터에 더 잘 맞도록 한다.**
+
+#### Reference
+
+-  [12.1 sigmoid 대신 relu를 쓰는 이유 from stack overflow](https://stats.stackexchange.com/questions/126238/what-are-the-advantages-of-relu-over-sigmoid-function-in-deep-neural-networks)
+
+-  [12.1~4 기존답변](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/3-deep-learning.md#8)
+
+- [12.2 nonlinear activation function을 쓰는 이유 stack overflow](https://stackoverflow.com/questions/9782071/why-must-a-nonlinear-activation-function-be-used-in-a-backpropagation-neural-net)
+
+- [12.2 relu 작동원리 설명](https://towardsdatascience.com/if-rectified-linear-units-are-linear-how-do-they-add-nonlinearity-40247d3e4792)
+
+- [12.3 Disadvantage of RELU](https://www.quora.com/What-are-the-disadvantages-of-using-the-ReLu-when-using-Neural-Networks)
+
+  
