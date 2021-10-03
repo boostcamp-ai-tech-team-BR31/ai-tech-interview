@@ -121,6 +121,34 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 
 
 
+## #3
+
+### Tensorflow, PyTorch 특징과 차이가 뭘까요?
+
+
+
+#### PyTorch
+
+PyTorch는 Facebook AI Research Lab에서 **연구 목적**으로 개발한 라이브러리입니다. 호환되는 언어로 C++, Python이 있습니다. 초기엔 커뮤니티가 비교적 작았지만 폭발적으로 상승하여 학회 논문 자료에서는 Tensorflow를 추월한 상태입니다. PyTorch로 많은 연구 분야의 유저의 이동이 있었던 이유는 **동적 그래프 사용**이 가능한 점이 크게 작용했습니다. 동적 그래프를 통해 실시간으로 데이터를 바꿔 넣어 비교가 가능했기 때문에 RNN, CNN, GAN 연구에 유리 했기 때문입니다. 또한 코드가 Tensorflow에 비해 난이도가 상대적으로 쉽기 때문에 크게 성장했습니다.
+
+#### Tensorflow
+
+Tensorflow는 Google Brain Team이 연구와 **제품 개발을 목적**으로 만들었으며 호환 언어로는 C++, Python, JavaScript, Swift 등이 있습니다. 1.x, 2.x 버전을 거쳐 Stable 2.4 버전까지 출시한 상태입니다. 1.x 와 2.x 버전의 차이점으로는 Session 사용이 거의 불필요해졌으며 선언 최소화 및 Keras가 내재화 되었습니다. 또한 Function화를 통한 속도 개선이 있었습니다. 그 이외에도 Tensorflow-Lite – 모바일/임베딩 지원, TensorflowJS – 브라우저, Node.js 지원 등 많은 변경점들이 있습니다. 하지만 이러한 변화가 기존에 사용했던 사용자의 코드를 변경해야 하는 불편함을 초래했습니다. 물론 변환 하는 모듈을 지원했지만 버그 또한 존재했기 때문에 많은 사용자의 이탈이 있기도 했습니다.
+
+
+
+Tensorflow는 여전히 동적 그래프 구성이 비교적 어려우며 디버깅 또한 학습이 필요합니다. PyTorch는 아직 공개 되어 있는 소스가 적고 다른 환경의 지원도 어려우며 배포가 어렵고 무엇보다 산업에서 요구하는 다양한 제약 사항을 맞추기 어렵습니다.
+
+**Tensorflow** – 상품 구축 목적. Browser, Node.js, Embeded, Mobile 환경 지원. 배포 용이. NLP 등.
+
+**Pytorch** – 연구 목적. Python에 익숙한 환경. 비교적 낮은 난이도. RNN, CNN, GAN 등.
+
+
+
+##### References
+
+- [Tensorflow vs Pytorch](https://smilegate.ai/2021/07/05/tensorflow-vs-pytorch/)
+
 ## #4
 
 ### Data Normalization은 무엇이고 왜 필요한가요?
@@ -327,6 +355,28 @@ Xavier / He initialization은 정규분포에서 평균은 0 분산은 인풋 �
 - [Deep learning](https://abipictures.tistory.com/773)
 - [Wikipedia](https://en.wikipedia.org/wiki/Boltzmann_machine)
 - [볼츠만 머신: 생성모형의 원리](https://horizon.kias.re.kr/18001/)
+
+
+
+## #10
+
+### TF, PyTorch 등을 사용할 때 디버깅 노하우는?
+
+- 모델 체크포인트 저장
+
+  체크포인트를 매시간 저장하면서 training해야 서버 오류가 생기가나 GPU가 터졌을 때 손상되는 데이터를 최소화 할 수 있다.
+
+- 모듈식 프로그래밍
+
+  디버깅 가능한 프로그램을 만드는 핵심 기술은 모듈 방식으로 애플리케이션을 구축하는 것이다. 데이터 세트 작업의 하위 집합을 적용하는 동안 데이터 세트를 반복하기만 하면 입력 파이프라인에서 다양한 기능을 테스트할 수 있다.
+
+- 로컬 환경에서 실행
+
+  로컬 환경에서 디버깅하는 것이 원격 시스템이나 클라우드에서 디버깅하는 것보다 쉽다. 모델을 처음 생성할 때 특히 그렇다. 원격 교육을 시작하기 전에 로컬 환경에서 가능한 한 많은 문제를 해결하는 것이 목표여야 한다. 
+
+#### Reference
+
+- [Debugging in TensorFlow](https://towardsdatascience.com/debugging-in-tensorflow-392b193d0b8)
 
 
 ## # 12
