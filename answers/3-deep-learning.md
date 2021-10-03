@@ -132,14 +132,15 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 학습을 더 빨리하고 Local minumum에 빠지는 위험을 줄이기 위하여.
 
    <div align='center'>
-     <img src="./images/normalize.PNG" width="50%">
+     <img src="./images/normalize.png", width="50%">
    </div>
+
 
 ##### References
 
-- [정규화의 목적과 방법들]([정규화(Normalization)의 목적과 방법들 (tistory.com)](https://mole-starseeker.tistory.com/31))
+- [정규화의 목적과 방법들](https://mole-starseeker.tistory.com/31)
 
-- [정규화 설명]([딥러닝 용어 정리, Normalization(정규화) 설명 (tistory.com)](https://light-tree.tistory.com/132))
+- [정규화 설명](https://light-tree.tistory.com/132)
 
   
 
@@ -313,6 +314,19 @@ Xavier / He initialization은 정규분포에서 평균은 0 분산은 인풋 �
 ## # 9
 
 ### 볼츠만 머신은 무엇인가요?
+
+"우리가 보고 있는 것들 외에 보이지 않는 것들까지 포함시켜 학습한다면 좀 더 정확한 확률분포를 구할 수 있지 않을까" 라는 가정으로부터 확률분포를 학습하기 위해 만들어졌다.
+
+   <div align='center'>
+     <img src="./images/dl_3.png", width="50%">
+   </div>
+
+##### References
+
+- [**Restricted Boltzmann Machine**](https://angeloyeo.github.io/2020/10/02/RBM.html)
+- [Deep learning](https://abipictures.tistory.com/773)
+- [Wikipedia](https://en.wikipedia.org/wiki/Boltzmann_machine)
+- [볼츠만 머신: 생성모형의 원리](https://horizon.kias.re.kr/18001/)
 
 
 ## # 12
