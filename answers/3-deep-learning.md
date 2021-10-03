@@ -132,8 +132,9 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 학습을 더 빨리하고 Local minumum에 빠지는 위험을 줄이기 위하여.
 
    <div align='center'>
-     <img src="./images/normalize.PNG" width="50%">
+     <img src="./images/normalize.PNG", width="50%">
    </div>
+
 
 ##### References
 
