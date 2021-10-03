@@ -138,9 +138,9 @@ input layer value(또는 이전 hidden layer value)와 weight은 linear관계로
 
 ##### References
 
-- [정규화의 목적과 방법들]((https://mole-starseeker.tistory.com/31))
+- [정규화의 목적과 방법들](https://mole-starseeker.tistory.com/31)
 
-- [정규화 설명]((https://light-tree.tistory.com/132))
+- [정규화 설명](https://light-tree.tistory.com/132)
 
   
 
