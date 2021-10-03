@@ -483,13 +483,40 @@ ReLU는 양수일때만 backporbagation이 이뤄지고 다른 경우에는 0의
 #### Reference
 
 -  [12.1 sigmoid 대신 relu를 쓰는 이유 from stack overflow](https://stats.stackexchange.com/questions/126238/what-are-the-advantages-of-relu-over-sigmoid-function-in-deep-neural-networks)
-
 -  [12.1~4 기존답변](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/3-deep-learning.md#8)
+-  [12.2 nonlinear activation function을 쓰는 이유 stack overflow](https://stackoverflow.com/questions/9782071/why-must-a-nonlinear-activation-function-be-used-in-a-backpropagation-neural-net)
+-  [12.2 relu 작동원리 설명](https://towardsdatascience.com/if-rectified-linear-units-are-linear-how-do-they-add-nonlinearity-40247d3e4792)
+-  [12.3 Disadvantage of RELU](https://www.quora.com/What-are-the-disadvantages-of-using-the-ReLu-when-using-Neural-Networks)
 
-- [12.2 nonlinear activation function을 쓰는 이유 stack overflow](https://stackoverflow.com/questions/9782071/why-must-a-nonlinear-activation-function-be-used-in-a-backpropagation-neural-net)
+## # 13
 
-- [12.2 relu 작동원리 설명](https://towardsdatascience.com/if-rectified-linear-units-are-linear-how-do-they-add-nonlinearity-40247d3e4792)
+### Gradient Descent에 대해서 쉽게 설명한다면?
 
-- [12.3 Disadvantage of RELU](https://www.quora.com/What-are-the-disadvantages-of-using-the-ReLu-when-using-Neural-Networks)
+- 왜 꼭 Gradient를 써야 할까? 그 그래프에서 가로축과 세로축 각각은 무엇인가? 실제 상황에서는 그 그래프가 어떻게 그려질까?
+- GD 중에 때때로 Loss가 증가하는 이유는?
+- Back Propagation에 대해서 쉽게 설명 한다면?
 
-  
+
+
+Gradient Descent는 함수의 기울기(즉, gradient)를 이용해 x의 값을 어디로 옮겼을 때 함수가 최소값을 찾는지 알아보는 방법이라고 할 수 있다.
+
+기울기가 양수라는 것은 x 값이 커질 수록 함수 값이 커진다는 것을 의미하고, 반대로 기울기가 음수라면 x값이 커질 수록 함수의 값이 작아진다는 것을 의미한다고 볼 수 있다.
+
+또, 기울기의 값이 크다는 것은 가파르다는 것을 의미하기도 하지만, 또 한편으로는 x의 위치가 최소값/최댓값에 해당되는 x 좌표로부터 멀리 떨어져있는 것을 의미하기도 한다.
+
+#### # 13-1
+
+![딥러닝(Deep learning) 살펴보기 2탄](images/jaeuk-gd.png)
+
+위 그림은 흔히 볼 수 있는 gradient descent를 설명할 때 나오는 그래프이다. x축은 weight, y축은 cost_function output을 의미한다. 기본적인 신경망 계산의 원리는 input x가 들어왔을 때 weight와 행렬곱을 통해 output을 생성해낸다. cost_function: J(w)는 input x가 들어왔을 때 실제 y값과 예측된 y값의 차이를 미리 정의한 loss함수를 통해 구하는 것을 의미한다. 따라서 실제 y값과 예측된 y값의 차이가 최소가 되면 모델이 잘 학습이 된 것이기 때문에 loss 함수의 최소값을 구하면 되고 이는 convex한 형태의 최소값, 즉 미분값(기울기)가 0이 되는 곳을 찾으면 그곳이 최적의 weight값이 된다.
+
+#### # 13-2
+
+Gradient Descent 중에 때때로 Loss가 증가하는 이유는 아래 그림을 통해 알아보자.
+
+![Gradient Descent Optimization Algorithms 정리](images/jaeuk-gd2.png)
+
+위 함수의 모양을 보면 gradient가 0이 되는 곳이 크게 2곳이 있다. 왼쪽 부분을 local minima라고 하고 오른쪽 가장 깊은 곳을 global minima 라고 하며 local minima에서 global minima로 가기위해 gradient가 잠깐 양수가 되는 것을 알 수 있다. 이때 loss가 증가하는 것이다.
+
+#### # 13-3
+
