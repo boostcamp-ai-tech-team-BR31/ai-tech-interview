@@ -378,6 +378,39 @@ Xavier / He initialization은 정규분포에서 평균은 0 분산은 인풋 �
 
 - [Debugging in TensorFlow](https://towardsdatascience.com/debugging-in-tensorflow-392b193d0b8)
 
+## #11
+
+### 뉴럴넷의 가장 큰 단점은 무엇인가? 이를 위해 나온 One-Shot Learning은 무엇인가?
+neural network의 가장 큰 단점은 많은 dataset을 필요로 한다는 것입니다. 이러한 neural network의 학습 방식은 인간과 비교해 효율적이지 않습니다. 
+
+소량의 데이터(few-shot)만으로 좋은 성능을 갖출 수 없을까? 라는 발상에서 진행된 연구가 **few-shot learning**입니다.
+
+   <div align='center'>
+     <img src="./images/dl_11_fewshotlearning.PNG", width="70%">
+   </div>
+
+few-shot learning에서의 dataset은, 훈련에 사용되는 support data와, 테스트에 사용되는 query data로 구성됩니다. 이러한 few-shot learning은 N-way K-shot 문제라고 불립니다. N은 범주의 수, K는 범주별 support data의 수를 의미합니다. 위의 경우 2-way 5-shot에 해당합니다.
+
+few-shot learning에는 크게 두가지 network 방식이 있습니다.
+먼저 **거리 학습 기반 방식**은 support data와 query data 간의 거리(유사도)를 측정하는 방식을 활용합니다. 데이터 수가 적은 few-shot task에서는 neural network의 가중치를 학습하는 방식이 적합하지 않기 때문입니다. 거리 학습 기반 방식은 대표적으로 아래의 연구가 있습니다.
+- Siamese Neural network for one-shot image recognition
+- Matching networks for one-shot learning
+- Prototypical networks for few-shot learning
+- Learning to compare : relation network for few-shot learning
+
+두 번째로는 **그래프 신경망 방식** 이 있습니다. 적은 양의 데이터만으로 분류 성능을 극대화하기 위해, 데이터 간 복잡한 관계 정보를 학습에 활용하는 방식입니다. 그래프에서 node는 데이터, edge는 데이터 간 관계 정보를 나타냅니다. 밀집 그래프는 모든 node가 서로 완전히 연결된 것을 의미합니다. 그래프 신경망 방식의 대표적인 연구는 아래의 방법들이 있습니다.
+- Few-shot learning with graph neural networks
+- Transductive propagation network for few-shot learning (TPN)
+
+세줄요약
+- 신경망 구조는 많은 데이터셋을 요규하므로 훈련 방식에 있어서 비효율적
+- 데이터셋 양의 덜 의존적인 few-shot learning(한장이면 one-shot learning)에 관한 연구들이 진행중
+- 대표적으로 거리 학습 기반 방식, 그래프 신경망 방식이 있음
+
+##### Reference
+
+- [few-shot learning]](https://www.kakaobrain.com/blog/106)
+
 
 ## # 12
 
