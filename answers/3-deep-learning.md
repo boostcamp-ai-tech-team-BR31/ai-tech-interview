@@ -270,8 +270,6 @@ training loss는 계속 낮아지더라도 validation loss는 올라가는 시�
 
 ## #8
 
-------------
-
 ### Weight Initialization 방법에 대해 말해주세요 그리고 무엇을 많이 사용하나요?
 
 weight Initialization은 model의 weight의 값의 초기값을 설정하는 것으로 0, 1, 상수로 초기화 하는 방법이 있고 정규분포나 유니폼 분포에서 값을 얻는 방법이 있으나 주로 사용되는 방법은  **Xavier Initialization**, **He Initialization** 방법이 쓰인다.
@@ -311,6 +309,11 @@ Xavier / He initialization은 정규분포에서 평균은 0 분산은 인풋 �
 
 - [Deeplearning.AI: **Initializing neural networks** ](https://www.deeplearning.ai/ai-notes/initialization/)
 - [Why better weight initialization is important in neural networks?](https://towardsdatascience.com/why-better-weight-initialization-is-important-in-neural-networks-ff9acf01026d)
+
+## # 9
+
+### 볼츠만 머신은 무엇인가요?
+
 
 ## # 12
 
