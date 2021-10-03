@@ -433,7 +433,7 @@ few-shot learning에는 크게 두가지 network 방식이 있습니다.
 
 ##### Reference
 
-- [few-shot learning]](https://www.kakaobrain.com/blog/106)
+- [few-shot learning](https://www.kakaobrain.com/blog/106)
 
 
 ## # 12
