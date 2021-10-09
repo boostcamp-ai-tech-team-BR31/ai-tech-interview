@@ -436,7 +436,7 @@ few-shot learning에는 크게 두가지 network 방식이 있습니다.
 - [few-shot learning](https://www.kakaobrain.com/blog/106)
 
 
-## # 12
+## #12
 
 ### (요즘) Sigmoid 보다 ReLU를 많이 쓰는데 그 이유는?
 
@@ -519,4 +519,49 @@ Gradient Descent 중에 때때로 Loss가 증가하는 이유는 아래 그림�
 위 함수의 모양을 보면 gradient가 0이 되는 곳이 크게 2곳이 있다. 왼쪽 부분을 local minima라고 하고 오른쪽 가장 깊은 곳을 global minima 라고 하며 local minima에서 global minima로 가기위해 gradient가 잠깐 양수가 되는 것을 알 수 있다. 이때 loss가 증가하는 것이다.
 
 #### # 13-3
+
+
+
+## #20
+
+#### 딥러닝할 때 GPU를 쓰면 좋은 이유는?
+
+![Gradient Descent Optimization Algorithms 정리](images/dl_20_1.png)
+
+**CPU**는 **복잡한 연산을 수행**하고 데이터를 **직렬(Sequential) 처리** 방식에 특화된 구조를 갖고 있고 내부 면적이 절반 이상이 캐시로 채워져 있기 때문에 GPU에 비해 상대적으로 ALU(Arithmetic logic unit)가 차지할 수 있는 공간이 더 적다. 즉 코어수가 많지 않다.
+
+**GPU**는 **단순한 연산을 수행**하고 여러 명령을 동시에 처리하는 **병렬 처리 방식**에 특화된 구조를 갖고있다. 캐시 메모리 비중이 크지 않고 연산을 수행할 수 있는 ALU(코어) 개수가 많다. 
+
+딥러닝은 weight를 곱하고 bias를 더하는 단순한 사칙연산이 동시에 무수히 많이 일어난다.(행렬연산) 따라서 이러한 연산을 빠르게 하기 위해서는 CPU보다는 GPU를 이용하여 학습하는것이 더 빠른 계산을 수행할 수 있다.
+
+#### #20-1
+
+#### GPU를 두개 다 쓰고 싶다. 방법은?
+
+각각의 GPU에 데이터를 분산처리하여 연산을 수행하면 된다.
+
+Pytorch의 경우 `torch.nn.DataParallel`을 사용하여 여러 개의 GPU를 사용할 수 있다. [공식문서 참조](https://pytorch.org/tutorials/intermediate/dist_tuto.html)
+
+--------
+
+단순히 위의 방법으로 처리할 경우 여러 문제가 생길 수 있다. 예를 들면 로스를 계산하기 위해 gradient를 첫번째 GPU에 모은다. 이경우 GPU memory 사용량에 첫 번째 GPU에 집중되는 문제가 있다. 따라서 여러개의 GPU를 효율적으로 사용하는 방법에는 여러가지 방법이 존재한다. 예로 Loss 함수도 병렬 처리 하도록 커스터마이징. 다른 예시는 아래 reference 참고
+
+
+
+#### #20-2
+
+#### 학습시 필요한 GPU 메모리는 어떻게 계산하는가?
+
+GPU 메모리 사용량에 영향을 주는 요인은 여러가지가 있다. 
+
+ex) 모델의 (trainable) parameter 수, 데이터의 사이즈(예를 들면 이미지 해상도, 문장의 길이), batch size, floating point type(FP16 or FP32), activation 함수의 수와 같은 것들이 GPU 메모리 사용량에 영향을 미친다.
+
+
+
+#### Reference
+
+- [CPU와 GPU 차이 블로그](https://light-tree.tistory.com/25)
+- [블로그: Pytorch Multi-GPU 제대로 학습하기](https://medium.com/daangn/pytorch-multi-gpu-%ED%95%99%EC%8A%B5-%EC%A0%9C%EB%8C%80%EB%A1%9C-%ED%95%98%EA%B8%B0-27270617936b)
+
+- [How to estimate how much GPU memory required for deep learning?](https://stackoverflow.com/questions/60934350/how-to-estimate-how-much-gpu-memory-required-for-deep-learning)
 
