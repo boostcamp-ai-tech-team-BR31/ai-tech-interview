@@ -520,7 +520,75 @@ Gradient Descent 중에 때때로 Loss가 증가하는 이유는 아래 그림�
 
 #### # 13-3
 
+> Backpropagation computes the [gradient](https://en.wikipedia.org/wiki/Gradient) in [weight space](https://en.wikipedia.org/wiki/Parameter_space) of a feedforward neural network, with respect to a [loss function](https://en.wikipedia.org/wiki/Loss_function).
 
+Backpropagation은 weight space에서 loss 함수에 대해 gradient를 계산하는 것이다. 쉽게 설명하자면 신경망 왼쪽에서 오른쪽으로 가는 forward propagation을 통해 Loss를 구할 수 있고, 다시 오른쪽에서 왼쪽으로 편미분 과정을 통해 미분값을 구하는 과정을 Backpropagation이라 한다. Optimizer와 헷갈릴 수 있는데 optimizer는 계산된 미분값을 더하거나 빼는 과정을 통해 가중치를 갱신하는 것이고, backpropagation은 단지 gradient, 즉 미분값을 구하는 것이다.
+
+## #15
+
+### Training set과 Test set을 분리하는 이유는?
+
+**Training set과 Test set을 분리하는 이유는 정확한 성능 측정을 위해서이다**. 예컨대, 데이터가 100개가 있고 100개를 모두 학습시키면 학습된 100개의 데이터는 잘 맞출지라도 새로운 데이터에 대해 어떤 성능을 보일지 예측이 불가능하다. 따라서 통상적으로 8:2 정도로 Train과 Test set을 분리하여 80%를 학습에 사용하고 20%를 테스트에 사용하여 학습때 모델이 보지못한 새로운 데이터로 모델의 성능을 측정할 수 있다.
+
+#### #15-1
+
+**Validation set이 따로 있는 이유는?**
+
+앞서 언급한 Train, Test 2가지로 데이터를 분류하는 것의 한계점도 있다. Train 데이터로 모델을 학습시키고 Test Data로 모델을 평가하여 80% 정도의 성능을 측정했다고 가정해보자. 그렇다면 hyper-parameter tuning이나 어떠한 기법을 써서 모델의 성능을 향상시키기 위한 실험을 했을 때, 또 이전에 사용했던 Test set을 사용하여 성능 측정을 하게 된다. 이렇게 되면 모델의 성능이 Test set의 성능에만 의존하게 되는 상황이 발생한다. 따라서 Test set은 최종 성능 측정에만 사용되도록 완전히 독립적으로 존재하도록 보존해야한다. 학습과정에서는 Train으로 학습, Validation Data로 성능을 측정, 이 과정을 반복하여 모델의 성능을 올리고 최종적으로 Test set으로 성능 평가가 이루어 져야 한다.
+
+#### #15-2
+
+**Test set이 오염되었다는 말의 뜻은?**
+
+데이터를 수집하다보면 Test set이 Train set으로 부터 완전히 독립적인 상태가 아닌 경우가 있다. 이 것을 Test set이 오염되었다고 한다. 예컨대 마스크를 쓴 사람을 분류하는 image classification task가 주어졌다고 할 때 사람 A, B, C 각각 5장의 마스크를 쓴 사진이 있다고 하자. 
+
+```shell
+data/
+	\---A
+		\---1.jpg
+		\---2.jpg
+    \---3.jpg
+    \---4.jpg
+		\---5.jpg
+	\---B
+	\---C
+```
+
+위 구조로 데이터가 존재하고 모든 이미지를 가져와서 train set과 test set을 분리하게 되면 
+
+```shell
+train/
+	\---A_1.jpg
+	\---A-2.jpg
+	
+test/
+	\---A_3.jpg
+	\---A_4.jpg
+```
+
+이렇게 분류될 수가 있다. Train Data에서 학습된 A라는 사람을 test에서 보게되니 model 성능이 보다 높게 나올 가능성이 높다는 것이다. 따라서 Test set이 오염되지 않기 위해서는 아래와 같이 데이터를 분리해야 한다.
+
+```shell
+train\
+	\---A_1.jpg
+	\---A_2.jpg
+  \---A_3.jpg
+	\---A_4.jpg
+	\---A_5.jpg
+
+test\
+	\---B_1.jpg
+  \---B_2.jpg
+	\---B_3.jpg
+	\---B_4.jpg
+	\---B_5.jpg
+```
+
+#### #15-3
+
+**Regularization이란 무엇인가?**
+
+모델이 학습 데이터에 오버피팅 되지 않게 loss값에 어떤 값을 더해주어 loss를 의도적으로 크게 만드는 기법이다. 대표적으로 L1, L2, Drop-out 과 같은 기법이 있다.
 
 ## #20
 
