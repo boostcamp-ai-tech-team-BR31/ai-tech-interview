@@ -319,6 +319,32 @@ training loss는 계속 낮아지더라도 validation loss는 올라가는 시�
 
 
 
+## #7
+
+### 하이퍼 파라미터는 무엇인가요?
+
+> 하이퍼 파라미터는 모델링 할 때 사용자가 직접 세팅해주는 값을 뜻한다
+
+최적의 훈련 모델을 구현하기 위해 모델에 설정하는 변수로 LR, Epoch, weight initialization 등을 결정할 수 있고 하이퍼 파라미터 튜닝 기법을 통해 훈련 모델의 최적값을 찾을 수 있다.
+
+보통은 휴리스틱한 방법으로 최적의 하이퍼 파라미터를 찾게 된다.
+
+#### 하이퍼 파라미터의 예
+
+학습률, 손실 함수, 일반화 파라미터, 미니배치 크기, 에포크 수, 가중치 초기화, 은닉층의 개수, k-NN의 k값 등
+
+#### 하이퍼 파라미터 튜닝 기법
+
+그리드 탐색, 랜덤 탐색, 베이지안 최적화, 휴리스틱 탐색
+
+
+
+#### Reference
+
+[머신러닝에서의 하이퍼파라미터란 무엇일까](https://ittrue.tistory.com/42)
+
+[[DL] 파라미터와 하이퍼파라미터의 차이](https://wooono.tistory.com/213)
+
 
 
 ## #8
@@ -523,6 +549,44 @@ Gradient Descent 중에 때때로 Loss가 증가하는 이유는 아래 그림�
 > Backpropagation computes the [gradient](https://en.wikipedia.org/wiki/Gradient) in [weight space](https://en.wikipedia.org/wiki/Parameter_space) of a feedforward neural network, with respect to a [loss function](https://en.wikipedia.org/wiki/Loss_function).
 
 Backpropagation은 weight space에서 loss 함수에 대해 gradient를 계산하는 것이다. 쉽게 설명하자면 신경망 왼쪽에서 오른쪽으로 가는 forward propagation을 통해 Loss를 구할 수 있고, 다시 오른쪽에서 왼쪽으로 편미분 과정을 통해 미분값을 구하는 과정을 Backpropagation이라 한다. Optimizer와 헷갈릴 수 있는데 optimizer는 계산된 미분값을 더하거나 빼는 과정을 통해 가중치를 갱신하는 것이고, backpropagation은 단지 gradient, 즉 미분값을 구하는 것이다.
+
+
+
+## #14
+
+### Local Minima 문제에도 불구하고 딥러닝이 잘 되는 이유는?
+
+[Identifying and attacking the saddle point problem in high-dimensional non-convex optimization](https://papers.nips.cc/paper/2014/hash/17e23e50bedc63b4095e3d8204ce063b-Abstract.html) 의 논문에 따르면 **local minima문제는 고차원 (high dimensional) 의 공간에서는 발생하기 매우 희귀한 경우** 라 주장한다.
+
+![](https://t1.daumcdn.net/cfile/tistory/225D564D550C958308?download)
+
+예를 들어 local minimum이 형성되려면 함수 변화 그래프가 모든 축 방향으로 오목한 밥그릇 모양을 띄고 있어야 하는데 위의 그림처럼 **어느 한곳이라도 밑으로 흘러내리는 부분이 있다면 local minima가 형성되지 않기 때문** 이다. 따라서 고차원의 공간에서 모든 축 방향으로 오목한 형태가 될 확률은 0에 가깝다는게 위 논문의 요지이다.
+
+또한 
+
+#### Reference
+
+[Local Minima 문제에 대한 새로운 시각 - 다크 프로그래머](https://darkpgmr.tistory.com/148)
+
+#### #14-1 
+
+**GD가 Local Minima 문제를 피하는 방법은?**
+
+Local minima 문제를 피하는 방법으로 기본적으로 **Momentum**을 적용한다. 관성을 이용하여 변곡점을 벗어 날 수 있는 힘을 실어준다. 이와 비슷한 방법으로 **Nesterov Accelerated Gradient(NAG)** 가 있는데 Look-ahead gradient 인자를 포함하여 a 라는 accumulate gradient가 gradient를 감소시키는 역할을 한다. 모멘텀과 다른 점은 미리 한 스텝을 옮겨가본 후에 어느 방향으로 갈지 정한다.
+
+![](https://github.com/CozyKim/ai-tech-interview/blob/main/images/sally/2021-05-01-18-44-16.png?raw=true)
+
+다른 방법으로 **Adagrad, Adadelta, RMSprop, Adam** 등의 optimizer를 이용하는 방법이 있다.
+
+#### #14-2
+
+**찾은 해가 Global Minimum인지 아닌지 알 수 있는 방법은?**
+
+Global Minima가 정확히 어디에 존재하는지는 알 수 없다. 다만, 학습에 사용하지 않은 Test Dataset에 대한 성능을 평가하는 것으로 모델이 Global Minima에 가까운지 유추할 수 있다.
+
+
+
+
 
 ## #15
 
