@@ -542,16 +542,16 @@ Backpropagation은 weight space에서 loss 함수에 대해 gradient를 계산�
 
 데이터를 수집하다보면 Test set이 Train set으로 부터 완전히 독립적인 상태가 아닌 경우가 있다. 이 것을 Test set이 오염되었다고 한다. 예컨대 마스크를 쓴 사람을 분류하는 image classification task가 주어졌다고 할 때 사람 A, B, C 각각 5장의 마스크를 쓴 사진이 있다고 하자. 
 
-```shell
-data/
-	\---A
-		\---1.jpg
-		\---2.jpg
-    \---3.jpg
-    \---4.jpg
-		\---5.jpg
-	\---B
-	\---C
+```bash
+data
+ |___A
+     |___1.jpg
+     |___2.jpg
+     |___3.jpg
+     |___4.jpg
+     |___5.jpg
+ |___B
+ |___C
 ```
 
 위 구조로 데이터가 존재하고 모든 이미지를 가져와서 train set과 test set을 분리하게 되면 
@@ -572,13 +572,13 @@ test/
 train\
 	\---A_1.jpg
 	\---A_2.jpg
-  \---A_3.jpg
+        \---A_3.jpg
 	\---A_4.jpg
 	\---A_5.jpg
 
 test\
 	\---B_1.jpg
-  \---B_2.jpg
+        \---B_2.jpg
 	\---B_3.jpg
 	\---B_4.jpg
 	\---B_5.jpg
