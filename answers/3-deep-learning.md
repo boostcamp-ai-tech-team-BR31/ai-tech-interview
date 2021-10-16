@@ -472,10 +472,10 @@ sigmoid 함수는 값이 커질수록 기울기가 0이 되기 때문에 gradien
 
 #### #12-1 Non-Linearity라는 말의 의미와 그 필요성은?
 
-비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수  [![img](https://render.githubusercontent.com/render/math?math=x_1%2C%20x_2%2C%20...%20%2C%20x_n)](https://render.githubusercontent.com/render/math?math=x_1%2C x_2%2C ... %2C x_n)과 가중치  [![img](https://render.githubusercontent.com/render/math?math=w_1%2C%20w_2%2C%20...%20%2C%20w_n)](https://render.githubusercontent.com/render/math?math=w_1%2C w_2%2C ... %2C w_n)으로  [![img](https://render.githubusercontent.com/render/math?math=y%20%3D%20w_1*x_1%20%2B%20w_2*x_2%20%2B%20...%20%2B%20w_n*x_n)](https://render.githubusercontent.com/render/math?math=y %3D w_1*x_1 %2B w_2*x_2 %2B ... %2B w_n*x_n)으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
+비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수 <img src="https://render.githubusercontent.com/render/math?math= x_1, x_2, ..., x_n">과 가중치  <img src="https://render.githubusercontent.com/render/math?math= w_1, w_2, ... w_n">으로  <img src="https://render.githubusercontent.com/render/math?math= y = w_1x_1 + w_2x_2 + ... + w_nx_n">으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
 
-- **가산성**: 임의의 수  [![img](https://render.githubusercontent.com/render/math?math=x%2C%20y)](https://render.githubusercontent.com/render/math?math=x%2C y)에 대해  [![img](https://render.githubusercontent.com/render/math?math=f(x%2By)%20%3D%20f(x)%20%2B%20f(y))](https://render.githubusercontent.com/render/math?math=f(x%2By) %3D f(x) %2B f(y))가 성립
-- **동차성**: 임의의 수 $x, \alpha$에 대해  [![img](https://render.githubusercontent.com/render/math?math=f(%5Calpha%20x)%20%3D%20%5Calpha%20f(x))](https://render.githubusercontent.com/render/math?math=f(\alpha x) %3D \alpha f(x))가 성립
+- **가산성**: 임의의 수  에 대해  f(x+y) = f(x) + f(y가 성립
+- **동차성**: 임의의 수 x, a에 대해  f(ax) = af(x)가 성립
 
 이를 만족하지 못하는 모델을 비선형 관계에 있는 모델이라고 한다.
 
@@ -658,7 +658,7 @@ test\
 
 #### 딥러닝할 때 GPU를 쓰면 좋은 이유는?
 
-![Gradient Descent Optimization Algorithms 정리](images/dl_20_1.png)
+![Gradient Descent Optimization Algorithms 정리](images/dl_20_1.PNG)
 
 **CPU**는 **복잡한 연산을 수행**하고 데이터를 **직렬(Sequential) 처리** 방식에 특화된 구조를 갖고 있고 내부 면적이 절반 이상이 캐시로 채워져 있기 때문에 GPU에 비해 상대적으로 ALU(Arithmetic logic unit)가 차지할 수 있는 공간이 더 적다. 즉 코어수가 많지 않다.
 
