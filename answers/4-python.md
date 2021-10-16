@@ -89,7 +89,58 @@
 컴파일된 언어는 컴파일러를 통해 구현되며 소스 코드를 기계어로 바꾸는 과정을 사전에 처리 하여 빠르게 컴퓨터에서 구동될 수 있도록 한 방법 이며, 인터프리터 언어는 대부분 소스코드를 기계어로 컴파일하지 않고 인터프리터를 통해 소스코드 실행시 각 스테이트먼트(소스코드 구문)를 하나 이상의 서브루틴 순서로 변환한 후, 기계어나 바이트코드등 다른 언어로 변환되어 구현
 
 <div align='center'>
-
 <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1cdbfd7a-9479-46fb-8cdf-670a10df3394/_2021-06-03__2.43.34.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211016%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211016T154051Z&X-Amz-Expires=86400&X-Amz-Signature=e60d071a61f2e2b8aa2ca27543adb73d78c2a7dc190cc655f6bd3475307b29bd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22_2021-06-03__2.43.34.png%22" width="60%">
 
 </div>
+
+## #5
+
+### What is pep 8?
+
+PEP8(Python Enhencement Propsals)란 가독성이 좋은 파이썬 코딩을 하고자 제시된 스타일 가이드
+사람마다 각자 다른 코딩스타일이 있기에 스타일간 충돌을 피하고자 파이썬 코딩 가이드를 제시했다. from 귀도 반 로썸
+
+example)
+
+- Indentation(4개 공백), 
+- Maximul Line Length(한 줄에 최대 79자, 주석 72자)
+- Whitesapece in Expressions and Statements(필요 없는 공백 제거)
+- etc...(또 다른 여러 방법이 있다.)
+
+code example)
+
+```python
+# example-1) 반환되지 않는 return 문도 None으로 리턴문을 명시해 줘야한다.
+# Wrong:
+def foo(x):
+    if x >= 0:
+        return math.sqrt(x)
+
+# Correct:
+def foo(x):
+    if x >= 0:
+        return math.sqrt(x)
+    else:
+        return None
+
+# example-2) 객체 타입의 비교는 isinstance 이용한다 직접비교 대신에
+# Correct:
+if isinstance(obj, int):
+
+# Wrong:
+if type(obj) is type(1):
+    
+# example-3) Sequence(strings, lists, tuples)의 경우 빈 sequence는 false라는 사실을 이용한다.
+# Correct:
+if not seq:
+if seq:
+    
+# Wrong:
+if len(seq):
+if not len(seq):
+   
+```
+
+### Reference
+
+- [PEP8 공식사이트](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
