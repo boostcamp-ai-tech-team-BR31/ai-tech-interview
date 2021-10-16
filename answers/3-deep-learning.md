@@ -472,7 +472,7 @@ sigmoid 함수는 값이 커질수록 기울기가 0이 되기 때문에 gradien
 
 #### #12-1 Non-Linearity라는 말의 의미와 그 필요성은?
 
-비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수 <img src="https://render.githubusercontent.com/render/math?math= x_1, x_2, ..., x_n">과 가중치  <img src="https://render.githubusercontent.com/render/math?math= w_1, w_2, ... w_n">으로  <img src="https://render.githubusercontent.com/render/math?math= y = w_1x_1 + w_2x_2 + ... + w_nx_n">으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
+비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수 x_1, x_2, ..., x_n과 가중치  w_1, w_2, ... w_n를 이용해  y = w_1x_1 + w_2x_2 + ... + w_nx_n으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
 
 - **가산성**: 임의의 수  에 대해  f(x+y) = f(x) + f(y가 성립
 - **동차성**: 임의의 수 x, a에 대해  f(ax) = af(x)가 성립
@@ -489,7 +489,7 @@ sigmoid 함수는 값이 커질수록 기울기가 0이 되기 때문에 gradien
 
 ReLU는 양수일 때 [![img](https://render.githubusercontent.com/render/math?math=y%3Dx)](https://render.githubusercontent.com/render/math?math=y%3Dx)인 선형 함수와 음수일 때 [![img](https://render.githubusercontent.com/render/math?math=y%3D0)](https://render.githubusercontent.com/render/math?math=y%3D0)인 선형 함수 두 개를 결합된 형태이다. 그렇지만 ReLU는 선형 함수가 갖는 가산성을 만족하지 못하기 때문에 비선형 함수로 볼 수 있다. 하지만 ReLU가 어떻게 곡선 함수를 근사할 수 있을까?
 
-![img](images/3.12.1.relu.png)
+![img](images/3.12.1.relu.PNG)
 
 ReLU를 여러 개 결합하면, 특정 지점에서 특정 각도만큼 선형 함수를 구부릴 수 있다. 이 성질을 이용하여 곡선 함수 뿐만 아니라 모든 함수에 근사를 할 수 있게 된다.
 
