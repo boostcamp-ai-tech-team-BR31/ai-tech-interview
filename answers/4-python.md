@@ -80,6 +80,22 @@
 
 ---
 
+## #3
+
+### What type of language is python? Programming or scripting?
+
+**파이썬 스크립트 언어이자 프로그래밍 언어이다.**
+
+파이썬은 소스코드를 기계어로 먼저 번역하는 컴파일 과정을 거치지 않기 때문에 스크립트 언어로 볼 수 있다. 하지만 많은 사람들이 파이썬이 Java, C++과 같은 언어를 대체하여 개발에 사용될 수 있기 때문에 프로그래밍 언어라고도 한다. 프로그래밍 언어라는 말 자체가 스크립트 언어를 포함하기 때문에 파이썬도 해당된다고 생각한다.
+
+**References**
+
+[codingninjas](https://www.codingninjas.com/blog/2018/12/08/difference-between-a-programming-language-and-a-scripting-language/)
+
+[ThePythonGuru](https://thepythonguru.com/is-python-a-programming-language-or-scripting-language/)
+
+[Javatpoint](https://www.javatpoint.com/scripting-vs-programming)
+
 ## #4
 
 ### Python an interpreted language. Explain.
