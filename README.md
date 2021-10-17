@@ -140,8 +140,77 @@
 ## Part 2. Language
 
 ### [🐍 Python](./answers/4-python.md)
-- test1
-- test2
+- What is the difference between list and tuples in Python?
+- What are the key features of Python?
+- What type of language is python? Programming or scripting?
+- Python an interpreted language. Explain.
+- What is pep 8?
+- How is memory managed in Python?
+- What is namespace in Python?
+- What is PYTHONPATH?
+- What are python modules? Name some commonly used built-in modules in Python?
+- What are local variables and global variables in Python?
+- Is python case sensitive?
+- What is type conversion in Python?
+- How to install Python on Windows and set path variable?
+- Is indentation required in python?
+- What is the difference between Python Arrays and lists?
+- What are functions in Python?
+- What is `__init__`?
+- What is a lambda function?
+- What is self in Python?
+- How does break, continue and pass work?
+- What does `[::-1]` do?
+- How can you randomize the items of a list in place in Python?
+- What’s the difference between iterator and iterable?
+- How can you generate random numbers in Python?
+- What is the difference between range & xrange?
+- How do you write comments in python?
+- What is pickling and unpickling?
+- What are the generators in python?
+- How will you capitalize the first letter of string?
+- How will you convert a string to all lowercase?
+- How to comment multiple lines in python?
+- What are docstrings in Python?
+- What is the purpose of is, not and in operators?
+- What is the usage of help() and dir() function in Python?
+- Whenever Python exits, why isn’t all the memory de-allocated?
+- What is a dictionary in Python?
+- How can the ternary operators be used in python?
+- What does this mean: `*args`, `**kwargs`? And why would we use it?
+- What does len() do?
+- Explain split(), sub(), subn() methods of “re” module in Python.
+- What are negative indexes and why are they used?
+- What are Python packages?
+- How can files be deleted in Python?
+- What are the built-in types of python?
+- What advantages do NumPy arrays offer over (nested) Python lists?
+- How to add values to a python array?
+- How to remove values to a python array?
+- Does Python have OOps concepts?
+- What is the difference between deep and shallow copy?
+- How is Multithreading achieved in Python?
+- What is the process of compilation and linking in python?
+- What are Python libraries? Name a few of them.
+- What is split used for?
+- How to import modules in python?
+- Explain Inheritance in Python with an example.
+- How are classes created in Python?
+- What is monkey patching in Python?
+- Does python support multiple inheritance?
+- What is Polymorphism in Python?
+- Define encapsulation in Python?
+- How do you do data abstraction in Python?
+- Does python make use of access specifiers?
+- How to create an empty class in Python?
+- What does an object() do?
+- What is map function in Python?
+- Is python numpy better than lists?
+- What is GIL in Python language?
+- What makes the CPython different from Python?
+- What are Decorators in Python?
+- What is object interning?
+- What is @classmethod, @staticmethod, @property?
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
 
