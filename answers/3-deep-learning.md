@@ -319,6 +319,32 @@ training loss는 계속 낮아지더라도 validation loss는 올라가는 시�
 
 
 
+## #7
+
+### 하이퍼 파라미터는 무엇인가요?
+
+> 하이퍼 파라미터는 모델링 할 때 사용자가 직접 세팅해주는 값을 뜻한다
+
+최적의 훈련 모델을 구현하기 위해 모델에 설정하는 변수로 LR, Epoch, weight initialization 등을 결정할 수 있고 하이퍼 파라미터 튜닝 기법을 통해 훈련 모델의 최적값을 찾을 수 있다.
+
+보통은 휴리스틱한 방법으로 최적의 하이퍼 파라미터를 찾게 된다.
+
+#### 하이퍼 파라미터의 예
+
+학습률, 손실 함수, 일반화 파라미터, 미니배치 크기, 에포크 수, 가중치 초기화, 은닉층의 개수, k-NN의 k값 등
+
+#### 하이퍼 파라미터 튜닝 기법
+
+그리드 탐색, 랜덤 탐색, 베이지안 최적화, 휴리스틱 탐색
+
+
+
+#### Reference
+
+[머신러닝에서의 하이퍼파라미터란 무엇일까](https://ittrue.tistory.com/42)
+
+[[DL] 파라미터와 하이퍼파라미터의 차이](https://wooono.tistory.com/213)
+
 
 
 ## #8
@@ -446,10 +472,10 @@ sigmoid 함수는 값이 커질수록 기울기가 0이 되기 때문에 gradien
 
 #### #12-1 Non-Linearity라는 말의 의미와 그 필요성은?
 
-비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수  [![img](https://render.githubusercontent.com/render/math?math=x_1%2C%20x_2%2C%20...%20%2C%20x_n)](https://render.githubusercontent.com/render/math?math=x_1%2C x_2%2C ... %2C x_n)과 가중치  [![img](https://render.githubusercontent.com/render/math?math=w_1%2C%20w_2%2C%20...%20%2C%20w_n)](https://render.githubusercontent.com/render/math?math=w_1%2C w_2%2C ... %2C w_n)으로  [![img](https://render.githubusercontent.com/render/math?math=y%20%3D%20w_1*x_1%20%2B%20w_2*x_2%20%2B%20...%20%2B%20w_n*x_n)](https://render.githubusercontent.com/render/math?math=y %3D w_1*x_1 %2B w_2*x_2 %2B ... %2B w_n*x_n)으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
+비선형(non-linearity)의 뜻을 알기 위해서는 우선 선형(linearity)가 무엇인지 알아야 한다. 어떤 모델이 선형적(linearity)라고 한다면 그 모델은 변수 x_1, x_2, ..., x_n과 가중치  w_1, w_2, ... w_n를 이용해  y = w_1x_1 + w_2x_2 + ... + w_nx_n으로 표현할 수 있으며, 가산성(Additreivityly)과 동차성(Homogeneity)을 만족해야 한다.
 
-- **가산성**: 임의의 수  [![img](https://render.githubusercontent.com/render/math?math=x%2C%20y)](https://render.githubusercontent.com/render/math?math=x%2C y)에 대해  [![img](https://render.githubusercontent.com/render/math?math=f(x%2By)%20%3D%20f(x)%20%2B%20f(y))](https://render.githubusercontent.com/render/math?math=f(x%2By) %3D f(x) %2B f(y))가 성립
-- **동차성**: 임의의 수 $x, \alpha$에 대해  [![img](https://render.githubusercontent.com/render/math?math=f(%5Calpha%20x)%20%3D%20%5Calpha%20f(x))](https://render.githubusercontent.com/render/math?math=f(\alpha x) %3D \alpha f(x))가 성립
+- **가산성**: 임의의 수  에 대해  f(x+y) = f(x) + f(y가 성립
+- **동차성**: 임의의 수 x, a에 대해  f(ax) = af(x)가 성립
 
 이를 만족하지 못하는 모델을 비선형 관계에 있는 모델이라고 한다.
 
@@ -463,7 +489,7 @@ sigmoid 함수는 값이 커질수록 기울기가 0이 되기 때문에 gradien
 
 ReLU는 양수일 때 [![img](https://render.githubusercontent.com/render/math?math=y%3Dx)](https://render.githubusercontent.com/render/math?math=y%3Dx)인 선형 함수와 음수일 때 [![img](https://render.githubusercontent.com/render/math?math=y%3D0)](https://render.githubusercontent.com/render/math?math=y%3D0)인 선형 함수 두 개를 결합된 형태이다. 그렇지만 ReLU는 선형 함수가 갖는 가산성을 만족하지 못하기 때문에 비선형 함수로 볼 수 있다. 하지만 ReLU가 어떻게 곡선 함수를 근사할 수 있을까?
 
-![img](images/3.12.1.relu.png)
+![img](images/3.12.1.relu.PNG)
 
 ReLU를 여러 개 결합하면, 특정 지점에서 특정 각도만큼 선형 함수를 구부릴 수 있다. 이 성질을 이용하여 곡선 함수 뿐만 아니라 모든 함수에 근사를 할 수 있게 된다.
 
@@ -523,6 +549,44 @@ Gradient Descent 중에 때때로 Loss가 증가하는 이유는 아래 그림�
 > Backpropagation computes the [gradient](https://en.wikipedia.org/wiki/Gradient) in [weight space](https://en.wikipedia.org/wiki/Parameter_space) of a feedforward neural network, with respect to a [loss function](https://en.wikipedia.org/wiki/Loss_function).
 
 Backpropagation은 weight space에서 loss 함수에 대해 gradient를 계산하는 것이다. 쉽게 설명하자면 신경망 왼쪽에서 오른쪽으로 가는 forward propagation을 통해 Loss를 구할 수 있고, 다시 오른쪽에서 왼쪽으로 편미분 과정을 통해 미분값을 구하는 과정을 Backpropagation이라 한다. Optimizer와 헷갈릴 수 있는데 optimizer는 계산된 미분값을 더하거나 빼는 과정을 통해 가중치를 갱신하는 것이고, backpropagation은 단지 gradient, 즉 미분값을 구하는 것이다.
+
+
+
+## #14
+
+### Local Minima 문제에도 불구하고 딥러닝이 잘 되는 이유는?
+
+[Identifying and attacking the saddle point problem in high-dimensional non-convex optimization](https://papers.nips.cc/paper/2014/hash/17e23e50bedc63b4095e3d8204ce063b-Abstract.html) 의 논문에 따르면 **local minima문제는 고차원 (high dimensional) 의 공간에서는 발생하기 매우 희귀한 경우** 라 주장한다.
+
+![](https://t1.daumcdn.net/cfile/tistory/225D564D550C958308?download)
+
+예를 들어 local minimum이 형성되려면 함수 변화 그래프가 모든 축 방향으로 오목한 밥그릇 모양을 띄고 있어야 하는데 위의 그림처럼 **어느 한곳이라도 밑으로 흘러내리는 부분이 있다면 local minima가 형성되지 않기 때문** 이다. 따라서 고차원의 공간에서 모든 축 방향으로 오목한 형태가 될 확률은 0에 가깝다는게 위 논문의 요지이다.
+
+또한 
+
+#### Reference
+
+[Local Minima 문제에 대한 새로운 시각 - 다크 프로그래머](https://darkpgmr.tistory.com/148)
+
+#### #14-1 
+
+**GD가 Local Minima 문제를 피하는 방법은?**
+
+Local minima 문제를 피하는 방법으로 기본적으로 **Momentum**을 적용한다. 관성을 이용하여 변곡점을 벗어 날 수 있는 힘을 실어준다. 이와 비슷한 방법으로 **Nesterov Accelerated Gradient(NAG)** 가 있는데 Look-ahead gradient 인자를 포함하여 a 라는 accumulate gradient가 gradient를 감소시키는 역할을 한다. 모멘텀과 다른 점은 미리 한 스텝을 옮겨가본 후에 어느 방향으로 갈지 정한다.
+
+![](https://github.com/CozyKim/ai-tech-interview/blob/main/images/sally/2021-05-01-18-44-16.png?raw=true)
+
+다른 방법으로 **Adagrad, Adadelta, RMSprop, Adam** 등의 optimizer를 이용하는 방법이 있다.
+
+#### #14-2
+
+**찾은 해가 Global Minimum인지 아닌지 알 수 있는 방법은?**
+
+Global Minima가 정확히 어디에 존재하는지는 알 수 없다. 다만, 학습에 사용하지 않은 Test Dataset에 대한 성능을 평가하는 것으로 모델이 Global Minima에 가까운지 유추할 수 있다.
+
+
+
+
 
 ## #15
 
@@ -655,11 +719,41 @@ Generator의 output layer와 discriminator의 input layer에는 BN을 넣지 않
 #### Reference
 - [초짜 대학원생의 입장에서 이해하는 Deep Convolutional Generative Adversarial Network (DCGAN)](http://jaejunyoo.blogspot.com/2017/02/deep-convolutional-gan-dcgan-1.html)
 
+## #19
+
+#### 간단한 MNIST 분류기를 TF, PyTorch 등으로 작성하는데 몇시간이 필요한가?
+
+#### #19-1
+
+#### CNN이 아닌 MLP로 해도 잘 될까?
+
+cnn일때 99.3% -> dense layer 여러개 약 97%
+
+약간의 성능저하가 있다.
+
+#### #19-2
+
+#### 마지막 레이어 부분에 대해서 설명 한다면?
+
+라벨 개수로 feature를 설정해 classification한다. cnn으로 하더라도 분류기는 flatten하고 dense레이어로 feature를 뽑는다. 10개로 분류하는 것이기 때문에, softmax activation을 사용한다면 유력한 것을 1로 나머지는 0으로 학습하도록 하여, 학습에 가속을 줄 수 있다.
+
+#### #19-1
+
+#### 학습은 BCE loss로 하되 상황을 MSE loss로 보고 싶다면?
+
+학습 시 loss를 BCE로 사용하고, metric으로 MSE사용
+
+#### Reference
+
+- [MNIST 숫자분류](https://laboputer.github.io/machine-learning/2020/03/12/mnist995/)
+- [소프트맥스](youtube.com/watch?v=jeOp8aIm1x8)
+
+
 ## #20
 
 #### 딥러닝할 때 GPU를 쓰면 좋은 이유는?
 
-![Gradient Descent Optimization Algorithms 정리](images/dl_20_1.png)
+![Gradient Descent Optimization Algorithms 정리](images/dl_20_1.PNG)
 
 **CPU**는 **복잡한 연산을 수행**하고 데이터를 **직렬(Sequential) 처리** 방식에 특화된 구조를 갖고 있고 내부 면적이 절반 이상이 캐시로 채워져 있기 때문에 GPU에 비해 상대적으로 ALU(Arithmetic logic unit)가 차지할 수 있는 공간이 더 적다. 즉 코어수가 많지 않다.
 
