@@ -655,6 +655,69 @@ test\
 모델이 학습 데이터에 오버피팅 되지 않게 loss값에 어떤 값을 더해주어 loss를 의도적으로 크게 만드는 기법이다. 대표적으로 L1, L2, Drop-out 과 같은 기법이 있다.
 
 
+## #16
+
+### Batch Normalization의 효과는?
+
+   <div align='center'>
+     <img src="./images/dl_16_BN.PNG", width="50%">
+   </div>
+
+Batch normalization은 2015년 arXiv에 발표된 후 ICML 2015에 게재된 아래 논문에서 나온 개념입니다.
+
+신경망 학습의 여러 문제점을 보완한 간접적인 방법들이 있지만, Batch Normalization은 '학습 과정 자체를 전체적으로 안정화'하여 학습 속도를 가속시킬 수 있는 근본적인 방법을 찾고자 하는 아이디어 입니다.
+
+각 layer마다 Normalization을 하는 layer를 두어, 변형된 분포가 나오지 않도록 조절하게 하는 것이 Batch Normalization 입니다. mini-batch의 평균과 분산을 이용해 Normalization 한 뒤, scale(γ)과 shift(β)를 수행합니다. layer가 network에 포함되어 있기 때문에 γ, β는 Backpropagation을 통해 학습되는 parameter입니다.
+
+##### 장점
+- Internal Covariate Shift 문제로 인해 신경망이 깊어질 경우 학습이 어려웠던 문제점을 해결
+- regularization 효과가 있기 때문에 dropout, Weight Decay 등의 기법을 사용하지 않아도 됨 (효과가 같기 때문)
+- 항상 입력을 정규화시키기 때문에
+  - 가중치 초깃값에 크게 의존하지 않아도 된다.
+  - lr을 높게 설정해도 된다. lr decay를 천천히 가져가도 된다. lr을 높게 설정할 수 있으면 학습속도가 빨라지기에 좋음!
+    - 기존 방법에서 learning rate 를 높게 잡을 경우 gradient 가 vanish/explode 하거나 local minima 에 빠지는 경향이 있었는데 이는 scale 때문이었으며, 배치 정규화를 사용할 경우 propagation 시 파라미터의 scale 에 영향을 받지 않게 되기 때문입니다!
+
+
+#### Reference
+- [논문, Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167.pdf)
+
+- [[Deep Learning] Batch Normalization (배치 정규화)](https://eehoeskrap.tistory.com/430)
+
+#### #16-1
+
+#### Dropout 효과는?
+
+   <div align='center'>
+     <img src="./images/dl_16_dropout.PNG", width="50%">
+   </div>
+
+Dropout은 노드를 무작위로 껐다 켰다를 반복하는 것입니다.
+이를 통해 얻을 수 있는 효과는
+1. 앙상블 효과
+2. overfitting 방지
+3. 1, 2번으로 인한 성능 향상 입니다.
+
+#### Reference
+- [Pytorch로 시작하는 딥러닝 기초 - Dropout](https://wegonnamakeit.tistory.com/46)
+
+#### #16-2
+
+#### BN 적용해서 학습 이후 실제 사용시에 주의할 점은? 코드로는?
+
+train에서는 mini-batch의 평균/분산을 사용할 수 있지만, inference 시에 입력되는 값을 통해서 정규화를 하게 되면 모델이 학습을 통해서 입력 데이터의 분포를 추정하는 의미 자체가 없어지게 된다.
+inference 에서는 결과를 Deterministic 하게 하기 위하여 고정된 평균과, 분산을 이용하여 정규화를 수행하게 된다.
+
+#### Reference
+- [[Deep Learning] Batch Normalization (배치 정규화)](https://eehoeskrap.tistory.com/430)
+
+#### #16-3
+
+#### GAN에서 Generator 쪽에도 BN을 적용해도 될까?
+
+Generator의 output layer와 discriminator의 input layer에는 BN을 넣지 않는다고 세세한 팁이 있습니다. 이유를 추측해보자면 아무래도 Generator가 생성하는 이미지가 BN을 지나면서 다시 normalize 되면 아무래도 실제 이미지와는 값의 범위가 다를 수 밖에 없으니 그런 문제가 생기지 않을까 싶습니다.
+
+#### Reference
+- [초짜 대학원생의 입장에서 이해하는 Deep Convolutional Generative Adversarial Network (DCGAN)](http://jaejunyoo.blogspot.com/2017/02/deep-convolutional-gan-dcgan-1.html)
 
 ## #19
 
@@ -684,6 +747,7 @@ cnn일때 99.3% -> dense layer 여러개 약 97%
 
 - [MNIST 숫자분류](https://laboputer.github.io/machine-learning/2020/03/12/mnist995/)
 - [소프트맥스](youtube.com/watch?v=jeOp8aIm1x8)
+
 
 ## #20
 
