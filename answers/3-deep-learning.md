@@ -654,6 +654,37 @@ test\
 
 모델이 학습 데이터에 오버피팅 되지 않게 loss값에 어떤 값을 더해주어 loss를 의도적으로 크게 만드는 기법이다. 대표적으로 L1, L2, Drop-out 과 같은 기법이 있다.
 
+
+
+## #19
+
+#### 간단한 MNIST 분류기를 TF, PyTorch 등으로 작성하는데 몇시간이 필요한가?
+
+#### #19-1
+
+#### CNN이 아닌 MLP로 해도 잘 될까?
+
+cnn일때 99.3% -> dense layer 여러개 약 97%
+
+약간의 성능저하가 있다.
+
+#### #19-2
+
+#### 마지막 레이어 부분에 대해서 설명 한다면?
+
+라벨 개수로 feature를 설정해 classification한다. cnn으로 하더라도 분류기는 flatten하고 dense레이어로 feature를 뽑는다. 10개로 분류하는 것이기 때문에, softmax activation을 사용한다면 유력한 것을 1로 나머지는 0으로 학습하도록 하여, 학습에 가속을 줄 수 있다.
+
+#### #19-1
+
+#### 학습은 BCE loss로 하되 상황을 MSE loss로 보고 싶다면?
+
+학습 시 loss를 BCE로 사용하고, metric으로 MSE사용
+
+#### Reference
+
+- [MNIST 숫자분류](https://laboputer.github.io/machine-learning/2020/03/12/mnist995/)
+- [소프트맥스](youtube.com/watch?v=jeOp8aIm1x8)
+
 ## #20
 
 #### 딥러닝할 때 GPU를 쓰면 좋은 이유는?
