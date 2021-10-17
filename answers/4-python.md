@@ -80,6 +80,51 @@
 
 ---
 
+
+## #2
+
+### What are the key features of Python?
+#### Features of Python
+- Script Language
+    - 스크립트 언어란, 컴파일 과정 없이 실행과정에서 번역과 실행이 동시에 일어나는 언어입니다.
+    - 수정이 빠르지만 컴파일 언어보다 느린 실행속도를 보여줍니다.
+    - 자세한건 [4번](#4)으로!
+- Dynamic typing
+    - 변수의 자료형을 지정하지 않고 선언하는 것만으로 사용할 수 있음
+    - 개발 당시엔 편리하지만 type error debuging이 발생할 수 있음
+    - 하지만 저는 전자의 편리함이 더 크다고 생각합니다 ^^
+    ```c
+    # C, java
+    int a = 10
+    ```
+    ```python
+    # Python
+    a = 10
+    ```
+- platform-independent
+    - linux, unix, windows, mac... 대부분 OS에서 모두 잘 동작합니다.
+    - 컴파일 할 필요가 없기 때문에!
+- Multi paradigm
+    - 절차적, 객체지향, 함수형, 관점형 프로그래밍 모두 가능
+
+
+#### Pros
+- 사용하기 쉽기에 빠른 개발속도(생산성)
+- 높은 확장성, 이식성
+    - 고성능이 필요하다면 C/C++언어와 결합해 사용 가능
+- 활발한 생태계
+    - 수많은 라이브러리 존재
+    - 인기가 많기 때문
+#### Cons
+- 느리다
+    - Script Language이기 때문
+- type error
+    - Dynamic typing 이기 때문
+#### Reference
+
+- [파이썬(Python) 특징 및 장/단점 정리](https://velog.io/@jnine/%ED%8C%8C%EC%9D%B4%EC%8D%ACPython-%ED%8A%B9%EC%A7%95-%EB%B0%8F-%EC%9E%A5%EB%8B%A8%EC%A0%90-%EC%A0%95%EB%A6%AC)
+- [python 바로 알기](https://library.gabia.com/contents/9256/)
+
 ## #3
 
 ### What type of language is python? Programming or scripting?
@@ -95,6 +140,7 @@
 [ThePythonGuru](https://thepythonguru.com/is-python-a-programming-language-or-scripting-language/)
 
 [Javatpoint](https://www.javatpoint.com/scripting-vs-programming)
+
 
 ## #4
 
@@ -157,7 +203,7 @@ if not len(seq):
    
 ```
 
-### Reference
+#### Reference
 
 - [PEP8 공식사이트](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
 
