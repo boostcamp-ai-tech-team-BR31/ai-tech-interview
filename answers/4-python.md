@@ -144,3 +144,8 @@ if not len(seq):
 ### Reference
 
 - [PEP8 공식사이트](https://www.python.org/dev/peps/pep-0008/#maximum-line-length)
+
+## #6
+
+### How is memory managed in Python?
+
