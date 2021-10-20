@@ -211,3 +211,19 @@ if not len(seq):
 
 ### How is memory managed in Python?
 
+## #11
+
+### Is Python case sensitive?
+
+대소문자 구분한다. 
+
+PHP 같은 경우 변수이름은 대소문자 구분이 있고, 함수이름엔 없다. 함수를 소문자로 정의하고 대문자로 호출하는 것이 가능하다.
+
+#### Reference
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Case_sensitivity#:~:text=are%20strictly%20lowercase.-,In%20programming%20languages,Ruby%2C%20Python%20and%20Swift)
+
+## #17
+
+### What is \__init__?
+
