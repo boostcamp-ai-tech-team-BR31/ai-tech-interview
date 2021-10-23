@@ -263,6 +263,65 @@ PHP 같은 경우 변수이름은 대소문자 구분이 있고, 함수이름엔
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Case_sensitivity#:~:text=are%20strictly%20lowercase.-,In%20programming%20languages,Ruby%2C%20Python%20and%20Swift)
 
+## #12
+
+### What is type conversion in Python
+
+Type conversion은 데이터 타입을 다른 타입으로 바꾸는 것을 의미한다.
+
+~~(데이터 타입의 종류: int, float, complex, string, fuple, set, list, dictionary, ....  )~~
+
+Python에서는 2가지의 type conversion이 존재한다.
+
+1. Implicit Type Conversion(암시적 형 변환)
+2. Explicit Type Conversion(명시적 형 변환)
+
+
+**Implicit Type Conversion**
+
+Implicit Type Conversion은 Python이 자동으로 형 변환을 실행한다. 이 때 data의 loss를 줄이기 위해 lower data type(int)를 higher data type으로 바꿔준다.
+
+```python
+num_int = 123
+num_flo = 1.23
+
+num_new = num_int + num_flo
+
+print("datatype of num_int:",type(num_int)) # -> <class 'int'>
+print("datatype of num_flo:",type(num_flo)) # -> <class 'float'>
+
+print("Value of num_new:",num_new) # -> 24.23
+print("datatype of num_new:",type(num_new)) # -> <class 'float'>
+```
+
+(참고로 문자열이랑 숫자랑 더하면 오류(TypeError)나기 때문에 이떄는 명시적 형 변환을 해줘야 한다.)
+
+**Explicit Type Conversion**
+
+사용자가 객채의 타입을 명시적으로 바꿔주는 것. 사전 정의된 `int`(), `float()`, `str()`, etc 함수를 이용한다.
+
+이러한 type of conversion은 유저가 직접 객채의 data type을 cast(change) 해주기 때문에 typecasting이라고도 불린다. 
+
+```python
+num_int = 123
+num_str = "456"
+
+print("Data type of num_int:",type(num_int))#  --> <class 'int'>
+print("Data type of num_str before Type Casting:",type(num_str)) #  --> <class 'str'>
+
+num_str = int(num_str) 
+print("Data type of num_str after Type Casting:",type(num_str)) #  --> <class 'int'>
+
+num_sum = num_int + num_str
+
+print("Sum of num_int and num_str:",num_sum) #  --> 579
+print("Data type of the sum:",type(num_sum)) #  --> <class 'int'>
+```
+
+#### Reference
+
+[Type-conversion & Casting](https://www.programiz.com/python-programming/type-conversion-and-casting)
+
 ## #17
 
 ### What is \__init__?
@@ -277,5 +336,37 @@ PHP 같은 경우 변수이름은 대소문자 구분이 있고, 함수이름엔
 - [python self와 init](https://engineer-mole.tistory.com/190)
 - [inflearn](https://www.inflearn.com/questions/4642)
 
+## #18
 
+### What is a lambda function?
+
+람다함수는 이름 없이 정의되는 익명 함수(anonymous functions)입니다. `def`를 이용하여 정의 되는 일반 함수와 달리  `lambda` 키워드를 이용하여 정의됩니다. 보통 한줄로 함수를 표현하기에 코드가 간결해지고 한 번 사용되고 다시 사용 할 수 없기에 메모리를 절약 할 수 있지만 여러줄로 표현할 수 없고 함수에 대한 설명을 적을 수 없는 단점이 있습니다.(doc string 불가). 이런 경우 def 함수를 이용하여 함수를 정의 해야 한다.
+
+```python
+# 예시1
+my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+new_list = list(filter(lambda x: (x%2 == 0) , my_list)) # [4,6,8,12]
+
+# 예시2
+my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+new_list = list(map(lambda x: x * 2 , my_list)) # [2, 10, 8, 12, 16, 22, 6, 24]
+
+# 오직 하나의 arguemnt가 필요한 함수를 쓸 경우 labmda 사용 필요 없다.
+#Bad
+map(lambda x:abs(x), list_3)
+#Good
+map(abs, list_3)
+
+# 함수 정의한다면 def를 사용하는 것이 좋다
+#Bad
+triple = lambda x: x*3
+#Good
+def triple(x):
+     return x*3
+```
+
+#### Reference
+
+- [파이썬 익명함수 예시: Programiz](https://www.programiz.com/python-programming/anonymous-function)
+- [Towards Data Science: Lambda Functions with Practical Examples in Python](
 
