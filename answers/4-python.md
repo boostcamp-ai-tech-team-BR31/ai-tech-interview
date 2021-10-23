@@ -227,3 +227,15 @@ PHP 같은 경우 변수이름은 대소문자 구분이 있고, 함수이름엔
 
 ### What is \__init__?
 
++ 초기화 함수
++ 인스턴스를 생성할 때 반드시 처음에 호출되는 함수
++ 생성자로서 클래스마다 하나존재
+
+#### Reference
+
+- [python 문법](https://wikidocs.net/89)
+- [python self와 init](https://engineer-mole.tistory.com/190)
+- [inflearn](https://www.inflearn.com/questions/4642)
+
+
+
