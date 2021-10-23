@@ -211,6 +211,46 @@ if not len(seq):
 
 ### How is memory managed in Python?
 
+CPython에서의 메모리 관리와 Garbage Collection은 두 가지 측면이 있다.
+
+1. 레퍼런스 카운팅(Reference counting)
+2. 세대별 가비지 컬렉션(Generational garbage collection)
+
+
+
+CPython에서의 주요 garbage collection mechanism은 [reference counts](https://docs.python.org/3.6/c-api/intro.html#reference-counts) 방식이다. Python에서 객체를 만들 때마다 기본 C 객체에서는 Python 유형(list, dict 또는 function)과 reference count가 생성된다.
+
+매우 기본적으로 Python 객체의 reference count는 객체가 참조될 대마다 증가하고 객체의 참조가 해제될 때 감소한다. 객체의 reference count가 0이 되면 객체의 메모리 할당이 해제된다.
+
+
+
+CPython은 사이드로 세대별 가비지 컬렉션이라는 기능도 있다. 
+
+이것은 참조는 되어 있지만, 접근할 수 없는 객체를 메모리에서 릴리즈하는 역할을 한다. 순환참조(Circular References) 에서 나타날 수 있는데..
+
+```
+l = []
+l.append(l)
+del
+```
+
+위처럼  참조는 되어 있지만, 해당 객체에 접근할 수 없는 경우를 해결한다.
+
+
+
+다음을 읽어보면 좋겠다.
+
+[python memory allocation](https://leemoney93.tistory.com/25)
+
+
+
+#### Reference
+
+- [Garbage Collection in Python](https://medium.com/dmsfordsm/garbage-collection-in-python-777916fd3189)
+- [[PYTHON] Garbage Collector ](https://dingrr.com/blog/post/python-garbage-collector)
+
+
+
 ## #11
 
 ### Is Python case sensitive?
