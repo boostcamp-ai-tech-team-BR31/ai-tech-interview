@@ -312,7 +312,7 @@ import badminton
 
 ### What are local variables and global variables in Python?
 
-함수 안에서 만들어진 변수를 **지역변수(local variable)**라 하고 함수 밖에서 만들어진 변수를 **전역변수(global variable)**라 한다.
+함수 안에서 만들어진 변수를 **지역변수(local variable)** 라 하고 함수 밖에서 만들어진 변수를 **전역변수(global variable)** 라 한다.
 
 이 두 변수는 아래와 같이 두 가지 차이점이 존재한다.
 
@@ -320,7 +320,7 @@ import badminton
 
    지역 변수는 해당 지역에서 선언되는 순간 메모리가 생성되고 해당 지역을 벗어나면 자동으로 소멸
 
-   전역 변수는 코드가 시작되어 선언된느 순간 메모리 생성, 코드 전체 끝날때 까지 메모리를 차지
+   전역 변수는 코드가 시작되어 선언되는 순간 메모리 생성, 코드 전체 끝날때 까지 메모리를 차지
 
 2. **변수에 접근할 수 있는 범위**
 
