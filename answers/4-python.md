@@ -284,6 +284,30 @@ import badminton
 - [sys.path, PYTHONPATH: 파이썬 파일 탐색 경로](https://www.bangseongbeom.com/sys-path-pythonpath.html)
 - [PYTHONPATH 추가하는 방법](https://pybasall.tistory.com/201)
 
+## #9
+
+### What are Python modules? Name some commonly used built-in modules in Python?
+
+**Module**이란 Python 코드를 포함하는 파일로써, 함수나 변수 또는 클래스를 모아 놓은 파일이다. 모듈은 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만든 파이썬 파일이라고도 할 수 있다. 실행 가능한 코드를 포함하는, 파이썬 확장자 `.py`로 만든 파이썬 파일은 모두 모듈이다. 모듈을 사용하면, 다른 코드에 적용하기가 쉬워지므로 이식성이 좋아진다.
+
+**Built-in modules**란 파이썬에서 제공하는 공식 내장 라이브러리다.  로컬의 어느곳에서 파일을 작성하던지 이 내장 모듈들은 어디서나 사용할 수 있다. 
+
+- 자주 사용되는 built-in module 의 예시
+  - os
+  - sys
+  - math
+  - random
+  - datetime
+  - JSON
+  - itertools
+
+
+
+#### Reference
+
+- [모듈이란?](https://yganalyst.github.io/data_handling/Py_study14/)
+- [패키지,모듈](https://fierycoding.tistory.com/m/60?category=942731)
+
 ## #10
 
 ### What are local variables and global variables in Python?
@@ -429,6 +453,28 @@ indentation의 방법은 띄어쓰기 한칸, 두칸, 4칸, 탭 등 여러가지
 
 - [python 계단밟기 : 들여쓰기(indent)](https://wikidocs.net/20368)
 - [c indentation](https://www2.cs.arizona.edu/~mccann/indent_c.html)
+
+## #15
+
+### What is the difference between Python Arrays and lists?
+
+파이썬에서는 배열이라는 부분이 없지만 배열의 편의성 때문에 ` array ` 라는 모듈을 제공하고 있습니다.
+
+**array**와 **list**는 동일한 방식으로 데이터를 저장하지만 
+
+**array**는 **단일 데이터 타입 요소**만을 포함할 수 있는 반면,
+
+**list**는 **다양한 타입의 요소**들이 들어갈 수 있습니다.
+
+
+
+array는 `arrayName = arrary(type, [Values])`처럼 자료형을 저장하고, 지정한 자료형만을 넣을수 있습니다.
+
+list는 변수에 []로 여러 타입의 변수를 묶어서 선언할 수 있습니다.
+
+#### Reference
+
+- [파이썬[Python] 036 Array(배열) 사용하기](https://appia.tistory.com/125)
 
 ## #16
 
