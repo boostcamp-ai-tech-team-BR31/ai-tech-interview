@@ -249,6 +249,33 @@ del
 - [Garbage Collection in Python](https://medium.com/dmsfordsm/garbage-collection-in-python-777916fd3189)
 - [[PYTHON] Garbage Collector ](https://dingrr.com/blog/post/python-garbage-collector)
 
+## #8
+
+### What is PYTHONPATH?
+
+import로 다른 파이썬 파일을 불러올 때, python은 내부적으로 파일을 찾기 위해 **sys.path**와 **PYTHONPATH**에 있는 경로를 탐색합니다.
+
+**sys.path**는 directory path 문자열을 모아둔 리스트입니다. 이 리스트에 path를 추가하면 해당 path에 있는 python 파일을 import할 수 있습니다.
+```python
+sys.path.append('/tttangmin/hobby')
+
+# /tttangmin/hobby/badminton.py
+import badminton
+```
+#### sys.path의 기본값 (우선순위 순)
+- 현재 .py 파일이 속한 directory의 absolute path
+- PYTHONPATH 환경변수에 추가된 path
+    - sys.path.append()는 **일시적으로** path를 추가하는 것이라면
+    - PYTHONPATH 환경변수는 **영구적으로** path를 추가하는 것
+    - OS에 따라 추가하는 방법이 다름. reference 참고
+- 기타 기본 path
+    - 여러 내장 모듈들을 위한 path
+    - os, python version에 따라 다름
+
+#### Reference
+
+- [sys.path, PYTHONPATH: 파이썬 파일 탐색 경로](https://www.bangseongbeom.com/sys-path-pythonpath.html)
+- [PYTHONPATH 추가하는 방법](https://pybasall.tistory.com/201)
 
 
 ## #11
@@ -321,6 +348,50 @@ print("Data type of the sum:",type(num_sum)) #  --> <class 'int'>
 #### Reference
 
 [Type-conversion & Casting](https://www.programiz.com/python-programming/type-conversion-and-casting)
+
+## #14
+
+### Is indentation required in python?
+
+들여쓰기. python에서는 들여쓰기는 **문법적인 강제사항**입니다.
+다른 프로그램 언어에서는 {}를 사용하여 영역을 지정합니다.
+```c
+if (victor(human)) {
+human_wins++;
+printf("I am your humble servant.\n");
+} else {
+computer_wins++;
+printf("Your destiny is under my control!\n");
+}
+```
+물론 c언어에서도 indentation을 적용할 수 있습니다만, ;를 사용해야 합니다.
+```c
+if (victor(human)) {
+	human_wins++;
+	printf("I am your humble servant.\n");
+} else {
+	computer_wins++;
+	printf("Your destiny is under my control!\n");
+}
+```
+python 에서는 {}나 ;를 쓰지 않는 대신, indentation으로 코드의 영역을 지정합니다.
+```python
+if victor == 'human':
+    human_win++
+    print("I am your humble servant.\n")
+else:
+    computer_wins++;
+	print("Your destiny is under my control!\n");
+```
+indentation의 방법은 띄어쓰기 한칸, 두칸, 4칸, 탭 등 여러가지 방법이 있지만,
+>중요한 것은 같은 블록 내에서는 들여쓰기 칸 수가 같아야 합니다.
+>
+>위반시 Indentation Error가 출력됩니다.
+
+#### Reference
+- [python 계단밟기 : 들여쓰기(indent)](https://wikidocs.net/20368)
+- [c indentation](https://www2.cs.arizona.edu/~mccann/indent_c.html)
+
 
 ## #17
 
