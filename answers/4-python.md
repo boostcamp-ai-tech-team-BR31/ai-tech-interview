@@ -89,6 +89,12 @@
 
 리스트와 튜플의 가장 **큰 차이점은 값을 변경할 수 있는가의 여부**이므로,  프로그램이 실행되는 동안 **값이 변경되면 안 되는 경우 튜플**을 사용한다. 튜플은 리스트에 비해 더 적은 메모리를 필요로 하고, 속도가 빠르다.
 
+
+
+**References**
+
+- [튜플과 리스트 비교](https://bigdaheta.tistory.com/8)
+
 ## #2
 
 ### What are the key features of Python?
@@ -283,6 +289,30 @@ import badminton
 
 - [sys.path, PYTHONPATH: 파이썬 파일 탐색 경로](https://www.bangseongbeom.com/sys-path-pythonpath.html)
 - [PYTHONPATH 추가하는 방법](https://pybasall.tistory.com/201)
+
+## #9
+
+### What are Python modules? Name some commonly used built-in modules in Python?
+
+**Module**이란 Python 코드를 포함하는 파일로써, 함수나 변수 또는 클래스를 모아 놓은 파일이다. 모듈은 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만든 파이썬 파일이라고도 할 수 있다. 실행 가능한 코드를 포함하는, 파이썬 확장자 `.py`로 만든 파이썬 파일은 모두 모듈이다. 모듈을 사용하면, 다른 코드에 적용하기가 쉬워지므로 이식성이 좋아진다.
+
+**Built-in modules**란 파이썬에서 제공하는 공식 내장 라이브러리다.  로컬의 어느곳에서 파일을 작성하던지 이 내장 모듈들은 어디서나 사용할 수 있다. 
+
+- 자주 사용되는 built-in module 의 예시
+  - os
+  - sys
+  - math
+  - random
+  - datetime
+  - JSON
+  - itertools
+
+
+
+#### Reference
+
+- [모듈이란?](https://yganalyst.github.io/data_handling/Py_study14/)
+- [패키지,모듈](https://fierycoding.tistory.com/m/60?category=942731)
 
 ## #10
 
