@@ -460,6 +460,28 @@ indentation의 방법은 띄어쓰기 한칸, 두칸, 4칸, 탭 등 여러가지
 - [python 계단밟기 : 들여쓰기(indent)](https://wikidocs.net/20368)
 - [c indentation](https://www2.cs.arizona.edu/~mccann/indent_c.html)
 
+## #15
+
+### What is the difference between Python Arrays and lists?
+
+파이썬에서는 배열이라는 부분이 없지만 배열의 편의성 때문에 ` array ` 라는 모듈을 제공하고 있습니다.
+
+**array**와 **list**는 동일한 방식으로 데이터를 저장하지만 
+
+**array**는 **단일 데이터 타입 요소**만을 포함할 수 있는 반면,
+
+**list**는 **다양한 타입의 요소**들이 들어갈 수 있습니다.
+
+
+
+array는 `arrayName = arrary(type, [Values])`처럼 자료형을 저장하고, 지정한 자료형만을 넣을수 있습니다.
+
+list는 변수에 []로 여러 타입의 변수를 묶어서 선언할 수 있습니다.
+
+#### Reference
+
+- [파이썬[Python] 036 Array(배열) 사용하기](https://appia.tistory.com/125)
+
 ## #16
 
 ### What are functions in Python?
