@@ -80,46 +80,50 @@
 
 ---
 
-
 ## #2
 
 ### What are the key features of Python?
-#### Features of Python
-- Script Language
-    - 스크립트 언어란, 컴파일 과정 없이 실행과정에서 번역과 실행이 동시에 일어나는 언어입니다.
-    - 수정이 빠르지만 컴파일 언어보다 느린 실행속도를 보여줍니다.
-    - 자세한건 [4번](#4)으로!
-- Dynamic typing
-    - 변수의 자료형을 지정하지 않고 선언하는 것만으로 사용할 수 있음
-    - 개발 당시엔 편리하지만 type error debuging이 발생할 수 있음
-    - 하지만 저는 전자의 편리함이 더 크다고 생각합니다 ^^
-    ```c
-    # C, java
-    int a = 10
-    ```
-    ```python
-    # Python
-    a = 10
-    ```
-- platform-independent
-    - linux, unix, windows, mac... 대부분 OS에서 모두 잘 동작합니다.
-    - 컴파일 할 필요가 없기 때문에!
-- Multi paradigm
-    - 절차적, 객체지향, 함수형, 관점형 프로그래밍 모두 가능
 
+#### Features of Python
+
+- Script Language
+  - 스크립트 언어란, 컴파일 과정 없이 실행과정에서 번역과 실행이 동시에 일어나는 언어입니다.
+  - 수정이 빠르지만 컴파일 언어보다 느린 실행속도를 보여줍니다.
+  - 자세한건 [4번](#4)으로!
+- Dynamic typing
+  - 변수의 자료형을 지정하지 않고 선언하는 것만으로 사용할 수 있음
+  - 개발 당시엔 편리하지만 type error debuging이 발생할 수 있음
+  - 하지만 저는 전자의 편리함이 더 크다고 생각합니다 ^^
+  ```c
+  # C, java
+  int a = 10
+  ```
+  ```python
+  # Python
+  a = 10
+  ```
+- platform-independent
+  - linux, unix, windows, mac... 대부분 OS에서 모두 잘 동작합니다.
+  - 컴파일 할 필요가 없기 때문에!
+- Multi paradigm
+  - 절차적, 객체지향, 함수형, 관점형 프로그래밍 모두 가능
 
 #### Pros
+
 - 사용하기 쉽기에 빠른 개발속도(생산성)
 - 높은 확장성, 이식성
-    - 고성능이 필요하다면 C/C++언어와 결합해 사용 가능
+  - 고성능이 필요하다면 C/C++언어와 결합해 사용 가능
 - 활발한 생태계
-    - 수많은 라이브러리 존재
-    - 인기가 많기 때문
+  - 수많은 라이브러리 존재
+  - 인기가 많기 때문
+
 #### Cons
+
 - 느리다
-    - Script Language이기 때문
+  - Script Language이기 때문
 - type error
-    - Dynamic typing 이기 때문
+  - Dynamic typing 이기 때문
+
 #### Reference
 
 - [파이썬(Python) 특징 및 장/단점 정리](https://velog.io/@jnine/%ED%8C%8C%EC%9D%B4%EC%8D%ACPython-%ED%8A%B9%EC%A7%95-%EB%B0%8F-%EC%9E%A5%EB%8B%A8%EC%A0%90-%EC%A0%95%EB%A6%AC)
@@ -140,7 +144,6 @@
 [ThePythonGuru](https://thepythonguru.com/is-python-a-programming-language-or-scripting-language/)
 
 [Javatpoint](https://www.javatpoint.com/scripting-vs-programming)
-
 
 ## #4
 
@@ -164,7 +167,7 @@ PEP8(Python Enhencement Propsals)란 가독성이 좋은 파이썬 코딩을 하
 
 example)
 
-- Indentation(4개 공백), 
+- Indentation(4개 공백),
 - Maximul Line Length(한 줄에 최대 79자, 주석 72자)
 - Whitesapece in Expressions and Statements(필요 없는 공백 제거)
 - etc...(또 다른 여러 방법이 있다.)
@@ -191,16 +194,16 @@ if isinstance(obj, int):
 
 # Wrong:
 if type(obj) is type(1):
-    
+
 # example-3) Sequence(strings, lists, tuples)의 경우 빈 sequence는 false라는 사실을 이용한다.
 # Correct:
 if not seq:
 if seq:
-    
+
 # Wrong:
 if len(seq):
 if not len(seq):
-   
+
 ```
 
 #### Reference
@@ -216,15 +219,11 @@ CPython에서의 메모리 관리와 Garbage Collection은 두 가지 측면이 
 1. 레퍼런스 카운팅(Reference counting)
 2. 세대별 가비지 컬렉션(Generational garbage collection)
 
-
-
 CPython에서의 주요 garbage collection mechanism은 [reference counts](https://docs.python.org/3.6/c-api/intro.html#reference-counts) 방식이다. Python에서 객체를 만들 때마다 기본 C 객체에서는 Python 유형(list, dict 또는 function)과 reference count가 생성된다.
 
 매우 기본적으로 Python 객체의 reference count는 객체가 참조될 대마다 증가하고 객체의 참조가 해제될 때 감소한다. 객체의 reference count가 0이 되면 객체의 메모리 할당이 해제된다.
 
-
-
-CPython은 사이드로 세대별 가비지 컬렉션이라는 기능도 있다. 
+CPython은 사이드로 세대별 가비지 컬렉션이라는 기능도 있다.
 
 이것은 참조는 되어 있지만, 접근할 수 없는 객체를 메모리에서 릴리즈하는 역할을 한다. 순환참조(Circular References) 에서 나타날 수 있는데..
 
@@ -234,15 +233,11 @@ l.append(l)
 del
 ```
 
-위처럼  참조는 되어 있지만, 해당 객체에 접근할 수 없는 경우를 해결한다.
-
-
+위처럼 참조는 되어 있지만, 해당 객체에 접근할 수 없는 경우를 해결한다.
 
 다음을 읽어보면 좋겠다.
 
 [python memory allocation](https://leemoney93.tistory.com/25)
-
-
 
 #### Reference
 
@@ -256,33 +251,60 @@ del
 import로 다른 파이썬 파일을 불러올 때, python은 내부적으로 파일을 찾기 위해 **sys.path**와 **PYTHONPATH**에 있는 경로를 탐색합니다.
 
 **sys.path**는 directory path 문자열을 모아둔 리스트입니다. 이 리스트에 path를 추가하면 해당 path에 있는 python 파일을 import할 수 있습니다.
+
 ```python
 sys.path.append('/tttangmin/hobby')
 
 # /tttangmin/hobby/badminton.py
 import badminton
 ```
+
 #### sys.path의 기본값 (우선순위 순)
+
 - 현재 .py 파일이 속한 directory의 absolute path
 - PYTHONPATH 환경변수에 추가된 path
-    - sys.path.append()는 **일시적으로** path를 추가하는 것이라면
-    - PYTHONPATH 환경변수는 **영구적으로** path를 추가하는 것
-    - OS에 따라 추가하는 방법이 다름. reference 참고
+  - sys.path.append()는 **일시적으로** path를 추가하는 것이라면
+  - PYTHONPATH 환경변수는 **영구적으로** path를 추가하는 것
+  - OS에 따라 추가하는 방법이 다름. reference 참고
 - 기타 기본 path
-    - 여러 내장 모듈들을 위한 path
-    - os, python version에 따라 다름
+  - 여러 내장 모듈들을 위한 path
+  - os, python version에 따라 다름
 
 #### Reference
 
 - [sys.path, PYTHONPATH: 파이썬 파일 탐색 경로](https://www.bangseongbeom.com/sys-path-pythonpath.html)
 - [PYTHONPATH 추가하는 방법](https://pybasall.tistory.com/201)
 
+## #10
+
+### What are local variables and global variables in Python?
+
+함수 안에서 만들어진 변수를 **지역변수(local variable)**라 하고 함수 밖에서 만들어진 변수를 **전역변수(global variable)**라 한다.
+
+이 두 변수는 아래와 같이 두 가지 차이점이 존재한다.
+
+1. **메모리에 존재하는 시간**
+
+   지역 변수는 해당 지역에서 선언되는 순간 메모리가 생성되고 해당 지역을 벗어나면 자동으로 소멸
+
+   전역 변수는 코드가 시작되어 선언된느 순간 메모리 생성, 코드 전체 끝날때 까지 메모리를 차지
+
+2. **변수에 접근할 수 있는 범위**
+
+   지역 변수는 선언 된 함수 내에서만 사용이 가능
+
+   전역 변수는 프로그램 실행 중에 쓰이는 모든 함수가 사용 가능
+
+#### Reference
+
+- [3.3 지역변수, 전역변수](https://wikidocs.net/62)
+- [전역변수와 지역변수](https://edu.goorm.io/learn/lecture/2010/한-눈에-끝내는-고랭-기초/lesson/174452/전역변수와-지역변수)
 
 ## #11
 
 ### Is Python case sensitive?
 
-대소문자 구분한다. 
+대소문자 구분한다.
 
 PHP 같은 경우 변수이름은 대소문자 구분이 있고, 함수이름엔 없다. 함수를 소문자로 정의하고 대문자로 호출하는 것이 가능하다.
 
@@ -296,13 +318,12 @@ PHP 같은 경우 변수이름은 대소문자 구분이 있고, 함수이름엔
 
 Type conversion은 데이터 타입을 다른 타입으로 바꾸는 것을 의미한다.
 
-~~(데이터 타입의 종류: int, float, complex, string, fuple, set, list, dictionary, ....  )~~
+~~(데이터 타입의 종류: int, float, complex, string, fuple, set, list, dictionary, .... )~~
 
 Python에서는 2가지의 type conversion이 존재한다.
 
 1. Implicit Type Conversion(암시적 형 변환)
 2. Explicit Type Conversion(명시적 형 변환)
-
 
 **Implicit Type Conversion**
 
@@ -327,7 +348,7 @@ print("datatype of num_new:",type(num_new)) # -> <class 'float'>
 
 사용자가 객채의 타입을 명시적으로 바꿔주는 것. 사전 정의된 `int`(), `float()`, `str()`, etc 함수를 이용한다.
 
-이러한 type of conversion은 유저가 직접 객채의 data type을 cast(change) 해주기 때문에 typecasting이라고도 불린다. 
+이러한 type of conversion은 유저가 직접 객채의 data type을 cast(change) 해주기 때문에 typecasting이라고도 불린다.
 
 ```python
 num_int = 123
@@ -336,7 +357,7 @@ num_str = "456"
 print("Data type of num_int:",type(num_int))#  --> <class 'int'>
 print("Data type of num_str before Type Casting:",type(num_str)) #  --> <class 'str'>
 
-num_str = int(num_str) 
+num_str = int(num_str)
 print("Data type of num_str after Type Casting:",type(num_str)) #  --> <class 'int'>
 
 num_sum = num_int + num_str
@@ -355,6 +376,7 @@ print("Data type of the sum:",type(num_sum)) #  --> <class 'int'>
 
 들여쓰기. python에서는 들여쓰기는 **문법적인 강제사항**입니다.
 다른 프로그램 언어에서는 {}를 사용하여 영역을 지정합니다.
+
 ```c
 if (victor(human)) {
 human_wins++;
@@ -364,7 +386,9 @@ computer_wins++;
 printf("Your destiny is under my control!\n");
 }
 ```
+
 물론 c언어에서도 indentation을 적용할 수 있습니다만, ;를 사용해야 합니다.
+
 ```c
 if (victor(human)) {
 	human_wins++;
@@ -374,7 +398,9 @@ if (victor(human)) {
 	printf("Your destiny is under my control!\n");
 }
 ```
+
 python 에서는 {}나 ;를 쓰지 않는 대신, indentation으로 코드의 영역을 지정합니다.
+
 ```python
 if victor == 'human':
     human_win++
@@ -383,23 +409,55 @@ else:
     computer_wins++;
 	print("Your destiny is under my control!\n");
 ```
+
 indentation의 방법은 띄어쓰기 한칸, 두칸, 4칸, 탭 등 여러가지 방법이 있지만,
->중요한 것은 같은 블록 내에서는 들여쓰기 칸 수가 같아야 합니다.
+
+> 중요한 것은 같은 블록 내에서는 들여쓰기 칸 수가 같아야 합니다.
 >
->위반시 Indentation Error가 출력됩니다.
+> 위반시 Indentation Error가 출력됩니다.
 
 #### Reference
+
 - [python 계단밟기 : 들여쓰기(indent)](https://wikidocs.net/20368)
 - [c indentation](https://www2.cs.arizona.edu/~mccann/indent_c.html)
 
+## #16
+
+### What are functions in Python?
+
+**Python에서 함수란 특정 작업을 수행하는 관련 명령문의 그룹이다.**
+
+함수를 사용함으로써 프로그램을 더 작고 **모듈화**되게 나누는데 도움이 되고 프로그램을 보다 **체계적**이고 **관리하기 쉽게** 만들 수 있다.
+
+또한 반복을 피하고 **코드를 재사용**하기 용이해진다.
+
+문법은 아래와 같다.
+
+```python
+def function_name(parameters):
+	"""docstring"""
+	statement(s)
+```
+
+1. `def` : 함수의 헤더의 시작을 알리는 키워드
+2. 함수의 이름은 기능을 잘 나타낼 수 있게 정해야한다.
+3. `parameters` : 함수에 값을 전달하는 매개변수 (선택사항)
+4. `:` : 함수 헤더의 끝을 표시
+5. `docstring` : 함수가 하는 일을 설명하는 문자열 (선택사항)
+6. `statemet` : 함수의 본문을 구선하는 하나 이상의 파이썬 문, 들여쓰기 정도가 같아야한다.
+7. `return` : 함수에서 값을 반환하는 반환문 (선택사항)
+
+#### Reference
+
+- [Python Functions (def): Definition with Examples - Programiz](https://www.programiz.com/python-programming/function)
 
 ## #17
 
-### What is \__init__?
+### What is \_\_init\_\_?
 
-+ 초기화 함수
-+ 인스턴스를 생성할 때 반드시 처음에 호출되는 함수
-+ 생성자로서 클래스마다 하나존재
+- 초기화 함수
+- 인스턴스를 생성할 때 반드시 처음에 호출되는 함수
+- 생성자로서 클래스마다 하나존재
 
 #### Reference
 
@@ -411,7 +469,7 @@ indentation의 방법은 띄어쓰기 한칸, 두칸, 4칸, 탭 등 여러가지
 
 ### What is a lambda function?
 
-람다함수는 이름 없이 정의되는 익명 함수(anonymous functions)입니다. `def`를 이용하여 정의 되는 일반 함수와 달리  `lambda` 키워드를 이용하여 정의됩니다. 보통 한줄로 함수를 표현하기에 코드가 간결해지고 한 번 사용되고 다시 사용 할 수 없기에 메모리를 절약 할 수 있지만 여러줄로 표현할 수 없고 함수에 대한 설명을 적을 수 없는 단점이 있습니다.(doc string 불가). 이런 경우 def 함수를 이용하여 함수를 정의 해야 한다.
+람다함수는 이름 없이 정의되는 익명 함수(anonymous functions)입니다. `def`를 이용하여 정의 되는 일반 함수와 달리 `lambda` 키워드를 이용하여 정의됩니다. 보통 한줄로 함수를 표현하기에 코드가 간결해지고 한 번 사용되고 다시 사용 할 수 없기에 메모리를 절약 할 수 있지만 여러줄로 표현할 수 없고 함수에 대한 설명을 적을 수 없는 단점이 있습니다.(doc string 불가). 이런 경우 def 함수를 이용하여 함수를 정의 해야 한다.
 
 ```python
 # 예시1
@@ -440,4 +498,3 @@ def triple(x):
 
 - [파이썬 익명함수 예시: Programiz](https://www.programiz.com/python-programming/anonymous-function)
 - [Towards Data Science: Lambda Functions with Practical Examples in Python](
-
