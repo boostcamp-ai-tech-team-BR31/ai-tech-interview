@@ -251,6 +251,35 @@ del
 
 
 
+## #10
+
+### What are local variables and global variables in Python?
+
+함수 안에서 만들어진 변수를 **지역변수(local variable)**라 하고 함수 밖에서 만들어진 변수를 **전역변수(global variable)**라 한다.
+
+이 두 변수는 아래와 같이 두 가지 차이점이 존재한다.
+
+1. **메모리에 존재하는 시간**
+
+   지역 변수는 해당 지역에서 선언되는 순간 메모리가 생성되고 해당 지역을 벗어나면 자동으로 소멸
+
+   전역 변수는 코드가 시작되어 선언된느 순간 메모리 생성, 코드 전체 끝날때 까지 메모리를 차지
+
+2. **변수에 접근할 수 있는 범위**
+
+   지역 변수는 선언 된 함수 내에서만 사용이 가능
+
+   전역 변수는 프로그램 실행 중에 쓰이는 모든 함수가 사용 가능
+
+
+
+#### Reference
+
+- [3.3 지역변수, 전역변수](https://wikidocs.net/62)
+- [전역변수와 지역변수](https://edu.goorm.io/learn/lecture/2010/한-눈에-끝내는-고랭-기초/lesson/174452/전역변수와-지역변수)
+
+
+
 ## #11
 
 ### Is Python case sensitive?
@@ -321,6 +350,40 @@ print("Data type of the sum:",type(num_sum)) #  --> <class 'int'>
 #### Reference
 
 [Type-conversion & Casting](https://www.programiz.com/python-programming/type-conversion-and-casting)
+
+
+
+## #16
+
+### What are functions in Python?
+
+**Python에서 함수란 특정 작업을 수행하는 관련 명령문의 그룹이다.**
+
+함수를 사용함으로써 프로그램을 더 작고 **모듈화**되게 나누는데 도움이 되고 프로그램을 보다 **체계적**이고 **관리하기 쉽게** 만들 수 있다.
+
+또한 반복을 피하고 **코드를 재사용**하기 용이해진다.
+
+문법은 아래와 같다.
+
+```python
+def function_name(parameters):
+	"""docstring"""
+	statement(s)
+```
+
+1. `def` : 함수의 헤더의 시작을 알리는 키워드
+2. 함수의 이름은 기능을 잘 나타낼 수 있게 정해야한다.
+3. `parameters` : 함수에 값을 전달하는 매개변수 (선택사항)
+4. `:` : 함수 헤더의 끝을 표시
+5. `docstring` : 함수가 하는 일을 설명하는 문자열 (선택사항)
+6. `statemet` : 함수의 본문을 구선하는 하나 이상의 파이썬 문, 들여쓰기 정도가 같아야한다.
+7. `return`  : 함수에서 값을 반환하는 반환문 (선택사항)
+
+#### Reference
+
+- [Python Functions (def): Definition with Examples - Programiz](https://www.programiz.com/python-programming/function)
+
+
 
 ## #17
 
