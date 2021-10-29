@@ -553,3 +553,27 @@ def triple(x):
 
 - [파이썬 익명함수 예시: Programiz](https://www.programiz.com/python-programming/anonymous-function)
 - [Towards Data Science: Lambda Functions with Practical Examples in Python](
+
+## #20
+
+### How does break, continue and pass work?
+
+break 문이 존재하는 루프를 종료하기 위해 사용됨. 
+
+continue 문 다음의 루프 내부 코드는 건너뛰고 루프의 다음 반복으로 넘어감.
+
+pass 문은 명령이나 코드를 실행하고 싶지 않지만 구문을 채워야 할 때 사용됨.
+
+#### Reference
+
+- [break, continue and pass in Python](https://www.geeksforgeeks.org/break-continue-and-pass-in-python/#break)
+
+## #26
+
+### How do you write comments in Python?
+
+라인 맨 앞에 #을 사용하거나, 여러줄을 한번에 처리하고 싶다면  """ ... """ 또는 '''...'''형태로 사용할 수 있다.
+
+#### Reference
+
+- [Python Statement, Indentation and Comments](https://www.programiz.com/python-programming/statement-indentation-comments)
