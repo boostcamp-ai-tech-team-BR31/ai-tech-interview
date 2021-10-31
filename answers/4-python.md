@@ -629,6 +629,55 @@ pass 문은 명령이나 코드를 실행하고 싶지 않지만 구문을 채�
 - [break, continue and pass in Python](https://www.geeksforgeeks.org/break-continue-and-pass-in-python/#break)
 
 
+## #23
+
+### What’s the difference between iterator and iterable?
+#### Iterable
+- Iterable 객체라고 함. 반복가능한 객체
+- 대표적으로 ist, dict, set, str, bytes, tuple, range이 있음
+- 아래의 방법으로 iterable 객체 정확히 확인
+```python
+  # iterable 한 타입
+  >>> var_list = [1, 3, 5, 7]
+  >>> isinstance(var_list, collections.Iterable)
+  True
+
+  # iterable하지 않은 타입
+  >>> var_int = 932
+  >>> isinstance(var_int, collections.Iterable)
+  False
+```
+
+#### Iterator
+- Iterator 객체라고 함. 값을 차례대로 꺼낼 수 있는 객체입니다.
+- iterable한 객체를 내장함수 또는 iterable객체의 메소드로 객체를 생성할 수 있습니다.
+```python
+>>> a = [1, 2, 3]
+
+# 파이썬 내장함수 iter()
+>>> iter(a)
+
+# iterable객체는 매직메소드 __iter__()
+>>> a.__iter__()
+```
+- next()함수로 값을 순서대로 꺼낼수 있음(pop)
+```python
+>>> next(a_iter)
+1
+>>> next(a_iter)
+2
+>>> next(a_iter)
+3
+>>> next(a_iter)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+StopIteration
+```
+
+#### Reference
+
+- [파이썬-기본을 갈고 닦자! : 38. Iterable 과 Iterator](https://wikidocs.net/16068)
+- [Python(파이썬) 기본 - 19. for in 반복문, Range, enumerate](https://suwoni-codelab.com/python%20%EA%B8%B0%EB%B3%B8/2018/03/03/Python-Basic-for-in/)
 
 ## #24
 
@@ -775,6 +824,18 @@ for i in r:
 
 - [Python Statement, Indentation and Comments](https://www.programiz.com/python-programming/statement-indentation-comments)
 
+
+## #29
+### How will you capitalize the first letter of string?
+문자열 메소드 `capitalize` 사용하면 됩니다.
+```python
+s = 'purple'
+v = 'is'
+o = 'best'
+print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
+```
+#### Reference
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp)
 
 
 ## #30
