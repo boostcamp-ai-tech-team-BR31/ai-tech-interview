@@ -253,6 +253,12 @@ del
 - [Garbage Collection in Python](https://medium.com/dmsfordsm/garbage-collection-in-python-777916fd3189)
 - [[PYTHON] Garbage Collector ](https://dingrr.com/blog/post/python-garbage-collector)
 
+## #7
+
+### What is namespace in Python?
+
+
+
 ## #8
 
 ### What is PYTHONPATH?
@@ -628,7 +634,21 @@ pass 문은 명령이나 코드를 실행하고 싶지 않지만 구문을 채�
 
 - [break, continue and pass in Python](https://www.geeksforgeeks.org/break-continue-and-pass-in-python/#break)
 
+## #22
 
+### How can you randomize the items of a list in place in Python?
+
+**random 모듈의 `shuffle` 함수** 를 사용하면 구현할 수 잇다. `random.shuffle` 은 시퀀스 객체의 요소를 임의로 섞어서 해당 시퀸스를 반환한다.
+
+```python
+import random
+
+random.seed(42) # 42는 통상적으로 사용하는 시드 고정 수이다. 딱히 의미는 없고 여러 가설이 존재함.
+lst = list(range(10))
+print(lst) # [0, 1, 2, 3, ... , 9]
+random.shuffle(lst) 
+print(lst) # [2, 7, 9, 3, 0, ...]
+```
 
 ## #24
 
@@ -775,7 +795,49 @@ for i in r:
 
 - [Python Statement, Indentation and Comments](https://www.programiz.com/python-programming/statement-indentation-comments)
 
+## #28
 
+### What are the generators in python?
+
+Generator란 Iterator 객체를 간단히 만들 수 있는 함수를 말한다. 제너레이터는 다음과 같이 (1) yield문과 함수, (2) 표현식 형태로 만들 수 있다.
+
+> yield문과 함수
+
+- 제너레이터 함수 정의
+
+```python
+def generator_list(value):
+  for i in range(value):
+    # 값을 반환하고 여기를 기억
+    yield i
+```
+
+- 제너레이터 객체 생성 및 next 함수로 호출
+
+```python
+gen = generator_list(2)
+print(next(gen)) # 0
+print(next(gen)) # 1
+print(next(gen)) # StopIteration 에러 발생
+```
+
+> 표현문
+
+```python
+value = 2
+gen = (i for i in range(value))
+print(next(gen)) # 0
+print(next(gen)) # 1
+print(next(gen)) # StopIteration 에러 발생
+```
+
+***왜 리스트 대신 제너레이터를 사용할까?***
+
+- 리스트를 사용하면 리스트의 크기만큼 메모리에 공간이 할당된다. 반면 제너레이터는 말 그대로 next 함수로 호출될 때 값을 생성하고 해당 값만 메모리에 올린다. 즉, 메모리를 절약할 수 있다. 작은 데이터라면 상관없지만 큰 데이터에서는 제너레이터 사용이 필수이다.
+
+**References**
+
+- [ㅍㅍㅋㄷ](https://bluese05.tistory.com/56)
 
 ## #30
 
