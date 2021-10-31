@@ -554,6 +554,66 @@ def triple(x):
 - [파이썬 익명함수 예시: Programiz](https://www.programiz.com/python-programming/anonymous-function)
 - [Towards Data Science: Lambda Functions with Practical Examples in Python](
 
+## #19
+
+### What is self in Python
+
+클래스 내에 정의된 self는 클래스 인스턴스이다.
+
+예시를 통한 이해 
+
+```python
+class Foo:
+    def func1():
+        print("function 1")
+
+    def func2(self):
+        print(id(self))
+        print("function 2")
+```
+
+클래스 내에 정의된 함수를 메소드라 부르고 메소드의 첫 인자는 보통 self 이다. 그러나 항상 self 이어야 하는것은 아니다 차이를 한 번 살펴보자
+
+```python
+a = Foo()
+
+## example-1
+a.func1()
+>> TypeError: func1() takes 0 positional arguments but 1 was given
+
+a.func2()
+>> 140660141772432
+>> function 2
+
+FOO.func1()
+>> function 1
+
+## example-2 
+id(a)
+>> 140660141772432
+
+## example-3
+Foo.func2()
+>> TypeError: func2() missing 1 required positional argument: 'self'
+        
+ 
+Foo.func2(a) ## == a.func2()
+>> 140660141772432
+>> function 2
+```
+
+1) - 메소드를 호출할 때 self에 대한 값은 파이썬이 자동으로 넘겨주기 때문에 a.func1() == a.func1(self)와 동일하다 그런데 함수 func1은 인자를 받지 않기 때문에 오류가 난다.  
+
+   - func1을 호출하려면 인스턴스 메소드가 아닌 class 메소드로 불러주면 func1을 호출 할 수 있다
+
+2) 추가적으로 self는 인스턴스임을 확이낳기 위해 func2에 있느 id(self)와 id(a)를 비교하면 인스턴스의 주소값이 동일한 것을 알 수 있다.
+
+3)  클래스 이름을 이용한 메소드 호출 self 부분에 인스턴스 넣어주면 해결
+
+#### Reference
+
+- [self 이해하기 - 파이썬으로 배우는 알고리즘 트레이딩](
+
 ## #20
 
 ### How does break, continue and pass work?
@@ -665,6 +725,45 @@ pass 문은 명령이나 코드를 실행하고 싶지 않지만 구문을 채�
 #### Reference
 
 - [python 공식 document - random (의사 난수 생성)](https://docs.python.org/ko/3/library/random.html)
+
+## #25
+#### What is the difference between range & xrange?
+
+> 파이썬2에서는 `range`와 `xrange` 모두 존재하지만, 파이썬3부터는 `range`가 내부적으로 `xrange`로 동작하도록 바뀌어서 `range`만 존재한다. 그러므로 **파이썬2**를 기준으로 `range`와 `xrange`를 설명한다.
+
+`range` 객체는 입력으로 받은 정수 범위의 값을 요소로 같는 리스트를 말한다. 그러므로 `range(3)`과 `[0, 1, 2]`는 완전히 동일하다.
+
+(a type of iterable)
+
+```
+# python2
+r = range(5)
+print(r)            # [0, 1, 2, 3, 4]
+print(type(r))      # <type 'list'>
+print (sys.getsizeof(r)) # 112
+```
+
+`xrange`는 제너레이터 객체로, 오직 루프를 돌때만 해당 범위의 정수를 하나씩 반환한다. 제너레이터에 관한 설명은 [여기](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/4-python.md#28)에서! (lazy evaluation으로 불리기도함 요구에 의해서만 값을 반환하기에)
+
+```
+#python2
+r = xrange(5)
+print(r)            # xrange(5)
+print(type(r))      # <type 'xrange'>
+print (sys.getsizeof(r)) # 48
+
+for i in r:
+    print i,
+# >> 0 1 2 3 4
+```
+
+- xrange는 제너레이터이기 떄문에 값을 반환하고 이전 값은 메모리에서 지운다. 하지만 range는 list type이기 떄문에 모든 값을 메모리에 저장하기 때문에 메모리가 효율적이지 못하다.
+
+- range는 리스트 이기 때문에 리스트와 관련한 indexiing, list 연산이 가능하지만 xrange는 그렇지 못하다.
+
+#### Reference
+- [원본 답변](https://github.com/SEOzizou/ai-tech-interview)
+- [range() vs xrange() in Python](https://www.geeksforgeeks.org/range-vs-xrange-python/)
 
 ## #26
 
