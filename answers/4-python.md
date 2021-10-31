@@ -568,6 +568,104 @@ pass 문은 명령이나 코드를 실행하고 싶지 않지만 구문을 채�
 
 - [break, continue and pass in Python](https://www.geeksforgeeks.org/break-continue-and-pass-in-python/#break)
 
+
+
+## #24
+
+### How can you generate random numbers in Python?
+
+파이썬 내장 모듈인 `random` 을 통해 사용할 수 있음.
+
+**정수** 에 대해서는, 범위에서 균일한 선택이 있음. 
+
+**시퀀스** 에 대해서는, 무작위 요소의 균일한 선택, 리스트를 제자리(in-place)에서 임의 순열을 생성하는 함수 및 중복 없는(without replacement) 무작위 표본 추출(sampling)을 위한 함수가 있음.
+
+**실수** 에 대해서는, 균일(uniform), 정규(normal) (가우시안(Gaussian)), 로그 정규(lognormal), 음의 지수(negative exponential), 감마(gamma) 및 베타(beta) 분포를 계산하는 함수가 있음. 
+
+#### 기본적인 random 메소드
+
+1. random.seed(*a=None*, *version=2*)
+
+   : 난수 생성기를 초기화합니다.
+
+2. 정수 함수
+
+   1. **random.randrange(*stop*), random.randrange(*start*, *stop*[, *step*])**
+
+      `range(start, stop, step)`에서 임의로 선택된 요소를 반환. `choice(range(start, stop,step))`와 동등하지만, 실제로 range 객체를 만들지는 않음.
+
+   2. **random.randint(*a*, *b*)**
+
+      `a <= N <= b`를 만족하는 임의의 정수 *N*을 반환
+
+3. 시퀸스 함수
+
+   1. **random.choice(*seq*)**
+
+      비어 있지 않은 시퀀스 *seq*에서 임의의 요소를 반환
+
+   2. **random.choices**(*population*, *weights=None*, ***, *cum_weights=None*, *k=1*)
+
+      *population*에서 중복을 허락하면서(with replacement) 선택한 *k* 크기의 요소 리스트를 반환합니다. *population*이 비어 있으면, [`IndexError`](https://docs.python.org/ko/3/library/exceptions.html#IndexError)를 발생
+
+   3. **random.shuffle(*x*[, *random*])**
+
+      시퀀스 *x*를 제자리에서 섞음. 즉, x 자체 안에서 섞이게 됨 sorted, sort 중 sort라 보면 됨
+
+   4. **random.sample**(*population*, *k*, ***, *counts=None*)
+
+      population 시퀀스나 집합에서 선택한 고유한 요소의 *k* 길이 리스트를 반환. 중복 없는(without replacement) 무작위 표본 추출(sampling)에 사용.
+
+4. 실수 함수
+
+   1. **random.random()**
+
+      [0.0, 1.0) 구간에서 다음 임의의 부동 소수점 숫자를 반환.
+
+   2. **random.uniform(*a*, *b*)**
+
+      `a <= b` 일 때 `a <= N <= b`, `b < a` 일 때 `b <= N <= a`를 만족하는 임의의 부동 소수점 숫자 *N*을 반환
+
+   3. **random.normalvariate(*mu*, *sigma*)**
+
+      정규 분포. *mu*는 평균이고, *sigma*는 표준 편차
+
+#### 예제
+
+```python
+>>> random()                             # Random float:  0.0 <= x < 1.0
+0.37444887175646646
+
+>>> uniform(2.5, 10.0)                   # Random float:  2.5 <= x <= 10.0
+3.1800146073117523
+
+>>> expovariate(1 / 5)                   # Interval between arrivals averaging 5 seconds
+5.148957571865031
+
+>>> randrange(10)                        # Integer from 0 to 9 inclusive
+7
+
+>>> randrange(0, 101, 2)                 # Even integer from 0 to 100 inclusive
+26
+
+>>> choice(['win', 'lose', 'draw'])      # Single random element from a sequence
+'draw'
+
+>>> deck = 'ace two three four'.split()
+>>> shuffle(deck)                        # Shuffle a list
+>>> deck
+['four', 'two', 'ace', 'three']
+
+>>> sample([10, 20, 30, 40, 50], k=4)    # Four samples without replacement
+[40, 10, 50, 30]
+```
+
+
+
+#### Reference
+
+- [python 공식 document - random (의사 난수 생성)](https://docs.python.org/ko/3/library/random.html)
+
 ## #26
 
 ### How do you write comments in Python?
@@ -577,3 +675,16 @@ pass 문은 명령이나 코드를 실행하고 싶지 않지만 구문을 채�
 #### Reference
 
 - [Python Statement, Indentation and Comments](https://www.programiz.com/python-programming/statement-indentation-comments)
+
+
+
+## #30
+
+### How will you convert a string to all lowercase?
+
+`str` 의 `lower('text')` 를 통해 모든 케이스의 문자를 소문자로 변환하며 문자열의 복사본을 돌려 받아 string을 모두 lowercase로 바꿀 수 있다.
+
+#### Reference
+
+- [Python 공식 document - str.lower()](https://docs.python.org/ko/3/library/stdtypes.html?highlight=lower#str.lower)
+
