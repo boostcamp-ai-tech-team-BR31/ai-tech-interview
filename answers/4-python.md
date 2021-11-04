@@ -944,3 +944,44 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 - [Python 공식 document - str.lower()](https://docs.python.org/ko/3/library/stdtypes.html?highlight=lower#str.lower)
 
+## #36
+
+### What is a dictionary in python?
+
+immutable한 key와 mutable한 value로 맵핑되어 있다.
+
+파이썬 3.6부터 입력한 순서가 유지된다.
+
+#### Reference
+
+- [dictionary](https://wikidocs.net/16043)
+
+## #37
+
+### How can the ternary operators be used in python?
+
+대부분 다른 언어에서는 condition이 참이면 true_value 값을 거짓이면 false_value 값을 취함
+
+```java
+[condition] ? [true_value] : [false_value]
+```
+
+파이썬에서는 위 형태 지원 X. 아래와 같이 사용
+
+```python
+[true_value] if [condition] else [false_value]
+```
+
+예시
+
+```python
+n=155
+value = 'ten' if n==10 else 'not ten' 
+# value = 'not ten'
+```
+
+
+
+#### Reference
+
+- [PEP 308: Conditional Expressions](https://docs.python.org/2.5/whatsnew/pep-308.html)
