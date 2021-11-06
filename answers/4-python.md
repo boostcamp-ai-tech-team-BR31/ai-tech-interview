@@ -944,6 +944,50 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 - [Python 공식 document - str.lower()](https://docs.python.org/ko/3/library/stdtypes.html?highlight=lower#str.lower)
 
+## #32
+
+#### What are Docstings in Python?
+
+Document string은 Python module, class, function or method의 정의를 설명하는 문자열 로 코드를 문서화 하기위해 사용된다. 보통 """ """를 이용하여 작성되고  `__doc__` 속성이나 `help()` 내장 함수로 접근할 수 있습니다.
+
+보통 첫줄에는 간단한 설명, 그 뒤에 자세한 설명을 적고 추가적으로  Parameter는 어떤게 있는지 어떤값을 return 하는지를 추가적으로 적는다.
+
+예시
+
+```python
+def function_with_pep484_type_annotations(param1: int, param2: str) -> bool:
+    """Example function with PEP 484 type annotations.
+
+    The return type must be duplicated in the docstring to comply
+    with the NumPy docstring style.
+
+    Parameters
+    ----------
+    param1
+        The first parameter.
+    param2
+        The second parameter.
+
+    Returns
+    -------
+    bool
+        True if successful, False otherwise.
+
+    """
+function_with_pep484_type_annotations.__doc__
+help(function_with_pep484_type_annotations)
+```
+
+추가
+
+- sphinx라는 프로그램 이용하면 Docstring 자동으로 문서화 Pytorch 공식문서 또한 이러한 방식으로 작성 된듯
+- Docstring Guide 고정된건 아닌듯.. 
+
+#### Reference
+
+- [코딩하는펭귄 답변](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/4-python.md)
+- [Sphinx 용 numpydoc 확장과 함께 사용되는 독스트링](
+
 ## #36
 
 ### What is a dictionary in python?
@@ -980,8 +1024,37 @@ value = 'ten' if n==10 else 'not ten'
 # value = 'not ten'
 ```
 
-
-
 #### Reference
 
 - [PEP 308: Conditional Expressions](https://docs.python.org/2.5/whatsnew/pep-308.html)
+
+## #41
+
+#### What are negative indexes and why are they used?
+
+negative index는 index로 접근할 수 있는 container에서(list, tuple, string...) 시작이 아닌 끝에서부터 접근할수 있도록 해주는 방법입니다. container의 마지막 element의 index가 -1이고 뒤에서 앞으로 올 수록 -1씩 index가 감소합니다. 
+
+더욱더 효율이 좋고 가독성이 좋을때가 있습니다.
+
+```python
+>>> l = [0,1,2,3,4,5] # negative index [-6,-5,-4,-3,-2,-1]
+# ex-1
+>>> l[-1] 
+5 
+>>> l[len(l) - 1] 
+5 
+
+# ex-2
+>>> l = [0,1,2,3,4,5] 
+>>> l[-3:-1] 
+[3,4] 
+
+# ex-3
+>>> l = [0,1,2,3,4,5] 
+>>> l[-1:-4:-1] 
+[5,4,3] 
+
+```
+#### Reference
+
+- [What is negative index in python from Quora](
