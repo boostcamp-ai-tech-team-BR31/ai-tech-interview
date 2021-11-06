@@ -986,7 +986,7 @@ help(function_with_pep484_type_annotations)
 #### Reference
 
 - [코딩하는펭귄 답변](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/4-python.md)
-- [Sphinx 용 numpydoc 확장과 함께 사용되는 독스트링](
+- [Sphinx 용 numpydoc 확장과 함께 사용되는 독스트링]((https://numpydoc.readthedocs.io/en/latest/format.html)
 
 ## #36
 
@@ -1057,4 +1057,4 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 ```
 #### Reference
 
-- [What is negative index in python from Quora](
+- [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
