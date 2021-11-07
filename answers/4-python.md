@@ -1018,8 +1018,42 @@ print('Red' in purple_list) # False
 ```
 
 #### Reference
-
 - [Python Operators](https://www.w3schools.com/python/python_operators.asp)
+
+## #34
+
+### What is the usage of help() and dir() function in Python?
+
+`help()` 는 docstring을 작성하였다면 docstring을 출력한다.
+
+```python
+def myfunc(x):
+	  """x에 1을 더해서 출력하는 함수
+
+    Args:
+        x (int): [int형 정수]
+
+    Returns:
+        x+1: [x에 1을 더해서 리턴]
+    """  
+    return x+1
+  
+help(myfunc) # docstring이 출력됨
+```
+
+`dir()`  은 인자로 넣은 객체의 속성과 메서드를 문자열로 변환하고 그것을 요소로 갖는 정렬된 리스트를 반환한다. `dir`  은 사용할 객체의 메서드와 속성에 대한 정보를 얻고 싶을 때 유용하다. 다만 인자가 없다면 현재 지역 스코프에서 정의된 함수와 변수들의 리스트를 반환한다.
+
+```python
+def myfunc(x):
+  return x
+
+a = 3
+print(dir(a)) # ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', ...]
+print(dir(func)) # ['__annotations__', '__call__', '__class__', '__closure__', '__code__', ]
+print(dir()) # ['In', 'Out', '_', '__', '___', '__builtin__', '__builtins__',...]
+
+print(a.__add__(3)) # 6
+```
 
 ## #36
 
@@ -1060,6 +1094,26 @@ value = 'ten' if n==10 else 'not ten'
 #### Reference
 
 - [PEP 308: Conditional Expressions](https://docs.python.org/2.5/whatsnew/pep-308.html)
+
+## #39 
+
+### What does len() do?
+
+파이썬 공식문서
+
+> Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set).
+
+번역하자면 객체의 길이(아이템의 수)를 리턴한다.
+
+```python
+a = '123'
+b = [1, 2, 3]
+c = {'first': 1, 'second':2}
+
+print(len(a)) # 3 
+print(len(b)) # 3
+print(len(c)) # 2
+```
 
 ## #40
 
