@@ -946,7 +946,7 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 ## #32
 
-### What are Docstings in Python?
+### What are Docstrings in Python?
 
 Document string은 Python module, class, function or method의 정의를 설명하는 문자열 로 코드를 문서화 하기위해 사용된다. 보통 """ """를 이용하여 작성되고  `__doc__` 속성이나 `help()` 내장 함수로 접근할 수 있습니다.
 
@@ -1049,7 +1049,7 @@ def myfunc(x):
 
 a = 3
 print(dir(a)) # ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', ...]
-print(dir(func)) # ['__annotations__', '__call__', '__class__', '__closure__', '__code__', ]
+print(dir(myfunc)) # ['__annotations__', '__call__', '__class__', '__closure__', '__code__', ]
 print(dir()) # ['In', 'Out', '_', '__', '___', '__builtin__', '__builtins__',...]
 
 print(a.__add__(3)) # 6
