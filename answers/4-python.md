@@ -946,7 +946,7 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 ## #32
 
-#### What are Docstings in Python?
+### What are Docstings in Python?
 
 Document string은 Python module, class, function or method의 정의를 설명하는 문자열 로 코드를 문서화 하기위해 사용된다. 보통 """ """를 이용하여 작성되고  `__doc__` 속성이나 `help()` 내장 함수로 접근할 수 있습니다.
 
@@ -988,6 +988,39 @@ help(function_with_pep484_type_annotations)
 - [코딩하는펭귄 답변](https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/4-python.md)
 - [Sphinx 용 numpydoc 확장과 함께 사용되는 독스트링](https://numpydoc.readthedocs.io/en/latest/format.html)
 
+## #33
+
+### What is the purpose of is, not and in operators?
+
+`is`는 객체를 비교하는 **Identity Operator**입니다.
+```python
+# 같으면
+a = 1
+b = 1
+print(a is b) # True
+```
+```python
+# 다르면
+a = 1
+b = 2
+print(a is b) # False
+```
+
+`not`은 logic value를 반대로 return하는 **Logical Operator**입니다.
+```python
+print(not True) # False
+```
+
+`in`은 value가 sequence의 있는지 확인하는 **Membership Operator**입니다.
+```python
+purple_list = ['Purple', 'Lavandula', 'Bora']
+print('Red' in purple_list) # False
+```
+
+#### Reference
+
+- [Python Operators](https://www.w3schools.com/python/python_operators.asp)
+
 ## #36
 
 ### What is a dictionary in python?
@@ -1028,9 +1061,40 @@ value = 'ten' if n==10 else 'not ten'
 
 - [PEP 308: Conditional Expressions](https://docs.python.org/2.5/whatsnew/pep-308.html)
 
+## #40
+
+### Explain split(), sub(), subn() methods of “re” module in Python.
+
+`re` module은 파이썬의 정규표현식 모듈입니다. 정규표현식을 담은 문자열을 처리하기 위해 `re.split()`, `re.sub()`, `re.subn()` 메소드를 사용합니다.
+
+- re.split(pattern, string))
+   - pattern을 구분자로 string을 분리하여 리스트로 반환합니다.
+```python
+>>> re.split('<[^<>]*>', '<html> Wow <head> header </head> <body> Hey </body> </html>')
+['', ' Wow ', ' header ', ' ', ' Hey ', ' ', '']
+```
+
+- re.sub(pattern, repl, string[, count=0])
+   -  string에서 pattern과 일치하는 부분에 대하여 repl로 교체하여 결과 문자열을 반환합니다.
+```python
+>>> re.sub('\d{4}', 'XXXX', '010-1234-5678')
+'010-XXXX-XXXX'
+```
+
+- re.subn(pattern, repl, string, count=0)
+   -  sub와 동일하나, 결과로 (결과문자열, 매칭횟수)를 튜플로 반환합니다.
+```python
+>>> re.subn('\d{4}', 'XXXX', '010-1234-5678')
+('010-XXXX-XXXX', 2)
+```
+
+#### Reference
+- [파이썬 정규표현식 모음](https://devanix.tistory.com/296)
+- [파이썬 정규표현식 중급](https://greeksharifa.github.io/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D(re)/2018/08/04/regex-usage-05-intermediate/)
+
 ## #41
 
-#### What are negative indexes and why are they used?
+### What are negative indexes and why are they used?
 
 negative index는 index로 접근할 수 있는 container에서(list, tuple, string...) 시작이 아닌 끝에서부터 접근할수 있도록 해주는 방법입니다. container의 마지막 element의 index가 -1이고 뒤에서 앞으로 올 수록 -1씩 index가 감소합니다. 
 
