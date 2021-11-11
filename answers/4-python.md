@@ -1176,3 +1176,12 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 #### Reference
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
+
+## #48
+
+### Does Python have OOps concepts?
+
+class라는 기능을 이용해서 객체를 만들 수 있습니다.
+
+객체 지향 프로그래밍을 하면 프로그램 변경을 용이하게 할 수 있습니다. 
+
