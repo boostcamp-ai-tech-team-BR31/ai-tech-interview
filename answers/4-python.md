@@ -1185,3 +1185,85 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 객체 지향 프로그래밍을 하면 프로그램 변경을 용이하게 할 수 있습니다. 
 
+## #54
+
+### How to import modules in python?
+
+파이썬 확장자 .py로 만든 파이썬 파일은 모두 모듈이다.
+
+```python
+import [module]
+```
+
+module.py라는 파일을 import할 때 위와 같이 사용할 수 있다. 
+
+module.py안에 있는 함수를 사용하려면 
+
+```python
+module.add(1,2)
+```
+
+과 같이 사용해야 한다.
+
+module.add() 가 아닌 add() 로 사용하고 싶다면
+
+```python
+from module import add
+```
+
+와 같이 import 해야 한다.
+
+```python
+from module import *
+```
+
+으로 사용하면 module파일안에 있는 모든 함수를 add() , sub()등으로 파일 이름을 안 붙이고 사용할 수 있다.
+
+
+
+특정 디렉터리의 모듈 모두를 *을 이용하여 import 할 때는 디렉터리\__init__.py
+
+에 \__all__ 변수를 설정하고 모듈을 정의해 주어야 한다.
+
+
+
+```python
+>>> import sys
+>>> sys.path
+[..., `'/usr/lib/python36.zip'`, `'/usr/lib/python3.6'`, `'/usr/lib/python3.6/lib-dynload'`,
+`'/usr/local/lib/python3.6/dist-packages'`, `'/usr/lib/python3/dist-packages'`]
+
+```
+
+sys.path는 파이썬 라이브러리들이 설치되어 있는 디렉터리들을 보여 준다. 파이썬 모듈이 위의 디렉터리에 들어 있다면 모듈이 저장된 디렉터리로 이동할 필요없이 바로 불러서 사용할 수 있다.
+
+현재 경로에 없는 /opt/ml/detection.py를 사용하려고 할때
+
+```python
+import sys
+sys.path.append("/opt/ml")
+import detction
+```
+
+과 같이 사용할 수 있다.
+
+파이썬 코드 내에서 위처럼 사용했다면, 코드 밖에서 sys.path를 조작할 수 있다.
+
+PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 수 있다.
+
+윈도우에서는 /foo;/bar 과 같이 경로를 구분할 수 있다.
+
+<div align='center'>
+     <img src="./images/54.PNG">
+   </div>
+
+
+
+#### Reference
+
+- [모듈](https://wikidocs.net/29)
+- [패키지](https://wikidocs.net/1418#9595all9595)
+- [sys.path,PYHONPATH](https://www.bangseongbeom.com/sys-path-pythonpath.html)
+
+
+
