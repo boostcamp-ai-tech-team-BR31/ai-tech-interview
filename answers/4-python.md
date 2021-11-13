@@ -1185,6 +1185,29 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 객체 지향 프로그래밍을 하면 프로그램 변경을 용이하게 할 수 있습니다. 
 
+객체 지향의 특성
+
+1. 추상화
+
+    객체들의 공통적인 특징(속성, 기능)을 도출하는 것으로 클래스를 정의하는 것이라 할 수 있다.
+
+2. 캡슐화
+
+    객체 내부를 숨겨 외부로부터의 엑세스를 차단. 파이썬은 캡슐화를 지원하지 않지만 약속의 개념으로 변수에 직접접근을 막는다.
+
+3. 상속성
+
+   부모 클래스를 물려받아 코드재사용성을 높임.
+
+4. 다형성
+
+    하나의 객체가 여러개의 타입을 가리킬 수 있는 것. 상속을 통해 이루어질 수 있음.
+
+#### Reference
+
+- [객체 지향 프로그래밍 개념1](https://seungjuitmemo.tistory.com/50)
+- [객체 지향 프로그래밍 개념2](https://seungjuitmemo.tistory.com/51)
+
 ## #54
 
 ### How to import modules in python?
@@ -1265,5 +1288,24 @@ PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 �
 - [패키지](https://wikidocs.net/1418#9595all9595)
 - [sys.path,PYHONPATH](https://www.bangseongbeom.com/sys-path-pythonpath.html)
 
+## #60
 
+### Define encapsulation in Python?
+
+객체 안에 있는 데이터가 외부로부터 영향을 받지 않음.
+
+객체가 독립적으로 역할을 할 수 있도록 데이터와 기능을 하나로 묶음.
+
+이를 통해 사용자가 변수와 메소드에 직접적으로 접근하여 실수/고의로 데이터를 변경하는 행위를 미연에 방지.
+
+1. 변수나 함수 앞에 __(언더바 두개)를 쓰면 외부로부터 직접접근을 막을 수 있다. (함수 중 앞 뒤로 두개 있는 것은 접근 가능) :private
+
+   -->_{클래스이름}__{변수이름} 으로 접근할 수 있도록 속성이 바뀐 것
+
+2. 변수 앞에 _(언더바 한개)가 있다면 변수를 건드리지 말자고 약속 (해당 클래스 내부와 하위 클래스에서만 사용하자) :protect
+
+#### Reference
+
+- [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
+- [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
 
