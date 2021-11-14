@@ -60,7 +60,7 @@
 - [What are Python libraries? Name a few of them.](#52)
 - [What is split used for?](#53)
 - [How to import modules in python?](#54)
-- [Explain Inheritance in Python with an example.](#55)
+- [Explain Inheritance in Python.](#55)
 - [How are classes created in Python?](#56)
 - [What is monkey patching in Python?](#57)
 - [Does python support multiple inheritance?](#58)
@@ -1055,6 +1055,20 @@ print(dir()) # ['In', 'Out', '_', '__', '___', '__builtin__', '__builtins__',...
 print(a.__add__(3)) # 6
 ```
 
+## #35
+
+### Whenever Python exits, why isn’t all the memory de-allocated?
+
+파이썬이 좋료되면 파이썬에 내장된 매커니즘이 작동하여 다른 객체를 할당 해제하려고 시도합니다.
+
+하지만 C라이브러리에서 예약한 메모리부분을 할당 해제할 수 없기 때문에 다른 객체 또는 전역 네임스페이스에서 참조되는 객체에 대한 **순환 참조**가 있는 파이썬 모듈이 할당 해제되지 않습니다.
+
+
+
+#### Reference
+
+- [Whenever Python exits, all the memory isn’t deallocated. Why is it so?](https://madanswer.com/48777/whenever-python-exits-all-the-memory-isnt-deallocated-why-is)
+
 ## #36
 
 ### What is a dictionary in python?
@@ -1094,6 +1108,52 @@ value = 'ten' if n==10 else 'not ten'
 #### Reference
 
 - [PEP 308: Conditional Expressions](https://docs.python.org/2.5/whatsnew/pep-308.html)
+
+## #38
+
+### What does this mean: `*args`, `**kwargs`? And why would we use it?
+
+### *args
+
+`*args`는 `*arguments`의 줄임말로 args를 꼭 사용할 필요 없이 *만 붙이면 된다.
+
+`*args`는 함수에 전달되는 argument의 수를 알 수 없거나, list나 tuple의 argument를 함수에 전달할 때 사용한다. 
+
+```python
+def name(*args):
+    print(args)
+    
+name('민규', '재욱', '성민', '나경', '재현', '동진')
+```
+
+```
+('민규', '재욱', '성민', '나경', '재현', '동진')
+```
+
+
+
+### **kwargs
+
+`**kwargs`는 `**keyword arguments`의 줄임말로 역시 **뒤에 이름을 다르게해도 상관없다.
+
+`**kwargs`는 함수에 전달되는 keyword argument의 수를 모르거나, dictionary의 keyword argument들을 함수에 전달할 때 사용한다.
+
+```python
+def name(**kargs):
+    print(kwargs)
+
+name( m = '민규', n = '나경', d = '동진', j = '재욱', s = '성민')
+```
+
+```
+{'m': '민규', 'n': '나경', 'd': '동진', 'j': '재욱', 's': '성민'}
+```
+
+
+
+*args와 **kargs를 함께 사용할 때는 args가 kwargs보다 앞에온다.
+
+
 
 ## #39 
 
