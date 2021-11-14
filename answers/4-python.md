@@ -1177,6 +1177,50 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
 
+## #46
+
+###  How to add values to a python list?
+
+**append()**, **extend()** 그리고 **insert (i,x)** 함수를 이용하여 values를 더할 수 있다.
+
+- `By using append() function`: array의 끝에다가 elements를 더한다.
+- `By using insert() function`: 주어진 index에 elements를 넣는다.
+- `By using extend() function`: 리스트의 elements를 붙임으로써 리스트를 잇는다.
+
+- `By using + operator`: 두 어레이를 element의 concat한다. (list, array 해당, numpy array이는 element 덧셈)
+
+**append**
+
+```python
+import array
+ 
+s1 = array.array('i', [1, 2, 3]) 
+s2 = array.array('i', [4, 5, 6])
+
+s3 = s1 + s2
+print(s3)  
+>> array.array('i', [1, 2, 3, 4, 5, 6])
+   
+s1.append(4)
+print(s1)  
+>> array.array('i', [1, 2, 3, 4]) 
+# a = [1,2,3]; b = [4, 5, 6]
+# a.append(4) -> [1,2,3,4]
+# a.append(b) -> [1,2,3,[4,5,6]]
+  
+s1.insert(0, 10)
+print(s1) 
+>> array.array('i', [10, 1, 2, 3, 4])
+
+s1.extend(s2)
+print(s1) 
+>> array.array('i', [10, 1, 2, 3, 4, 4, 5, 6])
+```
+
+#### Reference
+
+- [Python add elements to an array](https://www.askpython.com/python/array/python-add-elements-to-an-array)
+
 ## #48
 
 ### Does Python have OOps concepts?
@@ -1207,6 +1251,22 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 - [객체 지향 프로그래밍 개념1](https://seungjuitmemo.tistory.com/50)
 - [객체 지향 프로그래밍 개념2](https://seungjuitmemo.tistory.com/51)
+
+## #52 
+
+###  What are Python libraries? Name a few of them.
+
+- Module: 모듈은 기본적으로 확장자가 .py인 파일에 저장된 관련 코드 묶음, 함수, 클래스, 변수등이 정의 되어 있다.
+- Packages: Python 패키지는 기본적으로 모듈을 모아둔 디렉토리, \__init__.py 정의 되어 있음
+- libraray: Python 라이브러리에는 관련 모듈 및 패키지 모음, 종종 Package랑 동일한 의미로 쓰인다.(package도 subpackage 포함 가능) 그러나 일반적으로 패키지는 모듈 모음이고 라이브러리는 패키지 모음 
+  - Matplotlb, Pytorch, Beautiful Soup, ..
+- Franework: Python 프레임워크는 프로그래머가 개발 프로세스를 빠르게 추적하는 데 도움이 되는 모듈 및 패키지 모음,  프레임워크는 일반적으로 라이브러리보다 더 복잡, 라이브러리에는 특정 작업을 수행하는 패키지가 포함되어 있지만 프레임워크에는 애플리케이션의 기본 흐름과 아키텍처가 포함
+  - Flask, Django, Bottle
+
+#### Reference
+
+- [Difference Between Python Modules, Packages, Libraries, and Frameworks](https://learnpython.com/blog/python-modules-packages-libraries-frameworks/)
+- [프레임워크와 라이브러리의 차이점](
 
 ## #54
 
@@ -1280,13 +1340,109 @@ PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 �
      <img src="./images/54.PNG">
    </div>
 
-
-
 #### Reference
 
 - [모듈](https://wikidocs.net/29)
 - [패키지](https://wikidocs.net/1418#9595all9595)
 - [sys.path,PYHONPATH](https://www.bangseongbeom.com/sys-path-pythonpath.html)
+
+
+## #58 
+
+### Does Python support multiple inheritance? 
+
+자식 클래스가 여러개의 부모 클래스로 부터 상속 받았을 때, 이를 multiple inheritance라고 합니다.
+
+```python
+# Python example to show the working of multiple 
+# inheritance
+class Base1(object):
+    def __init__(self):
+        self.str1 = "Geek1"
+        print("Base1")
+  
+class Base2(object):
+    def __init__(self):
+        self.str2 = "Geek2"        
+        print("Base2")
+  
+class Derived(Base1, Base2):
+    def __init__(self):
+          
+        # Calling constructors of Base1
+        # and Base2 classes
+        Base1.__init__(self)
+        Base2.__init__(self)
+        print("Derived")
+          
+    def printStrs(self):
+        print(self.str1, self.str2)
+         
+  
+ob = Derived()
+ob.printStrs()
+
+
+>> Base1
+>> Base2
+>> Derived
+>> Geek1 Geek2
+```
+
+Multi-level inheritance
+
+child and grandchild 관계를 갖게 될 때
+
+```python
+# A Python program to demonstrate inheritance 
+  
+# Base or Super class. Note object in bracket.
+# (Generally, object is made ancestor of all classes)
+# In Python 3.x "class Person" is 
+# equivalent to "class Person(object)"
+class Base(object):
+      
+    # Constructor
+    def __init__(self, name):
+        self.name = name
+  
+    # To get name
+    def getName(self):
+        return self.name
+  
+  
+# Inherited or Sub class (Note Person in bracket)
+class Child(Base):
+      
+    # Constructor
+    def __init__(self, name, age):
+        Base.__init__(self, name)
+        self.age = age
+  
+    # To get name
+    def getAge(self):
+        return self.age
+  
+# Inherited or Sub class (Note Person in bracket)
+class GrandChild(Child):
+      
+    # Constructor
+    def __init__(self, name, age, address):
+        Child.__init__(self, name, age)
+        self.address = address
+  
+    # To get address
+    def getAddress(self):
+        return self.address        
+  
+# Driver code
+g = GrandChild("Geek1", 23, "Noida")  
+print(g.getName(), g.getAge(), g.getAddress())
+>> Geek1 23 Noida
+```
+#### Reference
+
+- [inheritance-in-python](https://www.geeksforgeeks.org/inheritance-in-python/)
 
 ## #60
 
