@@ -1177,6 +1177,38 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
 
+## #45
+
+### What advantages do NumPy arrays offer over (nested) Python lists?
+
+Python은 배열(array)를 지원하지 않는다. 일반적으로 착각하기 쉬운 부분으로 List와 Array는 정확히는 다른 것이다. 또한 `Numpy`를 사용하면 `Array`를 Python에서 사용할 수 있다.
+
+**Array**
+
+- 정적할당(고정된 크기를 갖는다.  Size를 변화하려면 기존의 array를 삭제하고 새로운  array를 생성해야 함)
+
+**List**
+
+- 동적할당(고정된 크기를 갖지 않고 동적으로 Size 조절이 가능함)
+
+
+
+#### NumPy Array의 장점
+
+- 강력한 N-차원 배열 객체를 사용할 수 있다.
+- C 언어 베이스로 작성되어 있기 때문에 메모리를 효과적으로 사용하며 빠르다.
+- 다른 라이브러리와 연관성이 매우 높다. 다양한 파이썬 패키지들이 numpy의 ndarray를 기본 자료형으로 사용한다.
+- 정교한 브로드캐스팅 기능
+- 선형대수, 푸리에 변환, 난수 기능이 유용하다.
+- For문과 같이 반복적인 연산 작업을 vectorized operation을 사용하여 효율적인 코딩이 가능하다.
+
+
+
+#### References
+
+- https://medium.com/@5eo1ab/numpy-%EC%93%B0%EB%8A%94-%EC%9D%B4%EC%9C%A0-37895f4fdc03
+- https://chancoding.tistory.com/10
+
 ## #46
 
 ###  How to add values to a python list?
@@ -1251,6 +1283,43 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 - [객체 지향 프로그래밍 개념1](https://seungjuitmemo.tistory.com/50)
 - [객체 지향 프로그래밍 개념2](https://seungjuitmemo.tistory.com/51)
+
+## #51
+
+### What is the process of compilation and linking in python?
+
+파이썬 파일(.py)를 실행하면, 소스 코드는 바이트 코드(byte code)로 변환되며, `.pyc` , `.pyo` 파일 형식으로 저장된다. 이 때 소스 코드를 바이트 코드로 변환하는 과정을 **컴파일(compilation) 단계** 라고 한다.
+
+파이썬 가상머신(Python Virtual Machine)이 바이트 코드를 기계어(Machine code)로 변환하여 어떤 운영체제든 실행할 수 있도록 한다. 이 때 우리의 코드와 인터프리터가 필요한 라이브러리를 연결시키는 과정이 있는데, 이를 **링크(linking) 단계**라고 한다.
+
+참고 `dis` 모듈을 사용하여 소스 코드가 어떤 바이트 코드로 변환되는지 확인할 수 있다.
+
+> 소스코드
+
+```python
+import dis
+
+def mult(a, b):
+  return a*b
+
+dis.dis(mult)
+```
+
+> 출력 결과
+
+```shell
+4				0 LOAD_FAST				0 (a)
+				2 LOAD_FAST				1 (b)
+				4 BINARY_MULTIPLY
+				6 RETURN_VALUE
+```
+
+
+
+#### References
+
+- https://www.tutorialspoint.com/what-is-the-process-of-compilation-and-linking-in-python
+- https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/4-python.md#51
 
 ## #52 
 
@@ -1345,6 +1414,28 @@ PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 �
 - [모듈](https://wikidocs.net/29)
 - [패키지](https://wikidocs.net/1418#9595all9595)
 - [sys.path,PYHONPATH](https://www.bangseongbeom.com/sys-path-pythonpath.html)
+
+## #57
+
+### What is monkey patching in Python?
+
+주로 테스트를 위해 많이 사용되는 방법으로, 어떤 클래스나 모듈의 일부 (함수나 변수 등)를 로컬에서 런타임으로만 instance를 통해 수정하는 방법을 말한다.
+
+예시로 test.py 파일의 A 클래스에 a 라는 함수가 있는데, 다른 파일에서 A를 import하여 a 함수 대신 new_a를 할당하여 사용하는 방법이 있다.
+
+```python
+from test import A
+
+A.a = new_a
+my_A = A() # A 클래스 객체 할당
+my_A.a # new_a가 동작
+```
+
+Monkey patching은 위와 같이 간단하다. 그렇다면 언제 사용할까? 구체적인 예시는 아래 링크를 통해 확인하자.
+
+#### Reference
+
+- https://newbiestory.tistory.com/60
 
 
 ## #58 
