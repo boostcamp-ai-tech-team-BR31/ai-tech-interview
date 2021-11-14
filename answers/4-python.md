@@ -1177,6 +1177,25 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
 
+## #43
+
+### How can files be deleted in Python?
+
+os 모듈을  import 하고, os.remove()함수를 사용하여 파일을 삭제한다.
+
+```python
+import os
+os.remove('interview.txt')
+```
+
+- os.rmdir() : 인자값으로 삭제할 디렉토리 경로를 받는다. 이때 해당 디렉토리가 비어있으면 삭제되고 파일이 있으면 에러가 난다.
+- shutil.rmtree: 디렉토리 및 파일을 모두 지운다. 디렉토리에 파일이 있더라도 에러를 발생시키지 않고 삭제한다.
+
+#### Reference
+
+- [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
+- [파이썬 디렉토리 및 파일 삭제](https://hongku.tistory.com/305)
+
 ## #46
 
 ###  How to add values to a python list?
@@ -1251,6 +1270,52 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 - [객체 지향 프로그래밍 개념1](https://seungjuitmemo.tistory.com/50)
 - [객체 지향 프로그래밍 개념2](https://seungjuitmemo.tistory.com/51)
+
+## #49
+
+### What is the difference between deep and shallow copy?
+
+**Shallow copy**
+
+- Shallow copy는 새로운 객체를 만든 후에 원본에 접근할 수 있는 reference를 입력한다.
+  - 이런 경우 서로 다른 변수명이지만 본질적으로 서로 같은 대상을 의미하므로 하나의 변수 역시 수정이 된다.
+- 가변형(mutable) 자료형에 대해서 적용이 가능하다.
+  - 가변형(mutable) 자료형은 같은 주소에서 값(value)이 변경 가능하기 때문에 얕은 복사가 가능하다.
+  - 불변형(immutable) 자료형은 본질적으로 변경이 불가능하므로 재배정을 통해 변수를 바꾼다. 따라서 재배정이 이루어지므로 객체가 서로 달라진다.
+
+```python
+a = [1,2,3]
+b = a
+a[1] = 0
+print(a, b)
+```
+
+```
+[0,2,3] [0,2,3]
+```
+
+**Deep copy**
+
+- Deep copy는 내부에 객체들까지 모두 새롭게 copy 한다.
+  - 서로 값만 같을 뿐 본질적으로 서로 다르기 때문에 한 변수가 수정될 시 다른 변수가 수정되지 않는다.
+  - copy.deepcopy메소드를 사용한다.
+
+```python
+import copy
+
+a = [1,2,3]
+b = cop.deepcopy(a)
+a[1] = 0
+print(a, b)
+```
+
+```
+[0,2,3] [1,2,3]
+```
+
+#### Reference
+
+- [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16038)
 
 ## #52 
 
@@ -1345,6 +1410,20 @@ PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 �
 - [모듈](https://wikidocs.net/29)
 - [패키지](https://wikidocs.net/1418#9595all9595)
 - [sys.path,PYHONPATH](https://www.bangseongbeom.com/sys-path-pythonpath.html)
+
+## #55
+
+### Explain Inheritance in Python.
+
+#### Inheritance
+
+클래스에서 상속이란 물려주는 클래스(**Parent Class, Super class**)의 내용(**속성과 메소드**)을 물려받는 클래스(**Child class, sub class**)가 가지게 되는 것이다.
+
+파이썬은 부모 클래스 A 를 자식 클래스 B 가 상속하는 **Single Inheritance**, 부모 클래스 A 를 자식 클래스 B 가 다시 B 를 자식 클래스 C 가 상속하는 **Multi-level Inheritance**, 부모 클래스 A 가 여러 자식 클래스에 상속되는 **Hierarchical Inheritance**, 하나의 자식 클래스가 여러 부모 클래스를 상속하는 **Multiple Inheritance** 가 있다.
+
+#### Reference
+
+- [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16073)
 
 
 ## #58 
