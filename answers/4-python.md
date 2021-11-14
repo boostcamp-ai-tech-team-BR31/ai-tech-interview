@@ -60,7 +60,7 @@
 - [What are Python libraries? Name a few of them.](#52)
 - [What is split used for?](#53)
 - [How to import modules in python?](#54)
-- [Explain Inheritance in Python with an example.](#55)
+- [Explain Inheritance in Python.](#55)
 - [How are classes created in Python?](#56)
 - [What is monkey patching in Python?](#57)
 - [Does python support multiple inheritance?](#58)
@@ -1055,6 +1055,20 @@ print(dir()) # ['In', 'Out', '_', '__', '___', '__builtin__', '__builtins__',...
 print(a.__add__(3)) # 6
 ```
 
+## #35
+
+### Whenever Python exits, why isn’t all the memory de-allocated?
+
+파이썬이 좋료되면 파이썬에 내장된 매커니즘이 작동하여 다른 객체를 할당 해제하려고 시도합니다.
+
+하지만 C라이브러리에서 예약한 메모리부분을 할당 해제할 수 없기 때문에 다른 객체 또는 전역 네임스페이스에서 참조되는 객체에 대한 **순환 참조**가 있는 파이썬 모듈이 할당 해제되지 않습니다.
+
+
+
+#### Reference
+
+- [Whenever Python exits, all the memory isn’t deallocated. Why is it so?](https://madanswer.com/48777/whenever-python-exits-all-the-memory-isnt-deallocated-why-is)
+
 ## #36
 
 ### What is a dictionary in python?
@@ -1094,6 +1108,52 @@ value = 'ten' if n==10 else 'not ten'
 #### Reference
 
 - [PEP 308: Conditional Expressions](https://docs.python.org/2.5/whatsnew/pep-308.html)
+
+## #38
+
+### What does this mean: `*args`, `**kwargs`? And why would we use it?
+
+### *args
+
+`*args`는 `*arguments`의 줄임말로 args를 꼭 사용할 필요 없이 *만 붙이면 된다.
+
+`*args`는 함수에 전달되는 argument의 수를 알 수 없거나, list나 tuple의 argument를 함수에 전달할 때 사용한다. 
+
+```python
+def name(*args):
+    print(args)
+    
+name('민규', '재욱', '성민', '나경', '재현', '동진')
+```
+
+```
+('민규', '재욱', '성민', '나경', '재현', '동진')
+```
+
+
+
+### **kwargs
+
+`**kwargs`는 `**keyword arguments`의 줄임말로 역시 **뒤에 이름을 다르게해도 상관없다.
+
+`**kwargs`는 함수에 전달되는 keyword argument의 수를 모르거나, dictionary의 keyword argument들을 함수에 전달할 때 사용한다.
+
+```python
+def name(**kargs):
+    print(kwargs)
+
+name( m = '민규', n = '나경', d = '동진', j = '재욱', s = '성민')
+```
+
+```
+{'m': '민규', 'n': '나경', 'd': '동진', 'j': '재욱', 's': '성민'}
+```
+
+
+
+*args와 **kargs를 함께 사용할 때는 args가 kwargs보다 앞에온다.
+
+
 
 ## #39 
 
@@ -1177,6 +1237,25 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
 
+## #43
+
+### How can files be deleted in Python?
+
+os 모듈을  import 하고, os.remove()함수를 사용하여 파일을 삭제한다.
+
+```python
+import os
+os.remove('interview.txt')
+```
+
+- os.rmdir() : 인자값으로 삭제할 디렉토리 경로를 받는다. 이때 해당 디렉토리가 비어있으면 삭제되고 파일이 있으면 에러가 난다.
+- shutil.rmtree: 디렉토리 및 파일을 모두 지운다. 디렉토리에 파일이 있더라도 에러를 발생시키지 않고 삭제한다.
+
+#### Reference
+
+- [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
+- [파이썬 디렉토리 및 파일 삭제](https://hongku.tistory.com/305)
+
 ## #45
 
 ### What advantages do NumPy arrays offer over (nested) Python lists?
@@ -1190,7 +1269,6 @@ Python은 배열(array)를 지원하지 않는다. 일반적으로 착각하기 
 **List**
 
 - 동적할당(고정된 크기를 갖지 않고 동적으로 Size 조절이 가능함)
-
 
 
 #### NumPy Array의 장점
@@ -1283,6 +1361,52 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 - [객체 지향 프로그래밍 개념1](https://seungjuitmemo.tistory.com/50)
 - [객체 지향 프로그래밍 개념2](https://seungjuitmemo.tistory.com/51)
+
+## #49
+
+### What is the difference between deep and shallow copy?
+
+**Shallow copy**
+
+- Shallow copy는 새로운 객체를 만든 후에 원본에 접근할 수 있는 reference를 입력한다.
+  - 이런 경우 서로 다른 변수명이지만 본질적으로 서로 같은 대상을 의미하므로 하나의 변수 역시 수정이 된다.
+- 가변형(mutable) 자료형에 대해서 적용이 가능하다.
+  - 가변형(mutable) 자료형은 같은 주소에서 값(value)이 변경 가능하기 때문에 얕은 복사가 가능하다.
+  - 불변형(immutable) 자료형은 본질적으로 변경이 불가능하므로 재배정을 통해 변수를 바꾼다. 따라서 재배정이 이루어지므로 객체가 서로 달라진다.
+
+```python
+a = [1,2,3]
+b = a
+a[1] = 0
+print(a, b)
+```
+
+```
+[0,2,3] [0,2,3]
+```
+
+**Deep copy**
+
+- Deep copy는 내부에 객체들까지 모두 새롭게 copy 한다.
+  - 서로 값만 같을 뿐 본질적으로 서로 다르기 때문에 한 변수가 수정될 시 다른 변수가 수정되지 않는다.
+  - copy.deepcopy메소드를 사용한다.
+
+```python
+import copy
+
+a = [1,2,3]
+b = cop.deepcopy(a)
+a[1] = 0
+print(a, b)
+```
+
+```
+[0,2,3] [1,2,3]
+```
+
+#### Reference
+
+- [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16038)
 
 ## #51
 
@@ -1415,6 +1539,20 @@ PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 �
 - [패키지](https://wikidocs.net/1418#9595all9595)
 - [sys.path,PYHONPATH](https://www.bangseongbeom.com/sys-path-pythonpath.html)
 
+## #55
+
+### Explain Inheritance in Python.
+
+#### Inheritance
+
+클래스에서 상속이란 물려주는 클래스(**Parent Class, Super class**)의 내용(**속성과 메소드**)을 물려받는 클래스(**Child class, sub class**)가 가지게 되는 것이다.
+
+파이썬은 부모 클래스 A 를 자식 클래스 B 가 상속하는 **Single Inheritance**, 부모 클래스 A 를 자식 클래스 B 가 다시 B 를 자식 클래스 C 가 상속하는 **Multi-level Inheritance**, 부모 클래스 A 가 여러 자식 클래스에 상속되는 **Hierarchical Inheritance**, 하나의 자식 클래스가 여러 부모 클래스를 상속하는 **Multiple Inheritance** 가 있다.
+
+#### Reference
+
+- [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16073)
+
 ## #57
 
 ### What is monkey patching in Python?
@@ -1436,7 +1574,6 @@ Monkey patching은 위와 같이 간단하다. 그렇다면 언제 사용할까?
 #### Reference
 
 - https://newbiestory.tistory.com/60
-
 
 ## #58 
 
