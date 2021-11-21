@@ -1244,67 +1244,6 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
 
-## #42
-
-### How to remove values to a python array?
-
-크게 4가지의 방법으로 array의 값을 제거할 수 있다.
-
-#### list.pop()
-
-`list.pop()` : Index를 사용하여 List의 element를 제거할 수 있다
-
-``` python
-a_list = ["a", "b", "c"]
-a_list.pop(1)
-print(a_list)
-# ['a', 'c']
-```
-
-#### del
-
-`del` : `pop()`과 같이 index를 사용하여 List의 element를 제거 할 수 있다.
-
-``` python
-a_list = ["a", "b", "c"]
-del a_list[1]
-
-print(a_list)
-# ['a', 'c']
-```
-
-#### list.remove()
-
-`list.remove(value)` : list에서 가장 먼저 나타나는 value를 제거
-
-```python
-a_list = ["a", "b", "c"]
-a_list.remove("b")
-
-print(a_list)
-# ['a', 'c']
-```
-
-#### np.delete()
-
-`np.delete(arr, obj)` : numpy array에서 element를 제거
-
-`arr` 에서 index `obj` 의 element를 제거한다.
-
-```python
-array = np.array([1, 2, 3])
-array = np.delete(array, 2)
-
-print(array)
-[1 2]
-```
-
-
-
-#### Reference
-
-- [How to remove an element from an array in Python](https://www.kite.com/python/answers/how-to-remove-an-element-from-an-array-in-python)
-
 
 ## #43
 
@@ -1457,6 +1396,68 @@ print(s1)
 #### Reference
 
 - [Python add elements to an array](https://www.askpython.com/python/array/python-add-elements-to-an-array)
+
+## #47
+
+### How to remove values to a python array?
+
+크게 4가지의 방법으로 array의 값을 제거할 수 있다.
+
+#### list.pop()
+
+`list.pop()` : Index를 사용하여 List의 element를 제거할 수 있다
+
+``` python
+a_list = ["a", "b", "c"]
+a_list.pop(1)
+print(a_list)
+# ['a', 'c']
+```
+
+#### del
+
+`del` : `pop()`과 같이 index를 사용하여 List의 element를 제거 할 수 있다.
+
+``` python
+a_list = ["a", "b", "c"]
+del a_list[1]
+
+print(a_list)
+# ['a', 'c']
+```
+
+#### list.remove()
+
+`list.remove(value)` : list에서 가장 먼저 나타나는 value를 제거
+
+```python
+a_list = ["a", "b", "c"]
+a_list.remove("b")
+
+print(a_list)
+# ['a', 'c']
+```
+
+#### np.delete()
+
+`np.delete(arr, obj)` : numpy array에서 element를 제거
+
+`arr` 에서 index `obj` 의 element를 제거한다.
+
+```python
+array = np.array([1, 2, 3])
+array = np.delete(array, 2)
+
+print(array)
+[1 2]
+```
+
+
+
+#### Reference
+
+- [How to remove an element from an array in Python](https://www.kite.com/python/answers/how-to-remove-an-element-from-an-array-in-python)
+
 
 ## #48
 
