@@ -1386,8 +1386,6 @@ os.remove('interview.txt')
 
 - [ python document : built in type](https://docs.python.org/3/library/stdtypes.html)
 
-- [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
-
 ## #45
 
 ### What advantages do NumPy arrays offer over (nested) Python lists?
