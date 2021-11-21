@@ -1256,6 +1256,57 @@ os.remove('interview.txt')
 - [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
 - [파이썬 디렉토리 및 파일 삭제](https://hongku.tistory.com/305)
 
+
+## #44
+
+### What are the built-in types of python?
+
+- bulit-in type of python : 파이썬 내장 자료형
+   - bulit-in type 중에서는 mutable한 자료형도 있고, bulit-in methood를 활용해 편리하게 programming을 할 수 있습니다.
+- boolean, numeric type, sequence type, text type, binary sequence type, set type, mapping type 등이 있습니다.
+
+#### ##1 boolean type
+
+- False인 경우
+   - None
+   - zero of any numeric
+      - 0, 0.0
+      - 0j : complex, 복소수
+      - Decimal(0) : 십진법 부동소수점
+      - Fraction(0, 1) : 유리수, Fraction(분자, 분모)
+   - empty sequences and collections
+      - ''
+      - ()
+      - []
+      - {}
+      - set()
+      - range(0)
+#### ##2 numeric type
+- int
+- float
+- complex : 복소수
+#### ##3 sequence type
+- list
+- tuple
+- range
+#### ##4 text sequence type
+- str
+#### ##5 binary sequence types
+- bytes
+- bytearray
+- memoryview
+#### ##6 set type
+- set
+- frozenset : 수정 불가능한 set
+   - tuple의 set버전
+#### ##7 mapping type
+- dictionary
+
+#### Reference
+- [ python document : built in type](https://docs.python.org/3/library/stdtypes.html)
+
+- [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
+
 ## #45
 
 ### What advantages do NumPy arrays offer over (nested) Python lists?
@@ -1408,6 +1459,28 @@ print(a, b)
 
 - [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16038)
 
+
+
+## #50
+
+### How is multithreading achieved in python?
+python의 multithreading모듈은 threading모듈(high level)과 thread모듈(low level)이 있지만, 지금은 주로 threading모듈을 사용합니다.
+
+multi threading을 사용하면 병렬적 처리 덕분에 속도가 빨라진다고 생각하겠지만 python의 GIL(Global Interpreter Lock)정책 때문에 속도는 single threading과 별반 차이가 없습니다.
+
+하나의 자원에 여러 프로세스가 아무런 규칙없이 접근하면, 자원 동기화 문제가 발생할 수 있습니다. 이를 방지하기 위해서 자원에 lock을 두는데, Python은 모든 자원의 lock을 global하게 관리하고 있습니다. 그래서 python은 쓰레드 하나에 CPU자원을 다 쓰기 때문에 multithreading의 이점을 온전히 가져올 순 없습니다.
+
+하지만 I/O작업은 CPU작업이 아니라서 GIL 영향을 받지 않습니다. 그래서 I/O작업(입출력, 파일 다운로드 등)으로 이루어진 작업은 multi threading으로 성능을 개선할 수 있습니다. 참고로 파일쓰기는 I/O작업이 아닙니다.
+
+부가적으로 python의 multiprocessing모듈은 multiprocessing모듈, concurrent모듈 등이 있습니다.
+
+#### Reference
+- [python multithreading, multiprocessing](https://monkey3199.github.io/develop/python/2018/12/04/python-pararrel.html)
+
+- [python multithreading, multiprocessing 쉬운 예제](https://zephyrus1111.tistory.com/111)
+
+- [예제로 배우는 파이썬 프로그래밍 - 쓰레드 (Thread)](http://pythonstudy.xyz/python/article/24-%EC%93%B0%EB%A0%88%EB%93%9C-Thread)
+
 ## #51
 
 ### What is the process of compilation and linking in python?
@@ -1552,6 +1625,58 @@ PYTHONPATH를 이용하여 sys.path에 경로를 동시에 여러개 추가할 �
 #### Reference
 
 - [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16073)
+
+## #56
+
+### How are classes created in Python?
+
+python에서는 `class`키워드를 활용해서 class를 만들 수 있습니다.
+
+`__init__`이라는 magic method를 활용해 객체(instance)가 선언될 때 멤버변수들을 초기화 할 수 있습니다.
+
+또한 class method를 정의할 때, 첫 인자는 항상 `self`여야 합니다. 그 이유는 [python #19](#19)에 정리되어 있습니다. 간단하게 언급하자면 self에 객체(instance)를 담아 두고, instance의 method를 실행할 때 self가 필요하기 때문입니다.
+
+아래 예시를 보자면 처음에 `FourCal`라는 사칙연산 클래스를 만들었습니다.
+
+그리고 FourCal 클래스를 `상속(inheritance)`받는 `MoreFourCal`라는 클래스를 만들었습니다. MoreFourCal 클래스에서는 FourCal 클래스의 method를 모두 사용할 수 있으며, 제곱연산을 하는 `pow` method를 새로 추가할 수 있습니다. 또한 FourCal 클래스의 div method를 재정의하는 `method overriding`을 할 수도 있답니다.
+
+```python
+class FourCal:
+     def __init__(self, first, second):
+         self.first = first
+         self.second = second
+     def setdata(self, first, second):
+         self.first = first
+         self.second = second
+     def add(self):
+         result = self.first + self.second
+         return result
+     def mul(self):
+         result = self.first * self.second
+         return result
+     def sub(self):
+         result = self.first - self.second
+         return result
+     def div(self):
+         result = self.first / self.second
+         return result
+
+
+class MoreFourCal(FourCal): # Inheritance FourCal class
+   def pow(self): # set new method
+      result = self.first ** self.second
+      return result
+   def div(self): # method overriding : div -> floor div
+      result = self.first // self.second
+      return reslut
+```
+
+
+
+#### Reference
+
+- [점프투파이썬 class](https://wikidocs.net/28)
+
 
 ## #57
 
