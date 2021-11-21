@@ -85,9 +85,9 @@
 ### What is the difference between list and tuples in Python?
 
 - 리스트는 [], 튜플은 ()로 작성
-- 리스트는 값을 수정할 수 있지만 , 튜플은 값을 변경할  수 없다.
+- 리스트는 값을 수정할 수 있지만 , 튜플은 값을 변경할 수 없다.
 
-리스트와 튜플의 가장 **큰 차이점은 값을 변경할 수 있는가의 여부**이므로,  프로그램이 실행되는 동안 **값이 변경되면 안 되는 경우 튜플**을 사용한다. 튜플은 리스트에 비해 더 적은 메모리를 필요로 하고, 속도가 빠르다.
+리스트와 튜플의 가장 **큰 차이점은 값을 변경할 수 있는가의 여부**이므로, 프로그램이 실행되는 동안 **값이 변경되면 안 되는 경우 튜플**을 사용한다. 튜플은 리스트에 비해 더 적은 메모리를 필요로 하고, 속도가 빠르다.
 
 ## #2
 
@@ -257,8 +257,6 @@ del
 
 ### What is namespace in Python?
 
-
-
 ## #8
 
 ### What is PYTHONPATH?
@@ -296,7 +294,7 @@ import badminton
 
 **Module**이란 Python 코드를 포함하는 파일로써, 함수나 변수 또는 클래스를 모아 놓은 파일이다. 모듈은 다른 파이썬 프로그램에서 불러와 사용할 수 있게끔 만든 파이썬 파일이라고도 할 수 있다. 실행 가능한 코드를 포함하는, 파이썬 확장자 `.py`로 만든 파이썬 파일은 모두 모듈이다. 모듈을 사용하면, 다른 코드에 적용하기가 쉬워지므로 이식성이 좋아진다.
 
-**Built-in modules**란 파이썬에서 제공하는 공식 내장 라이브러리다.  로컬의 어느곳에서 파일을 작성하던지 이 내장 모듈들은 어디서나 사용할 수 있다. 
+**Built-in modules**란 파이썬에서 제공하는 공식 내장 라이브러리다. 로컬의 어느곳에서 파일을 작성하던지 이 내장 모듈들은 어디서나 사용할 수 있다.
 
 - 자주 사용되는 built-in module 의 예시
   - os
@@ -306,8 +304,6 @@ import badminton
   - datetime
   - JSON
   - itertools
-
-
 
 #### Reference
 
@@ -464,15 +460,13 @@ indentation의 방법은 띄어쓰기 한칸, 두칸, 4칸, 탭 등 여러가지
 
 ### What is the difference between Python Arrays and lists?
 
-파이썬에서는 배열이라는 부분이 없지만 배열의 편의성 때문에 ` array ` 라는 모듈을 제공하고 있습니다.
+파이썬에서는 배열이라는 부분이 없지만 배열의 편의성 때문에 `array` 라는 모듈을 제공하고 있습니다.
 
-**array**와 **list**는 동일한 방식으로 데이터를 저장하지만 
+**array**와 **list**는 동일한 방식으로 데이터를 저장하지만
 
 **array**는 **단일 데이터 타입 요소**만을 포함할 수 있는 반면,
 
 **list**는 **다양한 타입의 요소**들이 들어갈 수 있습니다.
-
-
 
 array는 `arrayName = arrary(type, [Values])`처럼 자료형을 저장하고, 지정한 자료형만을 넣을수 있습니다.
 
@@ -566,7 +560,7 @@ def triple(x):
 
 클래스 내에 정의된 self는 클래스 인스턴스이다.
 
-예시를 통한 이해 
+예시를 통한 이해
 
 ```python
 class Foo:
@@ -594,27 +588,27 @@ a.func2()
 FOO.func1()
 >> function 1
 
-## example-2 
+## example-2
 id(a)
 >> 140660141772432
 
 ## example-3
 Foo.func2()
 >> TypeError: func2() missing 1 required positional argument: 'self'
-        
- 
+
+
 Foo.func2(a) ## == a.func2()
 >> 140660141772432
 >> function 2
 ```
 
-1) - 메소드를 호출할 때 self에 대한 값은 파이썬이 자동으로 넘겨주기 때문에 a.func1() == a.func1(self)와 동일하다 그런데 함수 func1은 인자를 받지 않기 때문에 오류가 난다.  
+1. - 메소드를 호출할 때 self에 대한 값은 파이썬이 자동으로 넘겨주기 때문에 a.func1() == a.func1(self)와 동일하다 그런데 함수 func1은 인자를 받지 않기 때문에 오류가 난다.
 
    - func1을 호출하려면 인스턴스 메소드가 아닌 class 메소드로 불러주면 func1을 호출 할 수 있다
 
-2) 추가적으로 self는 인스턴스임을 확이낳기 위해 func2에 있느 id(self)와 id(a)를 비교하면 인스턴스의 주소값이 동일한 것을 알 수 있다.
+2. 추가적으로 self는 인스턴스임을 확이낳기 위해 func2에 있느 id(self)와 id(a)를 비교하면 인스턴스의 주소값이 동일한 것을 알 수 있다.
 
-3)  클래스 이름을 이용한 메소드 호출 self 부분에 인스턴스 넣어주면 해결
+3. 클래스 이름을 이용한 메소드 호출 self 부분에 인스턴스 넣어주면 해결
 
 #### Reference
 
@@ -624,7 +618,7 @@ Foo.func2(a) ## == a.func2()
 
 ### How does break, continue and pass work?
 
-break 문이 존재하는 루프를 종료하기 위해 사용됨. 
+break 문이 존재하는 루프를 종료하기 위해 사용됨.
 
 continue 문 다음의 루프 내부 코드는 건너뛰고 루프의 다음 반복으로 넘어감.
 
@@ -659,17 +653,20 @@ import random
 random.seed(42) # 42는 통상적으로 사용하는 시드 고정 수이다. 딱히 의미는 없고 여러 가설이 존재함.
 lst = list(range(10))
 print(lst) # [0, 1, 2, 3, ... , 9]
-random.shuffle(lst) 
+random.shuffle(lst)
 print(lst) # [2, 7, 9, 3, 0, ...]
 ```
 
 ## #23
 
 ### What’s the difference between iterator and iterable?
+
 #### Iterable
+
 - Iterable 객체라고 함. 반복가능한 객체
 - 대표적으로 ist, dict, set, str, bytes, tuple, range이 있음
 - 아래의 방법으로 iterable 객체 정확히 확인
+
 ```python
   # iterable 한 타입
   >>> var_list = [1, 3, 5, 7]
@@ -683,8 +680,10 @@ print(lst) # [2, 7, 9, 3, 0, ...]
 ```
 
 #### Iterator
+
 - Iterator 객체라고 함. 값을 차례대로 꺼낼 수 있는 객체입니다.
 - iterable한 객체를 내장함수 또는 iterable객체의 메소드로 객체를 생성할 수 있습니다.
+
 ```python
 >>> a = [1, 2, 3]
 
@@ -694,7 +693,9 @@ print(lst) # [2, 7, 9, 3, 0, ...]
 # iterable객체는 매직메소드 __iter__()
 >>> a.__iter__()
 ```
+
 - next()함수로 값을 순서대로 꺼낼수 있음(pop)
+
 ```python
 >>> next(a_iter)
 1
@@ -719,45 +720,45 @@ StopIteration
 
 파이썬 내장 모듈인 `random` 을 통해 사용할 수 있음.
 
-**정수** 에 대해서는, 범위에서 균일한 선택이 있음. 
+**정수** 에 대해서는, 범위에서 균일한 선택이 있음.
 
 **시퀀스** 에 대해서는, 무작위 요소의 균일한 선택, 리스트를 제자리(in-place)에서 임의 순열을 생성하는 함수 및 중복 없는(without replacement) 무작위 표본 추출(sampling)을 위한 함수가 있음.
 
-**실수** 에 대해서는, 균일(uniform), 정규(normal) (가우시안(Gaussian)), 로그 정규(lognormal), 음의 지수(negative exponential), 감마(gamma) 및 베타(beta) 분포를 계산하는 함수가 있음. 
+**실수** 에 대해서는, 균일(uniform), 정규(normal) (가우시안(Gaussian)), 로그 정규(lognormal), 음의 지수(negative exponential), 감마(gamma) 및 베타(beta) 분포를 계산하는 함수가 있음.
 
 #### 기본적인 random 메소드
 
-1. random.seed(*a=None*, *version=2*)
+1. random.seed(_a=None_, _version=2_)
 
    : 난수 생성기를 초기화합니다.
 
 2. 정수 함수
 
-   1. **random.randrange(*stop*), random.randrange(*start*, *stop*[, *step*])**
+   1. **random.randrange(_stop_), random.randrange(_start_, _stop_[, *step*])**
 
       `range(start, stop, step)`에서 임의로 선택된 요소를 반환. `choice(range(start, stop,step))`와 동등하지만, 실제로 range 객체를 만들지는 않음.
 
-   2. **random.randint(*a*, *b*)**
+   2. **random.randint(_a_, _b_)**
 
       `a <= N <= b`를 만족하는 임의의 정수 *N*을 반환
 
 3. 시퀸스 함수
 
-   1. **random.choice(*seq*)**
+   1. **random.choice(_seq_)**
 
       비어 있지 않은 시퀀스 *seq*에서 임의의 요소를 반환
 
-   2. **random.choices**(*population*, *weights=None*, ***, *cum_weights=None*, *k=1*)
+   2. **random.choices**(_population_, _weights=None_, *\*\*, *cum_weights=None*, *k=1\*)
 
-      *population*에서 중복을 허락하면서(with replacement) 선택한 *k* 크기의 요소 리스트를 반환합니다. *population*이 비어 있으면, [`IndexError`](https://docs.python.org/ko/3/library/exceptions.html#IndexError)를 발생
+      *population*에서 중복을 허락하면서(with replacement) 선택한 _k_ 크기의 요소 리스트를 반환합니다. *population*이 비어 있으면, [`IndexError`](https://docs.python.org/ko/3/library/exceptions.html#IndexError)를 발생
 
-   3. **random.shuffle(*x*[, *random*])**
+   3. **random.shuffle(_x_[, *random*])**
 
       시퀀스 *x*를 제자리에서 섞음. 즉, x 자체 안에서 섞이게 됨 sorted, sort 중 sort라 보면 됨
 
-   4. **random.sample**(*population*, *k*, ***, *counts=None*)
+   4. **random.sample**(_population_, _k_, *\*\*, *counts=None\*)
 
-      population 시퀀스나 집합에서 선택한 고유한 요소의 *k* 길이 리스트를 반환. 중복 없는(without replacement) 무작위 표본 추출(sampling)에 사용.
+      population 시퀀스나 집합에서 선택한 고유한 요소의 _k_ 길이 리스트를 반환. 중복 없는(without replacement) 무작위 표본 추출(sampling)에 사용.
 
 4. 실수 함수
 
@@ -765,11 +766,11 @@ StopIteration
 
       [0.0, 1.0) 구간에서 다음 임의의 부동 소수점 숫자를 반환.
 
-   2. **random.uniform(*a*, *b*)**
+   2. **random.uniform(_a_, _b_)**
 
       `a <= b` 일 때 `a <= N <= b`, `b < a` 일 때 `b <= N <= a`를 만족하는 임의의 부동 소수점 숫자 *N*을 반환
 
-   3. **random.normalvariate(*mu*, *sigma*)**
+   3. **random.normalvariate(_mu_, _sigma_)**
 
       정규 분포. *mu*는 평균이고, *sigma*는 표준 편차
 
@@ -803,13 +804,12 @@ StopIteration
 [40, 10, 50, 30]
 ```
 
-
-
 #### Reference
 
 - [python 공식 document - random (의사 난수 생성)](https://docs.python.org/ko/3/library/random.html)
 
 ## #25
+
 #### What is the difference between range & xrange?
 
 > 파이썬2에서는 `range`와 `xrange` 모두 존재하지만, 파이썬3부터는 `range`가 내부적으로 `xrange`로 동작하도록 바뀌어서 `range`만 존재한다. 그러므로 **파이썬2**를 기준으로 `range`와 `xrange`를 설명한다.
@@ -845,6 +845,7 @@ for i in r:
 - range는 리스트 이기 때문에 리스트와 관련한 indexiing, list 연산이 가능하지만 xrange는 그렇지 못하다.
 
 #### Reference
+
 - [원본 답변](https://github.com/SEOzizou/ai-tech-interview)
 - [range() vs xrange() in Python](https://www.geeksforgeeks.org/range-vs-xrange-python/)
 
@@ -852,7 +853,7 @@ for i in r:
 
 ### How do you write comments in Python?
 
-라인 맨 앞에 #을 사용하거나, 여러줄을 한번에 처리하고 싶다면  """ ... """ 또는 '''...'''형태로 사용할 수 있다.
+라인 맨 앞에 #을 사용하거나, 여러줄을 한번에 처리하고 싶다면 """ ... """ 또는 '''...'''형태로 사용할 수 있다.
 
 #### Reference
 
@@ -862,11 +863,9 @@ for i in r:
 
 ### What is pickling and unpickling?
 
-파이썬 객체를 파일에 저장하는 과정을 **pickling,** 
+파이썬 객체를 파일에 저장하는 과정을 **pickling,**
 
 파일에서 객체를 읽어오는 과정을 **unplicking** 이라고 한다.
-
-
 
 pickle 모듈을 이용하면 원하는 데이터를 자료형의 변경없이 파일로 저장하여 그대로 로드할 수 있고,
 
@@ -915,23 +914,29 @@ print(next(gen)) # 1
 print(next(gen)) # StopIteration 에러 발생
 ```
 
-***왜 리스트 대신 제너레이터를 사용할까?***
+**_왜 리스트 대신 제너레이터를 사용할까?_**
 
 - 리스트를 사용하면 리스트의 크기만큼 메모리에 공간이 할당된다. 반면 제너레이터는 말 그대로 next 함수로 호출될 때 값을 생성하고 해당 값만 메모리에 올린다. 즉, 메모리를 절약할 수 있다. 작은 데이터라면 상관없지만 큰 데이터에서는 제너레이터 사용이 필수이다.
 
 **References**
+
 - [ㅍㅍㅋㄷ](https://bluese05.tistory.com/56)
 
 ## #29
+
 ### How will you capitalize the first letter of string?
+
 문자열 메소드 `capitalize` 사용하면 됩니다.
+
 ```python
 s = 'purple'
 v = 'is'
 o = 'best'
 print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 ```
+
 #### Reference
+
 - [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp)
 
 ## #30
@@ -948,9 +953,9 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 ### What are Docstrings in Python?
 
-Document string은 Python module, class, function or method의 정의를 설명하는 문자열 로 코드를 문서화 하기위해 사용된다. 보통 """ """를 이용하여 작성되고  `__doc__` 속성이나 `help()` 내장 함수로 접근할 수 있습니다.
+Document string은 Python module, class, function or method의 정의를 설명하는 문자열 로 코드를 문서화 하기위해 사용된다. 보통 """ """를 이용하여 작성되고 `__doc__` 속성이나 `help()` 내장 함수로 접근할 수 있습니다.
 
-보통 첫줄에는 간단한 설명, 그 뒤에 자세한 설명을 적고 추가적으로  Parameter는 어떤게 있는지 어떤값을 return 하는지를 추가적으로 적는다.
+보통 첫줄에는 간단한 설명, 그 뒤에 자세한 설명을 적고 추가적으로 Parameter는 어떤게 있는지 어떤값을 return 하는지를 추가적으로 적는다.
 
 예시
 
@@ -981,7 +986,7 @@ help(function_with_pep484_type_annotations)
 추가
 
 - sphinx라는 프로그램 이용하면 Docstring 자동으로 문서화 Pytorch 공식문서 또한 이러한 방식으로 작성 된듯
-- Docstring Guide 고정된건 아닌듯.. 
+- Docstring Guide 고정된건 아닌듯..
 
 #### Reference
 
@@ -993,12 +998,14 @@ help(function_with_pep484_type_annotations)
 ### What is the purpose of is, not and in operators?
 
 `is`는 객체를 비교하는 **Identity Operator**입니다.
+
 ```python
 # 같으면
 a = 1
 b = 1
 print(a is b) # True
 ```
+
 ```python
 # 다르면
 a = 1
@@ -1007,17 +1014,20 @@ print(a is b) # False
 ```
 
 `not`은 logic value를 반대로 return하는 **Logical Operator**입니다.
+
 ```python
 print(not True) # False
 ```
 
 `in`은 value가 sequence의 있는지 확인하는 **Membership Operator**입니다.
+
 ```python
 purple_list = ['Purple', 'Lavandula', 'Bora']
 print('Red' in purple_list) # False
 ```
 
 #### Reference
+
 - [Python Operators](https://www.w3schools.com/python/python_operators.asp)
 
 ## #34
@@ -1035,13 +1045,13 @@ def myfunc(x):
 
     Returns:
         x+1: [x에 1을 더해서 리턴]
-    """  
+    """
     return x+1
-  
+
 help(myfunc) # docstring이 출력됨
 ```
 
-`dir()`  은 인자로 넣은 객체의 속성과 메서드를 문자열로 변환하고 그것을 요소로 갖는 정렬된 리스트를 반환한다. `dir`  은 사용할 객체의 메서드와 속성에 대한 정보를 얻고 싶을 때 유용하다. 다만 인자가 없다면 현재 지역 스코프에서 정의된 함수와 변수들의 리스트를 반환한다.
+`dir()` 은 인자로 넣은 객체의 속성과 메서드를 문자열로 변환하고 그것을 요소로 갖는 정렬된 리스트를 반환한다. `dir` 은 사용할 객체의 메서드와 속성에 대한 정보를 얻고 싶을 때 유용하다. 다만 인자가 없다면 현재 지역 스코프에서 정의된 함수와 변수들의 리스트를 반환한다.
 
 ```python
 def myfunc(x):
@@ -1062,8 +1072,6 @@ print(a.__add__(3)) # 6
 파이썬이 좋료되면 파이썬에 내장된 매커니즘이 작동하여 다른 객체를 할당 해제하려고 시도합니다.
 
 하지만 C라이브러리에서 예약한 메모리부분을 할당 해제할 수 없기 때문에 다른 객체 또는 전역 네임스페이스에서 참조되는 객체에 대한 **순환 참조**가 있는 파이썬 모듈이 할당 해제되지 않습니다.
-
-
 
 #### Reference
 
@@ -1101,7 +1109,7 @@ immutable한 key와 mutable한 value로 맵핑되어 있다.
 
 ```python
 n=155
-value = 'ten' if n==10 else 'not ten' 
+value = 'ten' if n==10 else 'not ten'
 # value = 'not ten'
 ```
 
@@ -1113,16 +1121,16 @@ value = 'ten' if n==10 else 'not ten'
 
 ### What does this mean: `*args`, `**kwargs`? And why would we use it?
 
-### *args
+### \*args
 
-`*args`는 `*arguments`의 줄임말로 args를 꼭 사용할 필요 없이 *만 붙이면 된다.
+`*args`는 `*arguments`의 줄임말로 args를 꼭 사용할 필요 없이 \*만 붙이면 된다.
 
-`*args`는 함수에 전달되는 argument의 수를 알 수 없거나, list나 tuple의 argument를 함수에 전달할 때 사용한다. 
+`*args`는 함수에 전달되는 argument의 수를 알 수 없거나, list나 tuple의 argument를 함수에 전달할 때 사용한다.
 
 ```python
 def name(*args):
     print(args)
-    
+
 name('민규', '재욱', '성민', '나경', '재현', '동진')
 ```
 
@@ -1130,11 +1138,9 @@ name('민규', '재욱', '성민', '나경', '재현', '동진')
 ('민규', '재욱', '성민', '나경', '재현', '동진')
 ```
 
+### \*\*kwargs
 
-
-### **kwargs
-
-`**kwargs`는 `**keyword arguments`의 줄임말로 역시 **뒤에 이름을 다르게해도 상관없다.
+`**kwargs`는 `**keyword arguments`의 줄임말로 역시 \*\*뒤에 이름을 다르게해도 상관없다.
 
 `**kwargs`는 함수에 전달되는 keyword argument의 수를 모르거나, dictionary의 keyword argument들을 함수에 전달할 때 사용한다.
 
@@ -1149,13 +1155,9 @@ name( m = '민규', n = '나경', d = '동진', j = '재욱', s = '성민')
 {'m': '민규', 'n': '나경', 'd': '동진', 'j': '재욱', 's': '성민'}
 ```
 
+\*args와 \*\*kargs를 함께 사용할 때는 args가 kwargs보다 앞에온다.
 
-
-*args와 **kargs를 함께 사용할 때는 args가 kwargs보다 앞에온다.
-
-
-
-## #39 
+## #39
 
 ### What does len() do?
 
@@ -1170,7 +1172,7 @@ a = '123'
 b = [1, 2, 3]
 c = {'first': 1, 'second':2}
 
-print(len(a)) # 3 
+print(len(a)) # 3
 print(len(b)) # 3
 print(len(c)) # 2
 ```
@@ -1182,62 +1184,65 @@ print(len(c)) # 2
 `re` module은 파이썬의 정규표현식 모듈입니다. 정규표현식을 담은 문자열을 처리하기 위해 `re.split()`, `re.sub()`, `re.subn()` 메소드를 사용합니다.
 
 - re.split(pattern, string))
-   - pattern을 구분자로 string을 분리하여 리스트로 반환합니다.
+  - pattern을 구분자로 string을 분리하여 리스트로 반환합니다.
+
 ```python
 >>> re.split('<[^<>]*>', '<html> Wow <head> header </head> <body> Hey </body> </html>')
 ['', ' Wow ', ' header ', ' ', ' Hey ', ' ', '']
 ```
 
 - re.sub(pattern, repl, string[, count=0])
-   -  string에서 pattern과 일치하는 부분에 대하여 repl로 교체하여 결과 문자열을 반환합니다.
+  - string에서 pattern과 일치하는 부분에 대하여 repl로 교체하여 결과 문자열을 반환합니다.
+
 ```python
 >>> re.sub('\d{4}', 'XXXX', '010-1234-5678')
 '010-XXXX-XXXX'
 ```
 
 - re.subn(pattern, repl, string, count=0)
-   -  sub와 동일하나, 결과로 (결과문자열, 매칭횟수)를 튜플로 반환합니다.
+  - sub와 동일하나, 결과로 (결과문자열, 매칭횟수)를 튜플로 반환합니다.
+
 ```python
 >>> re.subn('\d{4}', 'XXXX', '010-1234-5678')
 ('010-XXXX-XXXX', 2)
 ```
 
 #### Reference
+
 - [파이썬 정규표현식 모음](https://devanix.tistory.com/296)
-- [파이썬 정규표현식 중급](https://greeksharifa.github.io/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D(re)/2018/08/04/regex-usage-05-intermediate/)
+- [파이썬 정규표현식 중급](<https://greeksharifa.github.io/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D(re)/2018/08/04/regex-usage-05-intermediate/>)
 
 ## #41
 
 ### What are negative indexes and why are they used?
 
-negative index는 index로 접근할 수 있는 container에서(list, tuple, string...) 시작이 아닌 끝에서부터 접근할수 있도록 해주는 방법입니다. container의 마지막 element의 index가 -1이고 뒤에서 앞으로 올 수록 -1씩 index가 감소합니다. 
+negative index는 index로 접근할 수 있는 container에서(list, tuple, string...) 시작이 아닌 끝에서부터 접근할수 있도록 해주는 방법입니다. container의 마지막 element의 index가 -1이고 뒤에서 앞으로 올 수록 -1씩 index가 감소합니다.
 
 더욱더 효율이 좋고 가독성이 좋을때가 있습니다.
 
 ```python
 >>> l = [0,1,2,3,4,5] # negative index [-6,-5,-4,-3,-2,-1]
 # ex-1
->>> l[-1] 
-5 
->>> l[len(l) - 1] 
-5 
+>>> l[-1]
+5
+>>> l[len(l) - 1]
+5
 
 # ex-2
->>> l = [0,1,2,3,4,5] 
->>> l[-3:-1] 
-[3,4] 
+>>> l = [0,1,2,3,4,5]
+>>> l[-3:-1]
+[3,4]
 
 # ex-3
->>> l = [0,1,2,3,4,5] 
->>> l[-1:-4:-1] 
-[5,4,3] 
+>>> l = [0,1,2,3,4,5]
+>>> l[-1:-4:-1]
+[5,4,3]
 
 ```
+
 #### Reference
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
-
-
 
 ## #42
 
@@ -1300,11 +1305,12 @@ print(array)
 
 - [How to remove an element from an array in Python](https://www.kite.com/python/answers/how-to-remove-an-element-from-an-array-in-python)
 
+
 ## #43
 
 ### How can files be deleted in Python?
 
-os 모듈을  import 하고, os.remove()함수를 사용하여 파일을 삭제한다.
+os 모듈을 import 하고, os.remove()함수를 사용하여 파일을 삭제한다.
 
 ```python
 import os
@@ -1319,53 +1325,65 @@ os.remove('interview.txt')
 - [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
 - [파이썬 디렉토리 및 파일 삭제](https://hongku.tistory.com/305)
 
-
 ## #44
 
 ### What are the built-in types of python?
 
 - bulit-in type of python : 파이썬 내장 자료형
-   - bulit-in type 중에서는 mutable한 자료형도 있고, bulit-in methood를 활용해 편리하게 programming을 할 수 있습니다.
+  - bulit-in type 중에서는 mutable한 자료형도 있고, bulit-in methood를 활용해 편리하게 programming을 할 수 있습니다.
 - boolean, numeric type, sequence type, text type, binary sequence type, set type, mapping type 등이 있습니다.
 
 #### ##1 boolean type
 
 - False인 경우
-   - None
-   - zero of any numeric
-      - 0, 0.0
-      - 0j : complex, 복소수
-      - Decimal(0) : 십진법 부동소수점
-      - Fraction(0, 1) : 유리수, Fraction(분자, 분모)
-   - empty sequences and collections
-      - ''
-      - ()
-      - []
-      - {}
-      - set()
-      - range(0)
+  - None
+  - zero of any numeric
+    - 0, 0.0
+    - 0j : complex, 복소수
+    - Decimal(0) : 십진법 부동소수점
+    - Fraction(0, 1) : 유리수, Fraction(분자, 분모)
+  - empty sequences and collections
+    - ''
+    - ()
+    - []
+    - {}
+    - set()
+    - range(0)
+
 #### ##2 numeric type
+
 - int
 - float
 - complex : 복소수
+
 #### ##3 sequence type
+
 - list
 - tuple
 - range
+
 #### ##4 text sequence type
+
 - str
+
 #### ##5 binary sequence types
+
 - bytes
 - bytearray
 - memoryview
+
 #### ##6 set type
+
 - set
 - frozenset : 수정 불가능한 set
-   - tuple의 set버전
+  - tuple의 set버전
+
 #### ##7 mapping type
+
 - dictionary
 
 #### Reference
+
 - [ python document : built in type](https://docs.python.org/3/library/stdtypes.html)
 
 - [How to Delete a File in Python](https://www.dummies.com/programming/python/how-to-delete-a-file-in-python/)
@@ -1378,12 +1396,11 @@ Python은 배열(array)를 지원하지 않는다. 일반적으로 착각하기 
 
 **Array**
 
-- 정적할당(고정된 크기를 갖는다.  Size를 변화하려면 기존의 array를 삭제하고 새로운  array를 생성해야 함)
+- 정적할당(고정된 크기를 갖는다. Size를 변화하려면 기존의 array를 삭제하고 새로운 array를 생성해야 함)
 
 **List**
 
 - 동적할당(고정된 크기를 갖지 않고 동적으로 Size 조절이 가능함)
-
 
 #### NumPy Array의 장점
 
@@ -1394,8 +1411,6 @@ Python은 배열(array)를 지원하지 않는다. 일반적으로 착각하기 
 - 선형대수, 푸리에 변환, 난수 기능이 유용하다.
 - For문과 같이 반복적인 연산 작업을 vectorized operation을 사용하여 효율적인 코딩이 가능하다.
 
-
-
 #### References
 
 - https://medium.com/@5eo1ab/numpy-%EC%93%B0%EB%8A%94-%EC%9D%B4%EC%9C%A0-37895f4fdc03
@@ -1403,7 +1418,7 @@ Python은 배열(array)를 지원하지 않는다. 일반적으로 착각하기 
 
 ## #46
 
-###  How to add values to a python list?
+### How to add values to a python list?
 
 **append()**, **extend()** 그리고 **insert (i,x)** 함수를 이용하여 values를 더할 수 있다.
 
@@ -1417,27 +1432,27 @@ Python은 배열(array)를 지원하지 않는다. 일반적으로 착각하기 
 
 ```python
 import array
- 
-s1 = array.array('i', [1, 2, 3]) 
+
+s1 = array.array('i', [1, 2, 3])
 s2 = array.array('i', [4, 5, 6])
 
 s3 = s1 + s2
-print(s3)  
+print(s3)
 >> array.array('i', [1, 2, 3, 4, 5, 6])
-   
+
 s1.append(4)
-print(s1)  
->> array.array('i', [1, 2, 3, 4]) 
+print(s1)
+>> array.array('i', [1, 2, 3, 4])
 # a = [1,2,3]; b = [4, 5, 6]
 # a.append(4) -> [1,2,3,4]
 # a.append(b) -> [1,2,3,[4,5,6]]
-  
+
 s1.insert(0, 10)
-print(s1) 
+print(s1)
 >> array.array('i', [10, 1, 2, 3, 4])
 
 s1.extend(s2)
-print(s1) 
+print(s1)
 >> array.array('i', [10, 1, 2, 3, 4, 4, 5, 6])
 ```
 
@@ -1451,17 +1466,17 @@ print(s1)
 
 class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
-객체 지향 프로그래밍을 하면 프로그램 변경을 용이하게 할 수 있습니다. 
+객체 지향 프로그래밍을 하면 프로그램 변경을 용이하게 할 수 있습니다.
 
 객체 지향의 특성
 
 1. 추상화
 
-    객체들의 공통적인 특징(속성, 기능)을 도출하는 것으로 클래스를 정의하는 것이라 할 수 있다.
+   객체들의 공통적인 특징(속성, 기능)을 도출하는 것으로 클래스를 정의하는 것이라 할 수 있다.
 
 2. 캡슐화
 
-    객체 내부를 숨겨 외부로부터의 엑세스를 차단. 파이썬은 캡슐화를 지원하지 않지만 약속의 개념으로 변수에 직접접근을 막는다.
+   객체 내부를 숨겨 외부로부터의 엑세스를 차단. 파이썬은 캡슐화를 지원하지 않지만 약속의 개념으로 변수에 직접접근을 막는다.
 
 3. 상속성
 
@@ -1469,7 +1484,7 @@ class라는 기능을 이용해서 객체를 만들 수 있습니다.
 
 4. 다형성
 
-    하나의 객체가 여러개의 타입을 가리킬 수 있는 것. 상속을 통해 이루어질 수 있음.
+   하나의 객체가 여러개의 타입을 가리킬 수 있는 것. 상속을 통해 이루어질 수 있음.
 
 #### Reference
 
@@ -1522,11 +1537,10 @@ print(a, b)
 
 - [파이썬 - 기본을 갈고 닦자!](https://wikidocs.net/16038)
 
-
-
 ## #50
 
 ### How is multithreading achieved in python?
+
 python의 multithreading모듈은 threading모듈(high level)과 thread모듈(low level)이 있지만, 지금은 주로 threading모듈을 사용합니다.
 
 multi threading을 사용하면 병렬적 처리 덕분에 속도가 빨라진다고 생각하겠지만 python의 GIL(Global Interpreter Lock)정책 때문에 속도는 single threading과 별반 차이가 없습니다.
@@ -1538,6 +1552,7 @@ multi threading을 사용하면 병렬적 처리 덕분에 속도가 빨라진�
 부가적으로 python의 multiprocessing모듈은 multiprocessing모듈, concurrent모듈 등이 있습니다.
 
 #### Reference
+
 - [python multithreading, multiprocessing](https://monkey3199.github.io/develop/python/2018/12/04/python-pararrel.html)
 
 - [python multithreading, multiprocessing 쉬운 예제](https://zephyrus1111.tistory.com/111)
@@ -1574,22 +1589,20 @@ dis.dis(mult)
 				6 RETURN_VALUE
 ```
 
-
-
 #### References
 
 - https://www.tutorialspoint.com/what-is-the-process-of-compilation-and-linking-in-python
 - https://github.com/boostcamp-ai-tech-4/ai-tech-interview/blob/main/answers/4-python.md#51
 
-## #52 
+## #52
 
-###  What are Python libraries? Name a few of them.
+### What are Python libraries? Name a few of them.
 
 - Module: 모듈은 기본적으로 확장자가 .py인 파일에 저장된 관련 코드 묶음, 함수, 클래스, 변수등이 정의 되어 있다.
-- Packages: Python 패키지는 기본적으로 모듈을 모아둔 디렉토리, \__init__.py 정의 되어 있음
-- libraray: Python 라이브러리에는 관련 모듈 및 패키지 모음, 종종 Package랑 동일한 의미로 쓰인다.(package도 subpackage 포함 가능) 그러나 일반적으로 패키지는 모듈 모음이고 라이브러리는 패키지 모음 
+- Packages: Python 패키지는 기본적으로 모듈을 모아둔 디렉토리, \_\_init\_\_.py 정의 되어 있음
+- libraray: Python 라이브러리에는 관련 모듈 및 패키지 모음, 종종 Package랑 동일한 의미로 쓰인다.(package도 subpackage 포함 가능) 그러나 일반적으로 패키지는 모듈 모음이고 라이브러리는 패키지 모음
   - Matplotlb, Pytorch, Beautiful Soup, ..
-- Franework: Python 프레임워크는 프로그래머가 개발 프로세스를 빠르게 추적하는 데 도움이 되는 모듈 및 패키지 모음,  프레임워크는 일반적으로 라이브러리보다 더 복잡, 라이브러리에는 특정 작업을 수행하는 패키지가 포함되어 있지만 프레임워크에는 애플리케이션의 기본 흐름과 아키텍처가 포함
+- Franework: Python 프레임워크는 프로그래머가 개발 프로세스를 빠르게 추적하는 데 도움이 되는 모듈 및 패키지 모음, 프레임워크는 일반적으로 라이브러리보다 더 복잡, 라이브러리에는 특정 작업을 수행하는 패키지가 포함되어 있지만 프레임워크에는 애플리케이션의 기본 흐름과 아키텍처가 포함
   - Flask, Django, Bottle
 
 #### Reference
@@ -1625,9 +1638,9 @@ string.split(separator, maxsplit)
 import [module]
 ```
 
-module.py라는 파일을 import할 때 위와 같이 사용할 수 있다. 
+module.py라는 파일을 import할 때 위와 같이 사용할 수 있다.
 
-module.py안에 있는 함수를 사용하려면 
+module.py안에 있는 함수를 사용하려면
 
 ```python
 module.add(1,2)
@@ -1649,13 +1662,9 @@ from module import *
 
 으로 사용하면 module파일안에 있는 모든 함수를 add() , sub()등으로 파일 이름을 안 붙이고 사용할 수 있다.
 
+특정 디렉터리의 모듈 모두를 \*을 이용하여 import 할 때는 디렉터리\_\_init\_\_.py
 
-
-특정 디렉터리의 모듈 모두를 *을 이용하여 import 할 때는 디렉터리\__init__.py
-
-에 \__all__ 변수를 설정하고 모듈을 정의해 주어야 한다.
-
-
+에 \_\_all\_\_ 변수를 설정하고 모듈을 정의해 주어야 한다.
 
 ```python
 >>> import sys
@@ -1752,12 +1761,9 @@ class MoreFourCal(FourCal): # Inheritance FourCal class
       return reslut
 ```
 
-
-
 #### Reference
 
 - [점프투파이썬 class](https://wikidocs.net/28)
-
 
 ## #57
 
@@ -1781,38 +1787,38 @@ Monkey patching은 위와 같이 간단하다. 그렇다면 언제 사용할까?
 
 - https://newbiestory.tistory.com/60
 
-## #58 
+## #58
 
-### Does Python support multiple inheritance? 
+### Does Python support multiple inheritance?
 
 자식 클래스가 여러개의 부모 클래스로 부터 상속 받았을 때, 이를 multiple inheritance라고 합니다.
 
 ```python
-# Python example to show the working of multiple 
+# Python example to show the working of multiple
 # inheritance
 class Base1(object):
     def __init__(self):
         self.str1 = "Geek1"
         print("Base1")
-  
+
 class Base2(object):
     def __init__(self):
-        self.str2 = "Geek2"        
+        self.str2 = "Geek2"
         print("Base2")
-  
+
 class Derived(Base1, Base2):
     def __init__(self):
-          
+
         # Calling constructors of Base1
         # and Base2 classes
         Base1.__init__(self)
         Base2.__init__(self)
         print("Derived")
-          
+
     def printStrs(self):
         print(self.str1, self.str2)
-         
-  
+
+
 ob = Derived()
 ob.printStrs()
 
@@ -1828,52 +1834,53 @@ Multi-level inheritance
 child and grandchild 관계를 갖게 될 때
 
 ```python
-# A Python program to demonstrate inheritance 
-  
+# A Python program to demonstrate inheritance
+
 # Base or Super class. Note object in bracket.
 # (Generally, object is made ancestor of all classes)
-# In Python 3.x "class Person" is 
+# In Python 3.x "class Person" is
 # equivalent to "class Person(object)"
 class Base(object):
-      
+
     # Constructor
     def __init__(self, name):
         self.name = name
-  
+
     # To get name
     def getName(self):
         return self.name
-  
-  
+
+
 # Inherited or Sub class (Note Person in bracket)
 class Child(Base):
-      
+
     # Constructor
     def __init__(self, name, age):
         Base.__init__(self, name)
         self.age = age
-  
+
     # To get name
     def getAge(self):
         return self.age
-  
+
 # Inherited or Sub class (Note Person in bracket)
 class GrandChild(Child):
-      
+
     # Constructor
     def __init__(self, name, age, address):
         Child.__init__(self, name, age)
         self.address = address
-  
+
     # To get address
     def getAddress(self):
-        return self.address        
-  
+        return self.address
+
 # Driver code
-g = GrandChild("Geek1", 23, "Noida")  
+g = GrandChild("Geek1", 23, "Noida")
 print(g.getName(), g.getAge(), g.getAddress())
 >> Geek1 23 Noida
 ```
+
 #### Reference
 
 - [inheritance-in-python](https://www.geeksforgeeks.org/inheritance-in-python/)
@@ -1882,53 +1889,53 @@ print(g.getName(), g.getAge(), g.getAddress())
 
 ### What is Polymorphism in Python?
 
-Polymorphism(다형성) 이란 같은 단어(함수)이더라도 다른 형태를 행할 수 있는 것을 말한다. 
+Polymorphism(다형성) 이란 같은 단어(함수)이더라도 다른 형태를 행할 수 있는 것을 말한다.
 
 ```python
 # Python program to demonstrate in-built poly-
 # morphic functions
- 
+
 # len() being used for a string
 print(len("geeks"))
- 
+
 # len() being used for a list
 print(len([10, 20, 30]))
 ```
 
-Python에서 Polymorphism을 사용하면 부모 class에서 정의된 것과 동일한 이름을 가진 자식 클래스의 method를 정의 할 수 있다. 즉, 자식 class는 부모 class의 모든 method를 상속한다. 
+Python에서 Polymorphism을 사용하면 부모 class에서 정의된 것과 동일한 이름을 가진 자식 클래스의 method를 정의 할 수 있다. 즉, 자식 class는 부모 class의 모든 method를 상속한다.
 
-하지만 어떤 경우에는 상속 받은 method가 자식 class에 맞지 않는 경우가 있는데 이땐 자식 class에서 다시 구현해야한다. (*Method Overriding*)
+하지만 어떤 경우에는 상속 받은 method가 자식 class에 맞지 않는 경우가 있는데 이땐 자식 class에서 다시 구현해야한다. (_Method Overriding_)
 
 ```python
 class Bird:
      def intro(self):
        print("There are different types of birds")
- 
+
      def flight(self):
        print("Most of the birds can fly but some cannot")
- 
+
 class parrot(Bird):
      def flight(self):
        print("Parrots can fly")
- 
+
 class penguin(Bird):
      def flight(self):
        print("Penguins do not fly")
- 
+
 obj_bird = Bird()
 obj_parr = parrot()
 obj_peng = penguin()
- 
+
 obj_bird.intro()
 obj_bird.flight()
- 
+
 obj_parr.intro()
 obj_parr.flight()
- 
+
 obj_peng.intro()
 obj_peng.flight()
 
-# output : 
+# output :
 # There are different types of birds
 # Most of the birds can fly but some cannot
 # There are different types of bird
@@ -1936,8 +1943,6 @@ obj_peng.flight()
 # There are many types of birds
 # Penguins do not fly
 ```
-
-
 
 #### Reference
 
@@ -1954,14 +1959,13 @@ obj_peng.flight()
 
 이를 통해 사용자가 변수와 메소드에 직접적으로 접근하여 실수/고의로 데이터를 변경하는 행위를 미연에 방지.
 
-1. 변수나 함수 앞에 __(언더바 두개)를 쓰면 외부로부터 직접접근을 막을 수 있다. (함수 중 앞 뒤로 두개 있는 것은 접근 가능) :private
+1. 변수나 함수 앞에 \_\_(언더바 두개)를 쓰면 외부로부터 직접접근을 막을 수 있다. (함수 중 앞 뒤로 두개 있는 것은 접근 가능) :private
 
-   -->_{클래스이름}__{변수이름} 으로 접근할 수 있도록 속성이 바뀐 것
+   -->\_{클래스이름}\_\_{변수이름} 으로 접근할 수 있도록 속성이 바뀐 것
 
-2. 변수 앞에 _(언더바 한개)가 있다면 변수를 건드리지 말자고 약속 (해당 클래스 내부와 하위 클래스에서만 사용하자) :protect
+2. 변수 앞에 \_(언더바 한개)가 있다면 변수를 건드리지 말자고 약속 (해당 클래스 내부와 하위 클래스에서만 사용하자) :protect
 
 #### Reference
 
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
-
