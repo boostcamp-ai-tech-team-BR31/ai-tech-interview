@@ -1237,6 +1237,69 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
 
+
+
+## #42
+
+### How to remove values to a python array?
+
+크게 4가지의 방법으로 array의 값을 제거할 수 있다.
+
+#### list.pop()
+
+`list.pop()` : Index를 사용하여 List의 element를 제거할 수 있다
+
+``` python
+a_list = ["a", "b", "c"]
+a_list.pop(1)
+print(a_list)
+# ['a', 'c']
+```
+
+#### del
+
+`del` : `pop()`과 같이 index를 사용하여 List의 element를 제거 할 수 있다.
+
+``` python
+a_list = ["a", "b", "c"]
+del a_list[1]
+
+print(a_list)
+# ['a', 'c']
+```
+
+#### list.remove()
+
+`list.remove(value)` : list에서 가장 먼저 나타나는 value를 제거
+
+```python
+a_list = ["a", "b", "c"]
+a_list.remove("b")
+
+print(a_list)
+# ['a', 'c']
+```
+
+#### np.delete()
+
+`np.delete(arr, obj)` : numpy array에서 element를 제거
+
+`arr` 에서 index `obj` 의 element를 제거한다.
+
+```python
+array = np.array([1, 2, 3])
+array = np.delete(array, 2)
+
+print(array)
+[1 2]
+```
+
+
+
+#### Reference
+
+- [How to remove an element from an array in Python](https://www.kite.com/python/answers/how-to-remove-an-element-from-an-array-in-python)
+
 ## #43
 
 ### How can files be deleted in Python?
@@ -1534,6 +1597,24 @@ dis.dis(mult)
 - [Difference Between Python Modules, Packages, Libraries, and Frameworks](https://learnpython.com/blog/python-modules-packages-libraries-frameworks/)
 - [프레임워크와 라이브러리의 차이점](
 
+## #53
+
+### What is split used for?
+
+String을 각 지정한 `separator` 를 기준으로 나눈 단어들의 list로 만들어 준다.
+
+```python
+string.split(separator, maxsplit)
+```
+
+`separator` : 문자열을 나눌 때 사용할 구분 기호, default : whitespace(공백 기호)
+
+`maxsplit` : 몇 개로 나눌지 지정, default : -1 (나워지는 모든 경우)
+
+#### Reference
+
+- [Python String split() Method](https://www.w3schools.com/python/ref_string_split.asp)
+
 ## #54
 
 ### How to import modules in python?
@@ -1796,6 +1877,72 @@ print(g.getName(), g.getAge(), g.getAddress())
 #### Reference
 
 - [inheritance-in-python](https://www.geeksforgeeks.org/inheritance-in-python/)
+
+## #59
+
+### What is Polymorphism in Python?
+
+Polymorphism(다형성) 이란 같은 단어(함수)이더라도 다른 형태를 행할 수 있는 것을 말한다. 
+
+```python
+# Python program to demonstrate in-built poly-
+# morphic functions
+ 
+# len() being used for a string
+print(len("geeks"))
+ 
+# len() being used for a list
+print(len([10, 20, 30]))
+```
+
+Python에서 Polymorphism을 사용하면 부모 class에서 정의된 것과 동일한 이름을 가진 자식 클래스의 method를 정의 할 수 있다. 즉, 자식 class는 부모 class의 모든 method를 상속한다. 
+
+하지만 어떤 경우에는 상속 받은 method가 자식 class에 맞지 않는 경우가 있는데 이땐 자식 class에서 다시 구현해야한다. (*Method Overriding*)
+
+```python
+class Bird:
+     def intro(self):
+       print("There are different types of birds")
+ 
+     def flight(self):
+       print("Most of the birds can fly but some cannot")
+ 
+class parrot(Bird):
+     def flight(self):
+       print("Parrots can fly")
+ 
+class penguin(Bird):
+     def flight(self):
+       print("Penguins do not fly")
+ 
+obj_bird = Bird()
+obj_parr = parrot()
+obj_peng = penguin()
+ 
+obj_bird.intro()
+obj_bird.flight()
+ 
+obj_parr.intro()
+obj_parr.flight()
+ 
+obj_peng.intro()
+obj_peng.flight()
+
+# output : 
+# There are different types of birds
+# Most of the birds can fly but some cannot
+# There are different types of bird
+# Parrots can fly
+# There are many types of birds
+# Penguins do not fly
+```
+
+
+
+#### Reference
+
+- [What is Polymorphism in OOPs programming?](https://www.edureka.co/blog/polymorphism-in-python/)
+- [Polymorphism in Python](https://www.geeksforgeeks.org/polymorphism-in-python/)
 
 ## #60
 
