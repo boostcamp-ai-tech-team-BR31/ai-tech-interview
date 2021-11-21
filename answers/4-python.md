@@ -1607,7 +1607,7 @@ dis.dis(mult)
 #### Reference
 
 - [Difference Between Python Modules, Packages, Libraries, and Frameworks](https://learnpython.com/blog/python-modules-packages-libraries-frameworks/)
-- [프레임워크와 라이브러리의 차이점](
+- [프레임워크와 라이브러리의 차이점](https://webclub.tistory.com/458)
 
 ## #53
 
@@ -1856,6 +1856,8 @@ class Child(Base):
     # Constructor
     def __init__(self, name, age):
         Base.__init__(self, name)
+	# super().__init__(name) # 위와 동일한 결과
+	# super(Child, self).__init__(name)
         self.age = age
 
     # To get name
@@ -1868,6 +1870,8 @@ class GrandChild(Child):
     # Constructor
     def __init__(self, name, age, address):
         Child.__init__(self, name, age)
+	# super().__init__(name, age) # 위와 동일한 결과
+	# super(GrandChild, self).__init__(name, age)
         self.address = address
 
     # To get address
