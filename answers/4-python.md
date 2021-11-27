@@ -1972,3 +1972,38 @@ obj_peng.flight()
 
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
+
+## #66
+
+### Is Python numpy better than lists?
+
+한 array에서 정수(int), 부호없는 정수(uint), 실수(float), 복소수(complex), 논리(bool), 문자형(string)의 동일한 자료형만을 다루고, 동적으로 크기 조정이 필요없다면 numpy가 좋다.
+
+1. 메모리
+
+<div align='center'>
+     <img src="./images/4_66_1.PNG">
+   </div>
+
+```python
+import numpy as np
+import sys
+
+py_arr = [1,2,3,4,5,6]
+numpy_arr = np.array([1,2,3,4,5,6])
+
+sizeof_py_arr = sys.getsizeof(1) * len(py_arr)           # Size = 168
+sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 48
+```
+
+```python
+# For NumPy arrays elements limited to 1 Byte / 8 Bits
+numpy_arr = np.array([1,2,3,4,5,6], dtype = np.int8)
+sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 6 
+
+# For NumPy arrays elements limited to 2 Bytes / 16 Bits
+
+numpy_arr = np.array([1,2,3,4,5,6], dtype = np.int16)
+sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 12
+```
+
