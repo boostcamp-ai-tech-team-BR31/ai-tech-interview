@@ -949,6 +949,32 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 - [Python 공식 document - str.lower()](https://docs.python.org/ko/3/library/stdtypes.html?highlight=lower#str.lower)
 
+## #31
+
+### How to comment multiple lines in python?
+
+여러 줄을 주석(comment)하는 방법은 크게 2가지가 있다.
+
+**첫째,** `#` **이용하기**
+
+한 줄을 주석하는 `#` 을 여러번 반복하여 사용을 통해 여러 줄을 주석이 가능하다.
+
+**둘째,** `""" """` **이용하기**
+
+docstring으로도 사용하는 """ """을 이용하여 여러 줄을 주석 할 수 있다.
+
+
+
+**참고,** `/*`, `*/` 
+
+`/*`, `*/` 는 Java, C, C++ 에서는 여러줄 주석으로 많이 사용이 되지만 <u>Python에서는 사용이 불가능 하다.</u>
+
+
+
+#### Reference
+
+- [Python Comment Block: How To Write Multi-Line Comments](https://appdividend.com/2021/02/23/python-comment-block-how-to-write-multi-line-comments/)
+
 ## #32
 
 ### What are Docstrings in Python?
@@ -1243,6 +1269,39 @@ negative index는 index로 접근할 수 있는 container에서(list, tuple, str
 #### Reference
 
 - [What is negative index in python from Quora](https://www.quora.com/What-is-negative-index-in-Python)
+
+## #42
+
+### What are Python packages?
+
+#### 의미
+
+Python package는 여러 module로 구성이 된다.
+
+Package는 module을 포함하는 폴더이며 그 안에 더 많은 폴더와 모듈을 포함 할 수도 있다.
+
+개념적으로는 namespace로 볼 수 있다. 즉, 패키지의 모듈이 참조될 수 있는 패키지 이름으로 함께 묶여 있음을 의미
+
+
+
+#### 구성
+
+Package 폴더에는 일반적으로 Python에 "이 디렉토리는 package입니다!" 라고 알려주는 `__init__.py` 가 하나 들어가 있다.
+
+`__init__.py` 이 파일 안에는 코드가 없이 비어 있을 수도 있고, package 초기화시 실행할 코드가 포함 될 수도 있다.
+
+
+
+##### namespace
+
+: 변수 이름이나 함수 이름과 같이 명칭을 사용하는 공간, 소속을 타나낸다고 표현할 수 있다.
+
+
+
+#### Reference
+
+- [What Is a Python Package?](https://www.udacity.com/blog/2021/01/what-is-a-python-package.html)
+- [namespace 관련](https://thinkpro.tistory.com/22)
 
 
 ## #43
@@ -1972,3 +2031,311 @@ obj_peng.flight()
 
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
+
+
+
+## #65
+
+### What is map function in Python?
+
+Python의 `map()`은 일반적으로 mapping 할 때 쓰이는 `for loop`을 사용하지 않고 iterable 한 각 items을 처리하고 변환할 수 있는 내장 함수이다.
+
+또한 파이썬에서 함수형 프로그래밍 스타일을 지원하는 tool 중 하나이다.
+
+map()은 함수 객체와 iterable(또는 여러 iterables)를 arguments롤 갖고, 요청시 변환 항목을 생성하는 iterator를 반환 (generator 처럼 yield 로 반환)
+
+예시는 아래와 같다.
+
+```python
+map(function, iterable[, iterable1, iterable2,..., iterableN])
+```
+
+여기서 주의 할 점은 map() 의 첫번째 인자는 function object(함수 객체) 이기 때문에 함수를 호출하지 않고 넣어야 한다. <u>즉, 한 쌍의 괄호를 넣으면 안된다.</u> 
+
+
+
+코드 사용 예시
+
+```python
+# for 로 구현 시
+>>> numbers = [1, 2, 3, 4, 5]
+>>> squared = []
+
+>>> for num in numbers:
+...     squared.append(num ** 2)
+...
+
+>>> squared
+[1, 4, 9, 16, 25]
+
+# for를 사용하지 않고 map만 사용하여 구현 시
+>>> def square(number):
+...     return number ** 2
+...
+
+>>> numbers = [1, 2, 3, 4, 5]
+
+>>> squared = map(square, numbers)
+
+>>> list(squared)
+[1, 4, 9, 16, 25]
+```
+
+
+
+전체적인 동작 구조는 `for` 와 같아 빅오 계산도 for와 같다. 
+
+#### Reference
+
+- [Python's map(): Processing Iterables Without a Loop](https://realpython.com/python-map-function/)
+- [빅오 계산 비교 Loop vs Map vs List](https://leadsift.com/loop-map-list-comprehension/)
+
+
+
+## #71
+
+###  What is @classmethod, @staticmethod, @property?
+
+#### 들어가기 전에 @(decorator) 가 무엇이냐?
+
+`@` 가 들어간 것은 decorator라 불린다. decorator란?
+
+- 어떤 함수를 받아 명령을 추가한 뒤 이를 다시 함수의 형태로 반환하는 함수
+- 어떤 함수의 내부를 수정하지 않고 기능에 변화를 주고 싶을 때 사용
+- <u>**말 그대로 다른 함수를 꾸며주는 함수!**</u>
+
+
+
+**데코레이터의 기본 구조**
+
+```python
+def 데코레이터이름(func):  # 기능을 추가할 함수를 인자로 받아온다.
+    def 내부함수이름(*args, **kwargs):
+        기존 함수에 추가할 명령
+        return func(*args, **kwargs)
+    return 내부함수이름
+```
+
+**예시**
+
+```python
+def decorator(func):                      
+    def wrapper(*args, **kwargs):          
+        print('Hello')                    
+        return func(*args, **kwargs)        
+    return wrapper                        
+
+@decorator  # 데코레이터 함수를 적용할 함수 바로 위에 '@데코레이터이름'을 붙여준다.
+def introduce(name):                     
+    print(f'My name is {name}!')
+    
+introduce('JaeHyun')
+# 결과 :
+# Hello
+# My name is JaeHyun!
+```
+
+
+
+#### @classmethod
+
+method를 class method로 변환
+
+class method는 instance method가 instance를 받는 것 처럼, class(`cls`)를 첫번째 인수로 받는다.
+
+``` python
+class C:
+    @classmethod
+    def f(cls, arg1, arg2, ...): ...
+```
+
+그리고 @classmethod는 @staticmethod와 함께 `정적메소드`라 불리는데 이는 아래에 설명하겠다.
+
+#### 정적메소드
+
+- 정적메소드라 함은 클래스에서 직접 접근할 수 있는 메소드이다.
+
+- 파이썬에서는 클래스에서 직접 접근할 수 있는 메소드가 두가지 있다. (staticmethod와 classmethod) - 클래스 변수와 마찬가지로 객체를 생성하지 않고 **클래스명, 메서드명** 으로 호출이 가능하다
+
+- 클래스 내부에 정의하지만, 인스턴스에는 속하지 않는다.
+
+**비교 예시**
+
+```python
+class CustomClass:
+
+    # instance method
+    def add_instance_method(self, a,b):
+        return a + b
+
+    # classmethod
+    @classmethod
+    def add_class_method(cls, a, b):
+        return a + b
+
+    # staticmethod
+    @staticmethod
+    def add_static_method(a, b):
+        return a + b
+
+      
+# instance method안에 instance 변수에 접근하기 위해서는 첫번째 인자에 객체를 할당 해야한다(None 처럼)
+>>> from static_method import CustomClass
+>>> CustomClass.add_instance_method(None, 3, 5)
+8
+
+# 첫번째 인자가 클래스지만 생략하고 접근해야한다.
+>>> CustomClass.add_class_method(CustomClass, 3, 5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_class_method() takes 3 positional arguments but 4 were given
+
+
+>>> CustomClass.add_class_method(3, 5)
+8
+
+# staticmethod도 마찬가지
+>>> CustomClass.add_static_method(3, 5)
+8  
+
+```
+
+#### @classmethod와 @staticmethod 의 차이
+
+둘의 차이는 **상속** 에서 두드러지게 나타난다.
+
+**예시**
+
+```python
+class Language:
+    default_language = "English"
+
+    def __init__(self):
+        self.show = '나의 언어는' + self.default_language
+
+    @classmethod
+    def class_my_language(cls):
+        return cls()
+
+    @staticmethod
+    def static_my_language():
+        return Language()
+
+    def print_language(self):
+        print(self.show)
+
+
+class KoreanLanguage(Language):
+    default_language = "한국어"
+
+```
+
+```python
+>>> from language import *
+>>> a = KoreanLanguage.static_my_language()
+>>> b = KoreanLanguage.class_my_language()
+>>> a.print_language()
+나의 언어는English
+>>> b.print_language()
+나의 언어는한국어
+```
+
+여기서 볼 수 있듯, static method는  부모 클래스의 클래스 속성 값을 가져오지만 class method에서는 cls인자를 활용하여 cls의 클래스 속성을 가져온다.
+
+
+
+#### @property
+
+**파이썬 객체 지향 프로그래밍** 에서 게터(getter)와 세터(setter)를 쉽게 사용할 수 있게 파이썬 다운 방법을 제공
+
+##### Gatter와 Setter가 없는 클래스
+
+먼저 예시로 객체를 생성하고 temperature attribute를 사용
+
+```python
+class Celsius:
+    def __init__(self, temperature) -> None:
+        self.temperature = temperature
+
+    def to_fahrenheit(self):
+        return (self.temperature * 1.8) + 32
+
+# 객체 만들기
+human = Celsius()
+
+# 온도 세팅
+human.temperature = 37
+
+# 온도 읽기
+print(human.temperature)
+
+# to_fahrenheit 메서드 실행
+print(human.to_fahrenheit)
+
+# 37
+# 98.6
+```
+
+위와 같이 temperature와 같은 객체 attribute를 할당(assign, set)하거나 검색(retrieve, get) 할 때마다 파이썬은 객체의 빌트인 `__dict__` 딕셔너리 속성(attribute)에서 검색한다.
+
+```python
+>>> human.__dict__
+{'temperature' : 37}
+```
+
+따라서 human.temperature는 내부적으로 `human.__dict__['temperature']` 로 저장이 됨
+
+
+
+##### Getter 및 Setter의 사용
+
+예시
+
+```python
+class Celsius:
+    def __init__(self, temperature = 0) -> None:
+        self.set_temperature(temperature)
+
+    def to_fahrenheit(self):
+        return (self.get_temperature() * 1.8) + 32
+
+    # getter 메서드
+    def get_temperature(self):
+        return self._temperature
+    
+    # setter 메서드
+    def set_temperature(self, value):
+        if value < -273.15:
+            raise ValueError("-273.15 미만의 온도는 없습니다.")
+        self._temperature = value
+    
+# 객체 생성, __init__()가 내부적으로 set_temperature()를 호출
+human = Celsius(37)
+
+# getter를 사용해 temperature attribute를 구한다.
+print(human.get_temperature())
+
+# 화씨 변환을 위하여 to_fahrenheit 메서드 사용, get_temperature()가 호출된다.
+print(human.to_fahrenheit())
+
+# 37
+# 98.6
+```
+
+이런식으로 getter와 setter를 사용하게 업데이트를 하게 되면 이전에 getter, setter가 없던 클래스에서 
+
+
+
+#### Reference
+
+- [[Python 문법] 데코레이터 (Decorator)](https://nachwon.github.io/decorator/)
+
+- [Python 공식 doc](https://docs.python.org/3/library/functions.html?highlight=classmethod#classmethod)
+
+- [44. class 정리 - 정적메소드 @classmethod와 @staticmethod의 정리](https://wikidocs.net/16074)
+
+- [Static method VS Instance method](https://jihyehwang09.github.io/2020/03/21/java-static-method-and-instance-method/)
+
+- [OOP-@property 데코레이터(decorator)](https://m.blog.naver.com/hankrah/221976126435)
+
+  
