@@ -1973,6 +1973,69 @@ obj_peng.flight()
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
 
+
+
+## #64
+
+#### What does an object() do?
+
+파이썬은 모든것이 객체로 어떠한 value(속성값)과 method(행동)을 가지고 있는 데이터이다.
+
+**Python object() function** 빈 객체를 리턴한다 그리고 어떠한 parameter도 받지 않는다.
+
+```python
+# declaring the object of class object
+obj = object()
+ 
+# printing its type
+print("The type of object class object is : ")
+print(type(obj))
+ 
+# printing its attributes
+# dir() 내장 함수는 어떤 객체를 인자로 넣어주면 해당 객체가 어떤 변수와 메소드(method)를 가지고 있는지 나열해줍니다.
+print("The attributes of its class are : ")
+print(dir(obj))
+
+>> The type of object class object is : 
+>> <class 'object'>
+>> The attributes of its class are : 
+>> [‘__class__’, ‘__delattr__’, ‘__dir__’, ‘__doc__’, ‘__eq__’, ‘__format__’, ‘__ge__’, ‘__getattribute__’, >> ‘__gt__’, ‘__hash__’, ‘__init__’, ‘__le__’, ‘__lt__’, ‘__ne__’, ‘__new__’, ‘__reduce__’, ‘__reduce_ex__’, >> ‘__repr__’, ‘__setattr__’, ‘__sizeof__’, ‘__str__’, ‘__subclasshook__’]
+```
+
+**Properties of object()**
+
+- Objects of object class 새로운 속성을 더할 수 없다.
+- object 클래스로 만들어진 객체들은 유일하게 만들어진다. 즉 동일한 객체가 아니다. 
+- the object acts as a base class for all the custom objects that we make. (우리가 만드는 객체들의 base class가 된다는 듯)
+
+
+
+``` python
+# declaring the objects of class object
+obj1 = object()
+obj2 = object()
+ 
+# checking for object equality
+print("Is obj1 equal to obj2 : " + str(obj1 == obj2)) 
+ 
+# trying to add attribute to object
+obj1.name = "GeeksforGeeks"
+
+>> Is obj1 equal to obj2 : False
+>> Traceback (most recent call last):
+>>  File "/home/46b67ee266145958c7cc22d9ee0ae759.py", line 12, in 
+>>    obj1.name = "GeeksforGeeks"
+>> AttributeError: 'object' object has no attribute 'name'
+```
+
+#### Reference
+
+- [객체란? - 제대로 파이썬](https://wikidocs.net/20457)
+
+- [python-object-method from geeksforgeeks](https://www.geeksforgeeks.org/python-object-method/)
+
+
+
 ## #66
 
 ### Is Python numpy better than lists?
@@ -2007,3 +2070,44 @@ numpy_arr = np.array([1,2,3,4,5,6], dtype = np.int16)
 sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 12
 ```
 
+## #70
+
+#### What is object interning?
+
+Interning이란 이미 생성된 객체(object)를 재사용(reuse)하는 것을 말하는데, 보통 Immutable 객체(ex: int, string, tuple)에 대해 Interning을 사용한다. 파이썬은 기본적으로 몇가지 제한된 경우에 대해 디폴트로 Interning을 사용하고 있으며, 또한 개발자가 필요한 경우 함수를 써서 Interning을 지정할 수도 있다.
+
+
+아주 많이 사용되는 Immutable 객체의 경우 Interning을 사용하게 되면 메모리를 줄일 수 있는 효과가 있다.
+
+- 파이썬은 기본적으로 몇가지 경우에 대해 시스템 디폴트로 Object Interning을 사용한다.
+  - 문자열: 20자 미만의 공백을 포함하지 않은 문자열
+  - 정수: -5부터 256 사이의 숫자
+
+```python
+a = "Test"   # string intern
+b = "Test"   # string intern
+# id(a), id(b) 는 동일한 메모리 가리킴
+print(id(a), id(b))  # 2611825223136 2611825223136
+
+i = 10
+j = 10
+print(id(i), id(j), i is j) #2008444256 2008444256 True
+ 
+x = 257
+y = 257
+print(id(x), id(y), x is y) #2611825055632 2611825055568 False
+```
+
+```python
+from sys import intern  # Python 3
+c = intern("Alex Lee")
+d = "Alex Lee"
+print(id(c), id(d), c is d) # 2987210077360 2987210078704 False
+ 
+e = intern("Alex Lee")
+print(id(c), id(e), c is e) # 2987210077360 2987210077360 True
+```
+
+#### Reference
+
+- [파이썬-Object-Interning](http://pythonstudy.xyz/python/article/512-%ED%8C%8C%EC%9D%B4%EC%8D%AC-Object-Interning)
