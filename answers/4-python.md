@@ -963,13 +963,9 @@ print(capitalize(s) + capitalize(v) + capitalize (o)) # PurpleIsBest
 
 docstring으로도 사용하는 """ """을 이용하여 여러 줄을 주석 할 수 있다.
 
-
-
-**참고,** `/*`, `*/` 
+**참고,** `/*`, `*/`
 
 `/*`, `*/` 는 Java, C, C++ 에서는 여러줄 주석으로 많이 사용이 되지만 <u>Python에서는 사용이 불가능 하다.</u>
-
-
 
 #### Reference
 
@@ -1282,27 +1278,20 @@ Package는 module을 포함하는 폴더이며 그 안에 더 많은 폴더와 �
 
 개념적으로는 namespace로 볼 수 있다. 즉, 패키지의 모듈이 참조될 수 있는 패키지 이름으로 함께 묶여 있음을 의미
 
-
-
 #### 구성
 
 Package 폴더에는 일반적으로 Python에 "이 디렉토리는 package입니다!" 라고 알려주는 `__init__.py` 가 하나 들어가 있다.
 
 `__init__.py` 이 파일 안에는 코드가 없이 비어 있을 수도 있고, package 초기화시 실행할 코드가 포함 될 수도 있다.
 
-
-
 ##### namespace
 
 : 변수 이름이나 함수 이름과 같이 명칭을 사용하는 공간, 소속을 타나낸다고 표현할 수 있다.
-
-
 
 #### Reference
 
 - [What Is a Python Package?](https://www.udacity.com/blog/2021/01/what-is-a-python-package.html)
 - [namespace 관련](https://thinkpro.tistory.com/22)
-
 
 ## #43
 
@@ -1466,7 +1455,7 @@ print(s1)
 
 `list.pop()` : Index를 사용하여 List의 element를 제거할 수 있다
 
-``` python
+```python
 a_list = ["a", "b", "c"]
 a_list.pop(1)
 print(a_list)
@@ -1477,7 +1466,7 @@ print(a_list)
 
 `del` : `pop()`과 같이 index를 사용하여 List의 element를 제거 할 수 있다.
 
-``` python
+```python
 a_list = ["a", "b", "c"]
 del a_list[1]
 
@@ -1511,12 +1500,9 @@ print(array)
 [1 2]
 ```
 
-
-
 #### Reference
 
 - [How to remove an element from an array in Python](https://www.kite.com/python/answers/how-to-remove-an-element-from-an-array-in-python)
-
 
 ## #48
 
@@ -2032,7 +2018,62 @@ obj_peng.flight()
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
 
+## #64
 
+#### What does an object() do?
+
+파이썬은 모든것이 객체로 어떠한 value(속성값)과 method(행동)을 가지고 있는 데이터이다.
+
+**Python object() function** 빈 객체를 리턴한다 그리고 어떠한 parameter도 받지 않는다.
+
+```python
+# declaring the object of class object
+obj = object()
+
+# printing its type
+print("The type of object class object is : ")
+print(type(obj))
+
+# printing its attributes
+# dir() 내장 함수는 어떤 객체를 인자로 넣어주면 해당 객체가 어떤 변수와 메소드(method)를 가지고 있는지 나열해줍니다.
+print("The attributes of its class are : ")
+print(dir(obj))
+
+>> The type of object class object is :
+>> <class 'object'>
+>> The attributes of its class are :
+>> [‘__class__’, ‘__delattr__’, ‘__dir__’, ‘__doc__’, ‘__eq__’, ‘__format__’, ‘__ge__’, ‘__getattribute__’, >> ‘__gt__’, ‘__hash__’, ‘__init__’, ‘__le__’, ‘__lt__’, ‘__ne__’, ‘__new__’, ‘__reduce__’, ‘__reduce_ex__’, >> ‘__repr__’, ‘__setattr__’, ‘__sizeof__’, ‘__str__’, ‘__subclasshook__’]
+```
+
+**Properties of object()**
+
+- Objects of object class 새로운 속성을 더할 수 없다.
+- object 클래스로 만들어진 객체들은 유일하게 만들어진다. 즉 동일한 객체가 아니다.
+- the object acts as a base class for all the custom objects that we make. (우리가 만드는 객체들의 base class가 된다는 듯)
+
+```python
+# declaring the objects of class object
+obj1 = object()
+obj2 = object()
+
+# checking for object equality
+print("Is obj1 equal to obj2 : " + str(obj1 == obj2))
+
+# trying to add attribute to object
+obj1.name = "GeeksforGeeks"
+
+>> Is obj1 equal to obj2 : False
+>> Traceback (most recent call last):
+>>  File "/home/46b67ee266145958c7cc22d9ee0ae759.py", line 12, in
+>>    obj1.name = "GeeksforGeeks"
+>> AttributeError: 'object' object has no attribute 'name'
+```
+
+#### Reference
+
+- [객체란? - 제대로 파이썬](https://wikidocs.net/20457)
+
+- [python-object-method from geeksforgeeks](https://www.geeksforgeeks.org/python-object-method/)
 
 ## #65
 
@@ -2050,9 +2091,7 @@ map()은 함수 객체와 iterable(또는 여러 iterables)를 arguments롤 갖�
 map(function, iterable[, iterable1, iterable2,..., iterableN])
 ```
 
-여기서 주의 할 점은 map() 의 첫번째 인자는 function object(함수 객체) 이기 때문에 함수를 호출하지 않고 넣어야 한다. <u>즉, 한 쌍의 괄호를 넣으면 안된다.</u> 
-
-
+여기서 주의 할 점은 map() 의 첫번째 인자는 function object(함수 객체) 이기 때문에 함수를 호출하지 않고 넣어야 한다. <u>즉, 한 쌍의 괄호를 넣으면 안된다.</u>
 
 코드 사용 예시
 
@@ -2081,20 +2120,50 @@ map(function, iterable[, iterable1, iterable2,..., iterableN])
 [1, 4, 9, 16, 25]
 ```
 
-
-
-전체적인 동작 구조는 `for` 와 같아 빅오 계산도 for와 같다. 
+전체적인 동작 구조는 `for` 와 같아 빅오 계산도 for와 같다.
 
 #### Reference
 
 - [Python's map(): Processing Iterables Without a Loop](https://realpython.com/python-map-function/)
 - [빅오 계산 비교 Loop vs Map vs List](https://leadsift.com/loop-map-list-comprehension/)
 
+## #66
 
+### Is Python numpy better than lists?
+
+한 array에서 정수(int), 부호없는 정수(uint), 실수(float), 복소수(complex), 논리(bool), 문자형(string)의 동일한 자료형만을 다루고, 동적으로 크기 조정이 필요없다면 numpy가 좋다.
+
+1. 메모리
+
+<div align='center'>
+     <img src="./images/4_66_1.PNG">
+   </div>
+
+```python
+import numpy as np
+import sys
+
+py_arr = [1,2,3,4,5,6]
+numpy_arr = np.array([1,2,3,4,5,6])
+
+sizeof_py_arr = sys.getsizeof(1) * len(py_arr)           # Size = 168
+sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 48
+```
+
+```python
+# For NumPy arrays elements limited to 1 Byte / 8 Bits
+numpy_arr = np.array([1,2,3,4,5,6], dtype = np.int8)
+sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 6
+
+# For NumPy arrays elements limited to 2 Bytes / 16 Bits
+
+numpy_arr = np.array([1,2,3,4,5,6], dtype = np.int16)
+sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 12
+```
 
 ## #71
 
-###  What is @classmethod, @staticmethod, @property?
+### What is @classmethod, @staticmethod, @property?
 
 #### 들어가기 전에 @(decorator) 가 무엇이냐?
 
@@ -2103,8 +2172,6 @@ map(function, iterable[, iterable1, iterable2,..., iterableN])
 - 어떤 함수를 받아 명령을 추가한 뒤 이를 다시 함수의 형태로 반환하는 함수
 - 어떤 함수의 내부를 수정하지 않고 기능에 변화를 주고 싶을 때 사용
 - <u>**말 그대로 다른 함수를 꾸며주는 함수!**</u>
-
-
 
 **데코레이터의 기본 구조**
 
@@ -2119,23 +2186,62 @@ def 데코레이터이름(func):  # 기능을 추가할 함수를 인자로 받�
 **예시**
 
 ```python
-def decorator(func):                      
-    def wrapper(*args, **kwargs):          
-        print('Hello')                    
-        return func(*args, **kwargs)        
-    return wrapper                        
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Hello')
+        return func(*args, **kwargs)
+    return wrapper
 
 @decorator  # 데코레이터 함수를 적용할 함수 바로 위에 '@데코레이터이름'을 붙여준다.
-def introduce(name):                     
+def introduce(name):
     print(f'My name is {name}!')
-    
+
 introduce('JaeHyun')
 # 결과 :
 # Hello
 # My name is JaeHyun!
 ```
 
+## #70
 
+#### What is object interning?
+
+Interning이란 이미 생성된 객체(object)를 재사용(reuse)하는 것을 말하는데, 보통 Immutable 객체(ex: int, string, tuple)에 대해 Interning을 사용한다. 파이썬은 기본적으로 몇가지 제한된 경우에 대해 디폴트로 Interning을 사용하고 있으며, 또한 개발자가 필요한 경우 함수를 써서 Interning을 지정할 수도 있다.
+
+아주 많이 사용되는 Immutable 객체의 경우 Interning을 사용하게 되면 메모리를 줄일 수 있는 효과가 있다.
+
+- 파이썬은 기본적으로 몇가지 경우에 대해 시스템 디폴트로 Object Interning을 사용한다.
+  - 문자열: 20자 미만의 공백을 포함하지 않은 문자열
+  - 정수: -5부터 256 사이의 숫자
+
+```python
+a = "Test"   # string intern
+b = "Test"   # string intern
+# id(a), id(b) 는 동일한 메모리 가리킴
+print(id(a), id(b))  # 2611825223136 2611825223136
+
+i = 10
+j = 10
+print(id(i), id(j), i is j) #2008444256 2008444256 True
+
+x = 257
+y = 257
+print(id(x), id(y), x is y) #2611825055632 2611825055568 False
+```
+
+```python
+from sys import intern  # Python 3
+c = intern("Alex Lee")
+d = "Alex Lee"
+print(id(c), id(d), c is d) # 2987210077360 2987210078704 False
+
+e = intern("Alex Lee")
+print(id(c), id(e), c is e) # 2987210077360 2987210077360 True
+```
+
+#### Reference
+
+- [파이썬-Object-Interning](http://pythonstudy.xyz/python/article/512-%ED%8C%8C%EC%9D%B4%EC%8D%AC-Object-Interning)
 
 #### @classmethod
 
@@ -2143,7 +2249,7 @@ method를 class method로 변환
 
 class method는 instance method가 instance를 받는 것 처럼, class(`cls`)를 첫번째 인수로 받는다.
 
-``` python
+```python
 class C:
     @classmethod
     def f(cls, arg1, arg2, ...): ...
@@ -2178,7 +2284,7 @@ class CustomClass:
     def add_static_method(a, b):
         return a + b
 
-      
+
 # instance method안에 instance 변수에 접근하기 위해서는 첫번째 인자에 객체를 할당 해야한다(None 처럼)
 >>> from static_method import CustomClass
 >>> CustomClass.add_instance_method(None, 3, 5)
@@ -2196,7 +2302,7 @@ TypeError: add_class_method() takes 3 positional arguments but 4 were given
 
 # staticmethod도 마찬가지
 >>> CustomClass.add_static_method(3, 5)
-8  
+8
 
 ```
 
@@ -2240,9 +2346,7 @@ class KoreanLanguage(Language):
 나의 언어는한국어
 ```
 
-여기서 볼 수 있듯, static method는  부모 클래스의 클래스 속성 값을 가져오지만 class method에서는 cls인자를 활용하여 cls의 클래스 속성을 가져온다.
-
-
+여기서 볼 수 있듯, static method는 부모 클래스의 클래스 속성 값을 가져오지만 class method에서는 cls인자를 활용하여 cls의 클래스 속성을 가져온다.
 
 #### @property
 
@@ -2285,8 +2389,6 @@ print(human.to_fahrenheit)
 
 따라서 human.temperature는 내부적으로 `human.__dict__['temperature']` 로 저장이 됨
 
-
-
 ##### Getter 및 Setter의 사용
 
 예시
@@ -2302,13 +2404,13 @@ class Celsius:
     # getter 메서드
     def get_temperature(self):
         return self._temperature
-    
+
     # setter 메서드
     def set_temperature(self, value):
         if value < -273.15:
             raise ValueError("-273.15 미만의 온도는 없습니다.")
         self._temperature = value
-    
+
 # 객체 생성, __init__()가 내부적으로 set_temperature()를 호출
 human = Celsius(37)
 
@@ -2322,9 +2424,7 @@ print(human.to_fahrenheit())
 # 98.6
 ```
 
-이런식으로 getter와 setter를 사용하게 업데이트를 하게 되면 이전에 getter, setter가 없던 클래스에서 
-
-
+이런식으로 getter와 setter를 사용하게 업데이트를 하게 되면 이전에 getter, setter가 없던 클래스에서
 
 #### Reference
 
@@ -2337,5 +2437,3 @@ print(human.to_fahrenheit())
 - [Static method VS Instance method](https://jihyehwang09.github.io/2020/03/21/java-static-method-and-instance-method/)
 
 - [OOP-@property 데코레이터(decorator)](https://m.blog.naver.com/hankrah/221976126435)
-
-  
