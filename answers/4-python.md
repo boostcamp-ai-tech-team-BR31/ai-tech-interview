@@ -2161,6 +2161,18 @@ numpy_arr = np.array([1,2,3,4,5,6], dtype = np.int16)
 sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 12
 ```
 
+사용하려는 데이터에 맞게 자료형 지정 가능
+
+=> 메모리 절약
+
+2. 브로드캐스팅
+
+   <div align='center'>
+        <img src="./images/py_66_br.JPG">
+      </div>
+
+   
+
 ## #71
 
 ### What is @classmethod, @staticmethod, @property?
