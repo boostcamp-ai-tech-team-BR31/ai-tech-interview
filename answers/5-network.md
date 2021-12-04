@@ -165,7 +165,9 @@ HTTP 메시지는 서버와 클라이언트 간에 데이터가 교환되는 방
 
 **HTTP 요청/응답 메시지**
 
-![images](.\images\network_11.png)
+<div align='center'>
+     <img src="./images/network_11.png">
+   </div>
 
 - 스타트라인(Start Line): 실행되어야 할 요청, 또은 요청 수행에 대한 성공 또는 실패가 기록되어 있습니다. 이 줄은 항상 한 줄로 끝납니다. 요청 메시지일 때 요청라인(request line)이라고 하고, 응답 메시지일 때 상태라인(status line)이라고 합니다.
 
@@ -173,8 +175,9 @@ HTTP 메시지는 서버와 클라이언트 간에 데이터가 교환되는 방
 - 빈 줄(blank line): 요청에 대한 모든 메타 정보가 전송되었음을 알리는 줄
 
 - 헤더와 바디(Body): 생략할 수 있고, 바디에는 텍스트뿐만 아니라 바이너리 데이터도 들어갈 수 있습니다. 요청과 관련된 내용(HTML 폼 콘텐츠 등)이 옵션으로 들어가거나, 응답과 관련된 문서(document)가 들어갑니다. 본문의 존재 유무 및 크기는 첫 줄과 HTTP 헤더에 명시
-
-![images2](.\images\network_11-2.png)
+<div align='center'>
+     <img src="./images/network_11-2.png">
+</div>
 
 Header는 General Header, Request/Response Header, Entity Header
 
@@ -195,7 +198,10 @@ Header는 General Header, Request/Response Header, Entity Header
 
 다양한 종류의 요청 헤더가 있는데, 이들은 다음과 같이 몇몇 그룹으로 나눌 수 있습니다.
 
-![, 요](.\images\HTTP_Request_Headers2.png)
+
+<div align='center'>
+     <img src="./images/HTTP_Request_Headers2.png">
+   </div>
 
 - General 헤더: 전송되는 HTTP 본문 컨텐츠와 관련없고, HTTP 통신에 대한 일반적인 정보 포함(ex: 날짜, 메세지 전송시 보안 적용 )
 - Request 헤더: 요청헤더는 요청한 URL, 메소드(GET, POST, HEAD), 요청 생성에 사용 된 브라우저 및 기타 정보와 같은 요청에 대한 정보 포함
@@ -219,8 +225,10 @@ Header는 General Header, Request/Response Header, Entity Header
 
 응답 헤더는 사용자가 특정 페이지 또는 리소스에 대한 요청을 보낸 후 서버에서 브라우저에 의해 수신되며 컨텐츠에 사용 된 인코딩, 서버 시스템에서 응답을 생성하는 데 사용되는 서버소프트웨어 및 기타정보를 포함한합니다.
 
-![, 요](.\images\HTTP_Response_Headers2.png)
 
+<div align='center'>
+     <img src="./images/HTTP_Response_Headers2.png">
+   </div>
 **body**
 
 - Response의 body와 일반적으로 동일, 모든 response가 body가 있지는 않다. 데이터를 전송할 필요가 없을경우 body가 비어있게 된다.
