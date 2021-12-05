@@ -75,7 +75,7 @@
 ### OSI 7계층과 TCP/IP 계층의 차이를 설명해주세요.
 
 <div align='center'>
-     <img src="./images/network_2.PNG">
+     <img src="./images/network_2.png">
    </div>
 
 ### OSI 7계층
@@ -407,7 +407,7 @@ www.example-url.com/resources?name1=성민&name2=동진
 
 
 <div align='center'>
-     <img src="./images/network14.PNG">
+     <img src="./images/network14.png">
    </div>
 
 #### References
