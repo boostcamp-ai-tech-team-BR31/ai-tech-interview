@@ -70,6 +70,26 @@
 
 - [TCP/IP 계층의 특징과 역할 및 프로토콜](https://better-together.tistory.com/82)
 
+## #4
+
+### TCP와 UDP의 차이를 설명해주세요
+
+**TCP(Transmission Control Protocol)** 
+
+> 인터넷상에서 데이터를 메세지의 형태로 보내기 위해 IP와 함께 사용하는 프로토콜
+
+**UDP(User Datagram Protocol)**
+
+> IP를 사용하는 네트워크 내에서 컴퓨터들 간에 메시지들이 교환될 때 제한된 서비스만을 제공하는 통신 프로토콜
+
+<div align='center'>
+     <img src="./images/Network_5.JPG">
+   </div>
+
+UDP는 TCP에 비해 일방적인 프로토콜이다.
+
+**신뢰성이 요구되는 애플리케이션에서는 TCP를 사용하고** **간단한 데이터를 빠른 속도로 전송하고자하는 애플리케이션에서는 UDP를 사용한다.**
+
 ## #5
 
 #### TCP와 UDP의 헤더를 비교해주세요.
@@ -154,6 +174,46 @@ TCP는 데이터를 확실히 송 수신 했는지 확인하고 송 수신 속�
 
 - [Quora](https://www.quora.com/Why-is-the-TCP-connection-terminated-in-a-4-way-handshake)
 - [TCP 연결 종료](http://www.ktword.co.kr/test/view/view.php?no=2436)
+
+## #10 
+
+### HTTP와 HTTPS에 대해서 설명하고 차이점에 대해 설명해주세요.
+
+**HTTP(Hyper Text Transfer Protocol)**
+
+> 서버/클라이언트 모델을 따라 데이터를 주고 받기 위한 프로토콜
+
+즉, HTTP는 인터넷에서 하이퍼텍스트를 교환하기 위한 통신 규약으로, 80번 포트를 사용하고 있다. 따라서 HTTP 서버가 80번 포트에서 요청을 기다리고 있으며, 클라이언트는 80번 포트로 요청을 보내게 된다.
+
+HTTP의 구조
+
+- HTTP는 애플리케이션 레벨의 프로토콜로 **TCP/IP 위에서 작동**한다. HTTP는 상태를 가지고 있지 않는 Stateless 프로토콜이며 Method, Path, Version, Headers, Body 등으로 구성된다.
+
+하지만 HTTP는 암호화가 되지 않은 평문 데이터를 전송하는 프로토콜이였기 때문에, HTTP로 비밀번호나 주민등록번호 등을 주고 받으면 제3자가 정보를 조회할 수 있었다. 그리고 이러한 문제를 해결하기 위해 HTTPS가 등장하게 되었다.
+
+
+
+**HTTPS(Hyper Text Transfer Protocol Secure)**
+
+> HTTP에 데이터 암호화가 추가된 프로토콜
+
+HTTPS는 HTTP와 다르게 443번 포트를 사용하며, 네트워크 상에서 중간에 제3자가 정보를 볼 수 없도록 공개키 암호화를 지원하고 있다.
+
+
+
+**HTTP와 HTTPS**
+
+HTTP는 암호화가 추가되지 않았기 때문에 보안에 취약한 반면, HTTPS는 안전하게 데이터를 주고받을 수 있다. 하지만 HTTPS를 이용하면 암호화/복호화의 과정이 필요하기 때문에 HTTP보다 속도가 느리다.(오늘날에는 거의 차이를 못느낄 정도이다.) 또한 HTTPS는 인증서를 발급하고 유지하기 위한 추가 비용이 발생하다.
+
+***그렇다면 언제 HTTP를 쓰고, 언제 HTTPS를 쓰는 것이 좋겠는가?***
+
+개인 정보와 같은 민감한 데이터를 주고 받아야 한다면 HTTPS를 이용해야 하지만, 단순한 정보 조회 등만을 처리하고 있다면 HTTP를 이용하면 된다.
+
+
+
+**Reference**
+
+- [망나니개발자](https://mangkyu.tistory.com/98)
 
 ## #11
 
@@ -265,6 +325,22 @@ url에서 다른 서비스에 api로 정보를 받아오기 위해 프론트에�
 
 - [ERROR](https://ichi.pro/ko/gandanhan-lokeol-cors-teseuteu-dogu-92698556174789)
 - [CORS](youtube.com/watch?v=bW31xiNB8Nc)
+
+## #16
+
+### DNS가 무엇인가요?
+
+**DNS(Domain Name System)** 은 사람이 읽을 수 있는 도메인 이름(e.g. www.amazon.com)을 머신이 읽을 수 있는 IP 주소(e.g. 192.0.2.44)로 변환한다.
+
+#### DNS 기본 사항
+
+스마트폰이나 노트북부터 대규모 소매 웹 사이트의 콘텐츠를 서비스하는 서버에 이르기까지 인터넷상의 모든 컴퓨터는 숫자를 사용하여 서로를 찾고 통신합니다. 이러한 숫자를 **IP 주소**라고 합니다. 웹 브라우저를 열고 웹 사이트로 이동할 때는 긴 숫자를 기억해 입력할 필요가 없습니다. 그 대신 example.com과 같은 **도메인 이름**을 입력해도 원하는 웹 사이트로 갈 수 있습니다.
+
+Amazon Route 53과 같은 DNS 서비스는 전 세계에 배포된 서비스로서, www.example.com과 같이 사람이 읽을 수 있는 이름을 192.0.2.1과 같은 숫자 IP 주소로 변환하여 컴퓨터가 서로 통신할 수 있도록 합니다. 인터넷의 DNS 시스템은 이름과 숫자 간의 매핑을 관리하여 마치 전화번호부와 같은 기능을 합니다. DNS 서버는 이름을 IP 주소로 변환하여 도메인 이름을 웹 브라우저에 입력할 때 최종 사용자를 어떤 서버에 연결할 것인지를 제어합니다. 이 요청을 **쿼리**라고 부릅니다.
+
+#### Reference
+
+- [AWS](https://aws.amazon.com/ko/route53/what-is-dns/)
 
 ## #17
 
