@@ -70,6 +70,26 @@
 
 - [TCP/IP 계층의 특징과 역할 및 프로토콜](https://better-together.tistory.com/82)
 
+## #4
+
+### TCP와 UDP의 차이를 설명해주세요
+
+**TCP(Transmission Control Protocol)** 
+
+> 인터넷상에서 데이터를 메세지의 형태로 보내기 위해 IP와 함께 사용하는 프로토콜
+
+**UDP(User Datagram Protocol)**
+
+> IP를 사용하는 네트워크 내에서 컴퓨터들 간에 메시지들이 교환될 때 제한된 서비스만을 제공하는 통신 프로토콜
+
+<div align='center'>
+     <img src="./images/Network_5.JPG">
+   </div>
+
+UDP는 TCP에 비해 일방적인 프로토콜이다.
+
+**신뢰성이 요구되는 애플리케이션에서는 TCP를 사용하고** **간단한 데이터를 빠른 속도로 전송하고자하는 애플리케이션에서는 UDP를 사용한다.**
+
 ## #5
 
 #### TCP와 UDP의 헤더를 비교해주세요.
