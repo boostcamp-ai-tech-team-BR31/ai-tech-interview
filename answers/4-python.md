@@ -2018,6 +2018,39 @@ obj_peng.flight()
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
 
+## #62
+
+### Does python make use of access specifiers?
+
+- access specifier : 접근 제한자, access modifier라고도 함
+
+간단히 접근 제한자에 대해 언급하겠습니다. 
+
+접근 제한자는 접근할 권한의 범위를 정해주는 수식어로 캡슐화의 한 방법입니다.
+
+|access specifier|클래스 내부|동일 패키지|하위 클래스|그 외의 영역|
+|-----|-----|-----|-----|-----|
+|public|O|O|O|O|
+|protected|O|O|O|X|
+|default|O|O|X|X|
+|private|O|X|X|X|
+
+#### python의 access specifier
+
+python은 접근 제한자를 따로 갖지 않습니다. 하지만 언더바(_)를 활용해 접근제한자를 사용할 수 있습니다.
+
+기본적으로 모든 멤버가 public입니다. python은 변수 앞에 언더바(_)를 naming하는 것으로 변수의 접근을 제어한다. 
+
+언더바 하나(_)를 쓰면 protected member로 사용할 수 있습니다.
+
+언더부 두개(__)를 쓰면 private member로 사용할 수 있습니다.
+
+#### Reference
+- [Python 접근제어자](https://lambda2.tistory.com/3)
+- [객체지향 (public, private, protected)](https://www.fun-coding.org/PL&OOP1-5.html)
+- [Python 접근제어자](https://lambda2.tistory.com/3)
+
+
 ## #63 
 
 ### How to create an empty class in Python?
@@ -2193,7 +2226,18 @@ sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 12
    <div align='center'>
         <img src="./images/py_66_br.JPG">
       </div>
-   
+
+## #68
+
+### What is the CPython?
+
+C로 작성된 파이썬 구현체를 의미합니다. 가장 널리 사용되는 파이썬 구현체입니다.
+
+C파이썬은 인터프리트 과정 이전에 파이썬 코드를 바이트코드로 컴파일하기 때문에 인터프리터이기도 하고 컴파일러이기도 하다. C를 포함한 여러 언어의 외부 함수 인터페이스를 보유하고 있으며 여기서 파이썬 외의 언어로 바인딩을 명시적으로 작성해야 합니다. CPython외에 Jyto, Pypy 등이 있습니다.
+
+#### Reference
+- [C파이썬 - 위키백과, 우리 모두의 백과사전](https://ko.m.wikipedia.org/wiki/C%ED%8C%8C%EC%9D%B4%EC%8D%AC)
+- [1. Introduction - Python 3.10.0 documentation](https://docs.python.org/ko/3/reference/introduction.html)   
    
 
 ## #69 
@@ -2246,50 +2290,9 @@ my func1 is running
 
 - [ㅍㅍㅋㄷ](https://bluese05.tistory.com/30)
 
-## #71
-
-### What is @classmethod, @staticmethod, @property?
-
-#### 들어가기 전에 @(decorator) 가 무엇이냐?
-
-`@` 가 들어간 것은 decorator라 불린다. decorator란?
-
-- 어떤 함수를 받아 명령을 추가한 뒤 이를 다시 함수의 형태로 반환하는 함수
-- 어떤 함수의 내부를 수정하지 않고 기능에 변화를 주고 싶을 때 사용
-- <u>**말 그대로 다른 함수를 꾸며주는 함수!**</u>
-
-**데코레이터의 기본 구조**
-
-```python
-def 데코레이터이름(func):  # 기능을 추가할 함수를 인자로 받아온다.
-    def 내부함수이름(*args, **kwargs):
-        기존 함수에 추가할 명령
-        return func(*args, **kwargs)
-    return 내부함수이름
-```
-
-**예시**
-
-```python
-def decorator(func):
-    def wrapper(*args, **kwargs):
-        print('Hello')
-        return func(*args, **kwargs)
-    return wrapper
-
-@decorator  # 데코레이터 함수를 적용할 함수 바로 위에 '@데코레이터이름'을 붙여준다.
-def introduce(name):
-    print(f'My name is {name}!')
-
-introduce('JaeHyun')
-# 결과 :
-# Hello
-# My name is JaeHyun!
-```
-
 ## #70
 
-#### What is object interning?
+### What is object interning?
 
 Interning이란 이미 생성된 객체(object)를 재사용(reuse)하는 것을 말하는데, 보통 Immutable 객체(ex: int, string, tuple)에 대해 Interning을 사용한다. 파이썬은 기본적으로 몇가지 제한된 경우에 대해 디폴트로 Interning을 사용하고 있으며, 또한 개발자가 필요한 경우 함수를 써서 Interning을 지정할 수도 있다.
 
@@ -2522,3 +2525,44 @@ print(human.to_fahrenheit())
 - [Static method VS Instance method](https://jihyehwang09.github.io/2020/03/21/java-static-method-and-instance-method/)
 
 - [OOP-@property 데코레이터(decorator)](https://m.blog.naver.com/hankrah/221976126435)
+
+## #71
+
+### What is @classmethod, @staticmethod, @property?
+
+#### 들어가기 전에 @(decorator) 가 무엇이냐?
+
+`@` 가 들어간 것은 decorator라 불린다. decorator란?
+
+- 어떤 함수를 받아 명령을 추가한 뒤 이를 다시 함수의 형태로 반환하는 함수
+- 어떤 함수의 내부를 수정하지 않고 기능에 변화를 주고 싶을 때 사용
+- <u>**말 그대로 다른 함수를 꾸며주는 함수!**</u>
+
+**데코레이터의 기본 구조**
+
+```python
+def 데코레이터이름(func):  # 기능을 추가할 함수를 인자로 받아온다.
+    def 내부함수이름(*args, **kwargs):
+        기존 함수에 추가할 명령
+        return func(*args, **kwargs)
+    return 내부함수이름
+```
+
+**예시**
+
+```python
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Hello')
+        return func(*args, **kwargs)
+    return wrapper
+
+@decorator  # 데코레이터 함수를 적용할 함수 바로 위에 '@데코레이터이름'을 붙여준다.
+def introduce(name):
+    print(f'My name is {name}!')
+
+introduce('JaeHyun')
+# 결과 :
+# Hello
+# My name is JaeHyun!
+```
