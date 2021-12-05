@@ -2344,6 +2344,49 @@ print(id(c), id(e), c is e) # 2987210077360 2987210077360 True
 
 - [파이썬-Object-Interning](http://pythonstudy.xyz/python/article/512-%ED%8C%8C%EC%9D%B4%EC%8D%AC-Object-Interning)
 
+
+## #71
+
+### What is @classmethod, @staticmethod, @property?
+
+#### 들어가기 전에 @(decorator) 가 무엇이냐?
+
+`@` 가 들어간 것은 decorator라 불린다. decorator란?
+
+- 어떤 함수를 받아 명령을 추가한 뒤 이를 다시 함수의 형태로 반환하는 함수
+- 어떤 함수의 내부를 수정하지 않고 기능에 변화를 주고 싶을 때 사용
+- <u>**말 그대로 다른 함수를 꾸며주는 함수!**</u>
+
+**데코레이터의 기본 구조**
+
+```python
+def 데코레이터이름(func):  # 기능을 추가할 함수를 인자로 받아온다.
+    def 내부함수이름(*args, **kwargs):
+        기존 함수에 추가할 명령
+        return func(*args, **kwargs)
+    return 내부함수이름
+```
+
+**예시**
+
+```python
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        print('Hello')
+        return func(*args, **kwargs)
+    return wrapper
+
+@decorator  # 데코레이터 함수를 적용할 함수 바로 위에 '@데코레이터이름'을 붙여준다.
+def introduce(name):
+    print(f'My name is {name}!')
+
+introduce('JaeHyun')
+# 결과 :
+# Hello
+# My name is JaeHyun!
+```
+
+
 #### @classmethod
 
 method를 class method로 변환
@@ -2538,44 +2581,3 @@ print(human.to_fahrenheit())
 - [Static method VS Instance method](https://jihyehwang09.github.io/2020/03/21/java-static-method-and-instance-method/)
 
 - [OOP-@property 데코레이터(decorator)](https://m.blog.naver.com/hankrah/221976126435)
-
-## #71
-
-### What is @classmethod, @staticmethod, @property?
-
-#### 들어가기 전에 @(decorator) 가 무엇이냐?
-
-`@` 가 들어간 것은 decorator라 불린다. decorator란?
-
-- 어떤 함수를 받아 명령을 추가한 뒤 이를 다시 함수의 형태로 반환하는 함수
-- 어떤 함수의 내부를 수정하지 않고 기능에 변화를 주고 싶을 때 사용
-- <u>**말 그대로 다른 함수를 꾸며주는 함수!**</u>
-
-**데코레이터의 기본 구조**
-
-```python
-def 데코레이터이름(func):  # 기능을 추가할 함수를 인자로 받아온다.
-    def 내부함수이름(*args, **kwargs):
-        기존 함수에 추가할 명령
-        return func(*args, **kwargs)
-    return 내부함수이름
-```
-
-**예시**
-
-```python
-def decorator(func):
-    def wrapper(*args, **kwargs):
-        print('Hello')
-        return func(*args, **kwargs)
-    return wrapper
-
-@decorator  # 데코레이터 함수를 적용할 함수 바로 위에 '@데코레이터이름'을 붙여준다.
-def introduce(name):
-    print(f'My name is {name}!')
-
-introduce('JaeHyun')
-# 결과 :
-# Hello
-# My name is JaeHyun!
-```
