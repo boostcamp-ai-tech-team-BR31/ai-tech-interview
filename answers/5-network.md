@@ -126,7 +126,7 @@ Frame, Packet, Segment, Datagram은 데이터를 송수신할 때, TCP/IP 5계�
 #### #데이터 송신
 
 <div align='center'>
-     <img src="./images/network_#3_1.png">
+     <img src=".\images\network_3_1.png">
    </div>
 1. 응용 계층에서 요청 데이터가 만들어진다.
 
@@ -143,7 +143,7 @@ Frame, Packet, Segment, Datagram은 데이터를 송수신할 때, TCP/IP 5계�
 #### #데이터 수신
 
 <div align='center'>
-     <img src="./images/network_#3_2.png">
+     <img src=".\images\network_3_2.png">
    </div>
 
 - 데이터 수신할 땐, 반대로 헤더를 제거하며 데이터를 전달하는 **역캡슐화** 과정을 거칩니다.
