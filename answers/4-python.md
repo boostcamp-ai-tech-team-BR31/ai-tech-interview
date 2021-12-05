@@ -2018,6 +2018,29 @@ obj_peng.flight()
 - [Encapsulation](https://velog.io/@kyeongraekim/Python-TIL14-Encapsulation)
 - [객체지향 프로그래밍 개념](https://seungjuitmemo.tistory.com/51)
 
+## #63 
+
+### How to create an empty class in Python?
+
+```python
+# jaewook.py
+class Jaewook:
+```
+
+위 파일을 실행하면 아래 에러가 발생한다.
+
+> SyntaxError: unexpected EOF while parsing
+
+빈 클래스를 생성하려면 `pass` 를 사용하면 된다!!
+
+```python
+# jaewook.py
+class Jaewook:
+  	pass
+```
+
+`pass` 는 파이썬에서 아무 동작도 하지 않는 special statement이다. 빈 함수나 클래스를 사전 정의할때 사용된다.
+
 ## #64
 
 #### What does an object() do?
@@ -2170,8 +2193,58 @@ sizeof_numpy_arr = numpy_arr.itemsize * numpy_arr.size   # Size = 12
    <div align='center'>
         <img src="./images/py_66_br.JPG">
       </div>
-
    
+   
+
+## #69 
+
+### What are Decorators in Python?
+
+**데코레이터는 다른 함수를 꾸며주는 함수!**
+
+***언제 쓸까?***
+
+- 기존 structure는 건드리지 않고 함수의 동작 방식에 제약이나 변화를 주고싶을 때 사용
+
+***예시***
+
+가령 함수의 실행 속도를 측정하고 싶다고 하자. 코드마다 time.time()을 사용하는 방법도 있지만 데코레이터를 사용하면 훨씬 간단하게 해결가능하다!
+
+```python
+def time_decorator(func):
+  def decorated():
+    start_time = time.time()
+    func()
+    end_time = time.time()
+    print(end_time - start_time)
+  return decorated
+
+@time_decorator
+def my_func1():
+  print('my func1 is running')
+
+@time_decorator
+def my_func2():
+  print('my func2 is running')
+
+@time_decorator
+def my_func3():
+  print('my func3 is running')
+  
+  
+'''실행결과
+my func1 is running
+0.24ms
+my func2 is running
+0.22ms
+my func1 is running
+0.27ms
+'''
+```
+
+#### Reference
+
+- [ㅍㅍㅋㄷ](https://bluese05.tistory.com/30)
 
 ## #71
 
