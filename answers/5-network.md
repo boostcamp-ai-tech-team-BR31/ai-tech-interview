@@ -70,6 +70,48 @@
 
 - [TCP/IP 계층의 특징과 역할 및 프로토콜](https://better-together.tistory.com/82)
 
+## #2
+
+### OSI 7계층과 TCP/IP 계층의 차이를 설명해주세요.
+
+<div align='center'>
+     <img src="./images/network_2.png">
+   </div>
+
+### OSI 7계층
+
+1. **물리계층 (Physical Layer)**
+   - **전기적, 기계적, 기능적인 특성을 이용하여 통신 케이블로 데이터를 전송**한다.
+2. **데이터 링크계층 (DataLink Layer)**
+   - **물리 계층을 통해 송수신되는 정보의 오류와 흐름을 관리하여 안전한 정보의 수행을 도와주는 역할**을 한다.
+3. **네트워크 계층 (Network Layer)**
+   - 데이터를 목적지까지 가장 안전하고 빠르게 전달하는 기능을 한다.
+   - **경로를 선택하고 주소를 정하고 경로에 따라 패킷을 전달해주는 역할**을 한다.
+   - 대표적인 장비로 라우터, (라우팅 기능이 포함된)스위치가 있으며, **IP 주소를 사용**한다.
+4. **전송 계층 (Transport Layer)**
+   - **통신을 활성화하기 위한 계층**이다. 보통 **TCP 프로토콜을 사용**하며, 포트를 열어서 응용 프로그램을 전송한다.
+5. **세션 계층 (Session Layer)**
+   - **데이터가 통신하기 위한 논리적인 연결**을 한다.
+   - **세션 설정, 유지, 종료, 전송 중단시 복구 등의 기능**이 있다.
+6. **표현 계층 (Presentation Layer)**
+   - **데이터 표현이 상이한 응용 프로세스의 독립성을 제공하고, 암호화**한다.
+   - 해당 데이터가 텍스트인지, 그림인지, GIF인지, JPG인지의 구분 등의 역할을 한다.
+7. **응용 계층 (Application Layer)**
+   - 최종 목적지로서 HTTP, FTP, SMTP, Telnet 등과 같은 프로토콜이 있다.
+   - **응용 프로세스와 직접 관계하여 일반적인 응용 서비스를 수행**한다.
+   - 네트워크 소프트웨어의 UI 부분, 사용자의 입출력 부분을 담당한다.
+
+
+
+OSI 계층은 TCP/IP 계층의 응용 계층을 더 세분화한 것이다. 
+
+네트워크 전송시 **테이터 표준을 정리**한 것이 **OSI계층**이라면, 이 이론을 실제로 사용하는 **인터넷 표준**이 **TCP/IP**계층이다.
+
+#### Reference
+
+- [OSI 7계층, TCP/IP 4계층 모델](https://devowen.com/344)
+
+
 ## #3
 
 ### Frame, Packet, Segment, Datagram을 비교해주세요.
@@ -111,7 +153,6 @@ Frame, Packet, Segment, Datagram은 데이터를 송수신할 때, TCP/IP 5계�
 
 - [패킷이란 무엇일까? 패킷의 정의와 구조 - Jay's Blog](https://enlqn1010.tistory.com/9)
 - [[네트워크] TCP/IP 5계층에서 일어나는 일 (1) - 코알라일락's BLOG](https://zion830.tistory.com/104)
-
 
 ## #4
 
@@ -218,6 +259,18 @@ TCP는 데이터를 확실히 송 수신 했는지 확인하고 송 수신 속�
 - [Quora](https://www.quora.com/Why-is-the-TCP-connection-terminated-in-a-4-way-handshake)
 - [TCP 연결 종료](http://www.ktword.co.kr/test/view/view.php?no=2436)
 
+## #8
+
+### 만약 Server에서 FIN 플래그를 전송하기 전에 전송한 패킷이 Routing 지연이나 패킷 유실로 인한 재전송 등으로 인해 FIN 패킷보다 늦게 도착하는 상황이 발생하면 어떻게 될까요?
+
+Client에서 세션을 종료시킨 후 뒤늦게 도착하는 패킷이 있다면 이 패킷은 Drop되고 **데이터는 유실**될 것이다.
+
+이러한 현상에 대비하여 Client는 Server로부터 **FIN**을 수신하더라도 일정시간동안 세션을 남겨놓고 잉여 패킷을 기다리는 과정을 거치게 되는데 이 과정을 **TIME_WAIT** 라고 한다. 일정 시간이 지나면, 세션을 만료하고 연결을 종료시킨다.
+
+#### References
+
+- [[네트워크\] 3-way / 4-way Handshake 란? - 방구의 개발냄새](https://bangu4.tistory.com/74)
+
 ## #9
 
 ### 초기 Sequence Number인 ISN을 0부터 시작하지 않고 난수를 생성해서 설정하는 이유가 무엇인가요?
@@ -243,6 +296,7 @@ Connection을 맺을 때 사용하는 포트는 유한 범위 내에서 사용�
 
 - [[Network] (TCP) 3-way-handshake & 4-way-handshake - 어제보다 한 걸음 더](https://k39335.tistory.com/21)
 - [TCP - Connection Establishment/Termination](https://nogan.tistory.com/22)
+
 
 ## #10 
 
@@ -394,6 +448,41 @@ url에서 다른 서비스에 api로 정보를 받아오기 위해 프론트에�
 
 - [ERROR](https://ichi.pro/ko/gandanhan-lokeol-cors-teseuteu-dogu-92698556174789)
 - [CORS](youtube.com/watch?v=bW31xiNB8Nc)
+
+## #14
+
+### HTTP GET과 POST 메서드를 비교/설명해주세요.
+
+### GET 
+
+- 클라이언트에서 서버로 어떠한 리소스로 부터 정보를 요청하기 위해 사용되는 method
+- 요청을 전송할 때 URL 주소 끝에 파라미터로 포함되어 전송되며, 이 부분을 **쿼리 스트링**이라고 한다. 
+
+```
+www.example-url.com/resources?name1=성민&name2=동진
+```
+
+위 예는 쿼리 스트링을 포함한 URL이다. 파라미터인 name1과 name2를 통해 값을 전달받고 &로 연결한다.
+
+- GET은 데이터를 읽을때만 사요하고 수정할 때는 사용하지 않는다.
+
+
+
+### POST
+
+- 리소스를 생성/업데이트하기 위해 서버에 데이터를 보낼때 사용
+- 전송할 데이터를 HTTP 메세지의 Body에 담아서 전송
+- HTTP 메세지의 Body는 길이의 제한없이 데이터를 전송할 수 있다. 그래서 `POST` 요청은 `GET`과 달리 대용량 데이터를 전송할 수 있다.
+
+
+
+<div align='center'>
+     <img src="./images/network14.png">
+   </div>
+
+#### References
+
+- [Get과 Post의 차이를 아시나요?](https://velog.io/@songyouhyun/Get%EA%B3%BC-Post%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%EC%95%84%EC%8B%9C%EB%82%98%EC%9A%94)
 
 
 ## #15
