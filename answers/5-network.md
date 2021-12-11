@@ -128,7 +128,7 @@ Frame, Packet, Segment, Datagram은 데이터를 송수신할 때, TCP/IP 5계�
 #### #데이터 송신
 
 <div align='center'>
-     <img src="./images/network_#3_1.png">
+     <img src=".\images\network_3_1.png">
    </div>
 1. 응용 계층에서 요청 데이터가 만들어진다.
 
@@ -145,7 +145,7 @@ Frame, Packet, Segment, Datagram은 데이터를 송수신할 때, TCP/IP 5계�
 #### #데이터 수신
 
 <div align='center'>
-     <img src="./images/network_#3_2.png">
+     <img src=".\images\network_3_2.png">
    </div>
 
 - 데이터 수신할 땐, 반대로 헤더를 제거하며 데이터를 전달하는 **역캡슐화** 과정을 거칩니다.
@@ -178,7 +178,7 @@ UDP는 TCP에 비해 일방적인 프로토콜이다.
 
 ## #5
 
-#### TCP와 UDP의 헤더를 비교해주세요.
+### TCP와 UDP의 헤더를 비교해주세요.
 
 TCP(Transmission Control Protocol) Vs UDP(User Datagram Protocol)
 
@@ -238,7 +238,7 @@ TCP는 데이터를 확실히 송 수신 했는지 확인하고 송 수신 속�
 
 ## #7
 
-#### TCP의 연결 설정 과정(3단계)과 연결 종료 과정(4단계)이 단계가 차이나는 이유가 무엇인가요?
+### TCP의 연결 설정 과정(3단계)과 연결 종료 과정(4단계)이 단계가 차이나는 이유가 무엇인가요?
 
 <div align='center'>
      <img src="./images/nt_7_3sh.JPG">
