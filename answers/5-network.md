@@ -694,6 +694,101 @@ REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 �
 
 
 
+## #22
+
+#### SMTP가 무엇인가요?
+
+SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이메일 계정에서 다른 이메일 계정으로 보내기 위해 사용되는 프로토콜입니다. (Gmail, Apple Mail, Outlook의 대부분 이메일 클라이언트 SMTP 사용하여 통신)
+
+
+
+##### SMTP 작동방법
+
+- SMTP 서버가 설정되면 전자 메일 클라이언트가 해당 서버에 연결하여 통신
+
+- 사용자가 이메일 메시지에서 "보내기"를 누르면 이메일 클라이언트가 서버에 대한 SMTP 연결을 열어 보냄
+- 거기에서 SMTP 클라이언트는 명령을 사용하여 보낸 사람의 전자 메일 주소, 받는 사람의 전자 메일 주소 및 전자 메일 내용과 같은 데이터를 전송하고 수행할 작업을 서버에 지시
+- 메일 전송 에이전트 또는 메시지 전송 에이전트(MTA)는 두 이메일 주소가 gmail.com과 같은 동일한 이메일 도메인에서 온 것인지 확인
+  - 그렇다면 즉시 이메일을 보냅니다.
+  - 그렇지 않은 경우 서버는 DNS(Domain Name System)를 사용하여 받는 사람의 도메인을 식별한 다음 올바른 서버로 보냅니다.
+
+![network_image_23](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23.png)
+
+**SMTP 명령어 예시**
+
+- HELO - 클라이언트가 HELO 명령어 전송하여 SMTP를 식별하고 대화 시작 
+
+- MAIL FROM: 보낸이 메일주소 지정. 새 메일 트랜잭션이 시작되고 있는다는 것을 SMTP서버에 알리고 서버가 모든상태 테이블과 버퍼 등을 재설정하도록 한다.
+
+- RCPT TO: 받는이 메일주소 지정. 주어진 전자메일 메세지에 대해 여러번 반복하여 메세지 전달 가능.
+
+- DATA: 메세지 본문내용의 전송 시작.
+
+- RSET: RSET명령이 전자메일 서버로 보내지면 현재메일 트랜잭션이 중단된다. 연결은 닫히지 않지만 보낸이,받는이 및 전자메일 데이터에 대한 모든정보가 초기화 되고 버퍼/상태 테이블이 삭제된다. 
+
+- VRFY: 서버에 지정된 사용자 이름이나 사서함이 유효한지 확인하도록 요청한다. 
+
+- NOOP: 서버가 연결되어 있고 클라이언트와 통신할 수 있는지 확인한다. NOOP명령은 수신자가 OK응답을 보내도록 하는 것 외에는 수행하지 않음. 
+
+- QUIT: 연결 종료.
+
+  **SMTP 통신의 예**
+
+  클라이언트에서 호스트인 www.example.com으로 SMTP 연결이 시작될 수 있다.
+
+> ```
+> S: 220 smtp.example.com ESMTP Postfix
+> C: HELO relay.example.com
+> S: 250 smtp.example.com, I am glad to meet you
+> C: MAIL FROM:<bob@example.com>
+> S: 250 Ok
+> C: RCPT TO:<alice@example.com>
+> S: 250 Ok
+> C: RCPT TO:<theboss@example.com>
+> S: 250 Ok
+> C: DATA
+> S: 354 End data with <CR><LF>.<CR><LF>
+> C: From: "Bob Example" <bob@example.com>
+> C: To: Alice Example <alice@example.com>
+> C: Cc: theboss@example.com
+> C: Date: Tue, 15 January 2008 16:02:43 -0500
+> C: Subject: Test message
+> C: 
+> C: Hello Alice.
+> C: This is a test message with 5 header fields and 4 lines in the message body.
+> C: Your friend,
+> C: Bob
+> C: .
+> S: 250 Ok: queued as 12345
+> C: QUIT
+> S: 221 Bye
+> {The server closes the connection}
+> ```
+
+
+
+**SMTP와 다른 email Protocol들 과의 차이**
+
+**SMTP**는 많은 email protocol 중에 하나로 다른 것의 예씨로는 **POP3**와 **IMAP**이 있다.
+
+가장 주된 차이는 SMTP는 메일 서버로 부터 다른 곳으로 이메일을 sending or pushing하는 유일한 protocol이다. POP3와 IMAP은 자신의 이메일 서버로부터 수신자의 메일을 수신하거나 pulling 하는 protocol이다. 따라서 POP3 및 IMAP은 메일 전송을 확인만 하는것.
+
+![network_image_23-2](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23-2.png)
+
+**POP**: Post Office Protocol의 약자로 들어오는 메시지를 수신하는 데 사용됩니다. 가장 최신 버전은 [POP3](https://whatismyipaddress.com/pop3) 이며 1988년에 마지막으로 업데이트되었습니다.  POP3는 이메일을 수신하고 고객이 받을 때까지 보관합니다. 모든 이메일은 로컬에 다운로드 및 저장되므로 한 대의 컴퓨터만 사용하여 이메일을 확인하는 사람에게 편리한 솔루션입니다
+
+**IMAP**
+
+IMAP은 이메일 서버에 메시지를 저장하지만 사용자가 이 서버에 액세스하여 이메일을 확인하고 구성할 수 있습니다. 이것과 POP의 차이점은 IMAP이 클라우드 서버를 사용하므로 모든 장치에서 이메일을 인증하고 분류할 수 있다는 것입니다. 많은 이메일 사용자는 편의성과 효율성 때문에 POP보다 IMAP을 선호
+
+
+
+#### Reference
+
+- [SMTP에 대해 알아야할 모든것](https://postmarkapp.com/guides/everything-you-need-to-know-about-smtp)
+- [SMTP 위키백과](https://ko.wikipedia.org/wiki/%EA%B0%84%EC%9D%B4_%EC%9A%B0%ED%8E%B8_%EC%A0%84%EC%86%A1_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C)
+- [**SMTP 기본 명령어**](https://cheershennah.tistory.com/133)
+
 ## #25
 
 #### 여러 네트워크 topology에 대해 간단히 소개해주세요.
@@ -714,6 +809,84 @@ REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 �
 #### Reference
 
 - [토폴로지](https://dajjang.tistory.com/22)
+
+
+
+## #29
+
+#### routing protocol을 몇 가지 설명해주세요. (ex. link state, distance vector)
+
+**라우팅이란?**
+
+Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 한 가지 경로를 결정하는 것이다. 라우팅에는 동적 라우팅(Dynamic Routing)과 정적 라우팅(Static Routing)으로 나누는데 정적 라우팅은 주로 사람이 수동으로 미리 경로를 지정하는 방식이고, 동적 라우팅은 변화하는 상황에 맞추어 라우터가 경로를 재설정하는 방식으로 이루어진다.
+
+**라우팅 프로토콜(Routing Protocol)의 개념**
+
+라우팅을 위해서 네트워크 상의 모든 라우터(Router)들은 목적지에 따라서 패킷을 보낼 Interface를 선 계산해 놓아야 하는데 이 계산해 놓은 것을 라우팅 테이블이라고 한다.
+
+> **라우팅 테이블을 생성, 유지, 업데이트, 전달하는 프로토콜**은 라우팅 프로토콜이라고 한다
+
+라우팅 프로토콜 구성
+
+1) Routing Table
+
+- 패킷을 목적지로 라우팅 할 때 참조하는 테이블
+- 목적지 주소, Output I/F, Metric 값
+
+2) Message
+
+- 라우터 간 라우팅을 위해 교환하는 메세지
+- 이웃 도달 메세지, 라우팅 정보
+
+3) Metric
+
+- 라우팅 테이블 생성 및 업데이트 시 최적의 경로를 결정하는 기술
+- 경로 길이, 홉(Hop) 수, 대역폭, 비용, 신뢰성
+
+#### 라우팅 프로토콜의 종류
+
+![network_image_29](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_29.png)
+
+1) 라우팅 경로 고정 여부
+   Static Routing Protocol
+
+- 수동식, 사람이 일일이 경로를 입력, 라우터 부하경감, 고속 라우팅 가능
+- 관리자의 관리부담 증가 및 정해진 경로 문제 발생시 라우팅 불가능
+
+Dynamic Routing Protocol
+
+- 라우터가 스스로 라우팅 경로를 동적으로 결정
+- RIP, IGRP, OSPF, EIGRP
+
+2) 내/외부 라우팅
+   Interior Gateway Protocol
+
+- 네트워크 집합에서 동일 그룹 내에서의 라우팅을 담당하는 라우팅 프로토콜
+- RIP, IGRP, OSPF, EIGRP
+
+Exterior Gateway Protocol	
+
+- 네트워크 집합에서 서로 다른 네트워크 그룹 사이에서 사용되는 라우팅 프로토콜
+- BGP, EGP
+
+3) 라우팅 테이블 관리
+   Distance Vector Algorithm
+
+- 라우팅 Table에 목적지까지 가는데 필요한 거리와 방향만을 기록 (인접 라우터)
+- RIP, IGRP
+
+Link State Algorithm
+
+- 라우터가 목적지까지 가는 경로를 SPF(Shortest Path First) 알고리즘을 통해 모든 라우팅 테이블에 기록해 두는 것 (모든 라우터)
+- OSPF
+
+#### Reference
+
+- [라우팅 프로토콜](https://needjarvis.tistory.com/159)
+
+
+
+
 
 ## #31
 
