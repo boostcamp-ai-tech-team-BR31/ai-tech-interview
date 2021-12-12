@@ -646,7 +646,7 @@ url에서 다른 서비스에 api로 정보를 받아오기 위해 프론트에�
 #### Reference
 
 - [ERROR](https://ichi.pro/ko/gandanhan-lokeol-cors-teseuteu-dogu-92698556174789)
-- [CORS](youtube.com/watch?v=bW31xiNB8Nc)
+- [CORS](https://www.youtube.com/watch?v=bW31xiNB8Nc)
 
 ## #14
 
