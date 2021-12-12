@@ -690,7 +690,28 @@ REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 �
 
 #### Reference
 
-- [웹소켓과 socket.io](https://www.peterkimzz.com/websocket-vs-socket-io/)
+- [IP주소와 MAC주소 개념](https://www.crocus.co.kr/1515)
+
+## #21
+
+### MAC Address가 무엇인가요?
+
+`MAC 주소(Media Access Control Address)`는 [네트워크 세그먼트의 데이크 링크 계층](#2)에서 통신을 위해 네트워크 인터페이스에 할당된 고유 식별자입니다.
+
+IP주소와 마찬가지로 네트워크 통신에서 통신기기의 식별번호를 나타냅니다. 하지만 IP주소는 통신기기마다 고유하게 할당된 것이 아니라 통신사업자에게 받아오는 것이기에 바뀔 수 있습니다.
+
+MAC주소는 통신기기 하드웨어 자체에 부여된 고유한 식별번호입니다. 하드웨어의 랜카드에 종속되므로 해킹하지 않는 한 고유한 번호를 갖습니다.
+
+그럼 비슷한 기능을 하는 IP주소와 MAC주소. 왜 둘 다 필요한걸까요?
+
+MAC주소는 바로 옆사람과의 통신에서만 쓰입니다. 저 멀리 미국에 있는 컴퓨터 A에게 가려면 MAC주소로는 판단할 수 없습니다. 그래서 IP주소로 어디로 가야할지 그 방향성을 정하고, 근처에 갔을 때 MAC주소로 통신하고자 하는 컴퓨터A를 찾는거죠!
+
+#### Reference
+
+- [위키백과 : MAC주소](https://ko.wikipedia.org/wiki/MAC_%EC%A3%BC%EC%86%8C)
+- [IP주소와 MAC주소 개념](https://www.crocus.co.kr/1515)
+- [IP주소와 MAC주소의 쉬운 설명](https://jhnyang.tistory.com/404)
+
 
 ## #22
 
@@ -828,6 +849,19 @@ IMAP은 이메일 서버에 메시지를 저장하지만 사용자가 이 서버
 #### Reference
 
 - [토폴로지](https://dajjang.tistory.com/22)
+
+## #27
+
+### data encapsulation이 무엇인가요?
+
+[송신하기 위해 데이터를 생성](#3)하는 과정입니다. 송신을 하기 위해 계층을 지나야하는데 그 계층을 지나기 위해 header를 붙이게 됩니다.
+
+데이터에 header를 붙이는 작업들을 데이터 캡슐화라고 합니다.
+
+#### Reference
+
+- [토폴로지](https://dajjang.tistory.com/22)
+
 
 ## #28
 
