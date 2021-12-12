@@ -2568,7 +2568,52 @@ print(human.to_fahrenheit())
 # 98.6
 ```
 
-이런식으로 getter와 setter를 사용하게 업데이트를 하게 되면 이전에 getter, setter가 없던 클래스에서
+이런식으로 getter와 setter를 사용하게 업데이트를 하게 되면 이전에 getter, setter가 없던 클래스에서 사용할 수 있게 된다.
+
+##### @property 데코레이터의 사용
+
+예시
+
+``` python
+class Celsius:
+    def __init__(self, temperature = 0) -> None:
+        self.temperature = temperature
+
+    def to_fahrenheit(self):
+        return (self.temperature * 1.8) + 32
+
+		@property
+    def temperature(self):
+        print("Getting value...")
+        return self._temperature
+
+		@temperature.setter
+    def temperature(self, value):
+	      print("Setting value...")
+        if value < -273.15:
+            raise ValueError("-273.15 미만의 온도는 없습니다.")
+        self._temperature = value
+
+# 객체 생성, __init__()가 내부적으로 set_temperature()를 호출
+human = Celsius(37)
+
+# getter를 사용해 temperature attribute를 구한다.
+print(human.get_temperature())
+
+# 화씨 변환을 위하여 to_fahrenheit 메서드 사용, get_temperature()가 호출된다.
+print(human.to_fahrenheit())
+
+# Setting value...
+# Getting value...
+# 37
+# Getting value...
+# 98.6000001
+# Setting value...
+```
+
+
+
+자세한 동작 원리는 아래의 reference 참고
 
 #### Reference
 
