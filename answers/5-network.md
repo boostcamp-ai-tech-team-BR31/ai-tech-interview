@@ -1367,8 +1367,7 @@ Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 �
 - 경로 길이, 홉(Hop) 수, 대역폭, 비용, 신뢰성
 
 #### 라우팅 프로토콜의 종류
-
-![network_image_29](.\images\network_29.png)
+![network_image_29](./images/network_29.png)
 
 1. 라우팅 경로 고정 여부  
 
