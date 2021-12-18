@@ -1368,11 +1368,11 @@ Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 �
 
 #### 라우팅 프로토콜의 종류
 
-![network_image_29](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_29.png)
+![network_image_29](.\images\network_29.png)
 
-1) 라우팅 경로 고정 여부
-   Static Routing Protocol
+1) 라우팅 경로 고정 여부  
 
+Static Routing Protocol
 - 수동식, 사람이 일일이 경로를 입력, 라우터 부하경감, 고속 라우팅 가능
 - 관리자의 관리부담 증가 및 정해진 경로 문제 발생시 라우팅 불가능
 
@@ -1381,8 +1381,8 @@ Dynamic Routing Protocol
 - 라우터가 스스로 라우팅 경로를 동적으로 결정
 - RIP, IGRP, OSPF, EIGRP
 
-2) 내/외부 라우팅
-   Interior Gateway Protocol
+2) 내/외부 라우팅  
+Interior Gateway Protocol
 
 - 네트워크 집합에서 동일 그룹 내에서의 라우팅을 담당하는 라우팅 프로토콜
 - RIP, IGRP, OSPF, EIGRP
@@ -1392,8 +1392,8 @@ Exterior Gateway Protocol
 - 네트워크 집합에서 서로 다른 네트워크 그룹 사이에서 사용되는 라우팅 프로토콜
 - BGP, EGP
 
-3) 라우팅 테이블 관리
-   Distance Vector Algorithm
+3) 라우팅 테이블 관리  
+Distance Vector Algorithm
 
 - 라우팅 Table에 목적지까지 가는데 필요한 거리와 방향만을 기록 (인접 라우터)
 - RIP, IGRP
