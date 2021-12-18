@@ -1370,38 +1370,40 @@ Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 �
 
 ![network_image_29](.\images\network_29.png)
 
-1) 라우팅 경로 고정 여부  
+1. 라우팅 경로 고정 여부  
 
-Static Routing Protocol
-- 수동식, 사람이 일일이 경로를 입력, 라우터 부하경감, 고속 라우팅 가능
-- 관리자의 관리부담 증가 및 정해진 경로 문제 발생시 라우팅 불가능
+   Static Routing Protocol
 
-Dynamic Routing Protocol
+   - 수동식, 사람이 일일이 경로를 입력, 라우터 부하경감, 고속 라우팅 가능
+   - 관리자의 관리부담 증가 및 정해진 경로 문제 발생시 라우팅 불가능
 
-- 라우터가 스스로 라우팅 경로를 동적으로 결정
-- RIP, IGRP, OSPF, EIGRP
+   Dynamic Routing Protocol
 
-2) 내/외부 라우팅  
-Interior Gateway Protocol
+   - 라우터가 스스로 라우팅 경로를 동적으로 결정
+   - RIP, IGRP, OSPF, EIGRP
 
-- 네트워크 집합에서 동일 그룹 내에서의 라우팅을 담당하는 라우팅 프로토콜
-- RIP, IGRP, OSPF, EIGRP
+2. 내/외부 라우팅  
 
-Exterior Gateway Protocol	
+  Interior Gateway Protocol
 
-- 네트워크 집합에서 서로 다른 네트워크 그룹 사이에서 사용되는 라우팅 프로토콜
-- BGP, EGP
+  - 네트워크 집합에서 동일 그룹 내에서의 라우팅을 담당하는 라우팅 프로토콜
+  - RIP, IGRP, OSPF, EIGRP
 
-3) 라우팅 테이블 관리  
-Distance Vector Algorithm
+  Exterior Gateway Protocol	
 
-- 라우팅 Table에 목적지까지 가는데 필요한 거리와 방향만을 기록 (인접 라우터)
-- RIP, IGRP
+  - 네트워크 집합에서 서로 다른 네트워크 그룹 사이에서 사용되는 라우팅 프로토콜
+  - BGP, EGP
 
-Link State Algorithm
+3. 라우팅 테이블 관리  
+  Distance Vector Algorithm
 
-- 라우터가 목적지까지 가는 경로를 SPF(Shortest Path First) 알고리즘을 통해 모든 라우팅 테이블에 기록해 두는 것 (모든 라우터)
-- OSPF
+  - 라우팅 Table에 목적지까지 가는데 필요한 거리와 방향만을 기록 (인접 라우터)
+  - RIP, IGRP
+
+  Link State Algorithm
+
+  - 라우터가 목적지까지 가는 경로를 SPF(Shortest Path First) 알고리즘을 통해 모든 라우팅 테이블에 기록해 두는 것 (모든 라우터)
+  - OSPF
 
 #### Reference
 
