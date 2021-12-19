@@ -182,6 +182,10 @@ UDP는 TCP에 비해 일방적인 프로토콜이다.
 
 **신뢰성이 요구되는 애플리케이션에서는 TCP를 사용하고** **간단한 데이터를 빠른 속도로 전송하고자하는 애플리케이션에서는 UDP를 사용한다.**
 
+**TCP UDP 사용 예**
+- TCP는 순서를 보장한다는 점과 신뢰도가 있다는 점에서 대부분의 HTTP 통신, 이메일이나 파일전송처럼 순서대로 도착해야 하는 상황에서 사용된다.
+- UDP는 순서는 보장해주지 못하지만 실시간으로 반응해야하는 실시간 동영상 플레이어나 게임, 혹은 DNS에서 사용. DNS의 경우 누군가 도메인을 쳤을때마다 그때 그때 서버와 클라이언트가 커넥션을 맺으면 속도가 느려지기 때문에 UDPf를 사용한다.
+
 ## #5
 
 ### TCP와 UDP의 헤더를 비교해주세요.
@@ -241,6 +245,91 @@ TCP는 데이터를 확실히 송 수신 했는지 확인하고 송 수신 속�
 - [TCP 와 UDP 차이를 자세히 알아보자](https://velog.io/@hidaehyunlee/TCP-%EC%99%80-UDP-%EC%9D%98-%EC%B0%A8%EC%9D%B4)
 
 - [Ethernet, IP, TCP/UDP 헤더 소개](https://www.netmanias.com/ko/post/blog/5372/ethernet-ip-ip-routing-network-protocol/packet-header-ethernet-ip-tcp-ip)
+
+## #6
+
+### TCP의 3-way-handshake와 4-way-handshake를 비교 설명해주세요.
+
+#### 한 줄 요약
+
+1. 3-way-handshake : TCP의 연결을 초기화 할 때 사용
+2. 4-way-hadeshake : 세션을 종료하기 위해 사용
+
+#### 1. TCP 3 way handshake
+
+**의의** : TCP/IP 프로토콜을 이용해서 통신을 하는 응용프로그램이 데이터 전송 전에 먼저 정확한 전송을 보장하기 위해 수신하는 컴퓨터와 사전에 세션을 수립하는 과정
+
+<img src="./images/network_6_1.png" style="zoom:50%;" />
+
+##### 과정
+
+**[Step 1]**  *Client > Server*
+
+A클라이언트는 B서버에 접속 요청을 하는 ***SYN*** (Synchornize Sequence Number) 패킷을 보낸다.
+
+이때 A클라이언트는 **SYN** 을 보내고 SYN/ACK 응답을 기다리는 **SYN_SENT** 상태, B 서버는 **Wait for Client** 상태이다.
+
+**[Step 2]**  *Server > Client*
+
+B서버는 SYN 요청을 받고 A클라이언트에게 요청을 수락한다는 ***ACK*** (ACKnowlegment) 와 SYN flag가 설정된 패킷을 발송, 
+
+A가 다시 ACK으로 응답하기를 기다린다. 이때 B서버는 **SYN_RECEIVED** 상태가 된다.
+
+**[Step 3]**  *Client > Server*
+
+A클라이언트는 B서버에게 ACK를 보내고 이후로부터는 연결이 이뤄지고 데이터가 오가게 됨
+
+이떄의 B서버 상태가 **ESTABLISHED** 상태가 된다.
+
+#### 2. TCP 4 way hanshake
+
+**의의** : 세션을 종료하기 위해 진행되는 절차
+
+<img src="./images/network_6_2.png" style="zoom:50%;" />
+
+##### 과정
+
+**[Step 1]**  *Client > Server*
+
+클라이언트가 연결을 종료하겠다는 **FIN** flag 전송. 이때 A 클라이언트는 **FIN-WAIT** 상태가 된다
+
+**[Step 2]**  *Server > Client*
+
+B서버는 SYN 요청을 받고 A클라이언트에게 요청을 수락한다는 ***ACK*** (ACKnowlegment) 와 **SYN** flag가 설정된 패킷을 발송, 
+
+서버는 FIN flag를 받고, 확인메시지 **ACK** 를 클라이언트에 보난다. 그리고 자신의 통신이 끝날때 까지 기다리는데 이 상태를
+
+서버의 **CLOSE_WAIT** 상태이다.
+
+**[Step 3]**  *Server > Client*
+
+연결을 종료할 준비가 되면 연결해지를 위한 준비가 되었음을 알리기 위해 클라이언트에게 FIN flag를 전송한다. 이때 서버의 상태는 **LAST_ACK** 이다.
+
+**[Step 4]**  *Client > Server*
+
+클라이언트는 해지준비가 되었다는 ACK를 확인했다는 메시지를 보낸다.
+
+클라이언트의 상태가 **FIN-WAIT -> TIME-WAIT** 으로 상태가 바뀐다.
+
+
+
+##### if !
+
+만약 <u>server에서 **FIN** 을 전송하기 전에 전송한 패킷이 routing 지연이나 패킷 유실로 인한 재전송 등으로 FIN 패킷 보다 늦게 도착하는 상황</u>이 발생한다면?
+
+=> Client에서 세션을 종료시킨 후 뒤늦게 도착하는 패킷이 있다면 이 패킷은 Drop되고 데이터는 유실 될 것.
+
+=> 이러한 현상에 대비하기 위해 client는 server로 부터 FIN을 수신하더라도 일정시간 동안 세션을 남겨 놓고 잉여 패킷을 기다리는 과정을 거치게 됨 - 이 과정을 **TIME-WAIT** 이라 한다.
+
+-> 일정 시간이 지나면, 세션을 만료하고 연결을 종료, **CLOSE** 상태로 변화
+
+
+
+#### Reference
+
+- [[네트워크] 3-way / 4-way Handshake 란? ](https://bangu4.tistory.com/74#comment16493602) 
+
+
 
 ## #7
 
@@ -436,6 +525,108 @@ Header는 General Header, Request/Response Header, Entity Header
 
 - [HTTP 메시지](
 
+## #12
+
+### HTTP와 HTTPS 동작 과정을 비교해주세요
+
+#### HTTP와 HTTPS의 차이점
+
+HTTP : TCP와 UDP사용, 80번 포트 사용
+
+HTTPS : HTTP에서 SSL(Secure Sokcket Layer)추가, SSL이나 TLS 프로토콜을 통해 세션 암호화. 기본TCP/IP 포트 443
+
+#### 1. HTTP의 동작과정
+
+1. 사용자가 웹 브라우저에 URL 주소 입력
+
+2. DNS 서버에 웹 서버의 호스트 이름을 IP 주소로 변경 요청
+
+3. 웹서버와 TCP 연결 시도 - [3way handshaking](#6)
+
+   
+
+   <div align='center'>
+        <img src="./images/network_12_1.png", style="zoom:30%;" />
+      </div>
+
+4. 클라이언트가 서버에 요청
+
+   - **HTTP Request Message = Request Header + 빈 줄 + Request Body**
+
+     - **Request Header** : 요청 메소드 + 요청 URL + HTTP 프로토콜 버전
+       - ​	`GET /background.png HTTP/1.0` , `POST / HTTP 1.1`
+       - Header 정보(key-value 구조)
+
+     - **빈줄** : 요청에 대한 모든 메타 정보가 전송되었음을 알리는 용도
+
+     - **Request Body** : 데이터 업데이트 요청과 관련된 내용 (HTML 폼 콘텐츠 등)
+       - GET, HEAD, DELETE, OPTIONS처럼 리소스를 가져오는 요청은 바디 미포함
+
+5. 서버가 클라이언트에게 데이터를 응답
+   - **HTTP Response Message = Response Header + 빈 줄 + Response Body**
+     - **Response Header** : HTTP 프로토콜 버전 + 응답 코드 + 응답 메시지
+       - ex) `HTTP/1.1 404 Not Found.`
+       - Header 정보(key-value 구조)
+     - **빈줄** : 요청에 대한 모든 메타 정보가 전송되었음을 알리는 용도
+     - **Response Body** :  응답 리소스 데이터
+       - 201, 204 상태 코드는 바디 미포함
+6. 서버 클라이언트 간 연결 종료 - [4 way handshake](#6)
+7. 웹 브라우저가 웹 문서 출력
+
+##### 요청 메소드
+
+서버에게 요청의 종류를 알려주기 위해 사용한다.
+
+- GET : 정보를 요청하기 위해 사용(SELECT)
+- POST : 정보를 밀어넣기 위해 사용(INSERT)
+- PUT : 정보를 업데이트하기 위해서 사용(UPDATE)
+- DELETE : 정보를 삭제하기 위해서 사용(DELETE)
+- HEAD : (HTTP)헤더 정보만 요청. 해당 자원이 존재하는지 혹은 서버에 문제가 없는지를 확인하기 위해 사용.
+- OPTIONS : 웹 서버가 지원하는 메서드의 종류를 요청.
+- TRACE : 클라이언트의 요청을 그대로 반환. 주로 echo 서비스로 서버 상태를 확인하기 위한 목적으로 사용.
+
+
+
+#### 2. HTTPS(SSL)의 동작 과정
+
+공개키 암호화 방식과 대칭키 암호화 방식의 장점을 활용해 하이브리드 사용
+
+- 데이터를 대칭키 방식으로 암복호화하고, 공개키 방식으로 대칭키 전달
+
+<div align='center'>
+     <img src="./images/network_12_2.png", style="zoom:30%;" />
+   </div>
+
+1. **클라이언트가 서버 접속하여 Handshaking 과정에서 서로 탐색**
+   1.  **Client Hello** : 클라이언트가 서버에게 전송할 데이터
+      - 클라이언트 측에서 생성한 **랜덤 데이터**
+      - 클라이언트 - 서버 암호화 방식 통일을 위해 **클라이언트가 사용할 수 있는 암호화 방식**
+      - 이전에 이미 Handshaking 기록이 있다면 자원 절약을 위해 기존 세션을 재활용하기 위한 **세션 아이디**
+   2. **Server Hello** : Client Hello에 대한 응답으로 전송할 데이터 
+      - 서버 측에서 생성한 **랜덤 데이터**
+      - **서버가 선택한 클라이언트의 암호화 방식**
+      - **SSL 인증서**
+   3. **Client 인증 확인**
+      - 서버로부터 받은 인증서가 CA( *Certificate Authority* )에 의해 발급되었는지 본인이 가지고 있는 목록에서 확인하고, 목록에 있다면 CA 공개키로 인증서 복호화
+      - 클라이언트 - 서버 각각의 랜덤 데이터를 조합하여 pre master secret 값 생성(데이터 송수신 시 대칭키 암호화에 사용할 키)
+      - pre master secret 값을 공개키 방식으로 서버 전달(공개키는 서버로부터 받은 인증서에 포함)
+      - 일련의 과정을 거쳐 session key 생성
+   4. **Server 인증 확인**
+      - 서버는 비공개키로 복호화하여 pre master secret 값 취득(대칭키 공유 완료)
+      - 일련의 과정을 거쳐 session key 생성
+
+2.  **데이터 전송** : 서버와 클라이언트는 session key를 활용해 데이터를 암복호화하여 데이터 송수신
+3. **연결 종료 및 session key 폐기**
+
+
+
+💡 SSL의 동작방식은 reference의 두번째 링크 확인
+
+#### Reference
+
+- [[네트워크] HTTP와 HTTPS 동작 과정](https://velog.io/@averycode/네트워크-HTTP와-HTTPS-동작-과정)
+- [[네트워크]HTTP와 HTTPS의 차이점 그리고 동작 방식](https://devdy.tistory.com/14)
+
 
 
 ## #13
@@ -455,7 +646,7 @@ url에서 다른 서비스에 api로 정보를 받아오기 위해 프론트에�
 #### Reference
 
 - [ERROR](https://ichi.pro/ko/gandanhan-lokeol-cors-teseuteu-dogu-92698556174789)
-- [CORS](youtube.com/watch?v=bW31xiNB8Nc)
+- [CORS](https://www.youtube.com/watch?v=bW31xiNB8Nc)
 
 ## #14
 
@@ -664,7 +855,162 @@ REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 �
 - [[Network] REST란? REST API란? RESTful이란?](https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html)
 - [REST API란? (RESTful,REST)](https://www.lostcatbox.com/2021/01/19/basic-api/)
 
+## #18
 
+### 소켓(Socket)이 무엇인가요? 자신 있는 언어로 간단히 소켓 생성 예시를 보여주세요
+
+**네트워크 소켓** : 프로그램이 네트워크에서 데이터를 송수신할 수 있도록, "네트워크 환경에 연결할 수 있게 만들어진 연결부"
+
+즉, 소켓은 통신을 위한 프로토콜(Protocol)에 맞게 만들어야 함. 보통 **OSI 7 Layer** (Open System Interconnection 7 Layer)의 네 번째 계층인 TCP(Transport Control Protocol) 상에서 동작하는 소켓을 주로 사용하는데, 이를 "TCP 소켓" 또는 "TCP/IP 소켓"이라고 부른다. (UDP에서 동작하는 소켓은 "UDP 소켓"이라 함)
+
+소켓은 **데이터를 요청하는 소켓** ( *클라이언트 소켓* ), **연결 요청을 받아들이는 소켓** ( *서버 소켓* )이 존재하는데 두 소켓은 역할과 구현 절차 구분을 위해 다르게 부르는 것일 뿐 두 소켓은 동일하다. 또한 닫 소켓은 요청 연결을 받아들이는 역할만 할 뿐, 직접적인 데이터 송수신은 서버 소켓의 연결 요청 수락의 결과로 만들어지는 새로운 소켓을 통해 처리
+
+#### 소켓 생성 예시
+
+웹캠에서 캡쳐한 이미지를 전송하는 서버와 클라이언트
+
+1. image-server.py
+
+```python
+import socket 
+import cv2
+import numpy
+from queue import Queue
+from _thread import *
+
+
+enclosure_queue = Queue()
+
+
+# 쓰레드 함수 
+def threaded(client_socket, addr, queue): 
+
+    print('Connected by :', addr[0], ':', addr[1]) 
+
+    while True: 
+
+        try:
+            data = client_socket.recv(1024)
+
+            if not data: 
+                print('Disconnected by ' + addr[0],':',addr[1])
+                break
+
+            stringData = queue.get()
+            client_socket.send(str(len(stringData)).ljust(16).encode())
+            client_socket.send(stringData)
+
+        except ConnectionResetError as e:
+
+            print('Disconnected by ' + addr[0],':',addr[1])
+            break
+             
+    client_socket.close() 
+
+
+def webcam(queue):
+
+
+    capture = cv2.VideoCapture(0)
+
+    while True:
+        ret, frame = capture.read()
+
+        if ret == False:
+            continue
+
+
+        encode_param=[int(cv2.IMWRITE_JPEG_QUALITY),90]
+        result, imgencode = cv2.imencode('.jpg', frame, encode_param)
+
+        data = numpy.array(imgencode)
+        stringData = data.tostring()
+
+        queue.put(stringData)
+
+        cv2.imshow('image', frame)
+        
+        key = cv2.waitKey(1)
+        if key == 27:
+            break
+
+
+HOST = '127.0.0.1'
+PORT = 9999
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
+server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server_socket.bind((HOST, PORT)) 
+server_socket.listen() 
+
+print('server start')
+
+start_new_thread(webcam, (enclosure_queue,))
+
+
+while True: 
+
+    print('wait')
+
+
+    client_socket, addr = server_socket.accept() 
+    start_new_thread(threaded, (client_socket, addr, enclosure_queue,)) 
+
+server_socket.close() 
+```
+
+2. image-client.py
+
+```python
+import socket 
+import numpy as np
+import cv2
+
+
+def recvall(sock, count):
+    buf = b''
+    while count:
+        newbuf = sock.recv(count)
+        if not newbuf: return None
+        buf += newbuf
+        count -= len(newbuf)
+    return buf
+
+
+HOST = '127.0.0.1'
+PORT = 9999
+
+client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
+
+client_socket.connect((HOST, PORT)) 
+
+
+while True: 
+
+    message = '1'
+    client_socket.send(message.encode()) 
+  
+    length = recvall(client_socket,16)
+    stringData = recvall(client_socket, int(length))
+    data = np.frombuffer(stringData, dtype='uint8') 
+
+    decimg=cv2.imdecode(data,1)
+    cv2.imshow('Image',decimg)
+    
+    key = cv2.waitKey(1)
+    if key == 27:
+        break
+
+
+client_socket.close() 
+```
+
+
+
+#### Refrence
+
+- [파이썬 소켓 프로그래밍 - 클라이언트 / 서버 예제](https://webnautes.tistory.com/1381)
+- [소켓 프로그래밍. (Socket Programming)](https://recipes4dev.tistory.com/153)
 
 ## #19
 
@@ -698,6 +1044,262 @@ HTML5 웹소켓은 매우 유용한 기술이지만, 브라우저별로 지원�
 - [[네트워크] WebSocket과 Socket.IO](https://eun-jeong.tistory.com/30)
 
 
+## #21
+
+### MAC Address가 무엇인가요?
+
+`MAC 주소(Media Access Control Address)`는 [네트워크 세그먼트의 데이크 링크 계층](#2)에서 통신을 위해 네트워크 인터페이스에 할당된 고유 식별자입니다.
+
+IP주소와 마찬가지로 네트워크 통신에서 통신기기의 식별번호를 나타냅니다. 하지만 IP주소는 통신기기마다 고유하게 할당된 것이 아니라 통신사업자에게 받아오는 것이기에 바뀔 수 있습니다.
+
+MAC주소는 통신기기 하드웨어 자체에 부여된 고유한 식별번호입니다. 하드웨어의 랜카드에 종속되므로 해킹하지 않는 한 고유한 번호를 갖습니다.
+
+그럼 비슷한 기능을 하는 IP주소와 MAC주소. 왜 둘 다 필요한걸까요?
+
+MAC주소는 바로 옆사람과의 통신에서만 쓰입니다. 저 멀리 미국에 있는 컴퓨터 A에게 가려면 MAC주소로는 판단할 수 없습니다. 그래서 IP주소로 어디로 가야할지 그 방향성을 정하고, 근처에 갔을 때 MAC주소로 통신하고자 하는 컴퓨터A를 찾는거죠!
+
+#### Reference
+
+- [위키백과 : MAC주소](https://ko.wikipedia.org/wiki/MAC_%EC%A3%BC%EC%86%8C)
+- [IP주소와 MAC주소 개념](https://www.crocus.co.kr/1515)
+- [IP주소와 MAC주소의 쉬운 설명](https://jhnyang.tistory.com/404)
+
+
+## #22
+
+### 라우터와 스위치, 허브의 차이를 설명해주세요.
+
+**허브**
+
+- 컴퓨터와 컴퓨터 사이를 이어준다. 네트워크에 존재하는 컴퓨터들의 중심에 위치하는 장비. 
+- **데이터 패킷을 받으면 연결된 모든 장치들에게 모두 보낸다.**
+- A, B, C, D 라는 컴퓨터가 있다고 가정할때, A가 B와 통신하고 싶다면 허브로 B로 연결해달라는 요청을 보냄. 하지만 허브는 연결된 컴퓨터를 구분할 수 없기 때문에 B, C, D 모두에게 요청을 보내고 각 컴퓨터들이 자신에 대한 요청인지 구분하여 응답한다. 이 예시에서 알 수 있듯이 C, D로 가는 불필요한 트레픽이 발생하기 때문에 대규모 네트워크에는 적합하지 않고 소규모 네트워크에 주로 사용된다. 이 문제점은 스위치를 활용하면 해결된다.
+
+**스위치**
+
+- 허브와 마찬가지로 컴퓨터끼리 연결해주지만 방식의 차이가 있다.
+- **원하는 목적지에 데이터 패킷을 전송하는 장치**
+- 스위치는 컴퓨터들의 고유한 번호인 맥 주소(MAC Address)를 수집해 해당 포트만 연결해준다. 따라서 불필요한 트래픽이 발생하지 않는다.
+
+**라우터**
+
+- 라우터는 LAN(Local Area Network:근거리 통신망)을 연결해주는 장치로써, 데이터를 전송할 때 **최종 목적지에 가기 위하여 거쳐야 하는 많은 경로들 중에 적절한 통신 경로를 결정하기 위하여 한 통신망에서 다른 통신망으로 데이터 패킷을 전송하는 장치**
+- 우리가 흔히 알고 있는 ‘[www.naver.com’와](http://www.naver.xn--com-to0a3042h/) 같은 도메인을 통하여 접속을 하면, 도메인 서버를 통하여 IP를 얻을 수 있다. 이 IP를 이용하여 요청을 보내면, 라우터에서는 **‘다음은 여기 라우터로 가야됩니다!’** 라고 판단하고 데이터 패킷을 다른 라우터에게 전송해준다. 이런 과정을 여러번 진행하면서 수많은 라우터들을 거치고, 최종 목적지인 **네이버**로 도착하게 되는 것이다.
+
+## #23
+
+#### SMTP가 무엇인가요?
+
+SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이메일 계정에서 다른 이메일 계정으로 보내기 위해 사용되는 프로토콜입니다. (Gmail, Apple Mail, Outlook의 대부분 이메일 클라이언트 SMTP 사용하여 통신)
+
+
+
+##### SMTP 작동방법
+
+- SMTP 서버가 설정되면 전자 메일 클라이언트가 해당 서버에 연결하여 통신
+
+- 사용자가 이메일 메시지에서 "보내기"를 누르면 이메일 클라이언트가 서버에 대한 SMTP 연결을 열어 보냄
+- 거기에서 SMTP 클라이언트는 명령을 사용하여 보낸 사람의 전자 메일 주소, 받는 사람의 전자 메일 주소 및 전자 메일 내용과 같은 데이터를 전송하고 수행할 작업을 서버에 지시
+- 메일 전송 에이전트 또는 메시지 전송 에이전트(MTA)는 두 이메일 주소가 gmail.com과 같은 동일한 이메일 도메인에서 온 것인지 확인
+  - 그렇다면 즉시 이메일을 보냅니다.
+  - 그렇지 않은 경우 서버는 DNS(Domain Name System)를 사용하여 받는 사람의 도메인을 식별한 다음 올바른 서버로 보냅니다.
+
+![network_image_23](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23.png)
+
+**SMTP 명령어 예시**
+
+- HELO - 클라이언트가 HELO 명령어 전송하여 SMTP를 식별하고 대화 시작 
+
+- MAIL FROM: 보낸이 메일주소 지정. 새 메일 트랜잭션이 시작되고 있는다는 것을 SMTP서버에 알리고 서버가 모든상태 테이블과 버퍼 등을 재설정하도록 한다.
+
+- RCPT TO: 받는이 메일주소 지정. 주어진 전자메일 메세지에 대해 여러번 반복하여 메세지 전달 가능.
+
+- DATA: 메세지 본문내용의 전송 시작.
+
+- RSET: RSET명령이 전자메일 서버로 보내지면 현재메일 트랜잭션이 중단된다. 연결은 닫히지 않지만 보낸이,받는이 및 전자메일 데이터에 대한 모든정보가 초기화 되고 버퍼/상태 테이블이 삭제된다. 
+
+- VRFY: 서버에 지정된 사용자 이름이나 사서함이 유효한지 확인하도록 요청한다. 
+
+- NOOP: 서버가 연결되어 있고 클라이언트와 통신할 수 있는지 확인한다. NOOP명령은 수신자가 OK응답을 보내도록 하는 것 외에는 수행하지 않음. 
+
+- QUIT: 연결 종료.
+
+  **SMTP 통신의 예**
+
+  클라이언트에서 호스트인 www.example.com으로 SMTP 연결이 시작될 수 있다.
+
+> ```
+> S: 220 smtp.example.com ESMTP Postfix
+> C: HELO relay.example.com
+> S: 250 smtp.example.com, I am glad to meet you
+> C: MAIL FROM:<bob@example.com>
+> S: 250 Ok
+> C: RCPT TO:<alice@example.com>
+> S: 250 Ok
+> C: RCPT TO:<theboss@example.com>
+> S: 250 Ok
+> C: DATA
+> S: 354 End data with <CR><LF>.<CR><LF>
+> C: From: "Bob Example" <bob@example.com>
+> C: To: Alice Example <alice@example.com>
+> C: Cc: theboss@example.com
+> C: Date: Tue, 15 January 2008 16:02:43 -0500
+> C: Subject: Test message
+> C: 
+> C: Hello Alice.
+> C: This is a test message with 5 header fields and 4 lines in the message body.
+> C: Your friend,
+> C: Bob
+> C: .
+> S: 250 Ok: queued as 12345
+> C: QUIT
+> S: 221 Bye
+> {The server closes the connection}
+> ```
+
+
+
+**SMTP와 다른 email Protocol들 과의 차이**
+
+**SMTP**는 많은 email protocol 중에 하나로 다른 것의 예씨로는 **POP3**와 **IMAP**이 있다.
+
+가장 주된 차이는 SMTP는 메일 서버로 부터 다른 곳으로 이메일을 sending or pushing하는 유일한 protocol이다. POP3와 IMAP은 자신의 이메일 서버로부터 수신자의 메일을 수신하거나 pulling 하는 protocol이다. 따라서 POP3 및 IMAP은 메일 전송을 확인만 하는것.
+
+![network_image_23-2](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23-2.png)
+
+**POP**: Post Office Protocol의 약자로 들어오는 메시지를 수신하는 데 사용됩니다. 가장 최신 버전은 [POP3](https://whatismyipaddress.com/pop3) 이며 1988년에 마지막으로 업데이트되었습니다.  POP3는 이메일을 수신하고 고객이 받을 때까지 보관합니다. 모든 이메일은 로컬에 다운로드 및 저장되므로 한 대의 컴퓨터만 사용하여 이메일을 확인하는 사람에게 편리한 솔루션입니다
+
+**IMAP**
+
+IMAP은 이메일 서버에 메시지를 저장하지만 사용자가 이 서버에 액세스하여 이메일을 확인하고 구성할 수 있습니다. 이것과 POP의 차이점은 IMAP이 클라우드 서버를 사용하므로 모든 장치에서 이메일을 인증하고 분류할 수 있다는 것입니다. 많은 이메일 사용자는 편의성과 효율성 때문에 POP보다 IMAP을 선호
+
+
+
+#### Reference
+
+- [SMTP에 대해 알아야할 모든것](https://postmarkapp.com/guides/everything-you-need-to-know-about-smtp)
+- [SMTP 위키백과](https://ko.wikipedia.org/wiki/%EA%B0%84%EC%9D%B4_%EC%9A%B0%ED%8E%B8_%EC%A0%84%EC%86%A1_%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C)
+- [**SMTP 기본 명령어**](https://cheershennah.tistory.com/133)
+
+## #24
+
+### 노트북으로 `www.google.com`에 접속을 했습니다. 요청을 보내고 받기까지의 과정을 자세히 설명해주세요.
+
+#### 요약
+
+> 1. 사용자가 브라우저에 url 입력
+> 2. url에서 도메인 name 부분을 DNS 서버에서 검색
+> 3. DNS 서버에서 해당 domain name에 해당하는 ip 주소를 찾아 url 정보와 함께 전달
+> 4. 웹페이지 url 정보와 전달받은 ip 주소는 http 프로토콜을 사용해 http 요정 메시지를 생성
+> 5. 4번에서 생성된 http 요청 메시지를 TCP 프로토콜을 사용해 인터넷을 거쳐 ip주소의 컴퓨터로 전송
+> 6. 도착한 http 요청 메시지는 HTTP 프로토콜을 사용해 HTTP 응답을 만듦
+> 7. 만들어진 HTTP 메시지를 다시 TCP 프로토콜을 사용해 원래 컴퓨터로 전송
+> 8. 도착한 HTTP 응답 메시지는 HTTP 프로토콜을 사용해 웹 페이지 데이터로 변환
+> 9. 변환된 웹페이지의 데이터는 웹 브라우저에 의해 렌더링 되어 출력
+
+#### URL (Uniform Resource Loacation)
+
+네트워크 상에 자원(파일 등)이 어디에 위치하는지 알려주는 규칙
+
+주소에 접속하려면 url에 맞는 프로토콜을 알아야하고 동일한 프로토콜로 접속해야한다.
+
+##### URL 문법
+
+<div align='center'>
+     <img src="./images/network_24_1.png", style="zoom:60%;" />
+   </div>
+
+ex) https://www.naver.com : url의 맨 첫부분 `https` 는 프로토콜 이름, 위의 문법에서는 `scheme` 에 해당, gopher, telnet, ftp, usenet 등이 있다.
+
+​	프로토콜 이후엔 `:` 로 구분, ip 혹은 domain name 정보가 필요한 프로토콜인 경우 `//` 를 추가
+
+<div align='center'>
+     <img src="./images/network_24_2.png", style="zoom:40%;" />
+   </div>
+
+#### DNS
+
+<u>ip주소를 192.168. ... 에서 naver.com 이런식으로 사람이 이해하기 쉽게 바꿔주는 서버</u>
+
+
+
+1. 만약 브라우저에 캐싱된 url이면 dns 서버에 요청을 보내지 않고, 
+   캐싱되어 있지 않으면 로컬에 저장되어 있는 hosts 파일 중 참조할 수 있는 도메인이 있는지 확인
+   이것도 실패시, dns 시스템에 따라 root - ild 서버 - authoriative 서버에 요청을 보내 ip 주소를 알아냄
+
+2. ip 주소를 받으면 ARP(Address Resolution Protocol : ip -> MAC 주소로 바꿔주는 프로토콜, 자세한 것은 reference 3번째 링크 참조)를 통해 ip주소를 할당 받은 MAC 주소 알아냄
+   subnet(하나의 네트워크가 분할되어 나눠진 작은 네트워크이다.)인지 판단하고 라우터 내 존재한다면 routing table을 추적해 MAC 주소 알아냄
+   로컬 네트워크 아니면 gateway를 통해 밖에서 MAC 주소 검색. 이때 ARP를 broadcast. 이때 OSI 2계층(링크 계층)에 ARP 요청을 보냄.
+   주소를 받으면 다시 DNS프로세스 시작, UDP을 기본으로 하지만 데이터 용량이 크면 TCP로 진행
+
+<div align='center'>
+        <img src="./images/network_24_3.png", style="zoom:40%;" />
+      </div>
+
+3. MAC 주소를 받았다면 TCP 통신을 통해 소켓 열어야함.
+   OSI 7계층을 통해 클라이언트에서 서버까지 데이터 전달하고 세션 연결
+   먼저 IP주소를 브라우저가 알았으므로 포트번호를 가져와 TCP 소켓 스트임을 요청. 이때 전송계층(4번 층)에 TCP 세그먼트 전달, 대상포트가 헤더에 추가
+   이걸 보낼 수 있게 잘게 자르고 네트워크 계층(3번 층)으로 전달한 다음 세그먼트 헤더에 대상 컴퓨터와 현재 컴퓨터의 ip주소를 추가한 패킷을 만든다. 패킷을 링크 계층(2번 층)으로 보내고 맥주소와 gateway(local router)의 MAC 주소를 포함하는 frame 헤더 추가. (없다면 ARP를 이용해 찾음)
+4. 위 패킷을 네트워크를 통해 전송하고 패킷 로컬 subnet 라우터에 도착하면 AS(Autonomous System) 경계 라우터에서 패킷의 ip헤더의 타겟 주소 추출, 라우터마다 TTL을 하나씩 감소
+5. 데이터를 잘 받았는지 handshake 과정 진행
+
+#### HTTP 프로토콜 요청
+
+HTTP면 connection setup 이후, HTTPS면 set up & TLS 후에 다음과 같은 형식으로 요청 시작
+
+```
+GET / HTTP/1.1
+Host: google.com
+Connection: close
+[other headers]
+```
+
+여기서 other headers는 콜론(:) 으로 구분된 key, value 쌍을 말하며 HTTP 사양에 따라 형식이 지정되고 단일의 한 행으로 구분된다. ([HTTP ](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers)[header 목록](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers))
+
+영구 연결을 지원하지 않는 HTTP / 1.1 은 응답이 완료된 후 연결이 닫히도록 하는 close 연결 옵션을 포함해야 한다.
+
+
+
+#### HTTPS 서버 응답
+
+ HTTPD(HTTP daemon) 서버는 요청 / 응답을 처리하는 서버이다. 가장 일반적인 HTTPD 서버는 Linux의 경우 Apache 또는 Nginx이고 Windows의 경우 IIS이다.
+
+1) HTTPD 서버가 요청을 수신
+
+2) 서버는 요청을 다음 매개변수로 구분
+
+   - HTTP method (GET, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, HEAD). 주소 표시줄에 직접 입력한 url의 경우는 GET
+
+   - 도메인 (여기서는 google.com)
+
+   - 요청 된 경로 ( /path 형태, 여기서는 /, 기본경로)
+
+3) 서버는 google.com에 해당하는 서버에 구성된 가상 호스트가 있는지 확인 (하나에 서버에서 여러 도메인을 서비스 할 수 있음)
+
+4) 서버는 google.com이 GET 요청을 수락할 수 있는지 확인
+
+5) 서버는 클라이언트가 IP, 인증 등을 통해 이 method를 사용할 수 있는지 확인
+
+6) 서버에 rewrite module이 설치 돼 있으면 (예 : Apache의 경우 mod_rewrite, IIS의 경우 URL Rewrite) 요청 된 rule 중 하나와 일치하도록 시도, 일치하는 rule 이 있는 경우 서버는 해당 rule을 사용하여 요청을 다시 작성
+
+7) 서버는 요청에 해당하는 콘텐츠를 가져오고, 여기서는 "/"가 기본 경로이므로 이 경우 index파일을 해석
+
+8) 서버는 핸들러에 따라 파일을 구문 분석한다. php인 경우는 php를 사용하여 index파일 해석 후 출력을 클라이언트로 스트리밍
+
+
+
+보다 자세한 내용은 referece의 맨 마지막 링크 확인
+
+#### Reference
+
+- [웹사이트가 브라우저에 뜨는 과정 - 구운밤](https://donologue.tistory.com/380)
+- [네트워크 / 웹 사이트에 접속하는 과정](https://ecsimsw.tistory.com/entry/TCPIP-모델-웹-사이트에-접속하는-과정)
+- [ARP(Address Resolution Protocol)](https://www.stevenjlee.net/2020/06/07/이해하기-arp-address-resolution-protocol-프로토콜/)
+- [[Network\]서브넷(Subnet)](https://hyoje420.tistory.com/32)
+- [AS 관련](https://한국인터넷정보센터.한국/jsp/resources/asInfo.jsp)
+- [TTL 정리된 글](https://m.blog.naver.com/ljsun4336/220644328870)
+- [TSL](https://reakwon.tistory.com/106)
+- [⭐️  추천 ! 웹 브라우저에 URL을 입력하면 어떤 일이 일어날까?](https://owlgwang.tistory.com/1)
 
 ## #25
 
@@ -719,6 +1321,102 @@ HTML5 웹소켓은 매우 유용한 기술이지만, 브라우저별로 지원�
 #### Reference
 
 - [토폴로지](https://dajjang.tistory.com/22)
+
+## #27
+
+### data encapsulation이 무엇인가요?
+
+[송신하기 위해 데이터를 생성](#3)하는 과정입니다. 송신을 하기 위해 계층을 지나야하는데 그 계층을 지나기 위해 header를 붙이게 됩니다.
+
+데이터에 header를 붙이는 작업들을 데이터 캡슐화라고 합니다.
+
+#### Reference
+
+- [토폴로지](https://dajjang.tistory.com/22)
+
+
+## #28
+
+### DHCP를 설명해주세요.
+
+
+
+## #29
+
+#### routing protocol을 몇 가지 설명해주세요. (ex. link state, distance vector)
+
+**라우팅이란?**
+
+Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 한 가지 경로를 결정하는 것이다. 라우팅에는 동적 라우팅(Dynamic Routing)과 정적 라우팅(Static Routing)으로 나누는데 정적 라우팅은 주로 사람이 수동으로 미리 경로를 지정하는 방식이고, 동적 라우팅은 변화하는 상황에 맞추어 라우터가 경로를 재설정하는 방식으로 이루어진다.
+
+**라우팅 프로토콜(Routing Protocol)의 개념**
+
+라우팅을 위해서 네트워크 상의 모든 라우터(Router)들은 목적지에 따라서 패킷을 보낼 Interface를 선 계산해 놓아야 하는데 이 계산해 놓은 것을 라우팅 테이블이라고 한다.
+
+> **라우팅 테이블을 생성, 유지, 업데이트, 전달하는 프로토콜**은 라우팅 프로토콜이라고 한다
+
+라우팅 프로토콜 구성
+
+1) Routing Table
+
+- 패킷을 목적지로 라우팅 할 때 참조하는 테이블
+- 목적지 주소, Output I/F, Metric 값
+
+2) Message
+
+- 라우터 간 라우팅을 위해 교환하는 메세지
+- 이웃 도달 메세지, 라우팅 정보
+
+3) Metric
+
+- 라우팅 테이블 생성 및 업데이트 시 최적의 경로를 결정하는 기술
+- 경로 길이, 홉(Hop) 수, 대역폭, 비용, 신뢰성
+
+#### 라우팅 프로토콜의 종류
+![network_image_29](./images/network_29.png)
+
+1. 라우팅 경로 고정 여부  
+
+   Static Routing Protocol
+
+   - 수동식, 사람이 일일이 경로를 입력, 라우터 부하경감, 고속 라우팅 가능
+   - 관리자의 관리부담 증가 및 정해진 경로 문제 발생시 라우팅 불가능
+
+   Dynamic Routing Protocol
+
+   - 라우터가 스스로 라우팅 경로를 동적으로 결정
+   - RIP, IGRP, OSPF, EIGRP
+
+2. 내/외부 라우팅  
+
+  Interior Gateway Protocol
+
+  - 네트워크 집합에서 동일 그룹 내에서의 라우팅을 담당하는 라우팅 프로토콜
+  - RIP, IGRP, OSPF, EIGRP
+
+  Exterior Gateway Protocol	
+
+  - 네트워크 집합에서 서로 다른 네트워크 그룹 사이에서 사용되는 라우팅 프로토콜
+  - BGP, EGP
+
+3. 라우팅 테이블 관리  
+  Distance Vector Algorithm
+
+  - 라우팅 Table에 목적지까지 가는데 필요한 거리와 방향만을 기록 (인접 라우터)
+  - RIP, IGRP
+
+  Link State Algorithm
+
+  - 라우터가 목적지까지 가는 경로를 SPF(Shortest Path First) 알고리즘을 통해 모든 라우팅 테이블에 기록해 두는 것 (모든 라우터)
+  - OSPF
+
+#### Reference
+
+- [라우팅 프로토콜](https://needjarvis.tistory.com/159)
+
+
+
+
 
 ## #31
 
