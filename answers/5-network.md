@@ -1117,8 +1117,10 @@ SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이�
   - 그렇다면 즉시 이메일을 보냅니다.
   - 그렇지 않은 경우 서버는 DNS(Domain Name System)를 사용하여 받는 사람의 도메인을 식별한 다음 올바른 서버로 보냅니다.
 
-![network_image_23](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23.png)
-
+<div align='center'>
+     <img src=".\images\network_23.png", style="zoom:60%;" />
+</div>
+ 
 **SMTP 명령어 예시**
 
 - HELO - 클라이언트가 HELO 명령어 전송하여 SMTP를 식별하고 대화 시작 
@@ -1178,8 +1180,10 @@ SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이�
 
 가장 주된 차이는 SMTP는 메일 서버로 부터 다른 곳으로 이메일을 sending or pushing하는 유일한 protocol이다. POP3와 IMAP은 자신의 이메일 서버로부터 수신자의 메일을 수신하거나 pulling 하는 protocol이다. 따라서 POP3 및 IMAP은 메일 전송을 확인만 하는것.
 
-![network_image_23-2](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23-2.png)
-
+<div align='center'>
+     <img src=".\images\network_23-2.png", style="zoom:60%;" />
+</div>
+  
 **POP**: Post Office Protocol의 약자로 들어오는 메시지를 수신하는 데 사용됩니다. 가장 최신 버전은 [POP3](https://whatismyipaddress.com/pop3) 이며 1988년에 마지막으로 업데이트되었습니다.  POP3는 이메일을 수신하고 고객이 받을 때까지 보관합니다. 모든 이메일은 로컬에 다운로드 및 저장되므로 한 대의 컴퓨터만 사용하여 이메일을 확인하는 사람에게 편리한 솔루션입니다
 
 **IMAP**
