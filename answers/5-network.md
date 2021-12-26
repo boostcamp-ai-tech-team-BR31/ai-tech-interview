@@ -1120,7 +1120,7 @@ SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이�
 <div align='center'>
      <img src=".\images\network_23.png", style="zoom:60%;" />
 </div>
- 
+
 **SMTP 명령어 예시**
 
 - HELO - 클라이언트가 HELO 명령어 전송하여 SMTP를 식별하고 대화 시작 
@@ -1183,7 +1183,7 @@ SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이�
 <div align='center'>
      <img src=".\images\network_23-2.png", style="zoom:60%;" />
 </div>
-  
+
 **POP**: Post Office Protocol의 약자로 들어오는 메시지를 수신하는 데 사용됩니다. 가장 최신 버전은 [POP3](https://whatismyipaddress.com/pop3) 이며 1988년에 마지막으로 업데이트되었습니다.  POP3는 이메일을 수신하고 고객이 받을 때까지 보관합니다. 모든 이메일은 로컬에 다운로드 및 저장되므로 한 대의 컴퓨터만 사용하여 이메일을 확인하는 사람에게 편리한 솔루션입니다
 
 **IMAP**
@@ -1343,11 +1343,23 @@ Connection: close
 
 #### Subnet mask에 대해서 설명해주세요.
 
-- Subnetting
+#### Subnetting
 
-  하나의 주 네트워크를 필요한 만큼 **분할**하여 상호 연결 망을 구축할 수 있게 해주는 것
+- ****네트워크 관리자가 네트워크 성능을 향상시키기 위해, 자원을 효율적으로 분배하는 것(네트워크 영역과 호스트 영역을 분할 하는 것)**
+- 너무 큰 브로드캐스트 도메인은 네트워크 환경에서 패킷전송을 느리게하고 성능저하를 발생시키기 때문에 네트워크를 쪼개서 통신 성능을 보장하는 것
+- 필요한 네트워크 주소만 호스트 IP로 할당 할 수 있게 만들어 네트워크 낭비를 방지
 
-  
+
+
+#### Subnet mask
+
+- IP 주소의 네트워크 부분과 호스트 부분을 논리곱을 사용하여 나누어 준다
+
+#### Reference
+
+- [삽질블로그](https://limkydev.tistory.com/166)
+
+
 
 ## #27
 
