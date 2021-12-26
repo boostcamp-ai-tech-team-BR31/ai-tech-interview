@@ -97,7 +97,7 @@ Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하
 
 
 <div align='center'>
-     <img src=".\images\OS_9_1.JPG">
+     <img src=".\images\OS_9_1.jpg">
    </div>
 
 - 스와핑 프로세스에 걸리는 총 시간에는 전체 프로세스를 보조 디스크로 이동한 다음 프로세스를 다시 메모리로 복사하는 데 걸리는 시간과 프로세스가 주 메모리를 다시 얻는 데 걸리는 시간이 포함
@@ -114,7 +114,7 @@ Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하
   프로세스가 사용하는 메모리 공간에 포함된 남는 부분. 예를 들어 메모리 분할 자유 공간이 10,000B 있고 Process A가 9,998B 사용하게 되면 2B 라는 차이가 존재하고, 이를 내부 단편화라 칭한다.
 
 <div align='center'>
-     <img src=".\images\OS_9_2.JPG">
+     <img src=".\images\OS_9_2.jpg">
    </div>
 
 외부 단편화는 compaction(압축) 또는 shuffle memory 내용을 통해 모든 여유 메모리를 하나의 큰 블록에 함께 배치함으로써 줄일 수 있습니다. ~~압축이 가능하도록 하려면 dynamic relocation 이어야 합니다.~~
@@ -130,7 +130,7 @@ paging은 process address space을 page라고 하는 동일한 크기의 블록�
 
 
 <div align='center'>
-     <img src=".\images\OS_9_3.JPG">
+     <img src=".\images\OS_9_3.jpg">
    </div>
 
 - Frame에서 page로 system을 할당할 때 address translation과정(logical -> physical) 추가적으로 있는데 참고 자료 첨부합니다
@@ -153,7 +153,7 @@ paging은 process address space을 page라고 하는 동일한 크기의 블록�
 Segmentation Memory management는 paging과 매우 유사하만 segmentation은 가변 길이를 갖고 있고 paging page는 고정된 크기를 갖고있다.
 
 <div align='center'>
-     <img src=".\images\OS_9_4.JPG">
+     <img src=".\images\OS_9_4.jpg">
    </div>
 
 #### Reference
