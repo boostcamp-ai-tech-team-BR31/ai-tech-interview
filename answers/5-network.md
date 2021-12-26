@@ -787,9 +787,7 @@ Amazon Route 53과 같은 DNS 서비스는 전 세계에 배포된 서비스로�
 
 #### REST(REpresentational State Transfer)
 
-자원을 이름(자원의 표현)으로 구분해 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미합니다.
-
-즉, 자원(resource)의 표현(representation)에 의한 상태 전달을 뜻한다.
+ URI로 자원(Resource)을 명시하고 HTTP 메서드(행위)를 통해 해당 자원에 대한 CRUD(Create, Read, Update, Delete) 연산을 적용하는 것을 의미한다.
 
 **REST 구성요소**
 
@@ -806,37 +804,12 @@ Amazon Route 53과 같은 DNS 서비스는 전 세계에 배포된 서비스로�
 
 REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 활용하기 때문에, 웹의 장점을 최대한 활용할 수 있는 아키텍처 스타일. 즉 REST는 네트워크 상에서 Client와 Server 사이의 통신 방식 중 하나이다.
 
-특징: **Server-Client (서버-클라이언트 구조)**, **Stateless (무상태)**, **Cacheable (캐시 처리 기능)**, **Layered System (계층 구조)**, **Uniform Interface (인터페이스 일관성)**, **Self-Descriptiveness (자체 표현)**
-
 #### REST API
 
 - API(Application Programming Interface)란?
   -  데이터와 기능의 집합을 제공하여 컴퓨터 프로그램간 상호작용을 촉진하며, 서로 정보를 교환가능 하도록 하는 것
 - REST API란?
   REST 기반으로 서비스 API를 구현한 것
-
-**REST API 설계 규칙**
-
-- **첫 번째,** URI는 정보의 자원을 표현해야 한다.
-- **두 번째,** 자원에 대한 행위는 HTTP Method(GET, POST, PUT, PATCH, DELETE)로 표현한다.
-  - 행위(Method)는 URI에 포함하지 않는다.
-
-**추가 규칙**
-
-1. URI는 명사를 사용한다.(리소스명은 동사가 아닌 명사를 사용해야 한다.)
-2. 슬래시( / )로 계층 관계를 표현한다. 
-
-3. URI 마지막 문자로 슬래시 ( / )를 포함하지 않는다.
-
-4. 밑줄( _ )을 사용하지 않고, 하이픈( - )을 사용한다.
-
-5. URI는 소문자로만 구성한다.
-
-6. HTTP 응답 상태 코드 사용
-
-- 클라이언트는 해당 요청에 대한 실패, 처리완료 또는 잘못된 요청 등에 대한 피드백을 받아야 한다.
-
-7. 파일확장자는 URI에 포함하지 않는다.
 
 #### RESTful이란?
 
@@ -845,9 +818,6 @@ REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 �
 - RESTful은 REST를 REST답게 쓰기 위한 방법으로, 누군가가 공식적으로 발표한 것이 아니다.
   즉, REST 원리를 따르는 시스템은 RESTful이란 용어로 지칭된다.(API도제공)
 
-**한줄 정리**
-
-> RESTful은 기존 REST에서 API를 제공하는 웹서비스
 
 #### Reference
 
