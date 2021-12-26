@@ -1490,11 +1490,11 @@ Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 �
 
 #### 장점
 
-![network_image_30](./images/network_30_3.PNG)
+![network_image_30](./images/network_30_3.png)
 
 #### 단점
 
-![network_image_30](./images/network_30_4.PNG)
+![network_image_30](./images/network_30_4.png)
 
 
 
