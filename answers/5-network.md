@@ -1345,10 +1345,6 @@ Connection: close
 
 데이터에 header를 붙이는 작업들을 데이터 캡슐화라고 합니다.
 
-#### Reference
-
-- [토폴로지](https://dajjang.tistory.com/22)
-
 
 ## #28
 ### DHCP를 설명해주세요.
