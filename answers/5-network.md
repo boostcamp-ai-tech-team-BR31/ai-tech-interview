@@ -1044,6 +1044,25 @@ HTML5 웹소켓은 매우 유용한 기술이지만, 브라우저별로 지원�
 - [[네트워크] WebSocket과 Socket.IO](https://eun-jeong.tistory.com/30)
 
 
+## #20
+
+### IPv4와 IPv6 차이를 설명해주세요.
+
+- IPv4와 IPv6는 **인터넷 프로토콜(IP)의 버전**을 말하며, IPv4는 IP의 4번째 버전, IPv6는 IP의 6번째 버전을 말한다. 
+
+- 현재 네트워크 계층의 프로토콜은 IPv4를 사용하고 있다. 32비트로 이루어진 IPv는 약 43억개의 주소를 부여하기 때문에 기하급수적으로 늘어나는 사용자의 수를 감안하여 IPv6가 나오게 되었다. 
+
+-   IPv6는 서비스에 따라 각기 다른 대역폭을 확보할 수 있도록 지원, 일정한 수준의 서비스 품질(QoS)을 요구하는 실시간 서비스를 더욱 쉽게 제공할 수 있고 인증, 데이터 무결성, 데이터 기밀성을 지원하도록 보안기능을 강화하였다.
+- IPv6는 인터넷 주소를 기존의 「A, B, C, D」와 같은 클래스별 할당이 아닌 **유니캐스트·애니캐스트·멀티캐스트** 형태의 유형으로 할당하기 때문에 할당된 주소의 낭비 요인이 사라지고 더욱 간단하게 주소를 자동 설정할 수 있다
+
+<div align='center'>
+     <img src="./images/network_20.png", style = "zoom:140%;">
+   </div>
+
+#### Reference
+
+- [개발자를 꿈꾸는 프로그래머](https://jwprogramming.tistory.com/28)
+
 ## #21
 
 ### MAC Address가 무엇인가요?
@@ -1322,6 +1341,16 @@ Connection: close
 
 - [토폴로지](https://dajjang.tistory.com/22)
 
+## #26
+
+#### Subnet mask에 대해서 설명해주세요.
+
+- Subnetting
+
+  하나의 주 네트워크를 필요한 만큼 **분할**하여 상호 연결 망을 구축할 수 있게 해주는 것
+
+  
+
 ## #27
 
 ### data encapsulation이 무엇인가요?
@@ -1400,7 +1429,7 @@ Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 �
   - BGP, EGP
 
 3. 라우팅 테이블 관리  
-  Distance Vector Algorithm
+    Distance Vector Algorithm
 
   - 라우팅 Table에 목적지까지 가는데 필요한 거리와 방향만을 기록 (인접 라우터)
   - RIP, IGRP
