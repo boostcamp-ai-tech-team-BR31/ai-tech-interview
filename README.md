@@ -278,10 +278,29 @@
 <br/>
 
 ### [🗂 Data Structure](./answers/7-data-structure.md)
-- test1
-- test2
+- linked list
+  - single linked list
+  - double linked list
+  - circular linked list
+- hash table
+- stack
+- queue
+  - circular queue
+- graph
+- tree
+  - binary tree
+  - full binary tree
+  - complete binary tree
+  - bst(binary search tree)
+- heap(binary heap)
+  - min heap
+  - max heap
+- red-black tree
+- b+ tree
 
 <a href='#table-of-contents'><strong><small>목차로 돌아가기</small></strong></a>
+
+<br/>
 
 ### [🔻 Algorithm](./answers/8-algorithm.md)
 - test1
