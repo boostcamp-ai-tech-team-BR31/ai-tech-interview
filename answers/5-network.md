@@ -989,16 +989,20 @@ client_socket.close()
 **WebSocket**
 
 - HTML5 웹 표준 기술
+- 소켓을 이용하여 서버와 클라이언트 사이에서 자유롭게 데이터를 주고 받는 양방향 통신을 가능하게 함
 - 매우 빠르게 작동하며 통신할 때 아주 적은 데이터를 이용함
 - 이벤트를 단순히 듣고, 보내는 것만 가능함
 
 **Socket.io**
 
-- 표준 기술이 아니며, 라이브러리임
+- 표준 기술이 아니며, node.js 기반으로 만들어진 기술로, 거의 모든 웹 브라우저와 모바일 장치를 지원하는 실시간 웹 애플리케션 지원 라이브러리임
+- 100% 자바스크립트로 구현, WebSocket, FlashSocket, AJAX Long Polling, AJAX Multi part Streaming, IFrame, JSONP Polling 등 현존하는 대부분의 실시간 웹 기술들을 추상화해 놓음. 
 - 소켓 연결 실패 시 fallback을 통해 다른 방식으로 알아서 해당 클라이언트와 연결을 시도함
 - 방 개념을 이용해 일부 클라이언트에게만 데이터를 전송하는 브로드캐스팅이 가능함
 
 
+
+HTML5 웹소켓은 매우 유용한 기술이지만, 브라우저별로 지원하는 웹소켓 버전이 다르며 오래된 브라우저의 경우 아예 지원하지 않는다. 자동 업데이트 되지 않는 익스플로러 구 버전 사용자들은 웹소켓으로 작성된 웹페이지를 볼 수 없다. 
 
 서버에서 연결된 소켓(사용자)들을 세밀하게 관리해야하는 서비스인 경우에는 Broadcasting 기능이 있는 socket.io을 쓰는게 유지보수 측면에서 훨씬 이점이 많다.
 
@@ -1006,7 +1010,9 @@ client_socket.close()
 
 #### Reference
 
-- [IP주소와 MAC주소 개념](https://www.crocus.co.kr/1515)
+- [웹소켓과 socket.io](https://www.peterkimzz.com/websocket-vs-socket-io/)
+- [[네트워크] WebSocket과 Socket.IO](https://eun-jeong.tistory.com/30)
+
 
 ## #20
 

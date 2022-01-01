@@ -156,6 +156,24 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 
 
+## #5
+
+#### 뮤텍스와 세마포어의 차이를 설명해주세요.
+
+Mutex = Mutual + Exclusion (상호 배제)
+
+여러 스레드를 실행하는 환경에서 자원에 대한 접근에 제한을 강제하기 위한 메커니즘 
+
+공유자원을 사용하는 스레드가 자원에 lock을 건다. 이후 접근하려는 스레드를  blocking해 sleep상태로 만든다. lock을 건 스레드만 lock을 해제할 수 있다.
+
+Semaphore
+
+멀티프로그래밍 환경에서 다수의 프로세스나 스레드가  n개의 공유 자원에 대한 접근을 제한하는 방법
+
+#### Reference
+
+- [Mutex vs Semaphore](https://www.youtube.com/watch?v=oazGbhBCOfU)
+
 ## #9
 
 #### 메모리 관리 전략에는 무엇이 있는지 간략히 설명해주세요.
@@ -235,3 +253,24 @@ Segmentation Memory management는 paging과 매우 유사하만 segmentation은 
 - [Operating System - Memory Management](!https://www.tutorialspoint.com/operating_system/os_memory_management.htm)
 - [[CS 기초 - 운영체제] 메모리 관리 전략](!https://velog.io/@deannn/CS-%EA%B8%B0%EC%B4%88-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC-%EC%A0%84%EB%9E%B5)
 
+
+
+## #11
+
+#### 교착상태(데드락, Deadlock)의 개념과 조건을 설명해주세요.
+
+교착상태  -  두 가지 이상의 작업이 서로 상대방의 작업이 끝나기만을 하염없이 기다리는 상태. 서로 자원을 놓아줄 생각은 없고 자원 요청을 무한정 대기하고 있는 상태
+
+네 가지 조건
+
+상호 배제 - 프로세스들이 필요로 하는 자원에 대해 배타적인 통제권을 요구하는 것. 하나의 프로세스가 공유 자원을 사용할 때, 다른 프로세스가 동일한 공유자원에 접근할 수 없도록 통제하는 것.
+
+점유대기 - 최소 하나의 자원을 점유하고 있으면서, 다른 프로세스에 할당되어 사용되고 있는 자원을 추가적으로 사용하기 위해서 대기하는 프로세스가 필요하다.
+
+비선점 - 다른 프로세스에 할당된 자원은 사용이 끝날 때까지 강제로 빼앗을 수 없다.
+
+환형대기 - 공유자원과 공유자원을 사용하기 위해 대기하는 프로세스들이 원형으로 구성되어 있어 자신에게 할당된 자원을 점유하면서 앞이나 뒤에 있는 프로세스의 자원을 요구해야 한다.
+
+#### Reference
+
+- [교착상태](https://yabmoons.tistory.com/662)
