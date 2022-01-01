@@ -164,7 +164,15 @@ Mutex = Mutual + Exclusion (상호 배제)
 
 여러 스레드를 실행하는 환경에서 자원에 대한 접근에 제한을 강제하기 위한 메커니즘 
 
-lock, blocking, sleep
+공유자원을 사용하는 스레드가 자원에 lock을 건다. 이후 접근하려는 스레드를  blocking해 sleep상태로 만든다. lock을 건 스레드만 lock을 해제할 수 있다.
+
+Semaphore
+
+멀티프로그래밍 환경에서 다수의 프로세스나 스레드가  n개의 공유 자원에 대한 접근을 제한하는 방법
+
+#### Reference
+
+- [Mutex vs Semaphore](https://www.youtube.com/watch?v=oazGbhBCOfU)
 
 ## #9
 
