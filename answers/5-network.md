@@ -787,9 +787,7 @@ Amazon Route 53과 같은 DNS 서비스는 전 세계에 배포된 서비스로�
 
 #### REST(REpresentational State Transfer)
 
-자원을 이름(자원의 표현)으로 구분해 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미합니다.
-
-즉, 자원(resource)의 표현(representation)에 의한 상태 전달을 뜻한다.
+ URI로 자원(Resource)을 명시하고 HTTP 메서드(행위)를 통해 해당 자원에 대한 CRUD(Create, Read, Update, Delete) 연산을 적용하는 것을 의미한다.
 
 **REST 구성요소**
 
@@ -806,37 +804,12 @@ Amazon Route 53과 같은 DNS 서비스는 전 세계에 배포된 서비스로�
 
 REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 활용하기 때문에, 웹의 장점을 최대한 활용할 수 있는 아키텍처 스타일. 즉 REST는 네트워크 상에서 Client와 Server 사이의 통신 방식 중 하나이다.
 
-특징: **Server-Client (서버-클라이언트 구조)**, **Stateless (무상태)**, **Cacheable (캐시 처리 기능)**, **Layered System (계층 구조)**, **Uniform Interface (인터페이스 일관성)**, **Self-Descriptiveness (자체 표현)**
-
 #### REST API
 
 - API(Application Programming Interface)란?
   -  데이터와 기능의 집합을 제공하여 컴퓨터 프로그램간 상호작용을 촉진하며, 서로 정보를 교환가능 하도록 하는 것
 - REST API란?
   REST 기반으로 서비스 API를 구현한 것
-
-**REST API 설계 규칙**
-
-- **첫 번째,** URI는 정보의 자원을 표현해야 한다.
-- **두 번째,** 자원에 대한 행위는 HTTP Method(GET, POST, PUT, PATCH, DELETE)로 표현한다.
-  - 행위(Method)는 URI에 포함하지 않는다.
-
-**추가 규칙**
-
-1. URI는 명사를 사용한다.(리소스명은 동사가 아닌 명사를 사용해야 한다.)
-2. 슬래시( / )로 계층 관계를 표현한다. 
-
-3. URI 마지막 문자로 슬래시 ( / )를 포함하지 않는다.
-
-4. 밑줄( _ )을 사용하지 않고, 하이픈( - )을 사용한다.
-
-5. URI는 소문자로만 구성한다.
-
-6. HTTP 응답 상태 코드 사용
-
-- 클라이언트는 해당 요청에 대한 실패, 처리완료 또는 잘못된 요청 등에 대한 피드백을 받아야 한다.
-
-7. 파일확장자는 URI에 포함하지 않는다.
 
 #### RESTful이란?
 
@@ -845,9 +818,6 @@ REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 �
 - RESTful은 REST를 REST답게 쓰기 위한 방법으로, 누군가가 공식적으로 발표한 것이 아니다.
   즉, REST 원리를 따르는 시스템은 RESTful이란 용어로 지칭된다.(API도제공)
 
-**한줄 정리**
-
-> RESTful은 기존 REST에서 API를 제공하는 웹서비스
 
 #### Reference
 
@@ -1123,7 +1093,9 @@ SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이�
   - 그렇다면 즉시 이메일을 보냅니다.
   - 그렇지 않은 경우 서버는 DNS(Domain Name System)를 사용하여 받는 사람의 도메인을 식별한 다음 올바른 서버로 보냅니다.
 
-![network_image_23](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23.png)
+<div align='center'>
+     <img src=".\images\network_23.png", style="zoom:60%;" />
+</div>
 
 **SMTP 명령어 예시**
 
@@ -1184,7 +1156,9 @@ SMTP는 Simple Mail Transfer Protocol의 약자로 인터넷을 통해 한 이�
 
 가장 주된 차이는 SMTP는 메일 서버로 부터 다른 곳으로 이메일을 sending or pushing하는 유일한 protocol이다. POP3와 IMAP은 자신의 이메일 서버로부터 수신자의 메일을 수신하거나 pulling 하는 protocol이다. 따라서 POP3 및 IMAP은 메일 전송을 확인만 하는것.
 
-![network_image_23-2](C:\Users\sdj48\OneDrive - knu.ac.kr\바탕 화면\boostcamp\ai-tech-interview\answers\images\network_23-2.png)
+<div align='center'>
+     <img src=".\images\network_23-2.png", style="zoom:60%;" />
+</div>
 
 **POP**: Post Office Protocol의 약자로 들어오는 메시지를 수신하는 데 사용됩니다. 가장 최신 버전은 [POP3](https://whatismyipaddress.com/pop3) 이며 1988년에 마지막으로 업데이트되었습니다.  POP3는 이메일을 수신하고 고객이 받을 때까지 보관합니다. 모든 이메일은 로컬에 다운로드 및 저장되므로 한 대의 컴퓨터만 사용하여 이메일을 확인하는 사람에게 편리한 솔루션입니다
 
@@ -1345,11 +1319,29 @@ Connection: close
 
 #### Subnet mask에 대해서 설명해주세요.
 
-- Subnetting
+#### Subnetting
 
-  하나의 주 네트워크를 필요한 만큼 **분할**하여 상호 연결 망을 구축할 수 있게 해주는 것
+- ****네트워크 관리자가 네트워크 성능을 향상시키기 위해, 자원을 효율적으로 분배하는 것(네트워크 영역과 호스트 영역을 분할 하는 것)**
+- 너무 큰 브로드캐스트 도메인은 네트워크 환경에서 패킷전송을 느리게하고 성능저하를 발생시키기 때문에 네트워크를 쪼개서 통신 성능을 보장하는 것
+- 필요한 네트워크 주소만 호스트 IP로 할당 할 수 있게 만들어 네트워크 낭비를 방지
 
-  
+
+
+#### Subnet mask
+
+- IP Address에서 첫비트부터 **어디까지가 네트워크 부분인가 알려주는 역할**
+-  IP주소에 마스크를 씌워서 어디까지가 네트워크 부분인가를 표시하는 것
+-  IP Address처럼 32비트로 구성되며, **네트워크 부분**을 표시하는 비트는 **1**, **호스트 부분은 0**
+-  연속성이 존재해서 네트워크 부분 중간에 0이 들어갈 수 없다.
+- 예를 들어, IP주소 192.168.1.1에 서브넷마스크가 255.255.255.0라면 255로 표시된 부분인 192.168.1. 까지는 네트워크 부분이고 0으로 표시된 부분인 .1은 호스트 부분이다. 다시 말해, **255는 이진법**으로 표시하면 **11111111**이기 때문에 **네트워크 부분**
+- 서브네팅한 네트워크 부분을 확인할 때는 IP주소와 Subnet mask를 AND연산해서 구한다.  AND연산은 각 비트를 비교해서 모두 1인 경우에만 1값을 반환한다.
+- AND연산을 통해서 네트워크 부분을 구하게 될 경우 Network Address를 구할 수 있으며, 이때 호스트 부분을 모두 1로 바꿀 경우 Braodcast Address를 구할 수 있다. 이 두가지 주소의 경우 호스트에 할당 할수 없으며 이를 제외한 나머지 IP주소가 호스트에 할당 가능한 주소(Assigned Address)이다.
+
+#### Reference
+
+- [삽질블로그](https://limkydev.tistory.com/166)
+
+
 
 ## #27
 
@@ -1359,15 +1351,42 @@ Connection: close
 
 데이터에 header를 붙이는 작업들을 데이터 캡슐화라고 합니다.
 
-#### Reference
-
-- [토폴로지](https://dajjang.tistory.com/22)
-
 
 ## #28
-
 ### DHCP를 설명해주세요.
+DHCP (Dynamic Host Configuration Protocol) 는 동적으로 IP 주소나 기타 정보들을 관리해주는 프로토콜을 말한다. 관리해야하는 컴퓨터가 많고 이들의 IP 를 모두 직접 할당하고 관리하려면 상당히 복잡하고 시간이 많이들지만, DHCP 를 사용하면 이러한 문제점을 해결할 수 있다.
 
+DHCP 는 UDP 를 사용하여 클라이언트/서버 구조로 통신한다.
+그 과정은 아래와 같다.
+
+1. DHCP discover  
+   : 컴퓨터가 동일 서브넷으로 브로드캐스팅(255.255.255.255) 으로 DHCP 서버를 찾음
+2. DHCP offer  
+   : DHCP 가 사용가능한 IP 주소의 리스트를 컴퓨터에게 전달함
+3. DHCP request  
+   : 컴퓨터가 리스트 중 하나의 IP 주소를 선택하여 서버에 전달
+4. DHCP ack  
+   : DHCP 가 컴퓨터에게 해당 IP 주소를 허락/거절하는 메세지를 전달
+
+##### 장점
+
+- DHCP 서버에서 자동으로 IP 를 관리해주므로 편리함
+  - IP 에 변동이 있을 때, DHCP 에만 정보를 입력하면 됨
+  - 자동 할당
+- 사용중인 컴퓨터에 대해서만 할당하므로 효율적임
+
+##### 단점
+
+- DHCP 서버에 의존하기 때문에 서버가 다운되는 경우 모든 컴퓨터에서 인터넷을 할 수 없음
+- 초기 DHCP 세팅 시간 및 트래픽이 큼
+- 단말 컴퓨터를 끌 경우, 완전히 주소가 release 될 때 까지 해당 IP 를 사용할 수 없음
+
+#### References
+
+- [DHCP 열심히 정리한 글 :) - Don't forget your time](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=hai0416&logNo=221578608161)
+- [DHCP란 그 개념부터 알아보자 - 네트워크보안](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=haionvpn&logNo=40181076143)
+
+---
 
 
 ## #29
@@ -1444,6 +1463,46 @@ Routing이란 패킷(Packet)을 전송하기 위한 수많은 경로 중에서 �
 - [라우팅 프로토콜](https://needjarvis.tistory.com/159)
 
 
+
+## #30
+
+### 이더넷(ethernet)이 무엇인가요?
+
+#### 이더넷이란?
+
+가장 대표적인 컴퓨터 네트워크 기술의 하나, 가정이나 건물과 같은 로컬 환경의 컴퓨터 및 기타 장치를 네트워크에 연결하기 위해 개발된 통신 표준
+
+이 로컬 환경은 LAN(Local Area Network)으로 정의, 여러 장치 연결하여 해당 위치의 다른 사람들과 정보를 자거성, 저장 및 공유
+
+이더넷 표준은 IEEE 802.3이 유선 이더넷의 "데이터 링크" 계층의 물리 계층과 MAC(Media Access Control) 부분 정의, 물리 계층은 케이블과 장치로 구성
+
+#### 이더넷 장치
+
+1. 스위치 및 라우터
+
+   ![network_image_29](./images/network_30_1.png)
+
+   스위치와 라우터는 네트워크의 책임자 역할, 여러 컴퓨터나 네트워크를 함께 연결 -> 다른 모든 기기들간의 통신 가능하게 함
+
+2. 게이트웨이와 브릿지
+
+   ![network_image_29](./images/network_30_2.png)
+
+   게이트웨이와 브리지는 여러 이더넷 네트워크를 함께 연결하고 이들 사이의 통신을 허용하는데 사용. 게이트웨이는 두개의 유사하지 않는 네트워크를 함께 연결, 브리지는 두개의 유사한 네트워크를 연결하여 하나의 네트워크만 표시
+
+#### 장점
+
+![network_image_30](./images/network_30_3.png)
+
+#### 단점
+
+![network_image_30](./images/network_30_4.png)
+
+
+
+#### Reference
+
+[네트워크 기본 개념: 이더넷이란?](https://m.blog.naver.com/jchyuncorp/222033619668)
 
 
 
