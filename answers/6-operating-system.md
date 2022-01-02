@@ -125,7 +125,7 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 ## #3
 
-#### 캐시의 지역성에 대해 설명해주세요.
+### 캐시의 지역성에 대해 설명해주세요.
 
 **캐시 메모리(Cash Memory)**
 
@@ -158,7 +158,7 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 ## #5
 
-#### 뮤텍스와 세마포어의 차이를 설명해주세요.
+### 뮤텍스와 세마포어의 차이를 설명해주세요.
 
 Mutex = Mutual + Exclusion (상호 배제)
 
@@ -174,9 +174,72 @@ Semaphore
 
 - [Mutex vs Semaphore](https://www.youtube.com/watch?v=oazGbhBCOfU)
 
+## #7
+
+### CPU 스케줄러인 FCFS, SJF, SRTF, RR, Priority Scheduling에 대해 간략히 설명해주세요.
+
+| Scheduling 정책
+- Preemptive vs Non-preemptive
+  - Preemptive(선점) : CPU가 프로세스를 실행 중인데, 우선순위가 더 높은 프로세스가 들어오면 CPU를 뺏음
+    - Context Switching 부하가 큼
+    - 응답성 높음
+    - real-time system, time-sharing system에 적합 ex) 응급실
+  - Non-preemptive(비선점) : 우선순위가 더 높은 프로세스가 들어와도 CPU가 실행중인 프로세스가 끝날 때까지 기다려야 함
+    - Context Switching 부하 적음
+    - 응답성 낮음
+    - 평균 응답시간이 증가 ex) 은행 창구
+
+- Static Priority vs Dynamic Priority
+  - Static Priority(정적 우선순위) : 프로세스 생성 시 결정된 우선순위가 유지
+    - 구현 쉬움
+    - Context Switching 부하 적음
+    - 시스템 환경 변화 대응이 어려움
+  - Dynamic Priority(동적 우선순위) : 프로세스 상태 변화에 따라 우선순위 변경
+    - 구현 복잡
+    - 시스템 환경변화에 유연
+
+| Scheduling criteria : 스케쥴링 척도
+- CPU Utilization (CPU 이용률) : CPU가 얼마나 놀지않고 부지런히 일하는가
+- Throughput (처리율) : 시간당 몇 개의 작업을 처리하는가
+- Turnaround time (반환시간) : 작업이 레디큐에 들어가서 나오는 시간의 차이(병원에서 진료 받을 때..대기하고 CT 찍고, … 나오는 시간 차) 짧아야 좋음
+- Waiting time (대기시간) : CPU가 서비스를 받기 위해 Ready Queue에서 얼마나 기다렸는가
+- Response time (응답시간) : Interactive system에서 중요. 클릭-답, 타이핑-답. 첫 응답이 나올 때 까지 걸리는 시간
+
+| 대표적인 CPU Scheduling Algorithms
+
+|Preemptive|Non-preemptive|
+|---|---|
+|RR|FCFS|
+|SRTF|SJF|
+||Priority|
+
+Static or Dynamic Priority는 각 스케쥴링 알고리즘에 자유롭게 넣으면 됨.
+
+- `First-Come, First-Served (FCFS)` : 먼저 온 놈 먼저 처리
+  - Convoy effect 
+    -  수행시간 긴 놈이 먼저 들어오면 다른 프로세스의 대기 시간이 길어짐
+- `Round-Robin (RR)` : 빙빙 돌면서 순서대로
+  - FCFS에 time quantum 개념을 더함
+    - Convoy effect 어느정도 해소
+  - 지정한 time quantum이 지나면 자원 반납
+- `Shortest-Job-First (SJF)` : 작업 시간이 짧은 놈 먼저 처리
+  - 작업시간이 긴 프로세스는 계속 뒤로 밀림
+  - 하지만 작업시간을 예측할 수 있다는 것이 비현실적
+- `Shortest-Remaining-Time-First (SRTF)` : 잔여 작업시간이 더 적은 프로세스 먼저 처리
+  - 잔여 작업 시간을 계속 추적해야 함 -> overhead 큼
+  - 잔여 작업 시간을 
+- `Priority` : 우선 순위가 높은 놈부터
+  - starvation
+    - 우선순위가 낮은 프로세스는 계속 뒤로 밀림
+    - 일정 시간 이상 기다리면 프로세스의 우선순위를 높여주는 aging 방식으로 해결
+
+#### Reference
+
+- [성윤님의 CPU Scheduling 정리](https://zzsza.github.io/development/2018/07/29/cpu-scheduling-and-process/)
+
 ## #9
 
-#### 메모리 관리 전략에는 무엇이 있는지 간략히 설명해주세요.
+### 메모리 관리 전략에는 무엇이 있는지 간략히 설명해주세요.
 
 메모리 관리는 메모리 location을 추적하여 얼마나 많은 메모리가 할당되었는지를 확인하고, 어느 시정에 어떤 process가 메모리가 필요한지를 결정한다. Anallocated 되거나 자유로운 메모리가 발생하면 그것의 상태를 업데이트한다.
 
@@ -257,7 +320,7 @@ Segmentation Memory management는 paging과 매우 유사하만 segmentation은 
 
 ## #11
 
-#### 교착상태(데드락, Deadlock)의 개념과 조건을 설명해주세요.
+### 교착상태(데드락, Deadlock)의 개념과 조건을 설명해주세요.
 
 교착상태  -  두 가지 이상의 작업이 서로 상대방의 작업이 끝나기만을 하염없이 기다리는 상태. 서로 자원을 놓아줄 생각은 없고 자원 요청을 무한정 대기하고 있는 상태
 
