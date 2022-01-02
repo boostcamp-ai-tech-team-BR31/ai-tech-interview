@@ -160,7 +160,42 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 - [Locality of Reference and Cache Operation in Cache Memory](https://www.geeksforgeeks.org/locality-of-reference-and-cache-operation-in-cache-memory/)
 
+## #4
 
+### Thread-safe에 대해 설명해주세요. (hint: critical section)
+
+#### 정의
+
+멀티 스레드 프로그래밍에서 일반적으로 어떤 함수나 변수, 혹은 객체가 여러 스레드로부터 동시에 접속이 이루어져도 프로그램의 실행에 문제가 없음을 뜻함
+
+즉, 하나의 함수가 한 스레드로부터 호출되어 실행 중일 때, 다른 스레드가 그 함수를 호출하여 동시에 함께 싱행되더라도 각 스레드에서 함수의 수행 결과가 올바르게 나오는 것
+
+#### critical section
+
+thread-safe하게 만들기 위해 사용되는 개념, 연산들을 serialize 시켜준다.
+
+thread-safe 달성을 위해 사용하는 방법들
+
+1. **Mutual Exclusion** : 공유 자원을 꼭 사용해야 하는 경우 자원의 접근을 세마포어 등의 lock으로 통제한다. 통상적으로 사용되는 방법이다.
+
+2. **Thread Local Storage** : 각각의 스레드에서만 접근 가능한 저장소들을 사용함으로써 동시 접근을 막는다.
+
+3. **Re-entrancy** : 어떤 함수가 한 스레드에 의해 호출되어 실행 중일 때, 다른 스레드가 그 함수를 호출하더라도 그 결과가 각각에게 바르게 주어져야 한다.
+
+4. **Atomic Operation** : 공유 자원에 접근할 때 원자적으로 정의된 접근 방법을 사용한다.
+
+5. **Immutable Object** 등의 방법이 제안된다.
+
+
+
+출처: https://eun-jeong.tistory.com/21 [흔들리며 피는 꽃]
+
+
+
+#### Reference
+
+- [[OS] Thread Safe란?](https://gompangs.tistory.com/entry/OS-Thread-Safe란)
+- [[운영체제] 스레드 안전 : Thread-safety (C++과 JAVA)](https://eun-jeong.tistory.com/21)
 
 ## #5
 
