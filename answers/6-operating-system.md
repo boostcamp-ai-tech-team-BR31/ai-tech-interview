@@ -178,7 +178,7 @@ Semaphore
 
 ### CPU 스케줄러인 FCFS, SJF, SRTF, RR, Priority Scheduling에 대해 간략히 설명해주세요.
 
-| Scheduling 정책
+> Scheduling 정책
 - Preemptive vs Non-preemptive
   - Preemptive(선점) : CPU가 프로세스를 실행 중인데, 우선순위가 더 높은 프로세스가 들어오면 CPU를 뺏음
     - Context Switching 부하가 큼
@@ -198,14 +198,14 @@ Semaphore
     - 구현 복잡
     - 시스템 환경변화에 유연
 
-| Scheduling criteria : 스케쥴링 척도
+> Scheduling criteria : 스케쥴링 척도
 - CPU Utilization (CPU 이용률) : CPU가 얼마나 놀지않고 부지런히 일하는가
 - Throughput (처리율) : 시간당 몇 개의 작업을 처리하는가
 - Turnaround time (반환시간) : 작업이 레디큐에 들어가서 나오는 시간의 차이(병원에서 진료 받을 때..대기하고 CT 찍고, … 나오는 시간 차) 짧아야 좋음
 - Waiting time (대기시간) : CPU가 서비스를 받기 위해 Ready Queue에서 얼마나 기다렸는가
 - Response time (응답시간) : Interactive system에서 중요. 클릭-답, 타이핑-답. 첫 응답이 나올 때 까지 걸리는 시간
 
-| 대표적인 CPU Scheduling Algorithms
+> 대표적인 CPU Scheduling Algorithms
 
 |Preemptive|Non-preemptive|
 |---|---|
@@ -337,3 +337,74 @@ Segmentation Memory management는 paging과 매우 유사하만 segmentation은 
 #### Reference
 
 - [교착상태](https://yabmoons.tistory.com/662)
+
+
+## #13
+
+### 외부 단편화와 내부 단편화에 대해 설명해주세요.
+#### 메모리 단편화(Memory Fragmentation)
+- RAM애 사용가능한 메모리가 충분히 존재하지만 작은 조각으로 나뉘어져 할당이 불가능한 상태
+- 메모리 단편화는 `내부 단편화`와 `외부 단편화`로 구분됨
+  - 내부 단편화(Internal Fragmentation) : 메모리를 할당할 때 프로세스가 필요한 양보다 더 큰 메모리가 할당되어서 메모리 공간이 낭비되는 상황
+  - 외부 단편화(External Fragmentation) : 메모리가 조각나 있어서 총 메모리 공간은 충분한데 실제로 할당할 수 없는 상황
+    - 메모리의 할당/해제가 반복되면서 작은 메모리가 중간중간 존재
+
+#### 메모리 단편화 해결 방법
+> 외부 단편화 해결방법
+
+1. `압축(Storeage Compaction)`
+  - 주기적으로 삭제 공간을 회수하여 메모리 공간을 정리
+  - 비용이 많이 들어 자주 쓸수 없음 -> 주기를 설정해 실행
+
+2. `통합(Coalescing)`
+  - 쪼개진 메모리 공간들 중 인접한 공간들을 합쳐서 더 크게 만듬
+
+3. `배치 전략(Placement Strategy)`
+  - 단편화의 발생 가능성을 최대한 줄이도록 배치를 잘하자
+  - 하지만 시간이 지나면... 결국 다 쪼개짐
+
+4. `Paging 기법`
+  - 고정 길이 방식의 대표 유형
+  - 프로세스는 어차피 스케쥴링 될텐데 굳이 메모리에 연속되어 올라가야 할까?
+    - 프로세스를 일정한 단위로 잘라서 메모리에 올리자!
+  - 가상 메모리(page table)의 단위는 page, 물리 메모리(physical memory)의 단위는 frame이라고 부름
+  - 외부 단편화 해결! 하지만 내부 단편화 문제 여전히 존재
+    - page 단위를 더 작게 하면 내부 단편화 해결할 수 있지만 대신 page mapping 과정이 많아져서 효율 낮아짐
+
+<div align='center'>
+    <img src=".\images\os_13_paging.png", style="zoom:40%;"\>
+  </div>
+
+> 내부 단편화 해결방법
+
+1. `Segmentation`
+  - 가변 길이 방식의 대표 유형
+  - 논리적 단위(=Segmentation)로 잘라서 메모리에 배치
+    - 하나의 프로세스는 code, heap, data, stack 등의 의미있는 단위들로 구성
+    - 메모리 공간을 고정길이로 하지 말고 의미있는 단위(=논리적 단위 : Segmentation)으로 자르자!
+      - 보통 code, heap, stack, data 등의 기능단위로 Segmentation을 정의함 
+      - 그래서 각 Segmentation의 크기는 서로 같지 않음
+  - 내부 단편화 해결, 외부 단편화는 여전히 존재
+    - 하나의 Segmentation은 메모리 공간에 연속해서 올림
+    - Sharing : 메모리 낭비 방지
+      - 같은 프로그램을 쓰는 복수의 프로세스가 있다면, code같은 경우는 공유 가능!
+
+<div align='center'>
+    <img src=".\images\os_13_segmentation.png", style="zoom:40%;"\>
+  </div>
+
+2. `Memory Pull`
+  - 필요한 메모리 공간을 필요한 크기, 개수 만큼 사용자가 직접 지정하여 미리 할당받아 놓고 필요할 때마다 사용하고 반납하는 기법
+
+> 결론
+>
+>> Segmentation을 Paging하면 내외부 단편화 문제를 모두 해결할 수 있음 -> Paged segmentation
+>>
+>> ex)Intel 80x86
+
+#### Reference
+
+- [메모리 단편화](https://jeong-pro.tistory.com/91)
+- [다나단아님의 메모리 단편화 해결 방법](https://nevertheless-intheworld.tistory.com/8)
+- [변성윤님의 메모리 이해하기](https://zzsza.github.io/development/2018/07/31/memory/)
+- [정아마추어님의 메모리 단편화 해결 방법](https://jeong-pro.tistory.com/91)
