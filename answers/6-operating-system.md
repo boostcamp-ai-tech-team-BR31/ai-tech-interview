@@ -279,7 +279,7 @@ Static or Dynamic Priority는 각 스케쥴링 알고리즘에 자유롭게 넣�
 
 ### 동기와 비동기의 차이를 설명해주세요.
 
-**동기(sync)/비동기(async)**에 대해 알아보기전, **Blocking/Non-Blocking** 부터 알아보자.
+**동기(sync), 비동기(async)**에 대해 알아보기전, **Blocking, Non-Blocking** 부터 알아보자.
 
 **Blocking** : 자신의 작업을 진행하다가 다른 주체의 작업이 시작되면 다른 작업이 끝날 때까지 **기다렸다**가 자신의 작업을 시작하는 것.
 
