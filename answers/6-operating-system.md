@@ -127,6 +127,12 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 ### 캐시의 지역성에 대해 설명해주세요.
 
+
+
+![OS-3-(2)](images/OS_3-1.jpg)
+
+![OS-3-(2)](images/OS_3.jpg)
+
 **캐시 메모리(Cash Memory)**
 
 - CPU의 처리 속도와 메모리의 속도 차이로 인한 병목현상을 완화하기 위해 사용하는 고속 버퍼 메모리
@@ -136,11 +142,11 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 - 주기억장치와 CPU사이에 위치
 - 캐시 메모리에 먼저 접근후에 없으면 메인메모리로 접근
 
-
+![OS-3-(2)](images/OS-3-2.png)
 
 **지역성(Locality)**
 
-- 어떻게 자주 사용하는 기준을 판단하여 정보를 캐시 메모리에 저장할까? 이때 사용하는 개념이 지역성(Locality)의 원리
+- 어떻게  "자주 사용하는 기준"을 판단하여 정보를 캐시 메모리에 저장할까? 이때 사용하는 개념이 지역성(Locality)의 원리
 - `지역성(Locality)`이란 기억 장치 내의 정보를 균일하게 액세스하는 것이 아닌 어느 한순간에 특정 부분을 집중적으로 참조하는 특성
 - 지역성은 크게 2가지 시간적 지역성(Temporal Locality)`, `공간적 지역성(Spatial Locality) 존재
 - 시간적 지역성(Temporal Locality): 현재 사용되는 데이터는 곧 다시 쓰일것이다.
@@ -241,13 +247,11 @@ Static or Dynamic Priority는 각 스케쥴링 알고리즘에 자유롭게 넣�
 
 ### 메모리 관리 전략에는 무엇이 있는지 간략히 설명해주세요.
 
-메모리 관리는 메모리 location을 추적하여 얼마나 많은 메모리가 할당되었는지를 확인하고, 어느 시정에 어떤 process가 메모리가 필요한지를 결정한다. Anallocated 되거나 자유로운 메모리가 발생하면 그것의 상태를 업데이트한다.
+메모리 관리는 메모리 location을 추적하여 얼마나 많은 메모리가 할당되었는지를 확인하고, 어느 시정에 어떤 process가 메모리가 필요한지를 결정한다. unallocated 되거나 자유로운 메모리가 발생하면 그것의 상태를 업데이트한다.
 
 #### Swapping
 
 Swapping은 Process를 일시적으로 main memory에서 second storage(disk)로 swap(swap out)하는 방법으로 일정 시간이 지난 후에(보냈던 프로세스가 요청이 들어 오면) OS는 해당 process를 secondary storage로 부터 main memeory로 swap back(swap in) 합니다.  Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하고 큰 process를 병렬적으로 처리할 수 있습니다.
-
-
 
 <div align='center'>
      <img src=".\images\OS_9_1.jpg">
