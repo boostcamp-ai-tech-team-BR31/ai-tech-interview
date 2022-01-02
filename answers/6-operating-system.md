@@ -245,9 +245,7 @@ Static or Dynamic Priority는 각 스케쥴링 알고리즘에 자유롭게 넣�
 
 #### Swapping
 
-Swapping은 Profcess를 일시적으로 main memory에서 second storage(disk)로 swap(swap out)하는 메카니즘입니다. 잠시후에 시스템은 다시 해당 process를 secondary storage로 부터 main memeory로 swap back(swap in) 합니다. 
-
-Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하고 큰 process를 병렬적으로 처리할 수 있다. 이 때문에 swapping은 메모리압축기술로도 알려져있답니다.
+Swapping은 Process를 일시적으로 main memory에서 second storage(disk)로 swap(swap out)하는 방법으로 일정 시간이 지난 후에(보냈던 프로세스가 요청이 들어 오면) OS는 해당 process를 secondary storage로 부터 main memeory로 swap back(swap in) 합니다.  Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하고 큰 process를 병렬적으로 처리할 수 있습니다.
 
 
 
@@ -255,7 +253,7 @@ Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하
      <img src=".\images\OS_9_1.jpg">
    </div>
 
-- 스와핑 프로세스에 걸리는 총 시간에는 전체 프로세스를 보조 디스크로 이동한 다음 프로세스를 다시 메모리로 복사하는 데 걸리는 시간과 프로세스가 주 메모리를 다시 얻는 데 걸리는 시간이 포함
+- **스와핑 프로세스**에 걸리는 총 시간에는 전체 프로세스를 보조 디스크로 이동한 다음 프로세스를 다시 메모리로 복사하는 데 걸리는 시간과 프로세스가 주 메모리를 다시 얻는 데 걸리는 시간이 포함
 
 #### Fragmentation(단편화)
 
@@ -408,3 +406,26 @@ Segmentation Memory management는 paging과 매우 유사하만 segmentation은 
 - [다나단아님의 메모리 단편화 해결 방법](https://nevertheless-intheworld.tistory.com/8)
 - [변성윤님의 메모리 이해하기](https://zzsza.github.io/development/2018/07/31/memory/)
 - [정아마추어님의 메모리 단편화 해결 방법](https://jeong-pro.tistory.com/91)
+
+
+
+
+
+## #15
+
+#### Swapping에 대해 설명해주세요.
+
+(Memory) Swapping은 운영 체제가 주 메모리(Main memory)에서 사용할 수 있는 것보다 더 많은 메모리를 실행 중인 응용 프로그램이나 프로세스에 제공할 수 있도록 하는 기술입니다. 주 메모리(Physical system memory?)가 다 사용되고 추가적인 resource가 필요할 때,  운영체제는 이벤트가 발생하기까지 기다리고 있는 프로세스를 Secondary Storage에 저장(swap out)을 하고 새로운 프로세스를 불러옴으로써 메모리를 효율적으로 관리할 수 있다. 이후에 보넀던 프로세스로 부터 이벤트 요청이 들어온다면 이 프로세스를 다시 수행하기 Secondary memory로 부터 main memory로 해당 프로세스를 다시 불러온다(SWAP in).
+
+Secondary Sotrage로 보내고 다시 불러오는 과정에서 성능 저하가 좀 있으나 부족한 메모리에 더 많은 프로세스를 실행할 수 있다는 장점이 크다.
+
+<div align='center'>
+     <img src=".\images\OS_9_1.jpg">
+   </div>
+
+> swapping: 주기억장치에 적재한 하나의 프로세스와 보조기억장치에 적재한 다른 프로세스의  메모리를 교체하는 방법
+
+#### Reference
+
+- [스와핑이란?](https://jhnyang.tistory.com/103)
+
