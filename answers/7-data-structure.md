@@ -31,17 +31,41 @@
 ---
 
 ## #4
-### queue
-- 미완성 >~< by tttangmin
-- First In First out
-- push
-- pop
-### Reference
-- []()
+### queue(큐) : 순차 queue
+
+<div align='center'>
+     <img src=".\images\ds_4_queue.png">
+   </div>
+
+- FIFO(First In First Out) 구조 : 먼저 삽입된 item이 먼저 삭제됨
+  - 한쪽 끝(Rear)에서는 삽입연산만 이뤄지고
+  - 다른 한쪽 끝(Front)에서는 삭제만 이뤄지는 리스트
+- 초기에는 `Front == Rear == -1`로 초기화
+- 공백일 땐 `Front == Rear`
+- 삽입될 땐 Rear가 점차 증가하며 `Rear == n-1`인 경우 꽉 찬 상태
+
+##### 순차 queue의 문제점
+- 정말 `Rear == n-1`일 때 queue는 꽉 찼을까?
+  - front에서 삭제가 일어났다면 그만큼 공간이 비어있을 것!
+- 따라서 `Rear == n-1`인 상태에는 queue의 첫번째 원소의 위치를 0번 index로 이동시켜줘야 한다.
+  - queue 원소 이동에 따른 비용이 발생
+
+#### Reference
+- [진짜 개발자 : 자료구조 Queue](https://galid1.tistory.com/483)
 ---
 ## #4-1
 ### circular queue
+
+<div align='center'>
+     <img src=".\images\ds_4_circular_queue.png">
+   </div>
+
 - queue를 원형으로 구현
-  - 기존 queue는 linear
-### Reference
-- []()
+- 초기에는 `Front == Rear == 0`로 초기화
+- 공백일 땐 `Front == Rear`
+- 삽입될 땐 Rear가 점차 증가하며 `Rear+1 == Front`인 경우 꽉 찬 상태
+  - 원형이기 때문에 full상태에서 원소 이동이 필요 없어짐!!!
+ 
+#### Reference
+- [진짜 개발자 : 자료구조 Queue](https://galid1.tistory.com/483)
+- [원형큐](https://daeguowl.tistory.com/112)
