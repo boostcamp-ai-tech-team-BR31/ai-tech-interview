@@ -127,6 +127,12 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 ### 캐시의 지역성에 대해 설명해주세요.
 
+
+
+![OS-3-(2)](images/OS_3-1.jpg)
+
+![OS-3-(2)](images/OS_3.jpg)
+
 **캐시 메모리(Cash Memory)**
 
 - CPU의 처리 속도와 메모리의 속도 차이로 인한 병목현상을 완화하기 위해 사용하는 고속 버퍼 메모리
@@ -136,11 +142,11 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 - 주기억장치와 CPU사이에 위치
 - 캐시 메모리에 먼저 접근후에 없으면 메인메모리로 접근
 
-
+![OS-3-(2)](images/OS-3-2.png)
 
 **지역성(Locality)**
 
-- 어떻게 자주 사용하는 기준을 판단하여 정보를 캐시 메모리에 저장할까? 이때 사용하는 개념이 지역성(Locality)의 원리
+- 어떻게  "자주 사용하는 기준"을 판단하여 정보를 캐시 메모리에 저장할까? 이때 사용하는 개념이 지역성(Locality)의 원리
 - `지역성(Locality)`이란 기억 장치 내의 정보를 균일하게 액세스하는 것이 아닌 어느 한순간에 특정 부분을 집중적으로 참조하는 특성
 - 지역성은 크게 2가지 시간적 지역성(Temporal Locality)`, `공간적 지역성(Spatial Locality) 존재
 - 시간적 지역성(Temporal Locality): 현재 사용되는 데이터는 곧 다시 쓰일것이다.
@@ -154,7 +160,39 @@ CPU에서 여러 프로세스를 돌아가면서 작업을 처리하는 데 이 
 
 - [Locality of Reference and Cache Operation in Cache Memory](https://www.geeksforgeeks.org/locality-of-reference-and-cache-operation-in-cache-memory/)
 
+## #4
 
+### Thread-safe에 대해 설명해주세요. (hint: critical section)
+
+#### 정의
+
+멀티 스레드 프로그래밍에서 일반적으로 어떤 함수나 변수, 혹은 객체가 여러 스레드로부터 동시에 접속이 이루어져도 프로그램의 실행에 문제가 없음을 뜻함
+
+즉, 하나의 함수가 한 스레드로부터 호출되어 실행 중일 때, 다른 스레드가 그 함수를 호출하여 동시에 함께 실행되더라도 각 스레드에서 함수의 수행 결과가 올바르게 나오는 것
+
+#### critical section
+
+thread-safe하게 만들기 위해 사용되는 개념, 연산들을 serialize 시켜준다.
+
+thread-safe 달성을 위해 사용하는 방법들
+
+1. **Mutual Exclusion** : 공유 자원을 꼭 사용해야 하는 경우 자원의 접근을 세마포어 등의 lock으로 통제한다. 통상적으로 사용되는 방법이다.
+
+2. **Thread Local Storage** : 각각의 스레드에서만 접근 가능한 저장소들을 사용함으로써 동시 접근을 막는다.
+
+3. **Re-entrancy** : 어떤 함수가 한 스레드에 의해 호출되어 실행 중일 때, 다른 스레드가 그 함수를 호출하더라도 그 결과가 각각에게 바르게 주어져야 한다.
+
+4. **Atomic Operation** : 공유 자원에 접근할 때 원자적으로 정의된 접근 방법을 사용한다.
+
+5. **Immutable Object** 등의 방법이 제안된다.
+
+
+
+
+#### Reference
+
+- [[OS] Thread Safe란?](https://gompangs.tistory.com/entry/OS-Thread-Safe란)
+- [[운영체제] 스레드 안전 : Thread-safety (C++과 JAVA)](https://eun-jeong.tistory.com/21)
 
 ## #5
 
@@ -237,25 +275,64 @@ Static or Dynamic Priority는 각 스케쥴링 알고리즘에 자유롭게 넣�
 
 - [성윤님의 CPU Scheduling 정리](https://zzsza.github.io/development/2018/07/29/cpu-scheduling-and-process/)
 
+## #8
+
+### 동기와 비동기의 차이를 설명해주세요.
+
+**동기(sync), 비동기(async)**에 대해 알아보기전, **Blocking, Non-Blocking** 부터 알아보자.
+
+**Blocking** : 자신의 작업을 진행하다가 다른 주체의 작업이 시작되면 다른 작업이 끝날 때까지 **기다렸다**가 자신의 작업을 시작하는 것.
+
+**Non-Blocking** : 다른 주체의 작업에 **관련없이** 자신의 작업을 하는 것.
+
+> Note: 두 가지 방식의 차이점은 다른 주체가 작업할 때 자신의 **제어권**이 있는지 없는지로 볼 수 있다.
+
+
+
+**Synchronous(동기)** : 작업을 동시에 수행하거나, 동시에 끝나거나, **끝나는 동시에 시작함을 의미**
+
+**Asynchronous(비동기)** : 시작, 종료가 일치하지 않으며, **끝나는 동시에 시작을 하지 않음**을 의미
+
+> Note: 결과를 돌려주었을 때 **순서와 결과에 관심**이 있는지 아닌지로 판단할 수 있다.
+
+
+
+![Screen Shot 2022-01-02 at 8.33.22 PM](images/sync-async.png)
+
+요약하자면 동기/비동기와 블락/넌블락은 어떤 관점에서 보는지에 따라 차이가 있다.
+
+- **동기/비동기** : 결과에 관심이 있냐 없냐
+- **블락/넌블락** : 제어권 관점
+
+![Screen Shot 2022-01-02 at 8.38.31 PM](images/block-sync-async.png)
+
+![Screen Shot 2022-01-02 at 8.38.55 PM](images/nonblock-sync-async.png)
+
+[이미지출처](https://musma.github.io/2019/04/17/blocking-and-synchronous.html)
+
+**Reference**
+
+- https://www.youtube.com/watch?v=oEIoqGd-Sns
+
+- https://musma.github.io/2019/04/17/blocking-and-synchronous.html
+
+  
+
 ## #9
 
 ### 메모리 관리 전략에는 무엇이 있는지 간략히 설명해주세요.
 
-메모리 관리는 메모리 location을 추적하여 얼마나 많은 메모리가 할당되었는지를 확인하고, 어느 시정에 어떤 process가 메모리가 필요한지를 결정한다. Anallocated 되거나 자유로운 메모리가 발생하면 그것의 상태를 업데이트한다.
+메모리 관리는 메모리 location을 추적하여 얼마나 많은 메모리가 할당되었는지를 확인하고, 어느 시정에 어떤 process가 메모리가 필요한지를 결정한다. unallocated 되거나 자유로운 메모리가 발생하면 그것의 상태를 업데이트한다.
 
 #### Swapping
 
-Swapping은 Profcess를 일시적으로 main memory에서 second storage(disk)로 swap(swap out)하는 메카니즘입니다. 잠시후에 시스템은 다시 해당 process를 secondary storage로 부터 main memeory로 swap back(swap in) 합니다. 
-
-Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하고 큰 process를 병렬적으로 처리할 수 있다. 이 때문에 swapping은 메모리압축기술로도 알려져있답니다.
-
-
+Swapping은 Process를 일시적으로 main memory에서 second storage(disk)로 swap(swap out)하는 방법으로 일정 시간이 지난 후에(보냈던 프로세스가 요청이 들어 오면) OS는 해당 process를 secondary storage로 부터 main memeory로 swap back(swap in) 합니다.  Performance(성능?)은 보통 swapping process에 영향을 받지만 다양하고 큰 process를 병렬적으로 처리할 수 있습니다.
 
 <div align='center'>
      <img src=".\images\OS_9_1.jpg">
    </div>
 
-- 스와핑 프로세스에 걸리는 총 시간에는 전체 프로세스를 보조 디스크로 이동한 다음 프로세스를 다시 메모리로 복사하는 데 걸리는 시간과 프로세스가 주 메모리를 다시 얻는 데 걸리는 시간이 포함
+- **스와핑 프로세스**에 걸리는 총 시간에는 전체 프로세스를 보조 디스크로 이동한 다음 프로세스를 다시 메모리로 복사하는 데 걸리는 시간과 프로세스가 주 메모리를 다시 얻는 데 걸리는 시간이 포함
 
 #### Fragmentation(단편화)
 
@@ -408,3 +485,26 @@ Segmentation Memory management는 paging과 매우 유사하만 segmentation은 
 - [다나단아님의 메모리 단편화 해결 방법](https://nevertheless-intheworld.tistory.com/8)
 - [변성윤님의 메모리 이해하기](https://zzsza.github.io/development/2018/07/31/memory/)
 - [정아마추어님의 메모리 단편화 해결 방법](https://jeong-pro.tistory.com/91)
+
+
+
+
+
+## #15
+
+#### Swapping에 대해 설명해주세요.
+
+(Memory) Swapping은 운영 체제가 주 메모리(Main memory)에서 사용할 수 있는 것보다 더 많은 메모리를 실행 중인 응용 프로그램이나 프로세스에 제공할 수 있도록 하는 기술입니다. 주 메모리(Physical system memory?)가 다 사용되고 추가적인 resource가 필요할 때,  운영체제는 이벤트가 발생하기까지 기다리고 있는 프로세스를 Secondary Storage에 저장(swap out)을 하고 새로운 프로세스를 불러옴으로써 메모리를 효율적으로 관리할 수 있다. 이후에 보넀던 프로세스로 부터 이벤트 요청이 들어온다면 이 프로세스를 다시 수행하기 Secondary memory로 부터 main memory로 해당 프로세스를 다시 불러온다(SWAP in).
+
+Secondary Sotrage로 보내고 다시 불러오는 과정에서 성능 저하가 좀 있으나 부족한 메모리에 더 많은 프로세스를 실행할 수 있다는 장점이 크다.
+
+<div align='center'>
+     <img src=".\images\OS_9_1.jpg">
+   </div>
+
+> swapping: 주기억장치에 적재한 하나의 프로세스와 보조기억장치에 적재한 다른 프로세스의  메모리를 교체하는 방법
+
+#### Reference
+
+- [스와핑이란?](https://jhnyang.tistory.com/103)
+
