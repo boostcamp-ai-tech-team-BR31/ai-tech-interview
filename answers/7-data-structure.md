@@ -2,7 +2,7 @@
   <h1>🗂 Data Structure 🗂</h1>
 </div>
 
-> 질문은 <strong>[WeareSoft님의 tech-interview](https://github.com/WeareSoft/tech-interview)</strong>를 참고하였으며, 질문에 대한 답변은 직접 작성하였습니다.
+> 질문은 `<strong>`[WeareSoft님의 tech-interview](https://github.com/WeareSoft/tech-interview) `</strong>`를 참고하였으며, 질문에 대한 답변은 직접 작성하였습니다.
 
 ---
 
@@ -52,7 +52,7 @@ Linked List는 Array List와 달리 엘리먼트와 엘리먼트 간의 연결(l
      <img src=".\images\ds_1_2.png" style="zoom:40%;"/>
    </div>
 
-<u>**리스트는 노드(엘리먼드, vertex)의 모임**</u>
+`<u>`**리스트는 노드(엘리먼드, vertex)의 모임** `</u>`
 
 => 이들을 이어지게 만들어야 하니 현재 노드의 값과 다음 노드의 위치 정보(포인터나 참조 값)를 알고 있어야한다.
 
@@ -68,11 +68,11 @@ Linked List는 Array List와 달리 엘리먼트와 엘리먼트 간의 연결(l
      <img src=".\images\ds_1_3.png" style="zoom:40%;"/>
    </div>
 
-노드와 노드가 **<u>서로 연결</u>** 되어있다.
+노드와 노드가 **`<u>`서로 연결 `</u>`** 되어있다.
 
 ##### 장점
 
-이를 통해 <u>양방향으로 탐색</u>이 가능하다는 장점을 갖는다. 이런 양방향 탐색의 이점은 <u>특정 인덱스 위치의 엘리먼트를 가져올 때와 반복을 이용해서 탐색</u>을 할 때 큰 이점을 갖는다.
+이를 통해 `<u>`양방향으로 탐색 `</u>`이 가능하다는 장점을 갖는다. 이런 양방향 탐색의 이점은 `<u>`특정 인덱스 위치의 엘리먼트를 가져올 때와 반복을 이용해서 탐색 `</u>`을 할 때 큰 이점을 갖는다.
 
 <div align='center'>
      <img src=".\images\ds_1_4.png" style="zoom:40%;"/>
@@ -101,7 +101,6 @@ Linked List는 Array List와 달리 엘리먼트와 엘리먼트 간의 연결(l
 #### Reference
 
 - [Linked list](https://opentutorials.org/module/1335/8821)
-
 - [Doubly linked list (이중 연결 리스트)](https://opentutorials.org/module/1335/8940)
 - [원형 연결 리스트(Circular Linked List)](https://supark7.tistory.com/entry/원형-연결-리스트-Circular-Linked-List?category=448614)
 
@@ -132,6 +131,22 @@ key를 해시함수를 이용해 고정된 크기값에 맵핑한 데이터 구�
 
 - [Hash Table interview](https://www.fullstack.cafe/blog/hash-tables-interview-questions)
 
+## #3
+
+### stack
+
+**LIFO (Last In First Out)** 구조의 자료형으로 한 쪽으로만 데이터를 넣고 뺄 수 있다.
+
+`push` 명령으로 데이터를 넣고, `pop` 명령으로 가장 마지막에 들어간 데이터를 빼낸다.
+
+<div align='center'>
+     <img src=".\images\data_3.png">
+   </div>
+
+stack 은 브라우저의 뒤로가기 기능, ctrl + z (되돌리기), 지역 변수와 매개변수를 저장하는 stack 메모리 등에 사용된다. 이외에도 DFS 알고리즘 등 다양한 곳에 사용되는 자료형이다.
+
+stack 에 데이터가 꽉 차서 더 넣을 공간이 없는데 데이터를 push 하는 경우 `overflow`, 반대로 데이터가 없는데 pop 하는 경우를 `underflow` 라고 한다.
+
 ## #4
 
 ### queue(큐) : 순차 queue
@@ -143,15 +158,15 @@ key를 해시함수를 이용해 고정된 크기값에 맵핑한 데이터 구�
 - FIFO(First In First Out) 구조 : 먼저 삽입된 item이 먼저 삭제됨
   - 한쪽 끝(Rear)에서는 삽입연산만 이뤄지고
   - 다른 한쪽 끝(Front)에서는 삭제만 이뤄지는 리스트
-- 초기에는 `Front == Rear == -1`로 초기화
-- 공백일 땐 `Front == Rear`
-- 삽입될 땐 Rear가 점차 증가하며 `Rear == n-1`인 경우 꽉 찬 상태
+- 초기에는`Front == Rear == -1`로 초기화
+- 공백일 땐`Front == Rear`
+- 삽입될 땐 Rear가 점차 증가하며`Rear == n-1`인 경우 꽉 찬 상태
 
 ##### 순차 queue의 문제점
 
-- 정말 `Rear == n-1`일 때 queue는 꽉 찼을까?
+- 정말`Rear == n-1`일 때 queue는 꽉 찼을까?
   - front에서 삭제가 일어났다면 그만큼 공간이 비어있을 것!
-- 따라서 `Rear == n-1`인 상태에는 queue의 첫번째 원소의 위치를 0번 index로 이동시켜줘야 한다.
+- 따라서`Rear == n-1`인 상태에는 queue의 첫번째 원소의 위치를 0번 index로 이동시켜줘야 한다.
   - queue 원소 이동에 따른 비용이 발생
 
 #### Reference
@@ -167,9 +182,9 @@ key를 해시함수를 이용해 고정된 크기값에 맵핑한 데이터 구�
    </div>
 
 - queue를 원형으로 구현
-- 초기에는 `Front == Rear == 0`로 초기화
-- 공백일 땐 `Front == Rear`
-- 삽입될 땐 Rear가 점차 증가하며 `Rear+1 == Front`인 경우 꽉 찬 상태
+- 초기에는`Front == Rear == 0`로 초기화
+- 공백일 땐`Front == Rear`
+- 삽입될 땐 Rear가 점차 증가하며`Rear+1 == Front`인 경우 꽉 찬 상태
   - 원형이기 때문에 full상태에서 원소 이동이 필요 없어짐!!!
 
 ### python deque
@@ -187,8 +202,8 @@ key를 해시함수를 이용해 고정된 크기값에 맵핑한 데이터 구�
 ##### 그러면 리스트 쓰면 될 것이지, 굳이 deque 왜 씀?
 
 - 빠르니까!
-  - 리스트는 **_O(N)_**
-  - deque는 **_O(1)_** 연산을 수행
+  - 리스트는**_O(N)_**
+  - deque는**_O(1)_** 연산을 수행
 
 ```python
 from collections import deque
@@ -311,16 +326,15 @@ Binary search tree와 일반적인 binary tree를 구분하는 속성은 다음�
 
 > 복잡도
 
-BST의 탐색, 삽입, 삭제의 복잡도는 모두 [![img](<https://render.githubusercontent.com/render/math?math=O(h)>)](<https://render.githubusercontent.com/render/math?math=O(h)>)이다. (h: BST의 높이(height))
+BST의 탐색, 삽입, 삭제의 복잡도는 모두 이다. (h: BST의 높이(height))
 
-BST는 평균 시간 복잡도가 [![img](<https://render.githubusercontent.com/render/math?math=O(%5Clog_2%20n)>)](https://render.githubusercontent.com/render/math?math=O(\log_2 n))이지만 최악의 경우 [![img](<https://render.githubusercontent.com/render/math?math=O(n)>)](<https://render.githubusercontent.com/render/math?math=O(n)>)이다. (skewed tree 이면 node의 수만큼 시간이 소요됨)
+BST는 평균 시간 복잡도가 [![img](https://render.githubusercontent.com/render/math?math=O(%5Clog_2%20n))](https://render.githubusercontent.com/render/math?math=O(\log_2 n))이지만 최악의 경우 이다. (skewed tree 이면 node의 수만큼 시간이 소요됨)
 
-- tree가 complete binary tree 거나 full binary tree 이면 [![img](<https://render.githubusercontent.com/render/math?math=O(%5Clog_2%20n)>)](https://render.githubusercontent.com/render/math?math=O(\log_2 n)), skewed tree 이면 [![img](<https://render.githubusercontent.com/render/math?math=O(n)>)](<https://render.githubusercontent.com/render/math?math=O(n)>)
+- tree가 complete binary tree 거나 full binary tree 이면 [![img](https://render.githubusercontent.com/render/math?math=O(%5Clog_2%20n))](https://render.githubusercontent.com/render/math?math=O(\log_2 n)), skewed tree 이면
 
 ### Reference
 
 - [Programiz - Tree](https://www.programiz.com/dsa/trees)
-
 - [ai-tech-interview](https://github.com/SEOzizou/ai-tech-interview/blob/main/answers/7-data-structure.md#6)
 - [balanced - binary tree 보충설명](https://www.programiz.com/dsa/balanced-binary-tree)
 
@@ -365,13 +379,11 @@ BST는 평균 시간 복잡도가 [![img](<https://render.githubusercontent.com/
    <div align='center'>
         <img src=".\images\ds_7_1.png" style="zoom:40%;"/>
       </div>
-
 2. 추가한 원소를 부모와 비교, 순서가 힙 조건과 일치한다면 중지
 
    <div align='center'>
         <img src=".\images\ds_7_2.png" style="zoom:40%;"/>
       </div>
-
 3. 힙 조건과 순서가 맞지 않다면 부모와 위치를 교환, 힙 조건과 일치할 때 까지 2~3반복
 
    <div align='center'>
@@ -391,13 +403,11 @@ BST는 평균 시간 복잡도가 [![img](<https://render.githubusercontent.com/
    <div align='center'>
         <img src=".\images\ds_7_4.png" style="zoom:40%;"/>
       </div>
-
 2. 마지막 노드를 루트로 이동, 루트를 자식 노드와 비교. 이 때, 두 자식 노드 중 최대 힙인 경우 더 큰 자식과 비교하며 최소 힙인 경우 더 작은 자식과 비교함. 순서가 힙 조건(최대, 최소)과 일치하면 중지
 
    <div align='center'>
         <img src=".\images\ds_7_5.png" style="zoom:40%;"/>
       </div>
-
 3. 만약 순서가 맞지 않는다면 위치 교환, 힙 조건이 일치 할 때 까지 2~3번 반복
 
    <div align='center'>
@@ -414,10 +424,10 @@ BST는 평균 시간 복잡도가 [![img](<https://render.githubusercontent.com/
 
 heap의 규칙은 위에서 설명한 것과 같다.
 
-min heap의 규칙은 <u>**부모 노드는 항상 자식 노드에 들어있는 값 보다 작다**</u>
+min heap의 규칙은 `<u>`**부모 노드는 항상 자식 노드에 들어있는 값 보다 작다** `</u>`
 
 ## #7-2
 
 ### Max Heap
 
-max heap의 규칙은 **<u>부모 노드는 항상 자식 노드에 들어 있는 값보다 크다</u>**
+max heap의 규칙은 **`<u>`부모 노드는 항상 자식 노드에 들어 있는 값보다 크다 `</u>`**
