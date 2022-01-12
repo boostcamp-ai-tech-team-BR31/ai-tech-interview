@@ -58,21 +58,72 @@ key를 해시함수를 이용해 고정된 크기값에 맵핑한 데이터 구�
 + [Hash Table interview](https://www.fullstack.cafe/blog/hash-tables-interview-questions)
 
 ## #4
+### queue(큐) : 순차 queue
 
-### queue
-- 미완성 >~< by tttangmin
-- First In First out
-- push
-- pop
-### Reference
-- []()
----
+<div align='center'>
+     <img src=".\images\ds_4_queue.png">
+   </div>
+
+- FIFO(First In First Out) 구조 : 먼저 삽입된 item이 먼저 삭제됨
+  - 한쪽 끝(Rear)에서는 삽입연산만 이뤄지고
+  - 다른 한쪽 끝(Front)에서는 삭제만 이뤄지는 리스트
+- 초기에는 `Front == Rear == -1`로 초기화
+- 공백일 땐 `Front == Rear`
+- 삽입될 땐 Rear가 점차 증가하며 `Rear == n-1`인 경우 꽉 찬 상태
+
+##### 순차 queue의 문제점
+- 정말 `Rear == n-1`일 때 queue는 꽉 찼을까?
+  - front에서 삭제가 일어났다면 그만큼 공간이 비어있을 것!
+- 따라서 `Rear == n-1`인 상태에는 queue의 첫번째 원소의 위치를 0번 index로 이동시켜줘야 한다.
+  - queue 원소 이동에 따른 비용이 발생
+
+#### Reference
+- [진짜 개발자 : 자료구조 Queue](https://galid1.tistory.com/483)
 ## #4-1
 ### circular queue
+
+<div align='center'>
+     <img src=".\images\ds_4_circular_queue.png">
+   </div>
+
 - queue를 원형으로 구현
-  - 기존 queue는 linear
-### Reference
-- []()
+- 초기에는 `Front == Rear == 0`로 초기화
+- 공백일 땐 `Front == Rear`
+- 삽입될 땐 Rear가 점차 증가하며 `Rear+1 == Front`인 경우 꽉 찬 상태
+  - 원형이기 때문에 full상태에서 원소 이동이 필요 없어짐!!!
+ 
+ ### python deque
+- python에는 queue를 쉽게 쓸 수 있는 collections.deque 클래스가 있음
+- deque는 양방향 queue
+  - 양방향으로 삽입할 수 있으며
+    - `deque.append(item)` : deque의 오른쪽으로 append
+    - `deque.appendleft(item)` : deque의 왼쪽으로 append
+  - 양뱡향으로 삭제할 수 있음
+    - `deque.pop()` : deque의 맨 오른쪽 원소 pop
+    - `deque.popleft() : deque의 맨 왼쪽 원소 pop
+      - 리스트의 경우 pop(0)을 하면 같음
+##### 그러면 리스트 쓰면 될 것이지, 굳이 deque 왜 씀?
+  - 빠르니까!
+    - 리스트는 ***O(N)***
+    - deque는 ***O(1)*** 연산을 수행
+ ```python
+from collections import deque
+d = deque([1,2,3,4,5])
+d.append(6)
+print(d) #deque([1, 2, 3, 4, 5, 6])
 
+d.appendleft(0)
+print(d) #deque([0, 1, 2, 3, 4, 5, 6])
 
+d.pop() #6
 
+print(d) #deque([0, 1, 2, 3, 4, 5])
+
+d.popleft() #0
+
+print(d) #deque([1, 2, 3, 4, 5])
+ ```
+
+#### Reference
+- [진짜 개발자 : 자료구조 Queue](https://galid1.tistory.com/483)
+- [원형큐](https://daeguowl.tistory.com/112)
