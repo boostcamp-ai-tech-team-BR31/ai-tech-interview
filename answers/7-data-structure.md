@@ -30,6 +30,33 @@
 
 ---
 
+## #2
+
+### hash table
+
+key, value의 데이터를 
+key를 해시함수를 이용해 고정된 크기값에 맵핑한 데이터 구조
+
+다른 내용의 데이터가 같은 키를 갖는 경우가 많으면 해시 충돌 --> 성능 하락.
+
+![](images/hash.JPG)
+
+충돌방지
+
+체이닝 방식(separate chaining)
+
+![](images/hash2.JPG)
+
+선형검색(linear probing)
+
+![](images/hash3.JPG)
+
+각각의 key값은 해시함수에 의해 고유한 index를 가지게 되어 바로 접근할 수 있으므로 보통 O(1)의 시간복잡도로 데이터를 조회할 수 있다. 하지만 충돌이 발생한 경우 연결된 리스트들까지 검색해야하므로 O(N)까지 시간복잡도가 증가할 수 있다.
+
+### Reference
+
++ [Hash Table interview](https://www.fullstack.cafe/blog/hash-tables-interview-questions)
+
 ## #4
 ### queue(큐) : 순차 queue
 
@@ -52,7 +79,6 @@
 
 #### Reference
 - [진짜 개발자 : 자료구조 Queue](https://galid1.tistory.com/483)
----
 ## #4-1
 ### circular queue
 
