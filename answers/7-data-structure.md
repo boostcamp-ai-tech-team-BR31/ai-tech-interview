@@ -30,7 +30,18 @@
 
 ---
 
+## #2
+
+### hash table
+
+hash를 쓰는 이유 - 원래의 것을 상징하는 짧은 길이의 값을 키로 변환.
+
+다른 내용의 데이터가 같은 키를 갖는 경우가 많으면 해시 충돌 --> 성능 하락.
+
+
+
 ## #4
+
 ### queue
 - 미완성 >~< by tttangmin
 - First In First out
@@ -45,3 +56,6 @@
   - 기존 queue는 linear
 ### Reference
 - []()
+
+
+
