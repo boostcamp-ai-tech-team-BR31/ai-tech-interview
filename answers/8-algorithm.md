@@ -104,7 +104,7 @@ def selection_sort(arr):
 
 - [선택 정렬(Selection Sort) 이란?](https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html)
 - [ 선택 정렬 - Selection Sort](https://www.daleseo.com/sort-selection/)
-- [선택 정렬 from wikipedia](
+- [선택 정렬 from wikipedia](https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC)
 
 ## #2-4
 
@@ -157,7 +157,7 @@ Radix(기수)는 '자리수'를 의미하는 것으로 기수 정렬은 다음�
 `[121, 432, 564, 23, 1, 45, 788]`가 주어졌을 때 radix sort를 적용한 과정과 결과는 다음과 같다.
 
 <div align='center'>
-    <img src='../images/Radix-sort-0_0.png' width='500px'>
+    <img src='./images/Radix-sort-0_0.png' width='500px'>
 </div>
 
 위 예시의 과정
