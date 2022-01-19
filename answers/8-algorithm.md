@@ -65,6 +65,47 @@ y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 
 ---
 
+
+
+## #2-2
+
+#### Selection Sort
+
+**선택 정렬**(selection sort)은 정렬 알고리즘의 하나로, 다음과 같은 순서로 이루어진다.
+
+1. 주어진 리스트 중에 최소값을 찾는다.
+2. 그 값을 맨 앞에 위치한 값과 교체한다(패스(pass)).
+3. 맨 처음 위치를 뺀 나머지 리스트를 같은 방법으로 교체한다.
+
+- n개의 주어진 리스트를 이와 같은 방법으로 정렬하는 데에는 $Θ(n^2) $만큼의 시간 복잡도를 갖는다.(n개의 원소  n-1번 비교)
+
+- 선택 정렬은 알고리즘이 단순하며 사용할 수 있는 메모리가 제한적인 경우에 사용시 성능 상의 이점이 있다.
+- 입력 배열이 이미 정렬되어 있건 말건 관계없이 동일한 연산량을 가지고 있기 때문에 최적화 여자가 적어서 다른 `O(N^2)` 대비해도 성능이 떨어지는 편으로 실전에서 거의 쓰이지 않는다.
+
+<div align='center'>
+    <img src='../images/algo-2-2.png' width='500px'>
+</div>
+
+
+
+**Python Code**
+
+```python
+def selection_sort(arr):
+    for i in range(len(arr) - 1):
+        min_idx = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+```
+
+#### References
+
+- [선택 정렬(Selection Sort) 이란?](https://gmlwjd9405.github.io/2018/05/06/algorithm-selection-sort.html)
+- [ 선택 정렬 - Selection Sort](https://www.daleseo.com/sort-selection/)
+- [선택 정렬 from wikipedia](
+
 ## #2-4
 
 ### Merge Sort
@@ -96,6 +137,60 @@ y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 #### References
 
 - []()
+
+## #2-8
+
+#### Radix Sort(기수 정렬)
+
+기수 정렬(Radix Sort)은 입력값의 자릿수(d) 각각에 대해 카운팅 정렬을 적용하여 입력 데이터의 최댓값인 k가 커질수록 효율이 떨어지는 카운팅 정렬의 단점을 보완한 정렬 알고리즘이다. 
+
+Radix(기수)는 '자리수'를 의미하는 것으로 기수 정렬은 다음과 같은 순서로 이뤄진다.
+
+**1. 1의 자릿수를 보면서 각각의 버킷에 알맞게 담아준다. 버킷에서 순차적으로 뺀다면 1의 자릿수에 맞게 정렬이된다.**
+
+**2. 1)에 의해서 정렬된 배열에서, 10의 자릿수를 비교해서 버킷에 담고 순차적으로 빼준다.**
+
+**3. 2)에 의해서 정렬된 배열에서, 100의 자릿수를 비교해서 버킷에 담고 순차적으로 빼준다.**
+
+**4. 최대 자릿수까지 계속해서 반복한다..**
+
+`[121, 432, 564, 23, 1, 45, 788]`가 주어졌을 때 radix sort를 적용한 과정과 결과는 다음과 같다.
+
+<div align='center'>
+    <img src='../images/Radix-sort-0_0.png' width='500px'>
+</div>
+
+위 예시의 과정
+
+1. 주어진 리스트의 최대값을 찾고 최대값의 자리수(Radix)를 계산한다. 여기서는 788로 자리수는 3이다.
+
+2. 각 자리수에 대해 counting sort를 적용한다. 첫번째는 1의 자리에 대해서 counting sort 적용
+
+   <div align='center'>
+       <img src='../images/Radix-sort-one.png' width='500px'>
+   </div>
+
+3. 2의 결과를 이용하여 10의 자리에 대해서 counting sort를 적용
+
+<div align='center'>
+    <img src='../images/Radix-sort-ten.png' width='500px'>
+</div>
+
+4. 3의 결과를 이용하여 100의 자리에 대해서 counting sort를 적용
+
+   <div align='center'>
+       <img src='../images/Radix-sort-hundred.png' width='500px'>
+   </div>
+
+Radix sort의 경우 중간에 counting sort를 사용하기 때문에 시간 복잡도는 `O(d(n+k))` 이다. 여기서 `d`는 최대값의 자리수(cycle의 횟수)이고 `n+k`는 counting sort에서 오는 시간 복잡도인데 Radix sort는 k = 10이다.
+
+빠르고 counting sort을 개선한 방법이지만 여전히 추가적인 메모리가 필요하고 데이터 타입이 바뀌면 새로 정의해주어야 한다.(10진수 -> 16진수)
+
+#### References
+
+- [기수 정렬 설명 블로그 - 1](https://yabmoons.tistory.com/248l)
+- [기수 정렬 설명 블로그 - 2](https://week-year.tistory.com/206)
+- [Radix-sort Algorithm from programiz](https://www.programiz.com/dsa/radix-sort)
 
 ## #4
 
