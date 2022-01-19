@@ -83,7 +83,7 @@ y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 - 입력 배열이 이미 정렬되어 있건 말건 관계없이 동일한 연산량을 가지고 있기 때문에 최적화 여자가 적어서 다른 `O(N^2)` 대비해도 성능이 떨어지는 편으로 실전에서 거의 쓰이지 않는다.
 
 <div align='center'>
-    <img src='../images/algo-2-2.png' width='500px'>
+    <img src='./images/algo-2-2.png' width='500px'>
 </div>
 
 
@@ -167,24 +167,104 @@ Radix(기수)는 '자리수'를 의미하는 것으로 기수 정렬은 다음�
 2. 각 자리수에 대해 counting sort를 적용한다. 첫번째는 1의 자리에 대해서 counting sort 적용
 
    <div align='center'>
-       <img src='../images/Radix-sort-one.png' width='500px'>
+       <img src='./images/Radix-sort-one.png' width='500px'>
    </div>
 
 3. 2의 결과를 이용하여 10의 자리에 대해서 counting sort를 적용
 
 <div align='center'>
-    <img src='../images/Radix-sort-ten.png' width='500px'>
+    <img src='./images/Radix-sort-ten.png' width='500px'>
 </div>
 
 4. 3의 결과를 이용하여 100의 자리에 대해서 counting sort를 적용
 
    <div align='center'>
-       <img src='../images/Radix-sort-hundred.png' width='500px'>
+       <img src='./images/Radix-sort-hundred.png' width='500px'>
    </div>
 
 Radix sort의 경우 중간에 counting sort를 사용하기 때문에 시간 복잡도는 `O(d(n+k))` 이다. 여기서 `d`는 최대값의 자리수(cycle의 횟수)이고 `n+k`는 counting sort에서 오는 시간 복잡도인데 Radix sort는 k = 10이다.
 
 빠르고 counting sort을 개선한 방법이지만 여전히 추가적인 메모리가 필요하고 데이터 타입이 바뀌면 새로 정의해주어야 한다.(10진수 -> 16진수)
+
+**Python Code**
+Version 1
+```python
+from collections import deque
+
+def radix_sort(nums):
+    buckets = [deque() for _ in range(10)]
+
+    max_val = max(nums)
+    Q = deque(nums)
+    cur_ten = 1
+
+    while max_val >= cur_ten:
+        while Q:
+            num = Q.popleft()
+            buckets[(num // cur_ten) % 10].append(num)
+
+        for bucket in buckets:
+            while bucket:
+                Q.append(bucket.popleft())
+
+        cur_ten *= 10
+    return list(Q)
+
+print(radix_sort([15, 27, 64, 25, 50, 17, 39, 28]))
+```
+
+Version 2
+```python
+# Radix sort in Python
+
+
+# Using counting sort to sort the elements in the basis of significant places
+def countingSort(array, place):
+    size = len(array)
+    output = [0] * size
+    count = [0] * 10
+
+    # Calculate count of elements
+    for i in range(0, size):
+        index = array[i] // place
+        count[index % 10] += 1
+
+    # Calculate cumulative count
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    # Place the elements in sorted order
+    i = size - 1
+    while i >= 0:
+        index = array[i] // place
+        output[count[index % 10] - 1] = array[i]
+        count[index % 10] -= 1
+        i -= 1
+
+    for i in range(0, size):
+        array[i] = output[i]
+
+
+# Main function to implement radix sort
+def radixSort(array):
+    # Get maximum element
+    max_element = max(array)
+
+    # Apply counting sort to sort elements based on place value.
+    place = 1
+    while max_element // place > 0:
+        countingSort(array, place)
+        place *= 10
+
+
+data = [121, 432, 564, 23, 1, 45, 788]
+radixSort(data)
+print(data)
+```
+
+
+
+
 
 #### References
 
