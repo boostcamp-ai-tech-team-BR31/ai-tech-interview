@@ -97,4 +97,16 @@ y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 
 - []()
 
----
+## #4
+
+### Dynamic Programming
+
+큰 문제에 대한 답을 얻기 위해 동일한 문제이지만 크기가 더 작은 문제들을 먼저 해결한 뒤, 그 결과들을 이용해 큰 문제를 비교적 간단하게 해결하는 기법
+
+Top down with Memoization
+
+Bottom up with Tabulation
+
+#### References
+
++ [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
