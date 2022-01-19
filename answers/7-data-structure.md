@@ -431,3 +431,31 @@ min heap의 규칙은 `<u>`**부모 노드는 항상 자식 노드에 들어있�
 ### Max Heap
 
 max heap의 규칙은 **`<u>`부모 노드는 항상 자식 노드에 들어 있는 값보다 크다 `</u>`**
+
+
+
+## #8
+
+### Red-black tree
+
+각 노드에 색을 저장하는 공간을 추가하여 색을 기준으로 균형을 맞추는 트리
+
+<div align='center'>
+     <img src=".\images\rbt.JPG" style="zoom:40%;"/>
+   </div>
+
+RedBlack Tree Rule
+
+- 모든 노드는 RED이거나 BLACK이다.
+- 루트는 BLACK이다.
+- 모든 리프(NIL)는 BLACK이다.
+- 노드가 RED이면 그 노드의 자식은 모두 BLACK이다. // NO Double Red
+- 각 노드로부터 그 노드의 자손인 리프로 가는 경로들은 모두 같은 수의 BLACK 노드를 포함한다.
+
+<div align='center'>
+     <img src=".\images\rbton.JPG" style="zoom:40%;"/>
+   </div>
+
+#### Reference
+
+- [RedBlack Tree](https://nesoy.github.io/articles/2018-08/Algorithm-RedblackTree)
