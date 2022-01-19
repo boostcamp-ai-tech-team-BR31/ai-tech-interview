@@ -44,10 +44,10 @@
 - 공간 복잡도 : 알고리즘의 메모리 공간
 
 복잡도는 점근적 표기법(Asymptotic Notation)으로 나타냄
+
 <div align='center'>
     <img src='./images/algo_1_Asymptotic_Notation.jpeg' height='400px'>
 </div>
-<br>
 
 y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 - 빅오(O) 표기법
@@ -285,3 +285,27 @@ Bottom up with Tabulation
 #### References
 
 + [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
+
+## #6
+
+### Graph
+
+- 그래프 관련 용어
+    - 정점(node, vertex) : 자료
+    - 간선(edge) : 정점 간의 관계
+    - 가중치(weight) : 간선의 거리
+    - 차수(degree) : 그래프와 연결된 간선의 개수
+    - 단순경로(simple path) : 하나의 정점을 최대 한 번씩만 방문한 경로
+    - cycle : 단순 경로의 출발점과 도착증이 같은 경우
+- 그래프 종류
+    - 양방향 그래프(=무방할 그래프)
+    - 방향 그래프
+    - 완전 그래프 : 각 정점에서 자신을 제외한 모든 정점과 연결된 그래프
+        - 간선의 개수 : $\frac{V(V-1)}{2}$
+    - 다중 그래프 : 두 정점 사이에 여러개의 간선이 있는 그래프
+    - 사이클 없는 방향 그래프
+    - 부분 그래프 : 정점이나 간선을 제외하여 만든 그래프
+    - 이분 그래프 : 인접 정점까지 서로 다른 색으로 칠했을 때, 모든 정점을 두 가지 색으로 칠할 수 있는 그래프
+- 그래프 표현
+  - 인접 리스트
+  - 인접 행렬
