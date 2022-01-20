@@ -65,6 +65,33 @@ y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 
 ---
 
+## #2-1
+
+#### Bubble Sort
+
+<div align='center'>
+    <img src='./images/bubble_1.png'>
+    <img src='./images/bubble_2.png'>
+</div>
+
+> 시간복잡도
+
+$O(N^2)$
+
+> 파이썬 구현
+
+```python
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1, 0, -1):
+        for i in range(passnum):
+            if alist[i] > alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+```
+
+#### References
+- https://yabmoons.tistory.com/241
 
 
 ## #2-2
@@ -137,6 +164,23 @@ def selection_sort(arr):
 #### References
 
 - []()
+
+## #2-7
+
+#### Counting Sort(계수 정렬)
+
+Counting Sort는 정렬 알고리즘으로 $O(N)$의 시간복잡도를 갖습니다. 반면 일반적 상황에서 가장 빠른 정렬 알고리즘인 Quick Sort의 평균시간복잡도는 $O(NlogN)$입니다 (최악의 경우는 $N^2$).
+
+Counting Sort는 어떻게 이렇게 빠를까요? 
+
+그럼 왜 대부분의 정렬이 필요한 상황에서 더 빠른 Counting Sort를 안 쓰고 Quick Sort를 쓸까요?
+
+> 동작원리
+
+1. 각 숫자가 몇 번 등장하는지 세어준다.
+2. 
+
+출처: https://bowbowbow.tistory.com/8 [멍멍멍]
 
 ## #2-8
 
