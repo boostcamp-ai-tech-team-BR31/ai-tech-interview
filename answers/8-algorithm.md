@@ -65,6 +65,33 @@ y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
 
 ---
 
+## #2-1
+
+#### Bubble Sort
+
+<div align='center'>
+    <img src='./images/bubble_1.png'>
+    <img src='./images/bubble_2.png'>
+</div>
+
+> 시간복잡도
+
+$O(N^2)$
+
+> 파이썬 구현
+
+```python
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1, 0, -1):
+        for i in range(passnum):
+            if alist[i] > alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+```
+
+#### References
+- https://yabmoons.tistory.com/241
 
 
 ## #2-2
@@ -184,6 +211,59 @@ def insert_sort(x):
 #### References
 
 - []()
+
+
+
+## #2-7
+
+#### Counting Sort(계수 정렬)
+
+Counting Sort는 정렬 알고리즘으로 $O(N)$의 시간복잡도를 갖습니다. 반면 일반적 상황에서 가장 빠른 정렬 알고리즘인 Quick Sort의 평균시간복잡도는 $O(NlogN)$입니다 (최악의 경우는 $N^2$).
+
+> 동작원리
+
+리스트 예시 : $$[5,5,3,4,5,1,0,4,1,3,0,2,4,2,3,0]$$
+
+1. 각 숫자가 몇 번 등장하는지 세어준다.
+
+![Screen Shot 2022-01-20 at 7.17.01 PM](images/countingsort_1.png)
+
+2. 등장 횟수를 누적합으로 바꿔준다.
+
+![Screen Shot 2022-01-20 at 7.17.32 PM](images/countingsort_2.png)
+
+3. 리스트를 뒤쪽에서부터 순회하며 각 숫자를 누적합을 index로 취급하여 넣어준다.
+
+> 1. 리스트 예시에서 맨 뒤쪽 숫자는 0
+> 2. 누적합은 3, 따라서 [ , , 0, , , ,] 의 형태로 새로운 리스트에 삽입
+> 3. 그리고 누적합 -1
+> 4. 0 다음에는 3이고 3의 누적합은 10임
+> 5. 따라서 [ , , 0, , , , , , , 3, , , ,]
+> 6. 3의 누적합 -1
+> 7. 위 과정 반복
+
+
+
+Counting Sort는 어떻게 이렇게 빠를까요? 
+
+#### 그럼 왜 대부분의 정렬이 필요한 상황에서 더 빠른 Counting Sort를 안 쓰고 Quick Sort를 쓸까요?
+
+`Counting Sort` 알고리즘의 시간복잡도는 O(n) 으로 `Quick Sort`보다 훨씬 유리해보입니다. 그러나 `세상에 공짜는 없다`는 말처럼 `Counting Sort`는 대부분의 상황에서 엄청난 `메모리 낭비`를 야기할 수 있습니다.
+
+누적합 배열에 대한 접근을 O(1)에 달성하기 위해 정렬할 배열에 포함된 숫자의 최댓값 만큼의 메모리를 필요로 합니다. 아까 추가로 예시든 $$[0, 2, 0, 100, 2, 0]$$배열에 Counting Sort 알고리즘으로 정렬하기 위해서는 누적합 배열의 길이를 100으로 잡는 낭비를 해야합니다. 만약 배열에 최댓값으로 10억이 포함되어 있다면 엄청난 낭비가 되겠죠.
+
+따라서 `Counting Sort`는 위에서든 예시처럼
+
+$$[5,5,3,4,5,1,0,4,1,3,0,2,4,2,3,0]$$
+
+정렬하는 숫자가 `특정한 범위`(위 예시 : 0~5) 안에 있을 때 사용하게 됩니다.
+
+#### References
+
+- [이론](https://bowbowbow.tistory.com/8)
+- [시각화](https://www.cs.usfca.edu/~galles/visualization/CountingSort.html)
+
+
 
 ## #2-8
 
@@ -391,3 +471,47 @@ Bottom up with Tabulation
 - 그래프 표현
   - 인접 리스트
   - 인접 행렬
+
+### #6-1
+
+#### Graph Traversal: DFS, BFS
+
+DFS: Depth First Search (깊이 우선 탐색)
+
+BFS: Breadth First Search (너비 우선 탐색)
+
+ 
+
+> DFS
+
+*최대한 깊이 내려간 뒤, 더 이상 깊이 갈 곳이 없을 경우 옆으로 이동*
+
+![img](images/dfs_jaewook.png)
+
+**DFS의 특징**
+
+- 모든 노드를 방문하고자 하는 경우 사용
+- 깊이 우선 탐색(DFS)가 너비 우선 탐색(BFS) 보다 좀 더 간단함
+- 검색 속도 자체는 너비 우선 탐색(BFS)에 비해서 느림
+
+
+
+> BFS
+
+*최대한 넓게 이동한 다음, 더 이상 갈 수 없을 때 아래로 이동*
+
+![img](images/bfs_jaewook.png)
+
+**BFS의 특징**
+
+- 주로 두 노드 사이의 **최단 경로**를 찾고 싶을 때 이 방법을 선택
+
+
+
+> BFS vs DFS
+
+|                        DFS                        |                   BFS                   |
+| :-----------------------------------------------: | :-------------------------------------: |
+| 현재 정점에서 갈 수 있는 점들까지 들어가면서 탐색 | 현재 정점에 연결된 가까운 점들부터 탐색 |
+|             스택 또는 재귀함수로 구현             |           큐를 이용해서 구현            |
+
