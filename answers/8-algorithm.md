@@ -106,6 +106,53 @@ def selection_sort(arr):
 - [ 선택 정렬 - Selection Sort](https://www.daleseo.com/sort-selection/)
 - [선택 정렬 from wikipedia](https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC)
 
+## #2-3
+
+### Insertion Sort
+
+#### 정의
+
+삽입 정렬(insertion sort)은 배열의 모든 요소를 앞에서부터 차례대로 이미 정렬도니 배열 부분과 비교하여 자신의 위치를 찾아 삽입하며 정렬을 완성하는 알고리즘
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/42/Insertion_sort.gif)
+
+#### 특징
+
+- 배열이 길어질수록 효율이 떨어진다.
+- 구현이 간단하다
+- 선택 정렬이나 거품 정렬(bubble 정렬)과 같은 O(n^2) 알고리즘에 비해 빠르며, 안정 정렬이고 in-place 알고리즘이다
+
+#### 코드
+
+```python
+def insert_sort(x):
+	for i in range(1, len(x)):
+		j = i - 1
+		key = x[i]
+		while x[j] > key and j >= 0:
+			x[j+1] = x[j]
+			j = j - 1
+		x[j+1] = key
+	return x
+```
+
+
+
++) 안정 정렬 / 불안정 정렬
+
+- **안정 정렬** : 중복된 입력 값이 있을 때 입력 순서를 유지하여 정렬하는 알고리즘 (삽입정렬, 병합정렬, 버블 정렬 등이 있다)
+- **불안정 정렬** : 중복된 입력 값이 있을 때 입력 순서 유지가 보장이 되지 않고 정렬되는 알고리즘 (퀵정렬, 선택 정렬, 계수 정렬 등이 있다.)
+
++) 정렬 알고리즘 시간 복잡도 비교
+
+<div align='center'>
+    <img src='./images/algo_2-3_1.png' style="zoom:40%" >
+</div>
+
+#### Reference
+
+- [위키 백과 - 삽입 정렬](https://ko.wikipedia.org/wiki/삽입_정렬)
+
 ## #2-4
 
 ### Merge Sort
@@ -271,6 +318,41 @@ print(data)
 - [기수 정렬 설명 블로그 - 1](https://yabmoons.tistory.com/248l)
 - [기수 정렬 설명 블로그 - 2](https://week-year.tistory.com/206)
 - [Radix-sort Algorithm from programiz](https://www.programiz.com/dsa/radix-sort)
+
+## #3
+
+### Divide and Conquer
+
+#### 정의
+
+그대로 해결할 수 없는 문제를 작은 문제로 **분할** 하여 문제를 해결하는 방법
+
+#### 구현 방법
+
+보통 **재귀 함수**를 통해 구한다.
+
+```
+function F(x):
+  if F(x)의 문제가 간단 then:
+    return F(x)을 직접 계산한 값
+  else:
+    x를 y1, y2로 분할
+    F(y1)과 F(y2)를 호출
+    return F(y1), F(y2)로부터 F(x)를 구한 값
+```
+
+재귀호출을 사용하면 함수 호출 오버헤드 떄문에 실행 속도가 늦어지기 때문에 스택, 큐 등의 자료구조를 이용하여 구현도 가능하다.
+
+#### 전략
+
+1) **Divide** : 문제가 분할이 가능한 경우, 2개 이상의 문제로 나눈다.
+2) **Conquer** : 나누어진 문제가 여전히 분할이 가능하면, 또 다시 Divide를 수행한다. 그렇지 않으면 문제를 푼다.
+3) **Combine** : Conquer한 문제들을 통합하여 원래 문제의 답을 얻는다.
+
+#### Reference
+
+- [위키백과 - 분할 정복 알고리즘](https://ko.wikipedia.org/wiki/분할_정복_알고리즘)
+- [분할 정복](https://janghw.tistory.com/entry/알고리즘-Divide-and-Conquer-분할정복)
 
 ## #4
 
