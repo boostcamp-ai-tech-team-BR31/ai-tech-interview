@@ -444,6 +444,14 @@ Top down with Memoization
 
 Bottom up with Tabulation
 
+
+
+테이블 - 초기값 - 점화식
+
+초기값 = 경우의 수가 유일
+
+시간복잡도(tabulation) = 칸의개수(푸는 문제 개수) * 한 칸마다 걸리는 시간
+
 #### References
 
 + [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
