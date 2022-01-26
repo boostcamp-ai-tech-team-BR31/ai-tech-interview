@@ -523,6 +523,96 @@ BFS: Breadth First Search (너비 우선 탐색)
 | 현재 정점에서 갈 수 있는 점들까지 들어가면서 탐색 | 현재 정점에 연결된 가까운 점들부터 탐색 |
 |             스택 또는 재귀함수로 구현             |           큐를 이용해서 구현            |
 
+## #6-2-1
+
+#### Dijkstra
+
+- 다익스트라( DiJkstra) 알고리즘은 **다이나믹 프로그래밍**을 활용하는 대표적인 최단 경로 탐색 알고리즘 입니다.
+
+- 특징으로는 특정 하나의 정점에서 다른 모든 정점으로 가는 **최단 경로**를 알려준다. 다만 이 때 음의 간선(Edge)를 포함할 수는 없다. 
+- 현실 세계에서는 음의 간선이 존재하지 않기 때문에 다익스트라는 현실 세계에 사용하기에 매우 적합한 알고리즘 중 하나라고 할 수 있다. GPS에 사용
+
+- 다익스트라 알고리즘이 다이나믹 프로그래밍 문제인 이유는 '**최단 거리는 여러 개의 최단 거리로 이뤄져 있기 때문**입니다.'.
+
+- 작은 문제가 큰 문제의 부분 집합에 속해있다고 볼 수 있습니다. 기본적으로 다익스트라는 하나의 최단 거리를 구할 때 이전까지 구했던 최단 거리 정보를 그대로 사용 한다는 특징을 갖고 있습니다.
+
+  [그림](https://blog.naver.com/PostView.naver?blogId=ndb796&logNo=221234424646&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+
+다익스트라 알고리즘을 실행 하는 중에는 **방문하지 않은 인접 노드**를 방문하는 부분이 있습니다. 이 부분에서 **우선순위 큐(Heap)**를 사용 하면, **지금까지 발견된 가장 짧은 거리의 노드에 대해서 먼저 계산**할 수 있으며, **더 긴 거리로 계산 되었을 시 스킵** 또한 가능합니다.(단순 선형탐색시 시간 복잡도 $O(n^2$) 힙 구조를 사용하면 $O(nlogn)$)
+
+우선순위 큐는 `heapq` 모듈을 이용해 구현 할 수 있습니다.
+
+### Code
+
+**Version 1**
+
+[블로그](https://techblog-history-younghunjo1.tistory.com/247)
+
+선형탐색 방법 시각 복잡도 O(N^2)
+
+**Version 2**
+
+**힙구조 이용**
+
+```python
+import heapq
+import sys
+input = sys.stdin.readline
+INF = int(1e9)
+
+# 노드 개수, 간선 개수 입력받기
+n, m = map(int, input().split())
+# 시작 노드 번호 입력받기
+start = int(input())
+# 각 노드에 연결되어 있는 노드에 대한 정보를 담는 리스트 만들기
+graph = [[] for i in range(n+1)]
+# 최단 거리 테이블을 모두 무한으로 초기화
+distance = [INF] * (n+1)
+
+# 모든 간선 정보 입력받기
+for _ in range(m):
+    a, b, c = map(int, input().split())
+    # a 번 노드에서 b 번 노드로 가는 비용이 c 라는 의미
+    graph[a].append((b, c))
+
+    def dijkstra(start):
+        q = []
+        # 시작 노드로 가기 위한 최단 경로는 0 으로 설정하여, 큐에 삽입
+        heapq.heappush(q, (0, start))
+        distance[start] = 0
+        while q: # 큐가 비어있지 않다면
+            # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
+            dist, now = heapq.heappop(q)
+            # 현재 노드가 이미 처리된 적이 있는 노드면 무시
+            if distance[now] < dist:
+                continue
+                # 현재 노드와 연결된 다른 인접한 노드들을 확인
+                for to_other in graph[now]:
+                    cost = dist + to_other[1]
+                    if distance[to_other[0]] > cost:
+                        distance[to_other[0]] = cost
+                        heapq.heappush(q, (cost, to_other[0]))
+
+# 다익스트라 알고리즘 수행
+dijkstra(start)
+
+# 모든 노드로 가기 위한 최단 거리를 출력
+for i in range(1, n+1):
+# 도달할 수 없는 경우, 무한으로 출력
+	if distance[i] == INF:
+		print("INFINITY")
+	else:
+		print(distance[i])
+```
+
+
+
+### Reference
+
+- [다익스트라 알고리즘 From 동빈나 blog](https://blog.naver.com/PostView.naver?blogId=ndb796&logNo=221234424646&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+- [다익스트라 알고리즘 From Programiz](https://www.programiz.com/dsa/dijkstra-algorithm)
+- [인터뷰 다른 답변](https://github.com/SEOzizou/ai-tech-interview/blob/main/answers/8-algorithm.md#6-2-1)
+
 
 
 ## #6-2-2
