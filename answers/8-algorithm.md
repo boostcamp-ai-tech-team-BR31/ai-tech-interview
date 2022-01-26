@@ -620,3 +620,40 @@ for k in range(len(arr)):
 
 - [위키 백과 - 플로이드-워셜 알고리즘](https://ko.wikipedia.org/wiki/플로이드-워셜_알고리즘)
 - [나동빈님 블로그 - 플로이드 워셜 알고리즘](https://blog.naver.com/ndb796/221234427842)
+
+
+
+## #6-2-3
+
+### Bellman-Ford
+
+<div align='center'>
+    <img src='./images/bp.JPG' style="zoom:70%" >
+</div>
+
+1. 출발 노드 설정
+
+2. 최단 거리 테이블 초기화
+3. 다음의 과정 N-1번 반복
+   1. 전체 간선 E개를 하나씩 확인
+   2. 각 간선을 거쳐 다른 노드로 가는 비용을 계산하여 최단 거리 테이블 갱신
+4. 음수 간선 순환이 발생하는지 체크하고 싶다면 3번의 과정을 한 번 더 수행
+   + 이때 최단 거리 테이블이 갱신된다면 음수 간선 순환이 존재하는 것.
+
+
+
++ 매번 모든 간선을 전부 확인
+
+​		=> 다익스트라 알고리즘에서의 최적의 해를 항상 포함
+
++ 시간 복잡도 O(VE) 정점의 개수 * 간선의 개수
+
++ 다익스트라 알고리즘에 비해서 시간이 오래 걸리지만 음수 간선 순환 탐지 가능
+
+<div align='center'>
+    <img src='./images/bp_code.PNG' style="zoom:70%" >
+</div>
+
+#### Reference
+
++ [코딩 테스트를 위한 벨만 포드 알고리즘 7분 핵심 요약](https://www.youtube.com/watch?v=Ppimbaxm8d8)
