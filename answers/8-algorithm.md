@@ -180,6 +180,47 @@ def insert_sort(x):
 
 - [위키 백과 - 삽입 정렬](https://ko.wikipedia.org/wiki/삽입_정렬)
 
+## #2-5
+
+### Heap Sort
+
+**완전 이진트리를 기본으로 하는 힙 자료구조를 기반으로한 정렬**
+
+
+
+-  정렬해야 할 n개의 요소를 최대 또는 최소 힙을 구성한다.
+- 현재 힙의 root에는 최대 또는 최소가 존재한다. 루트의 값을 말단 노드와 바꾼 후에, 힙의 사이즈를 하나 줄인다.
+- 힙의 사이즈가 1보다 크면 이 과정을 반복한다.
+
+
+
+이렇게 되면 마지막 노드를 제외한 트리에 대해 루트 노드에 들어간 새로운 값의 적절한 위치를 찾는 과정이 반복된다. 이와 같은 방식으로 최대 값을 하나씩 뽑아내면서 정렬하는 것을 **힙소트(Heap Sort)**라고 한다.
+
+
+
+### 삽입 
+
+<div align='center'>
+    <img src='./images/heap.gif' height='400px'>
+</div>
+
+### 삭제
+
+<div align='center'>
+    <img src='./images/heapd.gif' height='400px'>
+</div>
+
+
+
+- Heap sort는 시간 복잡도가 좋은편이다
+- Heap sort가 유용한 경우는 **가장 큰 값 몇개만 필요할 때** 이다.
+- 시간복잡도 -  **O(nlog₂n)**
+
+#### References
+
+- [힙 정렬](https://m.blog.naver.com/adamdoha/222014528828)
+- [힙 정렬이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-heap-sort.html)
+
 ## #2-4
 
 ### Merge Sort
@@ -445,6 +486,98 @@ function F(x):
 
 - [위키백과 - 분할 정복 알고리즘](https://ko.wikipedia.org/wiki/분할_정복_알고리즘)
 - [분할 정복](https://janghw.tistory.com/entry/알고리즘-Divide-and-Conquer-분할정복)
+
+## #2-5
+
+### Heap Sort
+
+**완전 이진트리를 기본으로 하는 힙 자료구조를 기반으로한 정렬**
+
+
+
+-  정렬해야 할 n개의 요소를 최대 또는 최소 힙을 구성한다.
+- 현재 힙의 root에는 최대 또는 최소가 존재한다. 루트의 값을 말단 노드와 바꾼 후에, 힙의 사이즈를 하나 줄인다.
+- 힙의 사이즈가 1보다 크면 이 과정을 반복한다.
+
+
+
+이렇게 되면 마지막 노드를 제외한 트리에 대해 루트 노드에 들어간 새로운 값의 적절한 위치를 찾는 과정이 반복된다. 이와 같은 방식으로 최대 값을 하나씩 뽑아내면서 정렬하는 것을 **힙소트(Heap Sort)**라고 한다.
+
+
+
+### 삽입 
+
+<div align='center'>
+    <img src='./images/heap.gif' height='400px'>
+</div>
+
+### 삭제
+
+<div align='center'>
+    <img src='./images/heapd.gif' height='400px'>
+</div>
+
+
+
+- Heap sort는 시간 복잡도가 좋은편이다
+- Heap sort가 유용한 경우는 **가장 큰 값 몇개만 필요할 때** 이다.
+- 시간복잡도 -  **O(nlog₂n)**
+
+#### References
+
+- [힙 정렬](https://m.blog.naver.com/adamdoha/222014528828)
+- [힙 정렬이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-heap-sort.html)
+
+
+
+## #5
+
+### Greedy Algorithm
+
+- 최적의 해에 가까운 값을 구하기 위해 사용됨
+- 여러 경우 중 하나를 결정해야할 때마다, **매순간 최적이라고 생각되는 경우를 선택**하는 방식으로 진행해서, 최종적인 값을 구하는 방식
+
+
+
+### 동전문제
+
+지불해야 하는 값이 4720원 일 때 1원 50원 100원, 500원 동전으로 동전의 수가 가장 적게 지불하시오.	
+
+- 가장 큰 동전부터 최대한 지불해야 하는 값을 채우는 방식으로 구현 가능
+- 탐욕 알고리즘으로 매순간 최적이라고 생각되는 경우를 선택하면 됨
+
+```python
+coin_list = [500, 100, 50, 1]
+
+def min_coin_count(value, coin_list):
+    total_coin_count = 0
+    details = list()
+    coin_list.sort(reverse=True)
+    for coin in coin_list:
+        coin_num = value // coin
+        total_coin_count += coin_num
+        value -= coin_num * coin
+        details.append([coin, coin_num])
+    return total_coin_count, details
+```
+
+```python
+min_coin_count(4720, coin_list)
+```
+
+```python
+(31, [[500, 9], [100, 2], [50, 0], [1, 20]])
+```
+
+
+
+### Greedy Algotithm의 한계
+
+- 탐욕 알고리즘은 근사치 추정에 활용
+- 반드시 최적의 해를 구할 수 있는 것은 아니기 때문
+- 최적의 해에 가까운 값을 구하는 방법 중의 하나임
+
+
 
 ## #4
 
