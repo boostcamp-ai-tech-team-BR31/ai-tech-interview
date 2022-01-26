@@ -203,14 +203,26 @@ def insert_sort(x):
 
 ### Quick Sort
 
+퀵 정렬의 과정
+- 분할(Divide): 입력 배열을 피벗을 기준으로 비균등하게 2개의 부분 배열(피벗을 중심으로 왼쪽: 피벗보다 작은 요소들, 오른쪽: 피벗보다 큰 요소들)로 분할한다.
+- 정복(Conquer): 부분 배열을 정렬한다. 부분 배열의 크기가 충분히 작지 않으면 순환 호출 을 이용하여 다시 분할 정복 방법을 적용한다.
+- 결합(Combine): 정렬된 부분 배열들을 하나의 배열에 합병한다.
+순환 호출이 한번 진행될 때마다 최소한 하나의 원소(피벗)는 최종적으로 위치가 정해지므로, 이 알고리즘은 반드시 끝난다는 것을 보장할 수 있다.
+
 <div align='center'>
-    <img src='./images/' height='400px'>
+    <img src='./images/algo_2-6_quick.PNG'  style="zoom:70%;">
 </div>
-<br>
+
+- pivot : 기준점
+- left : 부분리스트의 제일 왼쪽
+- right : 부분리스트의 제일 오른쪽
+- low : left부터 시작하며 pivot보다 큰 요소에서 멈춤
+- high : right부터 시작하며 pivot보다 작은 요소에서 멈춤
 
 #### References
 
-- []()
+- [Quick sort 개념](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
+- [Quick sort visualization](https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/)
 
 
 
@@ -466,9 +478,9 @@ Bottom up with Tabulation
     - 가중치(weight) : 간선의 거리
     - 차수(degree) : 그래프와 연결된 간선의 개수
     - 단순경로(simple path) : 하나의 정점을 최대 한 번씩만 방문한 경로
-    - cycle : 단순 경로의 출발점과 도착증이 같은 경우
+    - cycle : 단순 경로의 출발점과 도착점이 같은 경우
 - 그래프 종류
-    - 양방향 그래프(=무방할 그래프)
+    - 양방향 그래프(=무방향 그래프)
     - 방향 그래프
     - 완전 그래프 : 각 정점에서 자신을 제외한 모든 정점과 연결된 그래프
         - 간선의 개수 : $\frac{V(V-1)}{2}$
@@ -477,8 +489,32 @@ Bottom up with Tabulation
     - 부분 그래프 : 정점이나 간선을 제외하여 만든 그래프
     - 이분 그래프 : 인접 정점까지 서로 다른 색으로 칠했을 때, 모든 정점을 두 가지 색으로 칠할 수 있는 그래프
 - 그래프 표현
+   <div align='center'>
+       <img src='./images/algo_6_graph.PNG' width='500px'>
+   </div>
+
   - 인접 리스트
+  ```python
+  # index 0은 비워둠
+  graph = [[],
+            [0, 0, 1, 1, 0, 0, 0],
+            [0, 1, 0, 1, 1, 0, 0],
+            [0, 1, 1, 0, 1, 1, 0],
+            [0, 0, 1, 1, 0, 1, 1],
+            [0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0]]
+  ```
   - 인접 행렬
+  ```python
+  # index 0은 비워둠
+  graph = [[],
+            [2, 3],
+            [1, 3, 4],
+            [1, 2, 4, 5],
+            [2, 3, 5, 6],
+            [3, 4],
+            [4]]
+  ```
 
 ### #6-1
 
