@@ -487,48 +487,27 @@ function F(x):
 - [위키백과 - 분할 정복 알고리즘](https://ko.wikipedia.org/wiki/분할_정복_알고리즘)
 - [분할 정복](https://janghw.tistory.com/entry/알고리즘-Divide-and-Conquer-분할정복)
 
-## #2-5
+## #4
 
-### Heap Sort
+### Dynamic Programming
 
-**완전 이진트리를 기본으로 하는 힙 자료구조를 기반으로한 정렬**
+큰 문제에 대한 답을 얻기 위해 동일한 문제이지만 크기가 더 작은 문제들을 먼저 해결한 뒤, 그 결과들을 이용해 큰 문제를 비교적 간단하게 해결하는 기법
 
+Top down with Memoization
 
-
--  정렬해야 할 n개의 요소를 최대 또는 최소 힙을 구성한다.
-- 현재 힙의 root에는 최대 또는 최소가 존재한다. 루트의 값을 말단 노드와 바꾼 후에, 힙의 사이즈를 하나 줄인다.
-- 힙의 사이즈가 1보다 크면 이 과정을 반복한다.
+Bottom up with Tabulation
 
 
 
-이렇게 되면 마지막 노드를 제외한 트리에 대해 루트 노드에 들어간 새로운 값의 적절한 위치를 찾는 과정이 반복된다. 이와 같은 방식으로 최대 값을 하나씩 뽑아내면서 정렬하는 것을 **힙소트(Heap Sort)**라고 한다.
+테이블 - 초기값 - 점화식
 
+초기값 = 경우의 수가 유일
 
-
-### 삽입 
-
-<div align='center'>
-    <img src='./images/heap.gif' height='400px'>
-</div>
-
-### 삭제
-
-<div align='center'>
-    <img src='./images/heapd.gif' height='400px'>
-</div>
-
-
-
-- Heap sort는 시간 복잡도가 좋은편이다
-- Heap sort가 유용한 경우는 **가장 큰 값 몇개만 필요할 때** 이다.
-- 시간복잡도 -  **O(nlog₂n)**
+시간복잡도(tabulation) = 칸의개수(푸는 문제 개수) * 한 칸마다 걸리는 시간
 
 #### References
 
-- [힙 정렬](https://m.blog.naver.com/adamdoha/222014528828)
-- [힙 정렬이란](https://gmlwjd9405.github.io/2018/05/10/algorithm-heap-sort.html)
-
-
++ [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
 
 ## #5
 
@@ -576,30 +555,6 @@ min_coin_count(4720, coin_list)
 - 탐욕 알고리즘은 근사치 추정에 활용
 - 반드시 최적의 해를 구할 수 있는 것은 아니기 때문
 - 최적의 해에 가까운 값을 구하는 방법 중의 하나임
-
-
-
-## #4
-
-### Dynamic Programming
-
-큰 문제에 대한 답을 얻기 위해 동일한 문제이지만 크기가 더 작은 문제들을 먼저 해결한 뒤, 그 결과들을 이용해 큰 문제를 비교적 간단하게 해결하는 기법
-
-Top down with Memoization
-
-Bottom up with Tabulation
-
-
-
-테이블 - 초기값 - 점화식
-
-초기값 = 경우의 수가 유일
-
-시간복잡도(tabulation) = 칸의개수(푸는 문제 개수) * 한 칸마다 걸리는 시간
-
-#### References
-
-+ [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
 
 ## #6
 
