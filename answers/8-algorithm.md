@@ -203,14 +203,26 @@ def insert_sort(x):
 
 ### Quick Sort
 
+퀵 정렬의 과정
+- 분할(Divide): 입력 배열을 피벗을 기준으로 비균등하게 2개의 부분 배열(피벗을 중심으로 왼쪽: 피벗보다 작은 요소들, 오른쪽: 피벗보다 큰 요소들)로 분할한다.
+- 정복(Conquer): 부분 배열을 정렬한다. 부분 배열의 크기가 충분히 작지 않으면 순환 호출 을 이용하여 다시 분할 정복 방법을 적용한다.
+- 결합(Combine): 정렬된 부분 배열들을 하나의 배열에 합병한다.
+순환 호출이 한번 진행될 때마다 최소한 하나의 원소(피벗)는 최종적으로 위치가 정해지므로, 이 알고리즘은 반드시 끝난다는 것을 보장할 수 있다.
+
 <div align='center'>
-    <img src='./images/' height='400px'>
+    <img src='./images/algo_2-6_quick.PNG'  style="zoom:70%;">
 </div>
-<br>
+
+- pivot : 기준점
+- left : 부분리스트의 제일 왼쪽
+- right : 부분리스트의 제일 오른쪽
+- low : left부터 시작하며 pivot보다 큰 요소에서 멈춤
+- high : right부터 시작하며 pivot보다 작은 요소에서 멈춤
 
 #### References
 
-- []()
+- [Quick sort 개념](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
+- [Quick sort visualization](https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/)
 
 
 
