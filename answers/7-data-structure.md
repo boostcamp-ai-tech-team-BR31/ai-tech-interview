@@ -235,13 +235,13 @@ print(d) #deque([1, 2, 3, 4, 5])
 
 ##### 그래프의 종류
 
-<img src="/images/graph_jaewook.png" width="50%">  
+<img src="./images/graph_jaewook.png" width="50%">  
 
 간선이 담고있는 정보와 연결 상태에 따라 그래프의 종류가 나뉜다. 두 정점을 연결하는 간선에 방향이 없다면 `무방향 그래프`, 두 정점을 연결하는 간선에 방향이 존재하면 `방향 그래프`라고 부른다. 방향 그래프는 간선의 방향으로만 이동할 수 있다. 두 정점을 이동할 때 비용이 발생하면 `가중치 그래프`로 나타낼 수 있다. 모든 정점이 간선으로 연결된 경우, `완전 그래프`라고 부른다.
 
 ##### 그래프 구현 방식
 
-<img src="/images/graph_jaewook2.png" width="60%">
+<img src="./images/graph_jaewook2.png" width="60%">
 
 - 인접행렬 방식
   - 노드를 인덱스로 삼는 2차원 배열을 만든다.
@@ -250,7 +250,7 @@ print(d) #deque([1, 2, 3, 4, 5])
   - 그러나 모든 정점에 대해, 간선 정보를 입력해야하므로 초기화에 <!-- $O(N^2)$ --> <img style="transform: translateY(0.1em); background: white;" src="https://render.githubusercontent.com/render/math?math=O(N%5E2)"> 시간이 소요된다.
  - 노드의 수가 많고, 간선의 수가 적은 그래프의 경우에, 공간을 낭비하게 된다.
 
-<img src="/images/graph_jaewook3.png" width="70%">  
+<img src="./images/graph_jaewook3.png" width="70%">  
 
 - 인접리스트 방식
   - 그래프의 노드들을 리스트로 표현한다. head 노드와 연결된 노드들을 링크에 달아준다.
