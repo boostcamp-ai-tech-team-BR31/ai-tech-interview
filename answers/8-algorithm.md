@@ -665,7 +665,7 @@ BFS: Breadth First Search (너비 우선 탐색)
 
   [그림](https://blog.naver.com/PostView.naver?blogId=ndb796&logNo=221234424646&redirect=Dlog&widgetTypeCall=true&directAccess=false)
 
-다익스트라 알고리즘을 실행 하는 중에는 **방문하지 않은 인접 노드**를 방문하는 부분이 있습니다. 이 부분에서 **우선순위 큐(Heap)**를 사용 하면, **지금까지 발견된 가장 짧은 거리의 노드에 대해서 먼저 계산**할 수 있으며, **더 긴 거리로 계산 되었을 시 스킵** 또한 가능합니다.(단순 선형탐색시 시간 복잡도 $O(n^2$) 힙 구조를 사용하면 $O(nlogn)$)
+다익스트라 알고리즘을 실행 하는 중에는 **방문하지 않은 인접 노드**를 방문하는 부분이 있습니다. 이 부분에서 **우선순위 큐(Heap)** 를 사용 하면, **지금까지 발견된 가장 짧은 거리의 노드에 대해서 먼저 계산** 할 수 있으며, **더 긴 거리로 계산 되었을 시 스킵** 또한 가능합니다.(단순 선형탐색시 시간 복잡도 $O(n^2)$ 힙 구조를 사용하면 $O(nlogn)$
 
 우선순위 큐는 `heapq` 모듈을 이용해 구현 할 수 있습니다.
 
@@ -702,23 +702,23 @@ for _ in range(m):
     # a 번 노드에서 b 번 노드로 가는 비용이 c 라는 의미
     graph[a].append((b, c))
 
-    def dijkstra(start):
-        q = []
-        # 시작 노드로 가기 위한 최단 경로는 0 으로 설정하여, 큐에 삽입
-        heapq.heappush(q, (0, start))
-        distance[start] = 0
-        while q: # 큐가 비어있지 않다면
-            # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
-            dist, now = heapq.heappop(q)
-            # 현재 노드가 이미 처리된 적이 있는 노드면 무시
-            if distance[now] < dist:
-                continue
-                # 현재 노드와 연결된 다른 인접한 노드들을 확인
-                for to_other in graph[now]:
-                    cost = dist + to_other[1]
-                    if distance[to_other[0]] > cost:
-                        distance[to_other[0]] = cost
-                        heapq.heappush(q, (cost, to_other[0]))
+def dijkstra(start):
+    q = []
+    # 시작 노드로 가기 위한 최단 경로는 0 으로 설정하여, 큐에 삽입
+    heapq.heappush(q, (0, start))
+    distance[start] = 0
+    while q: # 큐가 비어있지 않다면
+        # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
+	dist, now = heapq.heappop(q)
+	# 현재 노드가 이미 처리된 적이 있는 노드면 무시
+	if distance[now] < dist:
+	    continue
+	    # 현재 노드와 연결된 다른 인접한 노드들을 확인
+	    for to_other in graph[now]:
+	        cost = dist + to_other[1]
+		if distance[to_other[0]] > cost:
+		distance[to_other[0]] = cost
+		heapq.heappush(q, (cost, to_other[0]))
 
 # 다익스트라 알고리즘 수행
 dijkstra(start)
