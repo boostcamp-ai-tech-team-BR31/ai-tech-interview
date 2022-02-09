@@ -874,3 +874,81 @@ for k in range(len(arr)):
 #### Reference
 
 + [코딩 테스트를 위한 벨만 포드 알고리즘 7분 핵심 요약](https://www.youtube.com/watch?v=Ppimbaxm8d8)
+
+
+
+## #6-4
+
+#### Union-find
+
+- Union-Find(유니온-파인드)는 대표적인 그래프 알고리즘으로, **'합집합 찾기'**라는 의미를 갖는다.
+- **서로소 집합(Disjoint-Set) 알고리즘**이라고도 한다.
+- 여러개의 노드가 존재할 때 **두 개의 노드를 선택해서, 현재 이 두노드가 서로 같은 그래프에 속하는지 판별**하는 알고리즘
+
+Union-Find(유니온-파인드)알고리즘은 합집합(Union)과 찾기(Find) 연산을 제공
+
+- **합집합(Union)**: 두 개의 집합을 하나의 집합으로 합친다.
+- **찾기(Find)**: 노드가 속한 집합을 반환한다.
+
+#### **Code**
+
+```python
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    # 루트 노드가 아니라면, 루트 노드를 찾을 때까지 재귀적으로 호출
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# 두 원소가 속한 집합을 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+# 노드의 개수와 간선(Union 연산)의 개수 입력 받기
+v, e = map(int, input().split())
+parent = [0] * (v + 1) # 부모 테이블 초기화하기
+
+# 부모 테이블상에서, 부모를 자기 자신으로 초기화
+for i in range(1, v + 1):
+    parent[i] = i
+
+# Union 연산을 각각 수행
+for i in range(e):
+    a, b = map(int, input().split())
+    union_parent(parent, a, b)
+
+# 각 원소가 속한 집합 출력하기
+print('각 원소가 속한 집합: ', end='')
+for i in range(1, v + 1):
+    print(find_parent(parent, i), end=' ')
+
+print()
+
+# 부모 테이블 내용 출력하기
+print('부모 테이블: ', end='')
+for i in range(1, v + 1):
+    print(parent[i], end=' ')
+```
+
+> **유니온-파인드 자료구조의 활용**
+
+유니온-파인드 자료구조를 이용해 **무방향 그래프 내에서의 사이클**을 판별할 수 있다. 합집합 연산은 그래프의 간선으로 대응된다고 할 때, 다음과 같은 알고리즘으로 사이클을 판별할 수 있다.
+
+- 간선으로 연결된 두 노드의 루트 노드를 확인한다.
+- 만약 루트 노드가 서로 다르다면 합집합 연산을 수행한다.
+- 만약 루트 노드가 같다면 사이클이 발생했다고 판단한다.
+
+구현 방법은 [서로소 집합을 활용한 사이클 판별 - 이것이 취업을 위한 코딩테스트다](https://github.com/ndb796/python-for-coding-test/blob/master/10/4.py) 구현 코드를 참고!
+
+#### References
+
+- [동빈나 블로그 Union-Find](https://blog.naver.com/ndb796/221230967614)
+
+- [Chapter 10. 그래프 이론 - 이것이 취업을 위한 코딩테스트다](http://www.yes24.com/Product/Goods/91433923)
+
+- [기존답변](https://github.com/SEOzizou/ai-tech-interview/blob/main/answers/8-algorithm.md)
