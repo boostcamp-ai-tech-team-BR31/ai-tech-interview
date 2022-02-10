@@ -868,12 +868,43 @@ for k in range(len(arr)):
 + 다익스트라 알고리즘에 비해서 시간이 오래 걸리지만 음수 간선 순환 탐지 가능
 
 <div align='center'>
-    <img src='./images/bp_code.PNG' style="zoom:70%" >
+    <img src='./images/bp_code.png' style="zoom:70%" >
 </div>
+
 
 #### Reference
 
 + [코딩 테스트를 위한 벨만 포드 알고리즘 7분 핵심 요약](https://www.youtube.com/watch?v=Ppimbaxm8d8)
+
+
+
+## #6-3
+
+#### Minimum Spanning Tree
+
+Spanning Tree
+
+<div align='center'>
+    <img src='./images/st.JPG' style="zoom:70%" >
+</div>
+
++ DFS, BFS을 이용하여 그래프에서 신장 트리를 찾을 수 있다.
+  - 탐색 도중에 사용된 간선만 모으면 만들 수 있다.
++ 하나의 그래프에는 많은 신장 트리가 존재할 수 있다.
++ Spanning Tree는 트리의 특수한 형태이므로 **모든 정점들이 연결** 되어 있어야 하고 **사이클을 포함해서는 안된다.**
++ 따라서 Spanning Tree는 그래프에 있는 **n개의 정점을 정확히 (n-1)개의 간선으로 연결** 한다.
+
+
+
+MST의 특징
+
+= spanning tree + "간선의 가중치의 합이 최소여야 한다"
+
+
+
+#### References
+
+- [최소신장트리](https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html)
 
 
 
