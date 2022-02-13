@@ -839,7 +839,7 @@ for k in range(len(arr)):
 
 ## #6-3
 
-#### Minimum Spanning Tree
+### Minimum Spanning Tree
 
 Spanning Tree
 
@@ -860,6 +860,33 @@ MST의 특징
 #### References
 
 - [최소신장트리](https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html)
+
+## #6-3-2
+
+### Prim 알고리즘
+
+- MST(최소신장트리)로 불리는 서브 그래프를 찾는 알고리즘
+- Kruskal 알고리즘과 같은 용도지만, 응용 상황에서 두 알고리즘의 효율성이 달라질 수 있음
+- 정점 선택을 기반으로 그래프를 그림
+    - 인접 정점 중 최소 간선으로 연결된 정점을 선택
+
+#### 알고리즘
+1. 임의의 정점 선택. 트리 T에 포함
+2. T에 있는 노드와 T에 없는 노드 사이의 간선 중, 최소 간선 찾음
+3. 최소 간선으로 찾은 새로운 노드를 T에 포함
+4. 모든 노드가 T에 포함될때 까지 1, 2를 반복
+
+   <div align='center'>
+       <img src='./images/6-3-2_prim.png' style="zoom:70%" >
+   </div>
+
+- 시간복잡도 O(n^2)
+
+#### Reference
+
+- [[알고리즘] Prim 알고리즘 이란](https://gmlwjd9405.github.io/2018/08/30/algorithm-prim-mst.html)
+- [Prim's algorithm](https://www.weeklyps.com/entry/%ED%94%84%EB%A6%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Prims-algorithm)
+- [Prim MST Visualization](https://www.cs.usfca.edu/~galles/visualization/Prim.html)
 
 ## #6-3-2
 
