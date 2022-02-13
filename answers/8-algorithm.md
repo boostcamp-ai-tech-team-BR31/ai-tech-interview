@@ -40,6 +40,7 @@
 ### 시간, 공간 복잡도
 
 복잡도는 알고리즘 성능 평가의 척도
+
 - 시간 복잡도 : 알고리즘의 연산 횟수
 - 공간 복잡도 : 알고리즘의 메모리 공간
 
@@ -50,14 +51,13 @@
 </div>
 
 y축 : 복잡도(시간이나 메모리) -> 낮을수록 좋음
+
 - 빅오(O) 표기법
   - 상한선 : 최악의 경우
 - 오메가(Ω) 표기법
   - 하한선 : 최상의 경우
 - 세타(θ) 표기법
   - 상한선과 하한선의 교집합 : 평균의 경우
-
-
 
 #### References
 
@@ -91,8 +91,8 @@ def bubbleSort(alist):
 ```
 
 #### References
-- https://yabmoons.tistory.com/241
 
+- https://yabmoons.tistory.com/241
 
 ## #2-2
 
@@ -104,7 +104,7 @@ def bubbleSort(alist):
 2. 그 값을 맨 앞에 위치한 값과 교체한다(패스(pass)).
 3. 맨 처음 위치를 뺀 나머지 리스트를 같은 방법으로 교체한다.
 
-- n개의 주어진 리스트를 이와 같은 방법으로 정렬하는 데에는 $Θ(n^2) $만큼의 시간 복잡도를 갖는다.(n개의 원소  n-1번 비교)
+- n개의 주어진 리스트를 이와 같은 방법으로 정렬하는 데에는 $Θ(n^2) $만큼의 시간 복잡도를 갖는다.(n개의 원소 n-1번 비교)
 
 - 선택 정렬은 알고리즘이 단순하며 사용할 수 있는 메모리가 제한적인 경우에 사용시 성능 상의 이점이 있다.
 - 입력 배열이 이미 정렬되어 있건 말건 관계없이 동일한 연산량을 가지고 있기 때문에 최적화 여자가 적어서 다른 `O(N^2)` 대비해도 성능이 떨어지는 편으로 실전에서 거의 쓰이지 않는다.
@@ -112,8 +112,6 @@ def bubbleSort(alist):
 <div align='center'>
     <img src='./images/algo-2-2.png' width='500px'>
 </div>
-
-
 
 **Python Code**
 
@@ -163,8 +161,6 @@ def insert_sort(x):
 	return x
 ```
 
-
-
 +) 안정 정렬 / 불안정 정렬
 
 - **안정 정렬** : 중복된 입력 값이 있을 때 입력 순서를 유지하여 정렬하는 알고리즘 (삽입정렬, 병합정렬, 버블 정렬, 계수 정렬 등이 있다)
@@ -187,9 +183,9 @@ def insert_sort(x):
 
 ### Merge Sort
 
-+ 분할 단계와 병합 단계로 나눌 수 있으며, 중간인덱스를 찾아야하는 분할 비용보다 각 단계마다 값들을 모두 비교해서 병합해야 하는 비용이 크다.
+- 분할 단계와 병합 단계로 나눌 수 있으며, 중간인덱스를 찾아야하는 분할 비용보다 각 단계마다 값들을 모두 비교해서 병합해야 하는 비용이 크다.
 
-+ 각 단계에서 모든 값을 비교해야 하므로 N*단계의 수 logN시간이 필요하다. 비교 = NlogN
+- 각 단계에서 모든 값을 비교해야 하므로 N\*단계의 수 logN시간이 필요하다. 비교 = NlogN
 
   각 단계에서 임시배열에 복사했다가 다시 가져와야 하므로 이동 연산 2N
 
@@ -199,8 +195,8 @@ def insert_sort(x):
 
 **References**
 
-+ [병합 정렬](https://www.daleseo.com/sort-merge/)
-+ [합병 정렬](https://gmlwjd9405.github.io/2018/05/08/algorithm-merge-sort.html)
+- [병합 정렬](https://www.daleseo.com/sort-merge/)
+- [합병 정렬](https://gmlwjd9405.github.io/2018/05/08/algorithm-merge-sort.html)
 
 ## #2-5
 
@@ -208,19 +204,13 @@ def insert_sort(x):
 
 **완전 이진트리를 기본으로 하는 힙 자료구조를 기반으로한 정렬**
 
-
-
--  정렬해야 할 n개의 요소를 최대 또는 최소 힙을 구성한다.
+- 정렬해야 할 n개의 요소를 최대 또는 최소 힙을 구성한다.
 - 현재 힙의 root에는 최대 또는 최소가 존재한다. 루트의 값을 말단 노드와 바꾼 후에, 힙의 사이즈를 하나 줄인다.
 - 힙의 사이즈가 1보다 크면 이 과정을 반복한다.
 
-
-
 이렇게 되면 마지막 노드를 제외한 트리에 대해 루트 노드에 들어간 새로운 값의 적절한 위치를 찾는 과정이 반복된다. 이와 같은 방식으로 최대 값을 하나씩 뽑아내면서 정렬하는 것을 **힙소트(Heap Sort)**라고 한다.
 
-
-
-### 삽입 
+### 삽입
 
 <div align='center'>
     <img src='./images/heap.gif' height='400px'>
@@ -232,11 +222,9 @@ def insert_sort(x):
     <img src='./images/heapd.gif' height='400px'>
 </div>
 
-
-
 - Heap sort는 시간 복잡도가 좋은편이다
 - Heap sort가 유용한 경우는 **가장 큰 값 몇개만 필요할 때** 이다.
-- 시간복잡도 -  **O(nlog₂n)**
+- 시간복잡도 - **O(nlog₂n)**
 
 #### References
 
@@ -248,10 +236,11 @@ def insert_sort(x):
 ### Quick Sort
 
 퀵 정렬의 과정
+
 - 분할(Divide): 입력 배열을 피벗을 기준으로 비균등하게 2개의 부분 배열(피벗을 중심으로 왼쪽: 피벗보다 작은 요소들, 오른쪽: 피벗보다 큰 요소들)로 분할한다.
 - 정복(Conquer): 부분 배열을 정렬한다. 부분 배열의 크기가 충분히 작지 않으면 순환 호출 을 이용하여 다시 분할 정복 방법을 적용한다.
 - 결합(Combine): 정렬된 부분 배열들을 하나의 배열에 합병한다.
-순환 호출이 한번 진행될 때마다 최소한 하나의 원소(피벗)는 최종적으로 위치가 정해지므로, 이 알고리즘은 반드시 끝난다는 것을 보장할 수 있다.
+  순환 호출이 한번 진행될 때마다 최소한 하나의 원소(피벗)는 최종적으로 위치가 정해지므로, 이 알고리즘은 반드시 끝난다는 것을 보장할 수 있다.
 
 <div align='center'>
     <img src='./images/algo_2-6_quick.PNG'  style="zoom:70%;">
@@ -267,8 +256,6 @@ def insert_sort(x):
 
 - [Quick sort 개념](https://gmlwjd9405.github.io/2018/05/10/algorithm-quick-sort.html)
 - [Quick sort visualization](https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/)
-
-
 
 ## #2-7
 
@@ -298,9 +285,7 @@ Counting Sort는 정렬 알고리즘으로 $O(N)$의 시간복잡도를 갖습�
 > 6. 3의 누적합 -1
 > 7. 위 과정 반복
 
-
-
-Counting Sort는 어떻게 이렇게 빠를까요? 
+Counting Sort는 어떻게 이렇게 빠를까요?
 
 #### 그럼 왜 대부분의 정렬이 필요한 상황에서 더 빠른 Counting Sort를 안 쓰고 Quick Sort를 쓸까요?
 
@@ -319,13 +304,11 @@ $$[5,5,3,4,5,1,0,4,1,3,0,2,4,2,3,0]$$
 - [이론](https://bowbowbow.tistory.com/8)
 - [시각화](https://www.cs.usfca.edu/~galles/visualization/CountingSort.html)
 
-
-
 ## #2-8
 
 #### Radix Sort(기수 정렬)
 
-기수 정렬(Radix Sort)은 입력값의 자릿수(d) 각각에 대해 카운팅 정렬을 적용하여 입력 데이터의 최댓값인 k가 커질수록 효율이 떨어지는 카운팅 정렬의 단점을 보완한 정렬 알고리즘이다. 
+기수 정렬(Radix Sort)은 입력값의 자릿수(d) 각각에 대해 카운팅 정렬을 적용하여 입력 데이터의 최댓값인 k가 커질수록 효율이 떨어지는 카운팅 정렬의 단점을 보완한 정렬 알고리즘이다.
 
 Radix(기수)는 '자리수'를 의미하는 것으로 기수 정렬은 다음과 같은 순서로 이뤄진다.
 
@@ -371,6 +354,7 @@ Radix sort의 경우 중간에 counting sort를 사용하기 때문에 시간 �
 
 **Python Code**
 Version 1
+
 ```python
 from collections import deque
 
@@ -397,6 +381,7 @@ print(radix_sort([15, 27, 64, 25, 50, 17, 39, 28]))
 ```
 
 Version 2
+
 ```python
 # Radix sort in Python
 
@@ -445,10 +430,6 @@ radixSort(data)
 print(data)
 ```
 
-
-
-
-
 #### References
 
 - [기수 정렬 설명 블로그 - 1](https://yabmoons.tistory.com/248l)
@@ -481,9 +462,9 @@ function F(x):
 
 #### 전략
 
-1) **Divide** : 문제가 분할이 가능한 경우, 2개 이상의 문제로 나눈다.
-2) **Conquer** : 나누어진 문제가 여전히 분할이 가능하면, 또 다시 Divide를 수행한다. 그렇지 않으면 문제를 푼다.
-3) **Combine** : Conquer한 문제들을 통합하여 원래 문제의 답을 얻는다.
+1. **Divide** : 문제가 분할이 가능한 경우, 2개 이상의 문제로 나눈다.
+2. **Conquer** : 나누어진 문제가 여전히 분할이 가능하면, 또 다시 Divide를 수행한다. 그렇지 않으면 문제를 푼다.
+3. **Combine** : Conquer한 문제들을 통합하여 원래 문제의 답을 얻는다.
 
 #### Reference
 
@@ -500,17 +481,15 @@ Top down with Memoization
 
 Bottom up with Tabulation
 
-
-
 테이블 - 초기값 - 점화식
 
 초기값 = 경우의 수가 유일
 
-시간복잡도(tabulation) = 칸의개수(푸는 문제 개수) * 한 칸마다 걸리는 시간
+시간복잡도(tabulation) = 칸의개수(푸는 문제 개수) \* 한 칸마다 걸리는 시간
 
 #### References
 
-+ [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
+- [Dynamic Programming](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/)
 
 ## #5
 
@@ -519,11 +498,9 @@ Bottom up with Tabulation
 - 최적의 해에 가까운 값을 구하기 위해 사용됨
 - 여러 경우 중 하나를 결정해야할 때마다, **매순간 최적이라고 생각되는 경우를 선택**하는 방식으로 진행해서, 최종적인 값을 구하는 방식
 
-
-
 ### 동전문제
 
-지불해야 하는 값이 4720원 일 때 1원 50원 100원, 500원 동전으로 동전의 수가 가장 적게 지불하시오.	
+지불해야 하는 값이 4720원 일 때 1원 50원 100원, 500원 동전으로 동전의 수가 가장 적게 지불하시오.
 
 - 가장 큰 동전부터 최대한 지불해야 하는 값을 채우는 방식으로 구현 가능
 - 탐욕 알고리즘으로 매순간 최적이라고 생각되는 경우를 선택하면 됨
@@ -551,8 +528,6 @@ min_coin_count(4720, coin_list)
 (31, [[500, 9], [100, 2], [50, 0], [1, 20]])
 ```
 
-
-
 ### Greedy Algotithm의 한계
 
 - 탐욕 알고리즘은 근사치 추정에 활용
@@ -564,27 +539,28 @@ min_coin_count(4720, coin_list)
 ### Graph
 
 - 그래프 관련 용어
-    - 정점(node, vertex) : 자료
-    - 간선(edge) : 정점 간의 관계
-    - 가중치(weight) : 간선의 거리
-    - 차수(degree) : 그래프와 연결된 간선의 개수
-    - 단순경로(simple path) : 하나의 정점을 최대 한 번씩만 방문한 경로
-    - cycle : 단순 경로의 출발점과 도착점이 같은 경우
+  - 정점(node, vertex) : 자료
+  - 간선(edge) : 정점 간의 관계
+  - 가중치(weight) : 간선의 거리
+  - 차수(degree) : 그래프와 연결된 간선의 개수
+  - 단순경로(simple path) : 하나의 정점을 최대 한 번씩만 방문한 경로
+  - cycle : 단순 경로의 출발점과 도착점이 같은 경우
 - 그래프 종류
-    - 양방향 그래프(=무방향 그래프)
-    - 방향 그래프
-    - 완전 그래프 : 각 정점에서 자신을 제외한 모든 정점과 연결된 그래프
-        - 간선의 개수 : $\frac{V(V-1)}{2}$
-    - 다중 그래프 : 두 정점 사이에 여러개의 간선이 있는 그래프
-    - 사이클 없는 방향 그래프
-    - 부분 그래프 : 정점이나 간선을 제외하여 만든 그래프
-    - 이분 그래프 : 인접 정점까지 서로 다른 색으로 칠했을 때, 모든 정점을 두 가지 색으로 칠할 수 있는 그래프
+  - 양방향 그래프(=무방향 그래프)
+  - 방향 그래프
+  - 완전 그래프 : 각 정점에서 자신을 제외한 모든 정점과 연결된 그래프
+    - 간선의 개수 : $\frac{V(V-1)}{2}$
+  - 다중 그래프 : 두 정점 사이에 여러개의 간선이 있는 그래프
+  - 사이클 없는 방향 그래프
+  - 부분 그래프 : 정점이나 간선을 제외하여 만든 그래프
+  - 이분 그래프 : 인접 정점까지 서로 다른 색으로 칠했을 때, 모든 정점을 두 가지 색으로 칠할 수 있는 그래프
 - 그래프 표현
    <div align='center'>
        <img src='./images/algo_6_graph.PNG' width='500px'>
    </div>
 
   - 인접 리스트
+
   ```python
   # index 0은 비워둠
   graph = [[],
@@ -595,7 +571,9 @@ min_coin_count(4720, coin_list)
             [0, 0, 0, 1, 1, 0, 0],
             [0, 0, 0, 0, 1, 0, 0]]
   ```
+
   - 인접 행렬
+
   ```python
   # index 0은 비워둠
   graph = [[],
@@ -615,11 +593,9 @@ DFS: Depth First Search (깊이 우선 탐색)
 
 BFS: Breadth First Search (너비 우선 탐색)
 
- 
-
 > DFS
 
-*최대한 깊이 내려간 뒤, 더 이상 깊이 갈 곳이 없을 경우 옆으로 이동*
+_최대한 깊이 내려간 뒤, 더 이상 깊이 갈 곳이 없을 경우 옆으로 이동_
 
 ![img](images/dfs_jaewook.png)
 
@@ -629,19 +605,15 @@ BFS: Breadth First Search (너비 우선 탐색)
 - 깊이 우선 탐색(DFS)가 너비 우선 탐색(BFS) 보다 좀 더 간단함
 - 검색 속도 자체는 너비 우선 탐색(BFS)에 비해서 느림
 
-
-
 > BFS
 
-*최대한 넓게 이동한 다음, 더 이상 갈 수 없을 때 아래로 이동*
+_최대한 넓게 이동한 다음, 더 이상 갈 수 없을 때 아래로 이동_
 
 ![img](images/bfs_jaewook.png)
 
 **BFS의 특징**
 
 - 주로 두 노드 사이의 **최단 경로**를 찾고 싶을 때 이 방법을 선택
-
-
 
 > BFS vs DFS
 
@@ -656,7 +628,7 @@ BFS: Breadth First Search (너비 우선 탐색)
 
 - 다익스트라( DiJkstra) 알고리즘은 **다이나믹 프로그래밍**을 활용하는 대표적인 최단 경로 탐색 알고리즘 입니다.
 
-- 특징으로는 특정 하나의 정점에서 다른 모든 정점으로 가는 **최단 경로**를 알려준다. 다만 이 때 음의 간선(Edge)를 포함할 수는 없다. 
+- 특징으로는 특정 하나의 정점에서 다른 모든 정점으로 가는 **최단 경로**를 알려준다. 다만 이 때 음의 간선(Edge)를 포함할 수는 없다.
 - 현실 세계에서는 음의 간선이 존재하지 않기 때문에 다익스트라는 현실 세계에 사용하기에 매우 적합한 알고리즘 중 하나라고 할 수 있다. GPS에 사용
 
 - 다익스트라 알고리즘이 다이나믹 프로그래밍 문제인 이유는 '**최단 거리는 여러 개의 최단 거리로 이뤄져 있기 때문**입니다.'.
@@ -732,15 +704,11 @@ for i in range(1, n+1):
 		print(distance[i])
 ```
 
-
-
 ### Reference
 
 - [다익스트라 알고리즘 From 동빈나 blog](https://blog.naver.com/PostView.naver?blogId=ndb796&logNo=221234424646&redirect=Dlog&widgetTypeCall=true&directAccess=false)
 - [다익스트라 알고리즘 From Programiz](https://www.programiz.com/dsa/dijkstra-algorithm)
 - [인터뷰 다른 답변](https://github.com/SEOzizou/ai-tech-interview/blob/main/answers/8-algorithm.md#6-2-1)
-
-
 
 ## #6-2-2
 
@@ -748,7 +716,7 @@ for i in range(1, n+1):
 
 #### 정의
 
-변의 가중치가 ***음*** 이거나 양인 가중 그래프에서 최단 경로들을 찾는 알고리즘이다. 알고리즘을 한 번 수행하면 모든 꼭짓점 쌍 간의 최단 경로의 길이 (가중치의 합)을 찾는다.
+변의 가중치가 **_음_** 이거나 양인 가중 그래프에서 최단 경로들을 찾는 알고리즘이다. 알고리즘을 한 번 수행하면 모든 꼭짓점 쌍 간의 최단 경로의 길이 (가중치의 합)을 찾는다.
 
 ##### 핵심 아이디어
 
@@ -776,9 +744,9 @@ for i in range(1, n+1):
 
 |    0    |     5      |    INF     |     8      |
 | :-----: | :--------: | :--------: | :--------: |
-|  **7**  |   **0**    | ***갱신*** | ***갱신*** |
-|  **2**  | ***갱신*** |   **0**    | ***갱신*** |
-| **INF** | ***갱신*** | ***갱신*** |   **0**    |
+|  **7**  |   **0**    | **_갱신_** | **_갱신_** |
+|  **2**  | **_갱신_** |   **0**    | **_갱신_** |
+| **INF** | **_갱신_** | **_갱신_** |   **0**    |
 
 **갱신** : **X에서 Y로 가는 최소 비용 VS X에서 노드 1로 가는 비용 + 노드 1에서 Y가는 비용** 둘 중 적은 비용
 
@@ -826,9 +794,7 @@ for k in range(len(arr)):
 
 ```
 
-
-
-#### 응용 
+#### 응용
 
 - 알고리즘 자체는 경로를 반환하지는 않지만, 알고리즘을 변형하면 경로를 찾을 수 있다.
 - 가중 그래프의 모든 꼭짓점 쌍 간의 최대 폭 경로를 찾는 것이 가능하다.
@@ -837,8 +803,6 @@ for k in range(len(arr)):
 
 - [위키 백과 - 플로이드-워셜 알고리즘](https://ko.wikipedia.org/wiki/플로이드-워셜_알고리즘)
 - [나동빈님 블로그 - 플로이드 워셜 알고리즘](https://blog.naver.com/ndb796/221234427842)
-
-
 
 ## #6-2-3
 
@@ -855,17 +819,15 @@ for k in range(len(arr)):
    1. 전체 간선 E개를 하나씩 확인
    2. 각 간선을 거쳐 다른 노드로 가는 비용을 계산하여 최단 거리 테이블 갱신
 4. 음수 간선 순환이 발생하는지 체크하고 싶다면 3번의 과정을 한 번 더 수행
-   + 이때 최단 거리 테이블이 갱신된다면 음수 간선 순환이 존재하는 것.
+   - 이때 최단 거리 테이블이 갱신된다면 음수 간선 순환이 존재하는 것.
 
+- 매번 모든 간선을 전부 확인
 
+ => 다익스트라 알고리즘에서의 최적의 해를 항상 포함
 
-+ 매번 모든 간선을 전부 확인
+- 시간 복잡도 O(VE) 정점의 개수 \* 간선의 개수
 
-​		=> 다익스트라 알고리즘에서의 최적의 해를 항상 포함
-
-+ 시간 복잡도 O(VE) 정점의 개수 * 간선의 개수
-
-+ 다익스트라 알고리즘에 비해서 시간이 오래 걸리지만 음수 간선 순환 탐지 가능
+- 다익스트라 알고리즘에 비해서 시간이 오래 걸리지만 음수 간선 순환 탐지 가능
 
 <div align='center'>
     <img src='./images/bp_code.PNG' style="zoom:70%" >
@@ -873,4 +835,90 @@ for k in range(len(arr)):
 
 #### Reference
 
-+ [코딩 테스트를 위한 벨만 포드 알고리즘 7분 핵심 요약](https://www.youtube.com/watch?v=Ppimbaxm8d8)
+- [코딩 테스트를 위한 벨만 포드 알고리즘 7분 핵심 요약](https://www.youtube.com/watch?v=Ppimbaxm8d8)
+
+## #6-3-2
+
+### Kruskal 알고리즘
+
+#### Kruskal 알고리즘이란
+
+탐욕적인 방법(greedy method)을 이용, 네트워크(가중치를 간선에 할당한 그래프)의 **모든 정점을 최소 비용으로 연결하는 최적의 해답을 구하는 알고리즘**
+
+- **Greedy method**
+  - 결정을 해야 할 때마다 그 순간에 가장 좋다고 생각되는 것을 선택하며 최종 해답을 향해 도달해가는 방법
+
+#### Kruskal 알고리즘의 동작
+
+1. 그래프의 간선들을 가중치의 오름차순으로 정렬
+2. 정렬된 간선 리스트에서 순서대로 사이클을 형성하지 않는 간선을 선택
+   - 가장 낮은 가중치를 먼저 선택
+   - 사이클을 형성하는 간선을 제외
+3. 해당 간선을 현재의 MST(최소 비용 신장 트리)의 집합에 추가
+
+##### 그림을 통해 살펴보기
+
+1. 그래프 간선을 가중치 오름차순 정렬
+
+   <div align='center'>
+       <img src='./images/algo_6-3-2_1.png' style="zoom:70%" >
+   </div>
+
+2. `a-b` 부터 선택
+
+   <div align='center'>
+       <img src='./images/algo_6-3-2_2.png' style="zoom:70%" >
+   </div>
+
+3. 그 다음 `a-d` 를 선택
+
+   <div align='center'>
+       <img src='./images/algo_6-3-2_3.png' style="zoom:70%" >
+   </div>
+
+4. 그 다음 `b-d`를 선택하면 `a-b-d` 사이클이 형성되므로 선택 ❌ 
+
+   <div align='center'>
+       <img src='./images/algo_6-3-2_4.png' style="zoom:70%" >
+   </div>
+
+5. 그 다음인 `b-c`를 선택. 선택된 간선의 개수가 `정점의 개수-1` 만큼 되면 종료
+
+   <div align='center'>
+       <img src='./images/algo_6-3-2_5.png' style="zoom:70%" >
+   </div>
+
+##### 사이클 판단하기
+
+**Union & Find 활용**
+
+간단한 설명
+
+- 서로소 집합을 표현하는 자료구조
+- 서로 다른 두 집합을 병합하는 `Union` 연산, 집합 원소가 어떤 집합에 속해있는지 찾는 `Find` 연산을 지원하기에 이런 이름이 붙음
+
+#### 알고리즘의 시간 복잡도
+
+- union-find 알고리즘을 이용하면 시간 복잡도는 간선들을 정렬하는 시간에 좌우된다.
+
+- 즉, 간선 e개를 퀵 정렬과 같은 효율적인 정렬 알고리즘으로 정렬한다면 시간 복잡도는
+
+  <div align='center'>
+    <img src="https://render.githubusercontent.com/render/math?math=O(e\log_2e)">
+  </div>
+
+- Prim의 알고리즘의 시간 복잡도는
+
+  <div align='center'>
+    <img src="https://render.githubusercontent.com/render/math?math=O(n^2)">
+  </div>
+
+=>	그래프 내 간선의 숫자가 적으면(Sparse Graph) 일 경우 `Kruskal 알고리즘` 이 적합
+
+ 		그래프에 간선이 많이 존재(Dense Graph)일 경우 `Prim 알고리즘` 적합
+
+#### Reference
+
+- [[알고리즘] Kruskal 알고리즘 이란](https://gmlwjd9405.github.io/2018/08/29/algorithm-kruskal-mst.html)
+- [알고리즘 - 크루스칼 알고리즘(Kruskal Algorithm), 최소 신장 트리(MST)](https://chanhuiseok.github.io/posts/algo-33/)
+
