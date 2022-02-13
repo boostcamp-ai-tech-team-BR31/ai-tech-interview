@@ -637,7 +637,7 @@ _최대한 넓게 이동한 다음, 더 이상 갈 수 없을 때 아래로 이�
 
   [그림](https://blog.naver.com/PostView.naver?blogId=ndb796&logNo=221234424646&redirect=Dlog&widgetTypeCall=true&directAccess=false)
 
-다익스트라 알고리즘을 실행 하는 중에는 **방문하지 않은 인접 노드**를 방문하는 부분이 있습니다. 이 부분에서 **우선순위 큐(Heap)**를 사용 하면, **지금까지 발견된 가장 짧은 거리의 노드에 대해서 먼저 계산**할 수 있으며, **더 긴 거리로 계산 되었을 시 스킵** 또한 가능합니다.(단순 선형탐색시 시간 복잡도 $O(n^2$) 힙 구조를 사용하면 $O(nlogn)$)
+다익스트라 알고리즘을 실행 하는 중에는 **방문하지 않은 인접 노드**를 방문하는 부분이 있습니다. 이 부분에서 **우선순위 큐(Heap)** 를 사용 하면, **지금까지 발견된 가장 짧은 거리의 노드에 대해서 먼저 계산** 할 수 있으며, **더 긴 거리로 계산 되었을 시 스킵** 또한 가능합니다.(단순 선형탐색시 시간 복잡도 $O(n^2)$ 힙 구조를 사용하면 $O(nlogn)$
 
 우선순위 큐는 `heapq` 모듈을 이용해 구현 할 수 있습니다.
 
@@ -674,23 +674,23 @@ for _ in range(m):
     # a 번 노드에서 b 번 노드로 가는 비용이 c 라는 의미
     graph[a].append((b, c))
 
-    def dijkstra(start):
-        q = []
-        # 시작 노드로 가기 위한 최단 경로는 0 으로 설정하여, 큐에 삽입
-        heapq.heappush(q, (0, start))
-        distance[start] = 0
-        while q: # 큐가 비어있지 않다면
-            # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
-            dist, now = heapq.heappop(q)
-            # 현재 노드가 이미 처리된 적이 있는 노드면 무시
-            if distance[now] < dist:
-                continue
-                # 현재 노드와 연결된 다른 인접한 노드들을 확인
-                for to_other in graph[now]:
-                    cost = dist + to_other[1]
-                    if distance[to_other[0]] > cost:
-                        distance[to_other[0]] = cost
-                        heapq.heappush(q, (cost, to_other[0]))
+def dijkstra(start):
+    q = []
+    # 시작 노드로 가기 위한 최단 경로는 0 으로 설정하여, 큐에 삽입
+    heapq.heappush(q, (0, start))
+    distance[start] = 0
+    while q: # 큐가 비어있지 않다면
+        # 가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
+	dist, now = heapq.heappop(q)
+	# 현재 노드가 이미 처리된 적이 있는 노드면 무시
+	if distance[now] < dist:
+	    continue
+	    # 현재 노드와 연결된 다른 인접한 노드들을 확인
+	    for to_other in graph[now]:
+	        cost = dist + to_other[1]
+		if distance[to_other[0]] > cost:
+		distance[to_other[0]] = cost
+		heapq.heappush(q, (cost, to_other[0]))
 
 # 다익스트라 알고리즘 수행
 dijkstra(start)
@@ -823,19 +823,43 @@ for k in range(len(arr)):
 
 - 매번 모든 간선을 전부 확인
 
- => 다익스트라 알고리즘에서의 최적의 해를 항상 포함
+=> 다익스트라 알고리즘에서의 최적의 해를 항상 포함
 
 - 시간 복잡도 O(VE) 정점의 개수 \* 간선의 개수
 
 - 다익스트라 알고리즘에 비해서 시간이 오래 걸리지만 음수 간선 순환 탐지 가능
 
 <div align='center'>
-    <img src='./images/bp_code.PNG' style="zoom:70%" >
+    <img src='./images/bp_code.png' style="zoom:70%" >
 </div>
 
 #### Reference
 
 - [코딩 테스트를 위한 벨만 포드 알고리즘 7분 핵심 요약](https://www.youtube.com/watch?v=Ppimbaxm8d8)
+
+## #6-3
+
+#### Minimum Spanning Tree
+
+Spanning Tree
+
+<div align='center'>
+    <img src='./images/st.JPG' style="zoom:70%" >
+</div>
+
+- DFS, BFS을 이용하여 그래프에서 신장 트리를 찾을 수 있다.
+  - 탐색 도중에 사용된 간선만 모으면 만들 수 있다.
+- 하나의 그래프에는 많은 신장 트리가 존재할 수 있다.
+- Spanning Tree는 트리의 특수한 형태이므로 **모든 정점들이 연결** 되어 있어야 하고 **사이클을 포함해서는 안된다.**
+- 따라서 Spanning Tree는 그래프에 있는 **n개의 정점을 정확히 (n-1)개의 간선으로 연결** 한다.
+
+MST의 특징
+
+= spanning tree + "간선의 가중치의 합이 최소여야 한다"
+
+#### References
+
+- [최소신장트리](https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html)
 
 ## #6-3-2
 
@@ -876,7 +900,7 @@ for k in range(len(arr)):
        <img src='./images/algo_6-3-2_3.png' style="zoom:70%" >
    </div>
 
-4. 그 다음 `b-d`를 선택하면 `a-b-d` 사이클이 형성되므로 선택 ❌ 
+4. 그 다음 `b-d`를 선택하면 `a-b-d` 사이클이 형성되므로 선택 ❌
 
    <div align='center'>
        <img src='./images/algo_6-3-2_4.png' style="zoom:70%" >
@@ -913,12 +937,87 @@ for k in range(len(arr)):
     <img src="https://render.githubusercontent.com/render/math?math=O(n^2)">
   </div>
 
-=>	그래프 내 간선의 숫자가 적으면(Sparse Graph) 일 경우 `Kruskal 알고리즘` 이 적합
+=> 그래프 내 간선의 숫자가 적으면(Sparse Graph) 일 경우 `Kruskal 알고리즘` 이 적합
 
- 		그래프에 간선이 많이 존재(Dense Graph)일 경우 `Prim 알고리즘` 적합
+그래프에 간선이 많이 존재(Dense Graph)일 경우 `Prim 알고리즘` 적합
 
 #### Reference
 
 - [[알고리즘] Kruskal 알고리즘 이란](https://gmlwjd9405.github.io/2018/08/29/algorithm-kruskal-mst.html)
 - [알고리즘 - 크루스칼 알고리즘(Kruskal Algorithm), 최소 신장 트리(MST)](https://chanhuiseok.github.io/posts/algo-33/)
 
+## #6-4
+
+#### Union-find
+
+- Union-Find(유니온-파인드)는 대표적인 그래프 알고리즘으로, **'합집합 찾기'**라는 의미를 갖는다.
+- **서로소 집합(Disjoint-Set) 알고리즘**이라고도 한다.
+- 여러개의 노드가 존재할 때 **두 개의 노드를 선택해서, 현재 이 두노드가 서로 같은 그래프에 속하는지 판별**하는 알고리즘
+
+Union-Find(유니온-파인드)알고리즘은 합집합(Union)과 찾기(Find) 연산을 제공
+
+- **합집합(Union)**: 두 개의 집합을 하나의 집합으로 합친다.
+- **찾기(Find)**: 노드가 속한 집합을 반환한다.
+
+#### **Code**
+
+```python
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    # 루트 노드가 아니라면, 루트 노드를 찾을 때까지 재귀적으로 호출
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# 두 원소가 속한 집합을 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+# 노드의 개수와 간선(Union 연산)의 개수 입력 받기
+v, e = map(int, input().split())
+parent = [0] * (v + 1) # 부모 테이블 초기화하기
+
+# 부모 테이블상에서, 부모를 자기 자신으로 초기화
+for i in range(1, v + 1):
+    parent[i] = i
+
+# Union 연산을 각각 수행
+for i in range(e):
+    a, b = map(int, input().split())
+    union_parent(parent, a, b)
+
+# 각 원소가 속한 집합 출력하기
+print('각 원소가 속한 집합: ', end='')
+for i in range(1, v + 1):
+    print(find_parent(parent, i), end=' ')
+
+print()
+
+# 부모 테이블 내용 출력하기
+print('부모 테이블: ', end='')
+for i in range(1, v + 1):
+    print(parent[i], end=' ')
+```
+
+> **유니온-파인드 자료구조의 활용**
+
+유니온-파인드 자료구조를 이용해 **무방향 그래프 내에서의 사이클**을 판별할 수 있다. 합집합 연산은 그래프의 간선으로 대응된다고 할 때, 다음과 같은 알고리즘으로 사이클을 판별할 수 있다.
+
+- 간선으로 연결된 두 노드의 루트 노드를 확인한다.
+- 만약 루트 노드가 서로 다르다면 합집합 연산을 수행한다.
+- 만약 루트 노드가 같다면 사이클이 발생했다고 판단한다.
+
+구현 방법은 [서로소 집합을 활용한 사이클 판별 - 이것이 취업을 위한 코딩테스트다](https://github.com/ndb796/python-for-coding-test/blob/master/10/4.py) 구현 코드를 참고!
+
+#### References
+
+- [동빈나 블로그 Union-Find](https://blog.naver.com/ndb796/221230967614)
+
+- [Chapter 10. 그래프 이론 - 이것이 취업을 위한 코딩테스트다](http://www.yes24.com/Product/Goods/91433923)
+
+- [기존답변](https://github.com/SEOzizou/ai-tech-interview/blob/main/answers/8-algorithm.md)
