@@ -861,7 +861,7 @@ MST의 특징
 
 - [최소신장트리](https://gmlwjd9405.github.io/2018/08/28/algorithm-mst.html)
 
-## #6-3-2
+## #6-3-1
 
 ### Prim 알고리즘
 
@@ -877,7 +877,7 @@ MST의 특징
 4. 모든 노드가 T에 포함될때 까지 1, 2를 반복
 
    <div align='center'>
-       <img src='./images/6-3-2_prim.png' style="zoom:70%" >
+       <img src='./images/6-3-2_prim.PNG' style="zoom:70%" >
    </div>
 
 - 시간복잡도 O(n^2)
