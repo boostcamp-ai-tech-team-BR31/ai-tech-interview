@@ -40,11 +40,9 @@
 
 고유 벡터의 길이가 변하는 배수를 그 고유 벡터에 대응하는 고유값이라고 합니다.
 
-$$
-A\vec{x} = \lambda\vec{x}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=A\vec{x} = \lambda\vec{x}">
 
-어떤 정방행렬 $ A$ 는 임의의 $ \vec{x}$ 에 곱해져서 $ \vec{x}$ 의 위치나 방향을 변환시키는 역할을 합니다. 이 때, 어떤 특정 벡터들은 $ A$ 에 곱해져도 자신과 평행한 방향을 갖는데, 이러한 벡터들을 고유벡터라고 합니다. 변환 전후의 크기 차이는 특정 상수를 곱한 정도로 존재하는데, 이 특정 상수가 고유값입니다.
+어떤 정방행렬 <img src="https://render.githubusercontent.com/render/math?math=A"> 는 임의의 <img src="https://render.githubusercontent.com/render/math?math=\vec{x}"> 에 곱해져서 <img src="https://render.githubusercontent.com/render/math?math=\vec{x}"> 의 위치나 방향을 변환시키는 역할을 합니다. 이 때, 어떤 특정 벡터들은 <img src="https://render.githubusercontent.com/render/math?math=A">에 곱해져도 자신과 평행한 방향을 갖는데, 이러한 벡터들을 고유벡터라고 합니다. 변환 전후의 크기 차이는 특정 상수를 곱한 정도로 존재하는데, 이 특정 상수가 고유값입니다.
 
 n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무수히 많습니다. 이 무수히 많은 고유벡터는 하나의 부분 공간을 형성하고, 이 부분공간이 고유공간이 됩니다.
 
@@ -140,25 +138,19 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 #### 확률 모형이란?
 
-확률 분포를 보다 단순하게 묘사하기 위해 고안한 것이 **확률 모형(probability model)**이다.
+확률 분포를 보다 단순하게 묘사하기 위해 고안한 것이 **확률 모형(probability model)**이다.<img src="https://render.githubusercontent.com/render/math?math=\sigma"> 모형은 **분포 함수(distribution function)** 또는 **밀도 함수(density function)** 라고 불리우는 미리 정해진 함수의 수식을 사용하여 분포의 모양을 정의(define)하는 방법이다. 이 때 분포의 모양을 결정하는 함수의 계수를 분포의 **모수(parameter)** 라고 부른다.
 
-확률 모형은 **분포 함수(distribution function)** 또는 **밀도 함수(density function)**라고 불리우는 미리 정해진 함수의 수식을 사용하여 분포의 모양을 정의(define)하는 방법이다. 이 때 분포의 모양을 결정하는 함수의 계수를 분포의 **모수(parameter)**라고 부른다.
+예를 들어 가장 널리 쓰이는 정규 분포(Normal distribution)는 다음과 같은 수식으로 정의된다. 이 수식 자체의 이름은 <img src="https://render.githubusercontent.com/render/math?math=N">이고 함수의 독립 변수는 자료의 값을 의미하는 변수 <img src="https://render.githubusercontent.com/render/math?math=x">이다. 식에서 사용된 문자 <img src="https://render.githubusercontent.com/render/math?math=\mu">와 <img src="https://render.githubusercontent.com/render/math?math=\sigma">는 평균(mean)과 표준편차(standard deviation)이라는 이름의 모수이다.
 
-예를 들어 가장 널리 쓰이는 정규 분포(Normal distribution)는 다음과 같은 수식으로 정의된다. 이 수식 자체의 이름은 $N$이고 함수의 독립 변수는 자료의 값을 의미하는 변수 $x$이다. 식에서 사용된 문자 $\mu$와 $\sigma$는 평균(mean)과 표준편차(standard deviation)이라는 이름의 모수이다.
-
-$$
-N(x; \mu, \sigma) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2 \sigma^2}}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=N(x; \mu, \sigma) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2 \sigma^2}}">
 
 #### 확률 변수란?
 
-어떤 자료의 값이 분포가 특정한 확률 모형과 일치하는 경우 그 자료를 **확률 변수(random variable)**라고 하고 해당 확률 모형을 따른다고 말한다.
+어떤 자료의 값이 분포가 특정한 확률 모형과 일치하는 경우 그 자료를 **확률 변수(random variable)** 라고 하고 해당 확률 모형을 따른다고 말한다.
 
-확률 변수는 보통 $X$, $Y$와 같이 알파벳 대문자로 표시하며 확률 변수 $X$가 정규 분포를 따른 경우 수학적으로 다음과 같이 표기한다.
+확률 변수는 보통 <img src="https://render.githubusercontent.com/render/math?math=X, Y">와 같이 알파벳 대문자로 표시하며 확률 변수 <img src="https://render.githubusercontent.com/render/math?math=X">가 정규 분포를 따른 경우 수학적으로 다음과 같이 표기한다.
 
-$$
-X \sim N(\mu, \sigma)
-$$
+<img src="https://render.githubusercontent.com/render/math?math=X \sim N(\mu, \sigma)">
 
 중요한 점은 확률 모형은 사람에 의해 정의된 분포일 뿐이라는 점이다. 어떤 자료의 확률 분포가 특정한 확률 모형을 따르리라는 것은 어디까지나 여러가지 편의를 위해 그렇게 가정(assumption)한 것인 뿐인 경우가 많다.
 
@@ -223,25 +215,13 @@ D : 새로 관찰하는 데이터
 
 **공분산**
 
-$$
-\begin{aligned}
-Cov(X,Y) &= E[(X-E[X])(Y-E[Y])] \\
-&=E[XY - YE[X] -XE[Y]+E[X]E[Y]] \\
-&=E[XY] -E[Y]E[X]-E[X]E[Y] + E[X]E[Y] \hspace{0.2cm}(E[X], \hspace{0.2cm} E[Y]\text{는 상수})\\
-&=E[XY] - E[X]E[Y]
-\end{aligned}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=Cov(X,Y) = E[(X-E[X])(Y-E[Y])]=E[XY] - E[X]E[Y]">
 
 2개의 (확률)변수의 선형 관계를 나타내는 값. 공분산 값이 양수라면 하나의 변수가 커지면 다른 변수도 값이 커지는 경향이 있고, 공분산 값이 음수라면 하나의 값이 상승할때 다른 변수는 하강하는 경향이 있다.
 
 **상관계수**
 
-$$
-\begin{aligned}
-\rho_{X,Y} = corr(X,Y) &= \frac{Cov(X,Y)}{\sigma_X\sigma_Y}\\
-&=\frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]^2}\sqrt{E[Y^2]-E[Y]^2}}
-\end{aligned}
-$$
+<img src="https://render.githubusercontent.com/render/math?math=\rho_{X,Y} = corr(X,Y) = \frac{Cov(X,Y)}{\sigma_X\sigma_Y} = \frac{E[XY]-E[X]E[Y]}{\sqrt{E[X^2]-E[X]^2}\sqrt{E[Y^2]-E[Y]^2}}">
 
 두 변수간의 관계를 표현하기 위한 값으로 우리가 흔히 사용하는 피어슨 상관계수의 경우 두 변수간의 선형관계를 나타냅니다. 즉 상관계수가 양수면 두 변수가 모두 증가하는 경향이 있고 상관계수가 음수면 하나의 값이 작아지는 경향이 있습니다. 절대값이 1에 가까울 수록 강한 선형 상관관계 있고 0에 가까울 수록 선형 상관관계가 없다고 한다.
 
@@ -291,7 +271,7 @@ $$
 
 ### P-value를 모르는 사람에게 설명한다면 어떻게 설명하실 건가요?
 
-p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라, 내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률**. 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다.
+p-value는 우리가 기존에 받아들여지는 사실 또는 나의 주장과 다른 사실(귀무가설)이 아니라, 내가 증명하고자 하는 주장(대립가설)이 맞다고 통계적으로 유의미함을 보이고 싶을 때 사용되는 값으로, 실험이나 표본추출을 해서 **귀무가설이 맞다는 가정하에서 내가 얻은 결론(통계치)이 귀무가설을 지지하는 확률**. (=귀무가설 하에서 얻은 결론이 우연이 아닐 확률) 즉 확률이 작다면 기존에 사실이 맞지 않으므로 내가 주장하는 사실이 맞다고 할 수 있다.
 
 - 여기서 작다의 기준은 유의수준(귀무가설 맞는데 기각하는 확률) 보다 p-value가 작다면 작다고 판단한다. 보통은 0.05
 
