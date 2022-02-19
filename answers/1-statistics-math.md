@@ -138,7 +138,7 @@ n x n 행렬에서 고유값은 일반적으로 n개이고, 고유벡터는 무�
 
 #### 확률 모형이란?
 
-확률 분포를 보다 단순하게 묘사하기 위해 고안한 것이 **확률 모형(probability model)**이다.<img src="https://render.githubusercontent.com/render/math?math=\sigma"> 모형은 **분포 함수(distribution function)** 또는 **밀도 함수(density function)** 라고 불리우는 미리 정해진 함수의 수식을 사용하여 분포의 모양을 정의(define)하는 방법이다. 이 때 분포의 모양을 결정하는 함수의 계수를 분포의 **모수(parameter)** 라고 부른다.
+확률 분포를 보다 단순하게 묘사하기 위해 고안한 것이 **확률 모형(probability model)** 이다.<img src="https://render.githubusercontent.com/render/math?math=\sigma"> 모형은 **분포 함수(distribution function)** 또는 **밀도 함수(density function)** 라고 불리우는 미리 정해진 함수의 수식을 사용하여 분포의 모양을 정의(define)하는 방법이다. 이 때 분포의 모양을 결정하는 함수의 계수를 분포의 **모수(parameter)** 라고 부른다.
 
 예를 들어 가장 널리 쓰이는 정규 분포(Normal distribution)는 다음과 같은 수식으로 정의된다. 이 수식 자체의 이름은 <img src="https://render.githubusercontent.com/render/math?math=N">이고 함수의 독립 변수는 자료의 값을 의미하는 변수 <img src="https://render.githubusercontent.com/render/math?math=x">이다. 식에서 사용된 문자 <img src="https://render.githubusercontent.com/render/math?math=\mu">와 <img src="https://render.githubusercontent.com/render/math?math=\sigma">는 평균(mean)과 표준편차(standard deviation)이라는 이름의 모수이다.
 
@@ -805,7 +805,7 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 
 #### 베르누이 확률 변수
 
-베르누이 시행의 결과를 0 또는 1로 바꾼 것을 베르누이 **확률 변수(Bernoulli random variable)**라고 한다. 베르누이 확률변수는 두 값 중 하나만 가질 수 있으므로 이산확률 변수(discrete random variable)다.
+베르누이 시행의 결과를 0 또는 1로 바꾼 것을 베르누이 **확률 변수(Bernoulli random variable)** 라고 한다. 베르누이 확률변수는 두 값 중 하나만 가질 수 있으므로 이산확률 변수(discrete random variable)다.
 
 #### 베르누이 확률 분포
 
@@ -873,7 +873,7 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 
 #### 카테고리 푼포와의 관계
 
-베르누이 확률변수의 데이터가 복수이면 이 데이터의 합이 이항 분포를 이루는 것 처럼 카테고리 확률 변수의 데이터가 여럿 있으면 이 데이터의 합은 **다항분포(Multinomial distribution)**가 된다.
+베르누이 확률변수의 데이터가 복수이면 이 데이터의 합이 이항 분포를 이루는 것 처럼 카테고리 확률 변수의 데이터가 여럿 있으면 이 데이터의 합은 **다항분포(Multinomial distribution)** 가 된다.
 
 예) 주사위를 N 번 던져 각 면이 나오는 횟수 집합의 분포
 
@@ -883,7 +883,7 @@ log는 큰 수를 작은 수로 바꿔 줍니다. 데이터 분석 관점에서,
 
 ### 5. 가우시안 정규분포
 
-**가우시안 정규분포(Gaussian normal distribution)**는 자연 현상에서 나타나는 숫자를 확률 모형으로 모형화 할 때 많이 사용한다.
+**가우시안 정규분포(Gaussian normal distribution)** 는 자연 현상에서 나타나는 숫자를 확률 모형으로 모형화 할 때 많이 사용한다.
 
 정규분포는 평균 <img src="https://render.githubusercontent.com/render/math?math=\mu">와 분산<img src="https://render.githubusercontent.com/render/math?math=\sigma ^2"> 이 두 모수만으로 정의괴면 확률 밀도함수는 다음과 같다.
 
@@ -931,7 +931,7 @@ t 분포의 표본 값을 제곱한 값은 F분포를 따른다.
 
 ### 9. 베타 분포
 
-**베타 분포(Beta distribution)**는 a와 b라는 두 모수를 가지며 표본 공간은 0과 1사이의 실수이다. 즉 0과 1사이의 표본값만 가질 수 있다.
+**베타 분포(Beta distribution)** 는 a와 b라는 두 모수를 가지며 표본 공간은 0과 1사이의 실수이다. 즉 0과 1사이의 표본값만 가질 수 있다.
 
 베타 분포는 0-부터 1까지의 값을 가질 수 있는 베르누이분포의 모수 <img src="https://render.githubusercontent.com/render/math?math=\mu"> 의 값을 베이지안 추정한 결과를 표현한 것이다.
 
@@ -945,7 +945,7 @@ t 분포의 표본 값을 제곱한 값은 F분포를 따른다.
 
 ### 10. 감마 분포
 
-**감마 분포(gamma distribution)**도 베타분포처럼 모수의 베이지안 추정에 사용된다. 다만 베타 분포가 0부터 1사이값을 가지는 모수를 베이지안 방법으로 추정하는 데 사용되는 것과 달리 감마 분포는 0부터 무한대의 값을 가지는 양수 값을 추정하는데 사용된다.
+**감마 분포(gamma distribution)** 도 베타분포처럼 모수의 베이지안 추정에 사용된다. 다만 베타 분포가 0부터 1사이값을 가지는 모수를 베이지안 방법으로 추정하는 데 사용되는 것과 달리 감마 분포는 0부터 무한대의 값을 가지는 양수 값을 추정하는데 사용된다.
 
 감마 분포의 확률 밀도 함수는 a와 b라는 두 모수를 가지며 수학적으로 다음과 같이 정의된다.
 
@@ -967,9 +967,9 @@ week4 재욱님
 
 ### “likelihood”와 “probability”의 차이는 무엇일까요?
 
-확률(Probability): 분포에 대한 정보가 주어졌을때 **어떠한 사건**이 일어나는 정도
+확률(Probability): 분포에 대한 정보가 주어졌을때 **어떠한 사건** 이 일어나는 정도
 
-우도(Likelihood): 주어진 사건이 **어떤 분포**에서 일어나는 정도
+우도(Likelihood): 주어진 사건이 **어떤 분포** 에서 일어나는 정도
 
 확률은 분포에 대한 정보가 주어져서 사건의 정도를 계산하는 거라면 우도는 사건이 주어졌을때 어떤 분포에서 일어나는 정도를 구해 그 분포를 추정하는 것이다. 우도는 경우에 따라 값이 1이 넘을 수 있기에 확률이라 할 수 없다. 이산형과 연속형에 대해 예시를 들어보자
 
@@ -1008,7 +1008,7 @@ week4 재욱님
 우리가 어떠한 사람의 키가 170cm인걸 알고 있을때 사람들의 키의 평균이 궁금하다고 하자. 이때 사람들의 키의 평균의 분포는 정규분포이고 표준편차는 주어졌다.
 
 정규분포의 pdf를 이용해 우도를 구하면 다음과 같다.(여기서 표준편차는 알고있는 값!)
-<img src="https://render.githubusercontent.com/render/math?mathL(\theta|x) = \frac{1}{\sigma\sqrt{2\pi}}exp(-\frac{(170-\mu)^2}{2\sigma^2}) \hspace{0.5cm}">
+<img src="https://render.githubusercontent.com/render/math?math=L(\theta|x) = \frac{1}{\sigma\sqrt{2\pi}}exp(-\frac{(170-\mu)^2}{2\sigma^2}) \hspace{0.5cm}">
 위 식에서 값이 최대가 되는 값은 평균이. 따라서 평균은 170이다. 위의 예시도 사건이 하나 밖에 일어났기 때문에 하나만 계산했지만 사건이 여러개인 경우는 각각의 우도를 곱하면 된다.
 ### Reference
 
