@@ -172,7 +172,7 @@ ML 알고리즘의 목적 중 하나는 feature들을 비교하여 데이터의 
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Maxima_and_minima)
 
-## # 4
+## #4
 
 #### 차원의 저주에 대해 설명해주세요
 
