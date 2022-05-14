@@ -107,7 +107,7 @@ Cost Function과 관련 깊은 함수들은 loss function, objective function에
 
   - **Cost Function**은 entire data set을 다루죠.
 
-  - **Objective function**은 cost의 best value를 구하는 함수입니다. obtimizer가 이에 해당합니다.
+  - **Objective function**은 cost의 best value를 구하는 함수입니다. optimizer가 이에 해당합니다.
 
 그러면 세 함수가 미묘하게 다르며, 순서대로 포함관계를 갖게 됩니다.
 
