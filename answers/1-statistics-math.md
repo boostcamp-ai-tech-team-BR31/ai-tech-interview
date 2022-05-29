@@ -300,6 +300,8 @@ p-value의 사용 예시:
 
 #### R squared 의 의미는 무엇인가요?
 
+회귀를 진행할 때 회귀식이 얼마나 정확한지 나타내는 지표로, 1에 가까울수록 선형 상관정도가 크다 볼 수 있다.
+
 ![1](images/math_9.png)
 
 ![2](images/math_9_2.png)
@@ -322,6 +324,7 @@ SSE = 에러에 의해 설명된 양
 
 - [결정계수를 어떻게 해석해야 할까](https://www.youtube.com/watch?v=__SRJAPvR_k)
 - [선형회귀모델](https://www.youtube.com/watch?v=ClKeKeNz7RM)
+- [간토끼 블로그](https://datalabbit.tistory.com/54)
 
 ## #10
 
